@@ -8,14 +8,15 @@ import java.io.File;
  * SONG COLLECTOR
  */
 public class Collector extends Task<Song> {
-    private final File drive;
-    public Collector(File file)
-    {
-        this.drive = file;
-    }
+
+    private final File[] drives = {new File("C://"),new File("D://")};
+
     @Override
-    protected Song call() throws Exception {
+    protected Song call() {
+
+        for (File drive: drives) {
             extract(drive);
+        }
         return new Song();
     }
     private void extract(File file)
@@ -28,11 +29,11 @@ public class Collector extends Task<Song> {
                 if (f.isDirectory()) {
                     extract(f);
                 }
-//                else if (f.isFile()) {
-////                    System.out.println(f.getName());
-//                }
-//                else
-//                    System.out.println(f);
+                else if (f.isFile()) {
+                    System.out.println(f.getName());
+                }
+                else
+                    System.out.println(f);
             }
         }
     }

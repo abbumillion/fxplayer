@@ -1,6 +1,5 @@
-package com.app.fxplayer.views.windows;
+package com.app.fxplayer.views;
 
-import com.app.fxplayer.views.View;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
@@ -11,16 +10,13 @@ public class PlayerView extends View {
     private Tab myMusicTab,nowPlayingTab,albumsTab,artistsTab,visualizationTab,settingsTab;
     @Override
     public void init() {
-        //
         myMusicTab = new Tab("My Music");
         nowPlayingTab = new Tab("My Music");
         albumsTab = new Tab("My Music");
         artistsTab = new Tab("My Music");
         visualizationTab = new Tab("My Music");
         settingsTab = new Tab("My Music");
-        //
         tabPane = new TabPane();
-
     }
 
     @Override

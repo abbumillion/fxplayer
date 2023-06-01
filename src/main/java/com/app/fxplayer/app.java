@@ -1,7 +1,7 @@
 package com.app.fxplayer;
 
-import com.app.fxplayer.controllers.LoaderController;
-import com.app.fxplayer.views.windows.LoaderView;
+import com.app.fxplayer.controllers.PlayerController;
+import com.app.fxplayer.views.PlayerView;
 import javafx.application.Application;
 
 import javafx.stage.Stage;
@@ -10,24 +10,21 @@ import java.io.IOException;
 
 public class app extends Application {
 
-
-    private LoaderController loaderController;
+    private PlayerController playerController;
 
     @Override
     public void init() throws Exception {
         super.init();
-        loaderController = new LoaderController(new LoaderView());
+        playerController = new PlayerController(new PlayerView());
     }
 
     @Override
     public void start(Stage stage) throws IOException {
-        loaderController.register();
-        loaderController.start();
+        playerController.register();
+        playerController.start();
     }
 
     public static void main(String[] args) {
-        System.out.println("APP...STARTED");
         launch();
-        System.out.println("APP...STOPPED");
     }
 }
