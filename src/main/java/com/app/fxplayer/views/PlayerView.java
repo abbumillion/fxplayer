@@ -15,6 +15,7 @@ public class PlayerView extends View {
     private ArtistsView artistsView;
     private VisualizationView visualizationView;
     private SettingsView settingsView;
+
     @Override
     public void init() {
         myMusicTab = new Tab("My Music");

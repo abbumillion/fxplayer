@@ -15,7 +15,7 @@ public class PlayerController extends Controller{
     @Override
     public void register() {
         Collector collector = new Collector();
-        new Thread(collector).start();
+//        new Thread(collector).start();
     }
 
     @Override
