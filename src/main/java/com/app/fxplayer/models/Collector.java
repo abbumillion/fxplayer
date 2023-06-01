@@ -30,10 +30,18 @@ public class Collector extends Task<Song> {
                     extract(f);
                 }
                 else if (f.isFile()) {
-                    System.out.println(f.getName());
+                    /**
+                     * THIS IS A FILE
+                     * SO WE NEED TO FILTER
+                     * FOR MP3/MP4 FILES
+                     * BY FILE TYPE
+                     */
+                    String path = f.getPath();
+                    if (path.endsWith(".mp3") || path.endsWith(".mp4"))
+                    {
+                        System.out.println(f.getName());
+                    }
                 }
-                else
-                    System.out.println(f);
             }
         }
     }

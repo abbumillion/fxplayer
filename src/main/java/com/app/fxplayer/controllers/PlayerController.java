@@ -14,13 +14,12 @@ public class PlayerController extends Controller{
 
     @Override
     public void register() {
-
+        Collector collector = new Collector();
+        new Thread(collector).start();
     }
 
     @Override
     public void start() {
         playerView.showView();
-//        Collector collector = new Collector();
-//        new Thread(collector).start();
     }
 }

@@ -11,11 +11,11 @@ public class PlayerView extends View {
     @Override
     public void init() {
         myMusicTab = new Tab("My Music");
-        nowPlayingTab = new Tab("My Music");
-        albumsTab = new Tab("My Music");
-        artistsTab = new Tab("My Music");
-        visualizationTab = new Tab("My Music");
-        settingsTab = new Tab("My Music");
+        nowPlayingTab = new Tab("Now Playing");
+        albumsTab = new Tab("Albums");
+        artistsTab = new Tab("Artists");
+        visualizationTab = new Tab("Visualization");
+        settingsTab = new Tab("Settings");
         tabPane = new TabPane();
     }
 
