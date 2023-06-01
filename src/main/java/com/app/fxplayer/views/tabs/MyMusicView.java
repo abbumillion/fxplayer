@@ -6,11 +6,18 @@ import com.app.fxplayer.views.components.PlayerControllerView;
 import javafx.geometry.Pos;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
+
+import java.io.File;
 
 public class MyMusicView extends View {
-    private PlayerControllerView playerControllerView;
+    private ImageView imageView;
+
     private TableView<Song> tableView;
     private TableColumn<Song,String> indexColumn,titleColumn,sizeColumn,artistsColumn,albumColumn;
+    private HBox hBox;
     @Override
     public void init() {
         //
@@ -22,14 +29,18 @@ public class MyMusicView extends View {
         artistsColumn = new TableColumn<>("Artist");
         albumColumn = new TableColumn<>("Album");
         //
-        playerControllerView = new PlayerControllerView();
         //
+        imageView = new ImageView(new Image(new File("images/sample.jpg").toURI().toASCIIString()));
+        //
+        hBox = new HBox();
+
     }
 
     @Override
     public void build() {
         tableView.getColumns().addAll(indexColumn,titleColumn,sizeColumn,artistsColumn,albumColumn);
-        getChildren().add(tableView);
+        hBox.getChildren().addAll(imageView,tableView);
+        getChildren().addAll(hBox);
     }
 
     @Override
@@ -39,13 +50,18 @@ public class MyMusicView extends View {
 
     @Override
     public void bind() {
-        tableView.prefWidthProperty().bind(widthProperty());
-        tableView.prefHeightProperty().bind(heightProperty());
+        //imageview
+        imageView.fitWidthProperty().bind(hBox.widthProperty().multiply(.4));
+        imageView.fitHeightProperty().bind(hBox.heightProperty());
+        //tableview
+        tableView.prefWidthProperty().bind(hBox.widthProperty().multiply(.6));
+        tableView.prefHeightProperty().bind(hBox.heightProperty());
+        //
+        hBox.prefWidthProperty().bind(widthProperty());
+        hBox.prefHeightProperty().bind(heightProperty());
+        //
     }
 
-    public PlayerControllerView getPlayerControllerView() {
-        return playerControllerView;
-    }
 
     public TableColumn<Song, String> getIndexColumn() {
         return indexColumn;
@@ -71,4 +87,7 @@ public class MyMusicView extends View {
         return sizeColumn;
     }
 
+    public ImageView getImageView() {
+        return imageView;
+    }
 }

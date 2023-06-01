@@ -1,5 +1,6 @@
 package com.app.fxplayer.views;
 
+import com.app.fxplayer.views.components.PlayerControllerView;
 import com.app.fxplayer.views.tabs.*;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -15,7 +16,7 @@ public class PlayerView extends View {
     private ArtistsView artistsView;
     private VisualizationView visualizationView;
     private SettingsView settingsView;
-
+    private PlayerControllerView playerControllerView;
     @Override
     public void init() {
         myMusicTab = new Tab("My Music");
@@ -33,10 +34,13 @@ public class PlayerView extends View {
         visualizationView = new VisualizationView();
         settingsView = new SettingsView();
         //
+        playerControllerView = new PlayerControllerView();
+        //
     }
 
     @Override
     public void build() {
+        //-------------------------------------------------------------------------------------------------------------//
         myMusicTab.setContent(myMusicView);
         nowPlayingTab.setContent(nowPlayingView);
         albumsTab.setContent(albumsView);
@@ -44,7 +48,8 @@ public class PlayerView extends View {
         visualizationTab.setContent(visualizationView);
         settingsTab.setContent(settingsView);
         tabPane.getTabs().addAll(myMusicTab,nowPlayingTab,artistsTab,albumsTab,visualizationTab,settingsTab);
-        getChildren().add(tabPane);
+        getChildren().addAll(tabPane,playerControllerView);
+        //-------------------------------------------------------------------------------------------------------------//
     }
 
     @Override
@@ -54,7 +59,12 @@ public class PlayerView extends View {
 
     @Override
     public void bind() {
+        //
         tabPane.prefWidthProperty().bind(widthProperty());
-        tabPane.prefHeightProperty().bind(heightProperty());
+        tabPane.prefHeightProperty().bind(heightProperty().multiply(.9));
+        //
+        playerControllerView.prefWidthProperty().bind(widthProperty());
+        playerControllerView.prefHeightProperty().bind(heightProperty().multiply(.1));
+        //
     }
 }

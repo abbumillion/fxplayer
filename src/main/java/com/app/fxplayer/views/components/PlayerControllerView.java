@@ -5,9 +5,12 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+
+import java.io.File;
 
 /**
  * PLAYER CONTROLLER VIEW
@@ -16,10 +19,7 @@ public class PlayerControllerView extends View {
     private Label startDurationLabel,endDurationLabel,volumeLevelLabel;
     private Button pauseButton,prevButton,nextButton,shuffleButton,repeatButton;
     private Slider durationSlider,volumeSlider;
-    private ImageView imageView;
-    private HBox hBox1,hBox2,hBox3;
-    private VBox vBox;
-
+    private HBox hBox1,hBox2;
     @Override
     public void init() {
         // labels
@@ -28,21 +28,17 @@ public class PlayerControllerView extends View {
         volumeLevelLabel = new Label("vol");
         // buttons
         pauseButton = new Button("pause");
-        prevButton = new Button("pause");
-        nextButton = new Button("pause");
-        shuffleButton = new Button("pause");
-        repeatButton = new Button("pause");
+        prevButton = new Button("prev");
+        nextButton = new Button("next");
+        shuffleButton = new Button("shuffle");
+        repeatButton = new Button("repeat");
         //sliders
         durationSlider = new Slider();
         volumeSlider = new Slider();
         //imageview
-        imageView = new ImageView();
         //hboxes
         hBox1 = new HBox();
         hBox2 =new HBox();
-        hBox3 =new HBox();
-        //vboxes
-        vBox = new VBox();
         //
     }
 
@@ -50,20 +46,35 @@ public class PlayerControllerView extends View {
     public void build() {
         hBox1.getChildren().addAll(startDurationLabel,durationSlider,endDurationLabel);
         hBox2.getChildren().addAll(shuffleButton,repeatButton,prevButton,pauseButton,nextButton,volumeSlider,volumeLevelLabel);
-        vBox.getChildren().addAll(hBox1,hBox2);
-        hBox3.getChildren().addAll(imageView,vBox);
-        getChildren().add(hBox3);
+        getChildren().addAll(hBox1,hBox2);
     }
 
     @Override
     public void align() {
         setAlignment(Pos.CENTER);
+        hBox1.setAlignment(Pos.CENTER);
+        hBox2.setAlignment(Pos.CENTER);
+        hBox1.setSpacing(10);
+        hBox2.setSpacing(10);
     }
 
     @Override
     public void bind() {
-        hBox3.prefWidthProperty().bind(widthProperty());
-        hBox3.prefHeightProperty().bind(heightProperty());
+        //hbox1
+        startDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.05));
+        endDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.05));
+        durationSlider.prefWidthProperty().bind(hBox1.widthProperty().multiply(.9));
+        //hbox2
+        shuffleButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
+        repeatButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
+        prevButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
+        pauseButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
+        nextButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
+        volumeSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.25));
+        volumeLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.5));
+        //
+        hBox1.prefWidthProperty().bind(widthProperty());
+        hBox2.prefWidthProperty().bind(widthProperty());
     }
 
     public Button getNextButton() {
@@ -90,9 +101,6 @@ public class PlayerControllerView extends View {
         return prevButton;
     }
 
-    public ImageView getImageView() {
-        return imageView;
-    }
 
     public Button getRepeatButton() {
         return repeatButton;
