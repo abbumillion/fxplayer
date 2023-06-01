@@ -2,6 +2,9 @@ package com.example.demo.views.components;
 
 import com.example.demo.views.View;
 
+/**
+ * PLAYER CONTROLLER VIEW
+ */
 public class PlayerControllerView extends View {
     @Override
     public void init() {

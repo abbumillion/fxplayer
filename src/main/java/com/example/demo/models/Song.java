@@ -2,6 +2,9 @@ package com.example.demo.models;
 
 import javafx.util.Duration;
 
+/**
+ * SONG DATA CLASS
+ */
 public class Song {
     private String source;
     private String title;

@@ -1,7 +1,8 @@
 package com.example.demo.controllers;
 
-import views.PlayerView;
-import views.View;
+
+import com.example.demo.views.View;
+import com.example.demo.views.windows.PlayerView;
 
 public class PlayerController extends Controller{
     PlayerView playerView;
@@ -17,6 +18,6 @@ public class PlayerController extends Controller{
 
     @Override
     public void start() {
-        playerView.show();
+        playerView.showView();
     }
 }

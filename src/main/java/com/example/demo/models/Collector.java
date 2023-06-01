@@ -4,6 +4,9 @@ import javafx.concurrent.Task;
 
 import java.io.File;
 
+/**
+ * SONG COLLECTOR
+ */
 public class Collector extends Task<Song> {
     private final File drive;
     public Collector(File file)

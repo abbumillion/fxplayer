@@ -1,9 +1,10 @@
 package com.example.demo.controllers;
 
-import model.Collector;
-import views.LoaderView;
-import views.PlayerView;
-import views.View;
+
+import com.example.demo.models.Collector;
+import com.example.demo.views.View;
+import com.example.demo.views.windows.LoaderView;
+import com.example.demo.views.windows.PlayerView;
 
 import java.io.File;
 
@@ -16,7 +17,7 @@ public class LoaderController extends Controller{
 
     @Override
     public void register() {
-        Collector collector = new Collector(new File("/"));
+        Collector collector = new Collector(new File("c://"));
         new Thread(collector).start();
         loaderView.getProgressMessageLabel().textProperty().bind(collector.messageProperty());
         loaderView.getProgressBar().progressProperty().bind(collector.progressProperty());
@@ -29,6 +30,6 @@ public class LoaderController extends Controller{
 
     @Override
     public void start() {
-        loaderView.show();
+        loaderView.showView();
     }
 }

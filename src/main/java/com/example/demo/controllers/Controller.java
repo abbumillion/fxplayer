@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
-import views.View;
+
+import com.example.demo.views.View;
 
 public abstract class Controller {
     private View view;
@@ -8,7 +9,8 @@ public abstract class Controller {
     {
         this.view = view;
     }
-
+    // event registration behavior for every controller
     public abstract void register();
+    // controller initialization behavior
     public abstract void start();
 }
