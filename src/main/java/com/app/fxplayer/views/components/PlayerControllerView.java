@@ -1,6 +1,6 @@
-package com.example.demo.views.components;
+package com.app.fxplayer.views.components;
 
-import com.example.demo.views.View;
+import com.app.fxplayer.views.View;
 
 /**
  * PLAYER CONTROLLER VIEW

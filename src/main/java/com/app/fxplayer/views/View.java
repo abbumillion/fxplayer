@@ -1,11 +1,13 @@
-package com.example.demo.views;
+package com.app.fxplayer.views;
 
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 
 public abstract class View extends VBox implements Viewable {
 
-    public View(){}
+    public View(){
+        getReady();
+    }
     public void getReady()
     {
         init();

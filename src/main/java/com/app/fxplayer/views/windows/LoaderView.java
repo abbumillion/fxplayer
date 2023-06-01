@@ -1,6 +1,6 @@
-package com.example.demo.views.windows;
+package com.app.fxplayer.views.windows;
 
-import com.example.demo.views.View;
+import com.app.fxplayer.views.View;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;

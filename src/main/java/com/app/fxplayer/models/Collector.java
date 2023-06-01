@@ -1,4 +1,4 @@
-package com.example.demo.models;
+package com.app.fxplayer.models;
 
 import javafx.concurrent.Task;
 

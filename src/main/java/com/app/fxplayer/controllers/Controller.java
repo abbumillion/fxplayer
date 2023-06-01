@@ -1,7 +1,7 @@
-package com.example.demo.controllers;
+package com.app.fxplayer.controllers;
 
 
-import com.example.demo.views.View;
+import com.app.fxplayer.views.View;
 
 public abstract class Controller {
     private View view;

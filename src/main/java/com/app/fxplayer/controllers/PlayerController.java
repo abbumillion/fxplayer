@@ -1,8 +1,8 @@
-package com.example.demo.controllers;
+package com.app.fxplayer.controllers;
 
 
-import com.example.demo.views.View;
-import com.example.demo.views.windows.PlayerView;
+import com.app.fxplayer.views.windows.PlayerView;
+import com.app.fxplayer.views.View;
 
 public class PlayerController extends Controller{
     PlayerView playerView;
