@@ -1,6 +1,7 @@
 package com.app.fxplayer.models;
 
 import javafx.concurrent.Task;
+import javafx.scene.control.ListView;
 
 import java.io.File;
 
@@ -10,6 +11,7 @@ import java.io.File;
 public class Collector extends Task<Song> {
 
     private final File[] drives = {new File("C://"),new File("D://")};
+    private ListView fileListview = new ListView();
 
     @Override
     protected Song call() {
@@ -17,7 +19,7 @@ public class Collector extends Task<Song> {
         for (File drive: drives) {
             extract(drive);
         }
-        return new Song();
+        return null;
     }
     private void extract(File file)
     {
@@ -39,10 +41,15 @@ public class Collector extends Task<Song> {
                     String path = f.getPath();
                     if (path.endsWith(".mp3") || path.endsWith(".mp4"))
                     {
+                        fileListview.getItems().add(path);
                         System.out.println(f.getName());
                     }
                 }
             }
         }
+    }
+
+    public ListView getFileListview() {
+        return fileListview;
     }
 }

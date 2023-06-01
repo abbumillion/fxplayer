@@ -15,7 +15,8 @@ public class PlayerController extends Controller{
     @Override
     public void register() {
         Collector collector = new Collector();
-//        new Thread(collector).start();
+        new Thread(collector).start();
+        playerView.getMyMusicView().getTableView().itemsProperty().bind(collector.getFileListview().itemsProperty());
     }
 
     @Override

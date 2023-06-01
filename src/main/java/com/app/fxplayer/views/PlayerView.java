@@ -67,4 +67,32 @@ public class PlayerView extends View {
         playerControllerView.prefHeightProperty().bind(heightProperty().multiply(.1));
         //
     }
+
+    public MyMusicView getMyMusicView() {
+        return myMusicView;
+    }
+
+    public PlayerControllerView getPlayerControllerView() {
+        return playerControllerView;
+    }
+
+    public AlbumsView getAlbumsView() {
+        return albumsView;
+    }
+
+    public ArtistsView getArtistsView() {
+        return artistsView;
+    }
+
+    public SettingsView getSettingsView() {
+        return settingsView;
+    }
+
+    public NowPlayingView getNowPlayingView() {
+        return nowPlayingView;
+    }
+
+    public VisualizationView getVisualizationView() {
+        return visualizationView;
+    }
 }
