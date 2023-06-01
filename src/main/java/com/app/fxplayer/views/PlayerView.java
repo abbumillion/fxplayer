@@ -1,5 +1,6 @@
 package com.app.fxplayer.views;
 
+import com.app.fxplayer.views.tabs.*;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 
@@ -8,6 +9,12 @@ public class PlayerView extends View {
 
     private TabPane tabPane;
     private Tab myMusicTab,nowPlayingTab,albumsTab,artistsTab,visualizationTab,settingsTab;
+    private MyMusicView myMusicView;
+    private NowPlayingView nowPlayingView;
+    private AlbumsView albumsView;
+    private ArtistsView artistsView;
+    private VisualizationView visualizationView;
+    private SettingsView settingsView;
     @Override
     public void init() {
         myMusicTab = new Tab("My Music");
@@ -17,10 +24,24 @@ public class PlayerView extends View {
         visualizationTab = new Tab("Visualization");
         settingsTab = new Tab("Settings");
         tabPane = new TabPane();
+        //
+        myMusicView = new MyMusicView();
+        nowPlayingView = new NowPlayingView();
+        albumsView = new AlbumsView();
+        artistsView = new ArtistsView();
+        visualizationView = new VisualizationView();
+        settingsView = new SettingsView();
+        //
     }
 
     @Override
     public void build() {
+        myMusicTab.setContent(myMusicView);
+        nowPlayingTab.setContent(nowPlayingView);
+        albumsTab.setContent(albumsView);
+        artistsTab.setContent(artistsView);
+        visualizationTab.setContent(visualizationView);
+        settingsTab.setContent(settingsView);
         tabPane.getTabs().addAll(myMusicTab,nowPlayingTab,artistsTab,albumsTab,visualizationTab,settingsTab);
         getChildren().add(tabPane);
     }
