@@ -1,4 +1,4 @@
-module com.example.demo {
+module com.app.fxplayer {
     requires javafx.controls;
     requires java.base;
     requires javafx.base;

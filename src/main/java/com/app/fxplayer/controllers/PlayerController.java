@@ -16,7 +16,12 @@ public class PlayerController extends Controller{
     public void register() {
         Collector collector = new Collector();
         new Thread(collector).start();
+        //
         playerView.getMyMusicView().getTableView().itemsProperty().bind(collector.getFileListview().itemsProperty());
+        playerView.getAlbumsView().getAlbumListView().itemsProperty().bind(collector.getFileListview().itemsProperty());
+        playerView.getArtistsView().getArtistListView().itemsProperty().bind(collector.getFileListview().itemsProperty());
+        playerView.getMyMusicView().getTableView().itemsProperty().bind(collector.getFileListview().itemsProperty());
+        //
     }
 
     @Override

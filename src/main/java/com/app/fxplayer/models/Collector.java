@@ -11,6 +11,7 @@ import java.io.File;
 public class Collector extends Task<Song> {
 
     private final File[] drives = {new File("C://"),new File("D://")};
+    // song file collector
     private ListView fileListview = new ListView();
 
     @Override
@@ -42,7 +43,7 @@ public class Collector extends Task<Song> {
                     if (path.endsWith(".mp3") || path.endsWith(".mp4"))
                     {
                         fileListview.getItems().add(path);
-                        System.out.println(f.getName());
+//                        System.out.println(f.getName());
                     }
                 }
             }

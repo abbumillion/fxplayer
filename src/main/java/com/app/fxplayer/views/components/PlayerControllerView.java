@@ -17,7 +17,7 @@ import java.io.File;
  */
 public class PlayerControllerView extends View {
     private Label startDurationLabel,endDurationLabel,volumeLevelLabel;
-    private Button pauseButton,prevButton,nextButton,shuffleButton,repeatButton;
+    private Button pauseButton,prevButton,nextButton,shuffleButton,repeatButton,fullScreenButton;
     private Slider durationSlider,volumeSlider;
     private HBox hBox1,hBox2;
     @Override
@@ -32,6 +32,7 @@ public class PlayerControllerView extends View {
         nextButton = new Button("next");
         shuffleButton = new Button("shuffle");
         repeatButton = new Button("repeat");
+        fullScreenButton = new Button("Full Screen");
         //sliders
         durationSlider = new Slider();
         volumeSlider = new Slider();
@@ -45,7 +46,7 @@ public class PlayerControllerView extends View {
     @Override
     public void build() {
         hBox1.getChildren().addAll(startDurationLabel,durationSlider,endDurationLabel);
-        hBox2.getChildren().addAll(shuffleButton,repeatButton,prevButton,pauseButton,nextButton,volumeSlider,volumeLevelLabel);
+        hBox2.getChildren().addAll(shuffleButton,repeatButton,prevButton,pauseButton,nextButton,fullScreenButton,volumeSlider,volumeLevelLabel);
         getChildren().addAll(hBox1,hBox2);
     }
 
@@ -55,7 +56,7 @@ public class PlayerControllerView extends View {
         hBox1.setAlignment(Pos.CENTER);
         hBox2.setAlignment(Pos.CENTER);
         hBox1.setSpacing(10);
-        hBox2.setSpacing(10);
+        hBox2.setSpacing(2.5);
     }
 
     @Override
@@ -70,6 +71,7 @@ public class PlayerControllerView extends View {
         prevButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
         pauseButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
         nextButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
+        fullScreenButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
         volumeSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.25));
         volumeLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.5));
         //
@@ -108,6 +110,10 @@ public class PlayerControllerView extends View {
 
     public Button getShuffleButton() {
         return shuffleButton;
+    }
+
+    public Button getFullScreenButton() {
+        return fullScreenButton;
     }
 
     public Slider getDurationSlider() {

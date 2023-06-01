@@ -15,8 +15,8 @@ import java.io.File;
 public class MyMusicView extends View {
     private ImageView imageView;
 
-    private TableView<Song> tableView;
-    private TableColumn<Song,String> indexColumn,titleColumn,sizeColumn,artistsColumn,albumColumn;
+    private TableView tableView;
+    private TableColumn indexColumn,titleColumn,sizeColumn,artistsColumn,albumColumn;
     private HBox hBox;
     @Override
     public void init() {
@@ -29,8 +29,7 @@ public class MyMusicView extends View {
         artistsColumn = new TableColumn<>("Artist");
         albumColumn = new TableColumn<>("Album");
         //
-        //
-        imageView = new ImageView(new Image(new File("images/sample.jpg").toURI().toASCIIString()));
+        imageView = new ImageView(new Image(new File("src/main/resources/images/sample.jpg").toURI().toASCIIString()));
         //
         hBox = new HBox();
 

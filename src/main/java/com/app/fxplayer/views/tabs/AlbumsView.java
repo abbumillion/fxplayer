@@ -6,7 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.ListView;
 
 public class AlbumsView extends View {
-    private ListView<Album> albumListView;
+    private ListView albumListView;
     @Override
     public void init() {
         albumListView = new ListView<>();
@@ -26,5 +26,9 @@ public class AlbumsView extends View {
     public void bind() {
         albumListView.prefWidthProperty().bind(widthProperty());
         albumListView.prefHeightProperty().bind(heightProperty());
+    }
+
+    public ListView<Album> getAlbumListView() {
+        return albumListView;
     }
 }
