@@ -14,12 +14,20 @@ public class Collector  {
     // song file collector
     private static final ListView fileListview = new ListView();
 
+    /**
+     *
+     */
     public static void init() {
 
         for (File drive: drives) {
             extract(drive);
         }
     }
+
+    /**
+     *
+     * @param file
+     */
     private static void extract(File file)
     {
         File[] files = file.listFiles();
@@ -53,6 +61,10 @@ public class Collector  {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public static ListView getFileListview() {
         return fileListview;
     }

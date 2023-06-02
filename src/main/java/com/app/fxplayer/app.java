@@ -14,12 +14,21 @@ public class app extends Application {
 
     private PlayerController playerController;
 
+    /**
+     *
+     * @throws Exception
+     */
     @Override
     public void init() throws Exception {
         super.init();
         playerController = new PlayerController(new PlayerView());
     }
 
+    /**
+     *
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
 
@@ -35,6 +44,10 @@ public class app extends Application {
 
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch();
     }

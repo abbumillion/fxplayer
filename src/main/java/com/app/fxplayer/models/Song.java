@@ -1,6 +1,6 @@
 package com.app.fxplayer.models;
 
-//import javafx.scene.media.Media;
+import javafx.scene.media.Media;
 import javafx.util.Duration;
 
 import java.io.File;
@@ -19,16 +19,24 @@ public class Song {
     private String album;
     // song duration
     private Duration duration;
+
+    /**
+     *
+     * @param source
+     */
     public Song(String source)
     {
         this.source = source;
         process(source);
     }
 
-    //
+    /**
+     *
+     * @param source
+     */
     private void process(String source)
     {
         File file = new File(source);
-//        Media media = new Media(file.toURI().toASCIIString());
+        Media media = new Media(file.toURI().toASCIIString());
     }
 }
