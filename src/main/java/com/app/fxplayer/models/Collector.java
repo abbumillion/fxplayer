@@ -39,7 +39,13 @@ public class Collector  {
                     String path = f.getPath();
                     if (path.endsWith(".mp3") || path.endsWith(".mp4"))
                     {
-                        fileListview.getItems().add(path);
+                        try {
+                            fileListview.getItems().add(path);
+                        }catch (Exception exception)
+                        {
+                            exception.printStackTrace();
+                        }
+
 //                        System.out.println(f.getName());
                     }
                 }

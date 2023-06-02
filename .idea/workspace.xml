@@ -4,22 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8765e7b-a5cf-4227-81fd-0b9ac36663aa" name="Changes" comment="fxplayer project fc">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/PlayerControllerComponentController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/stylesheets/light.css" afterDir="false" />
+    <list default="true" id="e8765e7b-a5cf-4227-81fd-0b9ac36663aa" name="Changes" comment="fxplayer project day 2">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/Genres.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/Tabs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Playlist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/AlbumCell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/ArtistCell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/PlaylistCell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/PlaylistView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/app.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/PlayerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/AlbumsTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/AlbumsTabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/ArtistsTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/ArtistsTabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/MyMusicTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/MyMusicTabController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Collector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Collector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/PlayerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/PlayerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/PlayerControllerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/PlayerControllerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/NowPlayingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/NowPlayingView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/stylesheets/dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/stylesheets/dark.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,18 +49,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "b1",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/sharb/IdeaProjects/demo/src/main/resources/images",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.46091953"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;b1&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sharb/IdeaProjects/demo/src/main/resources/images&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.46091953&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sharb\IdeaProjects\demo\src\main\resources\images" />
@@ -77,7 +72,7 @@
     <configuration name="app" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.app.fxplayer.app" />
       <module name="demo" />
-      <option name="PROGRAM_PARAMETERS" value="--add-exports javafx.controls/com.sun.javafx.scene.control.behavior=com.jfoenix --add-exports javafx.controls/com.sun.javafx.scene.control=com.jfoenix --add-exports javafx.base/com.sun.javafx.binding=com.jfoenix --add-exports javafx.graphics/com.sun.javafx.stage=com.jfoenix --add-exports javafx.base/com.sun.javafx.event=com.jfoenix --add-exports javafx.graphics/com.sun.javafx.scene=org.controlsfx.controls, --add-exports javafx.graphics/com.sun.javafx.scene.traversal=org.controlsfx.controls" />
+      <option name="PROGRAM_PARAMETERS" value=" --add-exports=javafx.base/com.sun.javafx.reflect=ALL-UNNAMED --add-exports=javafx.graphics/com.sun.javafx.util=ALL-UNNAMED --module-path /opt/javafx-sdk-11.0.2/lib/ --add-modules=javafx.controls,javafx.media,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.example.demo.*" />
@@ -187,7 +182,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685698212446</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="fxplayer project day 2">
+      <created>1685702219701</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1685702219701</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,6 +205,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fxplayer project fc" />
-    <option name="LAST_COMMIT_MESSAGE" value="fxplayer project fc" />
+    <MESSAGE value="fxplayer project day 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fxplayer project day 2" />
   </component>
 </project>
