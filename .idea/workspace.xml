@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8765e7b-a5cf-4227-81fd-0b9ac36663aa" name="Changes" comment="fxplayer project day 2">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/Genres.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/Tabs.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Playlist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/AlbumCell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/ArtistCell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/PlaylistCell.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/PlaylistView.java" afterDir="false" />
+    <list default="true" id="e8765e7b-a5cf-4227-81fd-0b9ac36663aa" name="Changes" comment="fxplayer project day 3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Collector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Collector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/SearchBarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/SearchBarView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -189,7 +181,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685702219701</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="fxplayer project day 3">
+      <created>1685726384134</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1685726384135</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -206,6 +205,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fxplayer project fc" />
     <MESSAGE value="fxplayer project day 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="fxplayer project day 2" />
+    <MESSAGE value="fxplayer project day 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="fxplayer project day 3" />
   </component>
 </project>
