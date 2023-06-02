@@ -55,8 +55,8 @@ public class PlayerControllerView extends View {
         setAlignment(Pos.CENTER);
         hBox1.setAlignment(Pos.CENTER);
         hBox2.setAlignment(Pos.CENTER);
-        hBox1.setSpacing(10);
-        hBox2.setSpacing(2.5);
+        hBox1.setSpacing(0);
+        hBox2.setSpacing(12.5);
     }
 
     @Override

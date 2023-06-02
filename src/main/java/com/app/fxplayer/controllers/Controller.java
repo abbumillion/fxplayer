@@ -1,10 +1,11 @@
 package com.app.fxplayer.controllers;
 
 
+import com.app.fxplayer.models.Collector;
 import com.app.fxplayer.views.View;
 
 public abstract class Controller {
-    private View view;
+    protected View view;
     public Controller(View view)
     {
         this.view = view;

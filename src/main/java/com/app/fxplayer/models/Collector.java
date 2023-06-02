@@ -8,27 +8,24 @@ import java.io.File;
 /**
  * SONG COLLECTOR
  */
-public class Collector extends Task<Song> {
+public class Collector  {
 
-    private final File[] drives = {new File("C://"),new File("D://")};
+    private static final File[] drives = {new File("C://"),new File("D://")};
     // song file collector
-    private ListView fileListview = new ListView();
+    private static final ListView fileListview = new ListView();
 
-    @Override
-    protected Song call() {
+    public static void init() {
 
         for (File drive: drives) {
             extract(drive);
         }
-        return null;
     }
-    private void extract(File file)
+    private static void extract(File file)
     {
         File[] files = file.listFiles();
         if (files != null) {
             for (File f : files)
             {
-                updateMessage(f.getName());
                 if (f.isDirectory()) {
                     extract(f);
                 }
@@ -50,7 +47,7 @@ public class Collector extends Task<Song> {
         }
     }
 
-    public ListView getFileListview() {
+    public static ListView getFileListview() {
         return fileListview;
     }
 }
