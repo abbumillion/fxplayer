@@ -7,9 +7,9 @@ public interface Viewable {
     // main windows stage
     Stage STAGE = new Stage();
     // screen width
-    double WIDTH  = Screen.getPrimary().getBounds().getWidth() * .480;
+    double WIDTH  = Screen.getPrimary().getBounds().getWidth() * .720;
     // screen height
-    double HEIGHT  = Screen.getPrimary().getBounds().getHeight() * .360;
+    double HEIGHT  = Screen.getPrimary().getBounds().getHeight() * .560;
     // initialization
     void init();
     // building layout
