@@ -22,4 +22,8 @@ public class MostPlayedView extends View {
     public void bind() {
 
     }
+    @Override
+    public void styling() {
+
+    }
 }

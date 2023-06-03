@@ -28,4 +28,8 @@ public class SettingsView extends View {
     public void bind() {
 
     }
+    @Override
+    public void styling() {
+
+    }
 }

@@ -26,6 +26,7 @@ public abstract class View extends VBox implements Viewable {
         build();
         bind();
         align();
+        styling();
     }
 
     /**

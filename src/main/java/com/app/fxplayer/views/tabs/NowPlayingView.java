@@ -33,4 +33,8 @@ public class NowPlayingView extends View {
         imageView.fitWidthProperty().bind(widthProperty().multiply(.88));
         imageView.fitHeightProperty().bind(heightProperty().multiply(.84));
     }
+    @Override
+    public void styling() {
+
+    }
 }

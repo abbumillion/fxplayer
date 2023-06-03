@@ -59,6 +59,10 @@ public class MyMusicView extends View {
         hBox.prefHeightProperty().bind(heightProperty());
         //
     }
+    @Override
+    public void styling() {
+
+    }
 
 
     public TableColumn<Song, String> getIndexColumn() {

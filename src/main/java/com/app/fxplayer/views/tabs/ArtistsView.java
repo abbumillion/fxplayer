@@ -27,6 +27,10 @@ public class ArtistsView extends View {
         artistListView.prefWidthProperty().bind(widthProperty());
         artistListView.prefHeightProperty().bind(heightProperty());
     }
+    @Override
+    public void styling() {
+
+    }
 
     public ListView<Artist> getArtistListView() {
         return artistListView;

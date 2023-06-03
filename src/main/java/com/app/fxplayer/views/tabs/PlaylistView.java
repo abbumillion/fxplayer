@@ -24,4 +24,8 @@ public class PlaylistView extends View {
     public void bind() {
 
     }
+    @Override
+    public void styling() {
+
+    }
 }

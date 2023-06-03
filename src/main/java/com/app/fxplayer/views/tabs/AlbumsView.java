@@ -27,6 +27,10 @@ public class AlbumsView extends View {
         albumListView.prefWidthProperty().bind(widthProperty());
         albumListView.prefHeightProperty().bind(heightProperty());
     }
+    @Override
+    public void styling() {
+
+    }
 
     public ListView<Album> getAlbumListView() {
         return albumListView;

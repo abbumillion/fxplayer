@@ -18,5 +18,7 @@ public interface Viewable {
     void align();
     // binding elements
     void bind();
+    // styling elements
+    void styling();
 
 }

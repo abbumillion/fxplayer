@@ -33,4 +33,8 @@ public class SearchBarView extends View {
         hBox.prefWidthProperty().bind(widthProperty().multiply(.75));
 
     }
+    @Override
+    public void styling() {
+
+    }
 }

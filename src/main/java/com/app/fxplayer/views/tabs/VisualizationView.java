@@ -31,4 +31,8 @@ public class VisualizationView extends View {
         hBox.prefWidthProperty().bind(widthProperty());
         hBox.prefHeightProperty().bind(heightProperty());
     }
+    @Override
+    public void styling() {
+
+    }
 }

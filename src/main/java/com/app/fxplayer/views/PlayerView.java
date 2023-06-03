@@ -113,6 +113,10 @@ public class PlayerView extends View {
         playerControllerView.prefHeightProperty().bind(heightProperty().multiply(.075));
         //
     }
+    @Override
+    public void styling() {
+
+    }
 
     /**
      *
