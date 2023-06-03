@@ -4,8 +4,6 @@ import com.app.fxplayer.controllers.PlayerController;
 import com.app.fxplayer.models.Collector;
 import com.app.fxplayer.views.PlayerView;
 import javafx.application.Application;
-
-import javafx.application.Platform;
 import javafx.stage.Stage;
 
 import java.io.IOException;
