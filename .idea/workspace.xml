@@ -4,14 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8765e7b-a5cf-4227-81fd-0b9ac36663aa" name="Changes" comment="fxplayer project day 3">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/ApplicationData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/ApplicationStates.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/JfxApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/Settings.java" afterDir="false" />
+    <list default="true" id="e8765e7b-a5cf-4227-81fd-0b9ac36663aa" name="Changes" comment="fxplayer project day 4">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tablecells/SongCell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/MostPlayedView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/RecentPlaysView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/RecentlyAddedView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/app.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/PlayerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/PlayerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/AlbumCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/AlbumCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/ArtistCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/ArtistCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/PlaylistCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/PlaylistCell.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +217,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685777296594</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fxplayer project day 4">
+      <created>1685784531622</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1685784531622</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -233,6 +242,7 @@
     <MESSAGE value="fxplayer project fc" />
     <MESSAGE value="fxplayer project day 2" />
     <MESSAGE value="fxplayer project day 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="fxplayer project day 3" />
+    <MESSAGE value="fxplayer project day 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="fxplayer project day 4" />
   </component>
 </project>

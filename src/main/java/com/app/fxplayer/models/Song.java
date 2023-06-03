@@ -25,7 +25,7 @@ public class Song {
     private StringProperty year = new SimpleStringProperty("");;
     // song duration
     private Duration duration;
-    // private song image
+    //  song image
     private Image image;
     // track number
     private int trackNumber;
