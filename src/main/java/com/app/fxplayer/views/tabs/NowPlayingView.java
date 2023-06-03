@@ -30,7 +30,7 @@ public class NowPlayingView extends View {
 
     @Override
     public void bind() {
-        imageView.fitWidthProperty().bind(widthProperty().multiply(.720));
-        imageView.fitHeightProperty().bind(heightProperty().multiply(.64));
+        imageView.fitWidthProperty().bind(widthProperty().multiply(.88));
+        imageView.fitHeightProperty().bind(heightProperty().multiply(.84));
     }
 }
