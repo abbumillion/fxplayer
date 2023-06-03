@@ -6,7 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.ListView;
 
 public class ArtistsView extends View {
-    private ListView artistListView;
+    private ListView<Artist> artistListView;
     @Override
     public void init() {
         artistListView = new ListView<>();

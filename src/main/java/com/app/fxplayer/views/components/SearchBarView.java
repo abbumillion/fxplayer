@@ -28,8 +28,8 @@ public class SearchBarView extends View {
 
     @Override
     public void bind() {
-        searchTextField.prefWidthProperty().bind(hBox.widthProperty().multiply(.365));
-        searchTextField.prefHeightProperty().bind(hBox.heightProperty().multiply(.5));
+        searchTextField.prefWidthProperty().bind(hBox.widthProperty().multiply(.665));
+        searchTextField.prefHeightProperty().bind(hBox.heightProperty().multiply(.65));
         hBox.prefWidthProperty().bind(widthProperty().multiply(.75));
 
     }

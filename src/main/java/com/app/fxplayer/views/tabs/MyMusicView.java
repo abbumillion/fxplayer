@@ -2,7 +2,6 @@ package com.app.fxplayer.views.tabs;
 
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.views.View;
-import com.app.fxplayer.views.components.PlayerControllerView;
 import javafx.geometry.Pos;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -15,8 +14,8 @@ import java.io.File;
 public class MyMusicView extends View {
     private ImageView imageView;
 
-    private TableView tableView;
-    private TableColumn indexColumn,titleColumn,sizeColumn,artistsColumn,albumColumn;
+    private TableView<Song> tableView;
+    private TableColumn<Song,String> indexColumn,titleColumn,sizeColumn,artistColumn,albumColumn;
     private HBox hBox;
     @Override
     public void init() {
@@ -26,7 +25,7 @@ public class MyMusicView extends View {
         indexColumn = new TableColumn<>("index");
         titleColumn = new TableColumn<>("Title");
         sizeColumn = new TableColumn<>("Size");
-        artistsColumn = new TableColumn<>("Artist");
+        artistColumn = new TableColumn<>("Artist");
         albumColumn = new TableColumn<>("Album");
         //
         imageView = new ImageView(new Image(new File("src/main/resources/images/sample.jpg").toURI().toASCIIString()));
@@ -37,7 +36,7 @@ public class MyMusicView extends View {
 
     @Override
     public void build() {
-        tableView.getColumns().addAll(indexColumn,titleColumn,sizeColumn,artistsColumn,albumColumn);
+        tableView.getColumns().addAll(indexColumn,titleColumn,sizeColumn,artistColumn,albumColumn);
         hBox.getChildren().addAll(imageView,tableView);
         getChildren().addAll(hBox);
     }
@@ -78,8 +77,8 @@ public class MyMusicView extends View {
         return titleColumn;
     }
 
-    public TableColumn<Song, String> getArtistsColumn() {
-        return artistsColumn;
+    public TableColumn<Song, String> getArtistColumn() {
+        return artistColumn;
     }
 
     public TableColumn<Song, String> getSizeColumn() {

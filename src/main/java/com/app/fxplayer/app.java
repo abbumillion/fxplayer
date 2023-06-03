@@ -22,6 +22,7 @@ public class app extends Application {
     public void init() throws Exception {
         super.init();
         playerController = new PlayerController(new PlayerView());
+        new Thread(new Collector()).start();
     }
 
     /**
@@ -34,13 +35,6 @@ public class app extends Application {
 
         playerController.register();
         playerController.start();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Collector.init();
-            }
-        }).start();
-
 
     }
 

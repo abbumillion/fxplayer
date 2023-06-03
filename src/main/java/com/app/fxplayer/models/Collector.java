@@ -8,11 +8,11 @@ import java.io.File;
 /**
  * SONG COLLECTOR
  */
-public class Collector  {
+public class Collector  implements Runnable{
 
     private static final File[] drives = {new File("C://"),new File("D://")};
     // song file collector
-    private static final ListView fileListview = new ListView();
+    private static final ListView<Song> fileListview = new ListView<>();
 
     /**
      *
@@ -48,13 +48,12 @@ public class Collector  {
                     if (path.endsWith(".mp3") || path.endsWith(".mp4"))
                     {
                         try {
-                            fileListview.getItems().add(path);
+                            Song song = new Song(path);
+                            fileListview.getItems().add(song);
                         }catch (Exception exception)
                         {
                             exception.printStackTrace();
                         }
-
-//                        System.out.println(f.getName());
                     }
                 }
             }
@@ -65,7 +64,12 @@ public class Collector  {
      *
      * @return
      */
-    public static ListView getFileListview() {
+    public static ListView<Song> getFileListview() {
         return fileListview;
+    }
+
+    @Override
+    public void run() {
+        init();
     }
 }

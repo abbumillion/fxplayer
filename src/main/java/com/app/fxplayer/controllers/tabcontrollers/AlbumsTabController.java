@@ -14,7 +14,7 @@ public class AlbumsTabController extends Controller {
 
     @Override
     public void register() {
-        albumsView.getAlbumListView().itemsProperty().bind(Collector.getFileListview().itemsProperty());
+//        albumsView.getAlbumListView().itemsProperty().bind(Collector.getFileListview().itemsProperty());
     }
 
     @Override
