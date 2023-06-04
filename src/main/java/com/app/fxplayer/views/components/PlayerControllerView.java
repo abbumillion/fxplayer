@@ -145,6 +145,18 @@ public class PlayerControllerView extends View {
         return fullScreenButton;
     }
 
+    public Button getBackwardButton() {
+        return backwardButton;
+    }
+
+    public Button getForwardButton() {
+        return forwardButton;
+    }
+
+    public Button getPlaylistButton() {
+        return playlistButton;
+    }
+
     public Slider getDurationSlider() {
         return durationSlider;
     }

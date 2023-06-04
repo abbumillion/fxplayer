@@ -48,58 +48,24 @@ public class Song {
     {
         File file = new File(source);
         Media media = new Media(file.toURI().toASCIIString());
-        media.getMetadata().addListener((InvalidationListener) observable -> {
-            Map map = (Map) observable;
-            System.out.println(map);
-            if (map.isEmpty())
-            {
-                // non metadata
-            }
-            else
-            {
-                // collect metadata
-                String title = map.get("title").toString();
-                String year = map.get("year").toString();
-                String album = map.get("album").toString();
-                String artist = map.get("artist").toString();
-                //
-                Image image = (Image) map.get("image");
-                //
-                if (title != null)
-                {
-                    this.title .setValue(title);
-                }
-                if (year != null)
-                {
-//                    this.year = Integer.getInteger(year.toString());
-                }
-                if (image != null)
-                {
-                    this.image = (Image) image;
-                }
-                if (album != null)
-                {
-                    this.album.setValue(album);
-                }
-                if (artist != null)
-                {
-                    this.artist .setValue(artist);
-                }
-            }
-        });
+
     }
 
     /**
      *
-     * @return
+     * @param map
+     * checking the metadata
+     * before storing
      */
-    public StringProperty getSource() {
-        return source;
+
+
+    public String getSource() {
+        return source.get();
     }
 
     /**
      *
-     * @return
+     * @return duration
      */
     public Duration getDuration() {
         return duration;
@@ -107,7 +73,7 @@ public class Song {
 
     /**
      *
-     * @return
+     * @return image
      */
     public Image getImage() {
         return image;
@@ -115,10 +81,10 @@ public class Song {
 
     /**
      *
-     * @return
+     * @return artist
      */
-    public StringProperty getArtist() {
-        return artist;
+    public String getArtist() {
+        return artist.get();
     }
 
     /**
@@ -129,20 +95,11 @@ public class Song {
         return trackNumber;
     }
 
-    /**
-     *
-     * @return
-     */
-    public StringProperty getAlbum() {
-        return album;
+    public String getAlbum() {
+        return album.get();
     }
 
-    /**
-     *
-     * @return
-     */
-    public StringProperty getTitle() {
-        return title;
+    public String getTitle() {
+        return title.get();
     }
-
 }

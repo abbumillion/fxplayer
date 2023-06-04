@@ -12,10 +12,13 @@ import javafx.scene.layout.HBox;
 import java.io.File;
 
 public class MyMusicView extends View {
+    //
     private ImageView imageView;
-
+    //
     private TableView<Song> tableView;
+    //
     private TableColumn<Song,String> indexColumn,titleColumn,sizeColumn,artistColumn,albumColumn;
+    //
     private HBox hBox;
     @Override
     public void init() {
@@ -23,10 +26,10 @@ public class MyMusicView extends View {
         tableView = new TableView<>();
         //
         indexColumn = new TableColumn<>("index");
-        titleColumn = new TableColumn<>("Title");
+        titleColumn = new TableColumn<>("title");
         sizeColumn = new TableColumn<>("Size");
-        artistColumn = new TableColumn<>("Artist");
-        albumColumn = new TableColumn<>("Album");
+        artistColumn = new TableColumn<>("artist");
+        albumColumn = new TableColumn<>("album");
         //
         imageView = new ImageView(new Image(new File("src/main/resources/images/sample.jpg").toURI().toASCIIString()));
         //
