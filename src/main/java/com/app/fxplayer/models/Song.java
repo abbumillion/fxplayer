@@ -14,15 +14,15 @@ import java.util.Map;
  */
 public class Song {
     // song file source
-    private StringProperty source = new SimpleStringProperty("");
+    private final StringProperty source = new SimpleStringProperty("");
     // song title
-    private StringProperty title = new SimpleStringProperty("");;
+    private final StringProperty title = new SimpleStringProperty("");
     // song artist
-    private StringProperty artist = new SimpleStringProperty("");;
+    private final StringProperty artist = new SimpleStringProperty("");
     // song album
-    private StringProperty album = new SimpleStringProperty("");;
+    private final StringProperty album = new SimpleStringProperty("");
     // year
-    private StringProperty year = new SimpleStringProperty("");;
+    private final StringProperty year = new SimpleStringProperty("");
     // song duration
     private Duration duration;
     //  song image
@@ -48,7 +48,6 @@ public class Song {
     {
         File file = new File(source);
         Media media = new Media(file.toURI().toASCIIString());
-
     }
 
     /**

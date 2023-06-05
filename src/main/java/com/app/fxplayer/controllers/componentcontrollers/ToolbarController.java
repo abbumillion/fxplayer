@@ -9,7 +9,7 @@ import com.app.fxplayer.views.components.ToolBarView;
  */
 public class ToolbarController extends Controller {
     // tool-bar view instance
-    private ToolBarView toolBarView;
+    private final ToolBarView toolBarView;
     public ToolbarController(View view) {
         super(view);
         toolBarView = (ToolBarView) view;

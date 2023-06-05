@@ -1,11 +1,13 @@
-# fx-player javafx Audio Player
-#### I'm trying to build a simple audio player desktop application 
+# Fx-player Java-Fx Audio Player
+#### I'm trying to build a simple Audio Player Desktop Application 
 #### for my Windows and Linux computer
-#### This will include some java core javafx and css
+#### This will include some Java core JavaFx and CSS
 #### Anybody interested feel free to contribute
 #### This is not my first audio player project 
+#### I'm looking for some reusable ui components which are free of course
+#### like Control-Fx,Material-Fx,Skins,CSS styles
 # * Functionalities
-#### Collect all audio files from the computer
+#### Collect all audio files from the Computer
 #### Arrange them in some order or fashion
 #### Playing different audio formats
 #### Showing artists / albums / playlists

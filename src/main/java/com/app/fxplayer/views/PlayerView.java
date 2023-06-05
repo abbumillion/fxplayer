@@ -28,13 +28,15 @@ public class PlayerView extends View {
     private AlbumsView albumsView;
     // artists sub view
     private ArtistsView artistsView;
+    // playlist view
+    private PlaylistView playlistView;
     // visualization sub view
     private VisualizationView visualizationView;
     // settings sub view
     private SettingsView settingsView;
     // player controller sub view
     private PlayerControllerView playerControllerView;
-    // tool bar sub view
+    // toolbar sub view
     private ToolBarView toolBarView;
 
     /**
@@ -42,6 +44,7 @@ public class PlayerView extends View {
      */
     @Override
     public void init() {
+        // tabs
         myMusicTab = new Tab("My Music");
         nowPlayingTab = new Tab("Now Playing");
         albumsTab = new Tab("Albums");
@@ -52,7 +55,7 @@ public class PlayerView extends View {
         recentPlaysTab = new Tab("Recent Plays");
         recentlyAddedTab = new Tab("Recent Added");
         tabPane = new TabPane();
-        //
+        // sub views
         myMusicView = new MyMusicView();
         nowPlayingView = new NowPlayingView();
         mostPlayedView = new MostPlayedView();
@@ -62,9 +65,8 @@ public class PlayerView extends View {
         artistsView = new ArtistsView();
         visualizationView = new VisualizationView();
         settingsView = new SettingsView();
-        //
+        // components
         playerControllerView = new PlayerControllerView();
-        //
         toolBarView = new ToolBarView();
         //
     }
@@ -121,7 +123,7 @@ public class PlayerView extends View {
 
     /**
      *
-     * @return
+     * @return my music sub view
      */
     public MyMusicView getMyMusicView() {
         return myMusicView;
@@ -129,7 +131,7 @@ public class PlayerView extends View {
 
     /**
      *
-     * @return
+     * @return player controller sub view
      */
     public PlayerControllerView getPlayerControllerView() {
         return playerControllerView;
@@ -137,7 +139,7 @@ public class PlayerView extends View {
 
     /**
      *
-     * @return
+     * @return albums sub view
      */
     public AlbumsView getAlbumsView() {
         return albumsView;
@@ -145,7 +147,7 @@ public class PlayerView extends View {
 
     /**
      *
-     * @return
+     * @return artists sub view
      */
     public ArtistsView getArtistsView() {
         return artistsView;
@@ -153,7 +155,7 @@ public class PlayerView extends View {
 
     /**
      *
-     * @return
+     * @return settings sub view
      */
     public SettingsView getSettingsView() {
         return settingsView;
@@ -161,7 +163,7 @@ public class PlayerView extends View {
 
     /**
      *
-     * @return
+     * @return now playing sub view
      */
     public NowPlayingView getNowPlayingView() {
         return nowPlayingView;
@@ -169,7 +171,7 @@ public class PlayerView extends View {
 
     /**
      *
-     * @return
+     * @return visualization sub view
      */
     public VisualizationView getVisualizationView() {
         return visualizationView;
@@ -177,7 +179,7 @@ public class PlayerView extends View {
 
     /**
      *
-     * @return toolbar
+     * @return toolbar sub view
      */
     public ToolBarView getToolBarView() {
         return toolBarView;
@@ -185,7 +187,7 @@ public class PlayerView extends View {
 
     /**
      *
-     * @return
+     * @return most played sub view
      */
     public MostPlayedView getMostPlayedView() {
         return mostPlayedView;
@@ -193,7 +195,7 @@ public class PlayerView extends View {
 
     /**
      *
-     * @return
+     * @return recently added sub view
      */
     public RecentlyAddedView getRecentlyAddedView() {
         return recentlyAddedView;
@@ -201,7 +203,7 @@ public class PlayerView extends View {
 
     /**
      *
-     * @return
+     * @return recently played sub view
      */
     public RecentPlaysView getRecentPlaysView() {
         return recentPlaysView;

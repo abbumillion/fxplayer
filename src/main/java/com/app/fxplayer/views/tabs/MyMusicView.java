@@ -58,6 +58,12 @@ public class MyMusicView extends View {
         tableView.prefWidthProperty().bind(hBox.widthProperty().multiply(.6));
         tableView.prefHeightProperty().bind(hBox.heightProperty());
         //
+        indexColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
+        albumColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
+        artistColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
+        sizeColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
+        titleColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
+        //
         hBox.prefWidthProperty().bind(widthProperty());
         hBox.prefHeightProperty().bind(heightProperty());
         //

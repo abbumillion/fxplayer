@@ -55,7 +55,8 @@ public class Collector  implements Runnable{
                     {
                         try {
                             //
-                            songMaker(path);
+                            fileListview.getItems().add(new Song(path));
+                           // songMaker(path);
                             //
                         }catch (Exception exception)
                         {
@@ -74,7 +75,6 @@ public class Collector  implements Runnable{
             media.getMetadata().addListener((InvalidationListener) observable -> {
                 if (observable != null) {
                     Map<String, String> map = checkMetadata((Map) observable);
-                    ;
                     System.out.println(" 1.title  : -->" + map.get("title"));
                     System.out.println(" 2.artist : -->" + map.get("artist"));
                     System.out.println(" 3.album  : -->" + map.get("album"));

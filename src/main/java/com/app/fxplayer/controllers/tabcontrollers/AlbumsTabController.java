@@ -6,7 +6,7 @@ import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.tabs.AlbumsView;
 
 public class AlbumsTabController extends Controller {
-    private AlbumsView albumsView;
+    private final AlbumsView albumsView;
     public AlbumsTabController(View view) {
         super(view);
         albumsView = (AlbumsView) view;

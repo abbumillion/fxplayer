@@ -5,6 +5,8 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 
@@ -43,10 +45,10 @@ public abstract class View extends VBox implements Viewable {
     public void showView()
     {
         Scene scene = new Scene(this,WIDTH,HEIGHT);
-        scene.getStylesheets().add(new File(StringConstants.getSystemTheme()).toURI().toASCIIString());
+      //  scene.getStylesheets().add(new File(StringConstants.getSystemTheme()).toURI().toASCIIString());
         STAGE.setScene(scene);
-       // STAGE.initModality(Modality.APPLICATION_MODAL);
-      //  STAGE.initStyle(StageStyle.UNDECORATED);
+        STAGE.initModality(Modality.APPLICATION_MODAL);
+        STAGE.initStyle(StageStyle.UNDECORATED);
         STAGE.show();
     }
 }

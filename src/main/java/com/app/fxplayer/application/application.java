@@ -26,10 +26,10 @@ public class application extends Application {
     public void init() throws Exception {
         super.init();
         playerController = new PlayerController(new PlayerView());
-
-        applicationData = new ApplicationData();
-        settings = Settings.getSettings();
-
+       // playerController.setApplicationData( new ApplicationData());
+       // playerController.setSettings(new Settings());
+       // playerController.setApplicationStates(ApplicationStates.READY);
+        new Thread(new Collector()).start();
     }
 
     /**
@@ -41,6 +41,8 @@ public class application extends Application {
     public void start(Stage stage) throws IOException {
         playerController.register();
         playerController.start();
+
+      //  playerController.setApplicationStates(ApplicationStates.RUNNING);
     }
 
     @Override

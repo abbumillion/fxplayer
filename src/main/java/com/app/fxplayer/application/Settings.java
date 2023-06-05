@@ -1,66 +1,80 @@
 package com.app.fxplayer.application;
 
 import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.text.Font;
 import javafx.stage.StageStyle;
 
-/**
- * APPLICATION SETTINGS STORING DATA CLASS
- * LIKE THEMES,FULL SCREEN,FONTS,STAGE STYLE
- * this class needs to singleton since only one
- * instance of this class is needed across the application,
- * so we are going to use singleton pattern
- */
+
 public final class Settings {
     /**
      * APPLICATION THEME
      */
-    private static StringProperty theme;
+    private  StringProperty theme = new SimpleStringProperty("src/main/resources/stylesheets/dark.css");
     /**
      * APPLICATION FULL SCREEN
+     * default false full screen property
      */
-    private static BooleanProperty fullScreen;
+    private  BooleanProperty fullScreenProperty = new SimpleBooleanProperty(false);
     /**
      * STAGE STYLE
+     * default stage style undecorated
      */
-    private static StageStyle stageStyle;
+    private  StageStyle stageStyle = StageStyle.UNDECORATED;
     /**
      * application font
+     * default 12.0
      */
-    private static Font font;
+    private  Font font = Font.font(12.0);
 
-    // this classes instance
-    private static Settings settings;
     // constructor
-    private Settings() {}
+    public Settings() {
+        // construct this class
+    }
+
+    /**
+     * set stage style
+     * @param stageStyle
+     */
+    public void setStageStyle(StageStyle stageStyle) {
+        this.stageStyle = stageStyle;
+    }
 
     /**
      *
-     * @return application Settings
+     * @return stage style
      */
-    public static synchronized Settings getSettings()
-    {
-        if (settings == null){
-            settings = new Settings();
-        }
-        return settings;
-    }
-
-
-    public static StringProperty themeProperty() {
-        return theme;
-    }
-
-    public static StageStyle getStageStyle() {
+    public  StageStyle getStageStyle() {
         return stageStyle;
     }
 
-    public static Font getFont() {
+    public void setFont(Font font) {
+        this.font = font;
+    }
+
+    /**
+     *
+     * @return font
+     */
+    public  Font getFont() {
         return font;
     }
 
-    public static String getTheme() {
+    /**
+     *
+     * @return theme
+     */
+    public  String getTheme() {
         return theme.get();
+    }
+
+    /**
+     * set the theme
+     * @param theme
+     */
+    public void setTheme(String theme) {
+        this.theme.set(theme);
     }
 }

@@ -1,25 +1,23 @@
 package com.app.fxplayer.views.components;
 
 import com.app.fxplayer.views.View;
+import com.jfoenix.controls.JFXButton;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
+import javafx.scene.text.Font;
+import org.controlsfx.control.ToggleSwitch;
 
 import java.util.Date;
 
 public class ToolBarView extends View {
     // theme toggle button for night/light mode
-    private ToggleButton nightModeButton;
+    private ToggleSwitch nightModeToggleSwitchButton;
     //sign in button
-    private Button signInButton;
-    // sign up button
-    private Button signUpButton;
-    // full screen button
-    private Button fullScreenButton;
-    // search text field
+    private JFXButton signInButton,signUpButton,fullScreenButton;
+    //
     private TextField searchTextField;
     /**
      * date label
@@ -33,17 +31,17 @@ public class ToolBarView extends View {
     public void init() {
         searchTextField = new TextField("search something here");
         dateLabel = new Label(new Date().toGMTString());
-        signInButton = new Button("Sign In");
-        signUpButton = new Button("Sign Up");
-        nightModeButton = new ToggleButton("Night Mode");
-        fullScreenButton = new Button("Full Screen");
+        signInButton = new JFXButton("Sign In");
+        signUpButton = new JFXButton("Sign Up");
+        nightModeToggleSwitchButton = new ToggleSwitch("Night Mode");
+        fullScreenButton = new JFXButton("Full Screen");
         hBox = new HBox(20);
     }
 
     @Override
     public void build() {
         // create a layout for this toolbar
-        hBox.getChildren().addAll(dateLabel,searchTextField,fullScreenButton,signInButton,signUpButton,nightModeButton);
+        hBox.getChildren().addAll(dateLabel,searchTextField,fullScreenButton,signInButton,signUpButton,nightModeToggleSwitchButton);
         getChildren().addAll(hBox);
     }
 
@@ -75,7 +73,10 @@ public class ToolBarView extends View {
     }
     @Override
     public void styling() {
-
+        // search text field styling operations
+        searchTextField.setAlignment(Pos.CENTER);
+        searchTextField.setFont(Font.font(14));
+        //
     }
 
     /**
@@ -120,11 +121,9 @@ public class ToolBarView extends View {
 
     /**
      *
-     * @return night mode button
+     * @return night mode toggle switch
      */
-    public ToggleButton getNightModeButton() {
-        return nightModeButton;
+    public ToggleSwitch getNightModeToggleSwitchButton() {
+        return nightModeToggleSwitchButton;
     }
-
-
 }

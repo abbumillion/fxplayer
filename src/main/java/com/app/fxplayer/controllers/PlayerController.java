@@ -26,6 +26,8 @@ public class PlayerController extends Controller{
     private PlayerControllerComponentController playerControllerComponentController;
     // tool bar sub view controller
     private ToolbarController toolbarController;
+    //
+    private RecentPlaysTabController recentPlaysTabController;
 
     public PlayerController(View view) {
         super(view);
@@ -37,88 +39,45 @@ public class PlayerController extends Controller{
         // my music controller
         myMusicTabController = new MyMusicTabController(playerView.getMyMusicView());
         myMusicTabController.register();
-
+        myMusicTabController.start();
         // now playing controller
         nowPlayingTabController = new NowPlayingTabController(playerView.getNowPlayingView());
         nowPlayingTabController.register();
+        nowPlayingTabController.start();
         // albums controller
         albumsTabController = new AlbumsTabController(playerView.getAlbumsView());
         albumsTabController.register();
-
+        albumsTabController.start();
         // artists controller
         artistsTabController = new ArtistsTabController(playerView.getArtistsView());
         artistsTabController.register();
+        artistsTabController.start();
         // settings controller
         settingsTabController = new SettingsTabController(playerView.getSettingsView());
         settingsTabController.register();
+        settingsTabController.start();
         // visualization controller
         visualizationTabController = new VisualizationTabController(playerView.getVisualizationView());
         visualizationTabController.register();
+        visualizationTabController.start();
         // player view controller
         playerControllerComponentController = new PlayerControllerComponentController(playerView.getPlayerControllerView());
         playerControllerComponentController.register();
+        playerControllerComponentController.start();
         // tool-bar controller
         toolbarController = new ToolbarController(playerView.getToolBarView());
         toolbarController.register();
+        toolbarController.start();
+        //
+        recentPlaysTabController = new RecentPlaysTabController(playerView.getRecentPlaysView());
+        recentPlaysTabController.register();
+        recentPlaysTabController.start();
     }
 
     @Override
     public void start() {
-        // showing player view on the screen
         playerView.showView();
-        // starting my music tab controller
-        myMusicTabController.start();
-        // starting albums tab controller
-        albumsTabController.start();
-        // starting now playing tab controller
-        nowPlayingTabController.start();
-        //starting artists tab controller
-        artistsTabController.start();
-        // starting settings controller
-        settingsTabController.start();
-        // starting visualization controlller
-        visualizationTabController.start();
-        // starting player controller
-        playerControllerComponentController.start();
-        // starting tool bar controller
-        toolbarController.start();
-    }
 
-    public AlbumsTabController getAlbumsTabController() {
-        return albumsTabController;
     }
-
-    public ArtistsTabController getArtistsTabController() {
-        return artistsTabController;
-    }
-
-    public MyMusicTabController getMyMusicTabController() {
-        return myMusicTabController;
-    }
-
-    public NowPlayingTabController getNowPlayingTabController() {
-        return nowPlayingTabController;
-    }
-
-    public PlayerControllerComponentController getPlayerControllerComponentController() {
-        return playerControllerComponentController;
-    }
-
-    public ToolbarController getToolbarController() {
-        return toolbarController;
-    }
-
-    public SettingsTabController getSettingsTabController() {
-        return settingsTabController;
-    }
-
-    /**
-     *
-     * @return
-     */
-    public VisualizationTabController getVisualizationTabController() {
-        return visualizationTabController;
-    }
-
 
 }

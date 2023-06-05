@@ -1,6 +1,8 @@
 package com.app.fxplayer.views.components;
 
 import com.app.fxplayer.views.View;
+import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXSlider;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -16,8 +18,8 @@ import java.io.File;
  */
 public class PlayerControllerView extends View {
     private Label startDurationLabel,endDurationLabel,volumeLevelLabel,balanceLevelLabel,rateLevelLabel;
-    private Button pauseButton,prevButton,nextButton,shuffleButton,repeatButton,playlistButton;
-    private Slider durationSlider,volumeSlider,balanceSlider,rateSlider;
+    private JFXButton pauseButton,prevButton,nextButton,shuffleButton,repeatButton,playlistButton;
+    private JFXSlider durationSlider,volumeSlider,balanceSlider,rateSlider;
     private Image nextImage,prevImage,pauseImage,playlistImage,repeatImage,shuffleImage,forwardImage,backwardImage;
     private HBox hBox1,hBox2;
     @Override
@@ -29,20 +31,20 @@ public class PlayerControllerView extends View {
         balanceLevelLabel = new Label("balnc:");
         rateLevelLabel = new Label("rate:");
         // buttons
-        pauseButton = new Button();
-        prevButton = new Button();
-        nextButton = new Button();
+        pauseButton = new JFXButton();
+        prevButton = new JFXButton();
+        nextButton = new JFXButton();
 //        forwardButton = new Button();
 //        backwardButton = new Button();
-        playlistButton = new Button();
-        shuffleButton = new Button();
-        repeatButton = new Button();
+        playlistButton = new JFXButton();
+        shuffleButton = new JFXButton();
+        repeatButton = new JFXButton();
 //        fullScreenButton = new Button("*");
         //sliders
-        durationSlider = new Slider();
-        volumeSlider = new Slider();
-        balanceSlider = new Slider();
-        rateSlider = new Slider();
+        durationSlider = new JFXSlider();
+        volumeSlider = new JFXSlider();
+        balanceSlider = new JFXSlider();
+        rateSlider = new JFXSlider();
         //imageview
         nextImage = new Image(new File("src/main/resources/images/next.png").toURI().toASCIIString());
         prevImage = new Image(new File("src/main/resources/images/previous.png").toURI().toASCIIString());
@@ -91,13 +93,13 @@ public class PlayerControllerView extends View {
         pauseButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
         nextButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
         // sliders in hbox2
-        volumeLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.185));
+        volumeLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.115));
         volumeSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.25));
 
-        balanceLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.185));
+        balanceLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.115));
         balanceSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.25));
 
-        rateLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.185));
+        rateLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.115));
         rateSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.25));
 
         //
