@@ -1,4 +1,4 @@
-package com.app.fxplayer;
+package com.app.fxplayer.application;
 
 import com.app.fxplayer.controllers.PlayerController;
 import com.app.fxplayer.models.Collector;
@@ -8,8 +8,14 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class app extends Application {
-
+public class application extends Application {
+    // application data
+    private ApplicationData applicationData;
+    // application states
+    private ApplicationStates applicationStates;
+    // application settings
+    private Settings settings;
+    // application view controller
     private PlayerController playerController;
 
     /**
@@ -20,20 +26,24 @@ public class app extends Application {
     public void init() throws Exception {
         super.init();
         playerController = new PlayerController(new PlayerView());
-        new Thread(new Collector()).start();
+        applicationData = new ApplicationData();
+        // new Thread(new Collector()).start();
     }
 
     /**
      *
-     * @param stage
+     * @param stage stage style
      * @throws IOException
      */
     @Override
     public void start(Stage stage) throws IOException {
-
         playerController.register();
         playerController.start();
+    }
 
+    @Override
+    public void stop() throws Exception {
+        super.stop();
     }
 
     /**

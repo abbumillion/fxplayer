@@ -6,7 +6,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 
 public class SearchBarView extends View {
+    // search text field
     private TextField searchTextField;
+    /**
+     * hbox search text field container
+     */
     private HBox hBox;
     @Override
     public void init() {
@@ -28,9 +32,10 @@ public class SearchBarView extends View {
 
     @Override
     public void bind() {
-        searchTextField.prefWidthProperty().bind(hBox.widthProperty().multiply(.665));
-        searchTextField.prefHeightProperty().bind(hBox.heightProperty().multiply(.65));
-        hBox.prefWidthProperty().bind(widthProperty().multiply(.75));
+        searchTextField.prefWidthProperty().bind(hBox.widthProperty().multiply(.544));
+        searchTextField.prefHeightProperty().bind(hBox.heightProperty().multiply(.95));
+        hBox.prefWidthProperty().bind(widthProperty().multiply(.65));
+        hBox.prefHeightProperty().bind(heightProperty().multiply(.3656));
 
     }
     @Override

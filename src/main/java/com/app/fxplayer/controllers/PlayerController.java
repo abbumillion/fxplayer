@@ -2,10 +2,12 @@ package com.app.fxplayer.controllers;
 
 
 import com.app.fxplayer.controllers.tabcontrollers.*;
-import com.app.fxplayer.models.Collector;
 import com.app.fxplayer.views.PlayerView;
 import com.app.fxplayer.views.View;
 
+/**
+ * APP
+ */
 public class PlayerController extends Controller{
     private final PlayerView playerView;
 
@@ -45,11 +47,11 @@ public class PlayerController extends Controller{
         PlayerControllerComponentController playerControllerComponentController = new PlayerControllerComponentController(playerView.getPlayerControllerView());
         playerControllerComponentController.register();
         playerControllerComponentController.start();
+        //
     }
 
     @Override
     public void start() {
-
         playerView.showView();
     }
 }

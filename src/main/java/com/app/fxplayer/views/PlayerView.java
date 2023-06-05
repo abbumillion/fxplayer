@@ -103,8 +103,8 @@ public class PlayerView extends View {
     @Override
     public void bind() {
         //
-        searchBarView.prefWidthProperty().bind(widthProperty().multiply(.45));
-        searchBarView.prefHeightProperty().bind(heightProperty().multiply(.1));
+        searchBarView.prefWidthProperty().bind(widthProperty().multiply(.155));
+        searchBarView.prefHeightProperty().bind(heightProperty().multiply(.1125));
         //
         tabPane.prefWidthProperty().bind(widthProperty());
         tabPane.prefHeightProperty().bind(heightProperty().multiply(.85));
