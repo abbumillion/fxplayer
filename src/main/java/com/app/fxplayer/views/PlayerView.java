@@ -1,7 +1,7 @@
 package com.app.fxplayer.views;
 
 import com.app.fxplayer.views.components.PlayerControllerView;
-import com.app.fxplayer.views.components.SearchBarView;
+import com.app.fxplayer.views.components.ToolBarView;
 import com.app.fxplayer.views.tabs.*;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -14,27 +14,28 @@ public class PlayerView extends View {
     private TabPane tabPane;
     //
     private Tab myMusicTab,nowPlayingTab,mostPlayedTab,recentPlaysTab,recentlyAddedTab,albumsTab,artistsTab,visualizationTab,settingsTab;
+   // my music sub view
     private MyMusicView myMusicView;
-    //
+    //now playing sub view
     private NowPlayingView nowPlayingView;
-    //
+    // most played sub view
     private MostPlayedView mostPlayedView;
-    //
+    // recent plays sub view
     private RecentPlaysView recentPlaysView;
-    //
+    // recently added sub view
     private RecentlyAddedView recentlyAddedView;
-    //
+    // albums sub view
     private AlbumsView albumsView;
-    //
+    // artists sub view
     private ArtistsView artistsView;
-    //
+    // visualization sub view
     private VisualizationView visualizationView;
-    //
+    // settings sub view
     private SettingsView settingsView;
-    //
+    // player controller sub view
     private PlayerControllerView playerControllerView;
-    //
-    private SearchBarView searchBarView;
+    // tool bar sub view
+    private ToolBarView toolBarView;
 
     /**
      *
@@ -64,7 +65,7 @@ public class PlayerView extends View {
         //
         playerControllerView = new PlayerControllerView();
         //
-        searchBarView = new SearchBarView();
+        toolBarView = new ToolBarView();
         //
     }
 
@@ -85,7 +86,7 @@ public class PlayerView extends View {
         settingsTab.setContent(settingsView);
         tabPane.getTabs().addAll(myMusicTab,nowPlayingTab,mostPlayedTab,recentPlaysTab,
                 recentlyAddedTab,artistsTab,albumsTab,visualizationTab,settingsTab);
-        getChildren().addAll(searchBarView,tabPane,playerControllerView);
+        getChildren().addAll(toolBarView,tabPane,playerControllerView);
         //
     }
 
@@ -103,8 +104,8 @@ public class PlayerView extends View {
     @Override
     public void bind() {
         //
-        searchBarView.prefWidthProperty().bind(widthProperty().multiply(.155));
-        searchBarView.prefHeightProperty().bind(heightProperty().multiply(.1125));
+        toolBarView.prefWidthProperty().bind(widthProperty().multiply(.155));
+        toolBarView.prefHeightProperty().bind(heightProperty().multiply(.1125));
         //
         tabPane.prefWidthProperty().bind(widthProperty());
         tabPane.prefHeightProperty().bind(heightProperty().multiply(.85));
@@ -176,10 +177,10 @@ public class PlayerView extends View {
 
     /**
      *
-     * @return
+     * @return toolbar
      */
-    public SearchBarView getSearchBarView() {
-        return searchBarView;
+    public ToolBarView getToolBarView() {
+        return toolBarView;
     }
 
     /**
@@ -205,4 +206,5 @@ public class PlayerView extends View {
     public RecentPlaysView getRecentPlaysView() {
         return recentPlaysView;
     }
+
 }

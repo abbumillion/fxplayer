@@ -17,8 +17,8 @@ public abstract class View extends VBox implements Viewable {
     public View(){
         getReady();
         setAlignment(Pos.CENTER);
-        setSpacing(0.0);
-        setPadding(Insets.EMPTY);
+        setSpacing(7.25);
+        setPadding(new Insets(7.25));
     }
     public void getReady()
     {
@@ -45,6 +45,8 @@ public abstract class View extends VBox implements Viewable {
         Scene scene = new Scene(this,WIDTH,HEIGHT);
         scene.getStylesheets().add(new File(StringConstants.getSystemTheme()).toURI().toASCIIString());
         STAGE.setScene(scene);
+       // STAGE.initModality(Modality.APPLICATION_MODAL);
+      //  STAGE.initStyle(StageStyle.UNDECORATED);
         STAGE.show();
     }
 }

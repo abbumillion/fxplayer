@@ -26,8 +26,10 @@ public class application extends Application {
     public void init() throws Exception {
         super.init();
         playerController = new PlayerController(new PlayerView());
+
         applicationData = new ApplicationData();
-        // new Thread(new Collector()).start();
+        settings = Settings.getSettings();
+
     }
 
     /**

@@ -15,31 +15,34 @@ import java.io.File;
  * PLAYER CONTROLLER VIEW
  */
 public class PlayerControllerView extends View {
-    private Label startDurationLabel,endDurationLabel,volumeLevelLabel;
-    private Button pauseButton,prevButton,nextButton,shuffleButton,repeatButton,
-            fullScreenButton,playlistButton,forwardButton,backwardButton;
-    private Slider durationSlider,volumeSlider;
+    private Label startDurationLabel,endDurationLabel,volumeLevelLabel,balanceLevelLabel,rateLevelLabel;
+    private Button pauseButton,prevButton,nextButton,shuffleButton,repeatButton,playlistButton;
+    private Slider durationSlider,volumeSlider,balanceSlider,rateSlider;
     private Image nextImage,prevImage,pauseImage,playlistImage,repeatImage,shuffleImage,forwardImage,backwardImage;
     private HBox hBox1,hBox2;
     @Override
     public void init() {
         // labels
-        startDurationLabel = new Label("start");
+        startDurationLabel = new Label("strt");
         endDurationLabel = new Label("end");
-        volumeLevelLabel = new Label("vol");
+        volumeLevelLabel = new Label("vol:");
+        balanceLevelLabel = new Label("balnc:");
+        rateLevelLabel = new Label("rate:");
         // buttons
         pauseButton = new Button();
         prevButton = new Button();
         nextButton = new Button();
-        forwardButton = new Button();
-        backwardButton = new Button();
+//        forwardButton = new Button();
+//        backwardButton = new Button();
         playlistButton = new Button();
         shuffleButton = new Button();
         repeatButton = new Button();
-        fullScreenButton = new Button("*");
+//        fullScreenButton = new Button("*");
         //sliders
         durationSlider = new Slider();
         volumeSlider = new Slider();
+        balanceSlider = new Slider();
+        rateSlider = new Slider();
         //imageview
         nextImage = new Image(new File("src/main/resources/images/next.png").toURI().toASCIIString());
         prevImage = new Image(new File("src/main/resources/images/previous.png").toURI().toASCIIString());
@@ -58,8 +61,11 @@ public class PlayerControllerView extends View {
     @Override
     public void build() {
         hBox1.getChildren().addAll(startDurationLabel,durationSlider,endDurationLabel);
-        hBox2.getChildren().addAll(shuffleButton,repeatButton,backwardButton,prevButton,pauseButton,
-                nextButton,forwardButton,playlistButton,fullScreenButton,volumeSlider,volumeLevelLabel);
+        hBox2.getChildren().addAll(shuffleButton,repeatButton,prevButton,pauseButton,
+                nextButton,playlistButton,
+                volumeSlider,volumeLevelLabel,
+                balanceSlider,balanceLevelLabel,
+                rateSlider,rateLevelLabel);
         getChildren().addAll(hBox1,hBox2);
     }
 
@@ -68,25 +74,32 @@ public class PlayerControllerView extends View {
         setAlignment(Pos.CENTER);
         hBox1.setAlignment(Pos.CENTER);
         hBox2.setAlignment(Pos.CENTER);
-        hBox1.setSpacing(0);
-        hBox2.setSpacing(12.5);
+        hBox1.setSpacing(2.0);
+        hBox2.setSpacing(2.75);
     }
 
     @Override
     public void bind() {
         //hbox1
-        startDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.05));
-        endDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.05));
-        durationSlider.prefWidthProperty().bind(hBox1.widthProperty().multiply(.9));
-        //hbox2
+        startDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.025));
+        endDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.025));
+        durationSlider.prefWidthProperty().bind(hBox1.widthProperty().multiply(.95));
+        //buttons in hbox2
         shuffleButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
         repeatButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
         prevButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
         pauseButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
         nextButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
-        fullScreenButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
+        // sliders in hbox2
+        volumeLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.185));
         volumeSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.25));
-        volumeLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.5));
+
+        balanceLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.185));
+        balanceSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.25));
+
+        rateLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.185));
+        rateSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.25));
+
         //
         hBox1.prefWidthProperty().bind(widthProperty());
         hBox2.prefWidthProperty().bind(widthProperty());
@@ -100,8 +113,8 @@ public class PlayerControllerView extends View {
         prevButton.setGraphic(new ImageView(prevImage));
         pauseButton.setGraphic(new ImageView(pauseImage));
         repeatButton.setGraphic(new ImageView(repeatImage));
-        forwardButton.setGraphic(new ImageView(forwardImage));
-        backwardButton.setGraphic(new ImageView(backwardImage));
+//        forwardButton.setGraphic(new ImageView(forwardImage));
+//        backwardButton.setGraphic(new ImageView(backwardImage));
         playlistButton.setGraphic(new ImageView(playlistImage));
         shuffleButton.setGraphic(new ImageView(shuffleImage));
 
@@ -141,17 +154,17 @@ public class PlayerControllerView extends View {
         return shuffleButton;
     }
 
-    public Button getFullScreenButton() {
-        return fullScreenButton;
-    }
+//    public Button getFullScreenButton() {
+//        return fullScreenButton;
+//    }
 
-    public Button getBackwardButton() {
-        return backwardButton;
-    }
-
-    public Button getForwardButton() {
-        return forwardButton;
-    }
+//    public Button getBackwardButton() {
+//        return backwardButton;
+//    }
+//
+//    public Button getForwardButton() {
+//        return forwardButton;
+//    }
 
     public Button getPlaylistButton() {
         return playlistButton;
@@ -165,4 +178,19 @@ public class PlayerControllerView extends View {
         return volumeSlider;
     }
 
+    public Label getBalanceLevelLabel() {
+        return balanceLevelLabel;
+    }
+
+    public Label getRateLevelLabel() {
+        return rateLevelLabel;
+    }
+
+    public Slider getBalanceSlider() {
+        return balanceSlider;
+    }
+
+    public Slider getRateSlider() {
+        return rateSlider;
+    }
 }

@@ -16,19 +16,19 @@ public final class Settings {
     /**
      * APPLICATION THEME
      */
-    private StringProperty theme;
+    private static StringProperty theme;
     /**
      * APPLICATION FULL SCREEN
      */
-    private BooleanProperty fullScreen;
+    private static BooleanProperty fullScreen;
     /**
      * STAGE STYLE
      */
-    private StageStyle stageStyle;
+    private static StageStyle stageStyle;
     /**
      * application font
      */
-    private Font font;
+    private static Font font;
 
     // this classes instance
     private static Settings settings;
@@ -46,29 +46,21 @@ public final class Settings {
         }
         return settings;
     }
-    /**
-     *
-     * @return stage style
-     */
 
-    public StageStyle getStageStyle() {
-        return stageStyle;
-    }
 
-    /**
-     *
-     * @return theme property
-     */
-    public StringProperty themeProperty() {
+    public static StringProperty themeProperty() {
         return theme;
     }
 
-    /**
-     *
-     * @return application font
-     */
+    public static StageStyle getStageStyle() {
+        return stageStyle;
+    }
 
-    public Font getFont() {
+    public static Font getFont() {
         return font;
+    }
+
+    public static String getTheme() {
+        return theme.get();
     }
 }

@@ -4,17 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e8765e7b-a5cf-4227-81fd-0b9ac36663aa" name="Changes" comment="fxplayer project day 5">
+    <list default="true" id="e8765e7b-a5cf-4227-81fd-0b9ac36663aa" name="Changes" comment="fxplayer project day 6">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/componentcontrollers/ToolbarController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/application.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/App.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/JfxApplication.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/application.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/PlayerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/PlayerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/PlayerControllerComponentController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/PlayerControllerComponentController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/SettingsTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/SettingsTabController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/StringConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/StringConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/PlayerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/PlayerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/SearchBarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/SearchBarView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/PlayerControllerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/PlayerControllerView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/SearchBarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/ToolBarView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/SettingsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/SettingsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/stylesheets/light.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/stylesheets/light.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +70,7 @@
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.46091953",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -287,7 +292,14 @@
       <option name="project" value="LOCAL" />
       <updated>1685899769580</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="fxplayer project day 6">
+      <created>1685955605338</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1685955605338</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -307,7 +319,8 @@
     <MESSAGE value="fxplayer project day 3" />
     <MESSAGE value="fxplayer project day 4" />
     <MESSAGE value="fxplayer project day 5" />
-    <option name="LAST_COMMIT_MESSAGE" value="fxplayer project day 5" />
+    <MESSAGE value="fxplayer project day 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="fxplayer project day 6" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
