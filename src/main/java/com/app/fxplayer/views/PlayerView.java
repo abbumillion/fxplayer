@@ -5,6 +5,8 @@ import com.app.fxplayer.views.components.ToolBarView;
 import com.app.fxplayer.views.tabs.*;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 /**
  *
@@ -39,6 +41,9 @@ public class PlayerView extends View {
     // toolbar sub view
     private ToolBarView toolBarView;
 
+    // root v box
+    private VBox rootVBox;
+
     /**
      *
      */
@@ -68,6 +73,8 @@ public class PlayerView extends View {
         // components
         playerControllerView = new PlayerControllerView();
         toolBarView = new ToolBarView();
+        // root
+        rootVBox = new VBox(0.0);
         //
     }
 
@@ -76,7 +83,7 @@ public class PlayerView extends View {
      */
     @Override
     public void build() {
-        //
+        // set tabs to sub views
         myMusicTab.setContent(myMusicView);
         nowPlayingTab.setContent(nowPlayingView);
         mostPlayedTab.setContent(mostPlayedView);
@@ -86,9 +93,13 @@ public class PlayerView extends View {
         artistsTab.setContent(artistsView);
         visualizationTab.setContent(visualizationView);
         settingsTab.setContent(settingsView);
+        // add tabs to tab pane
         tabPane.getTabs().addAll(myMusicTab,nowPlayingTab,mostPlayedTab,recentPlaysTab,
                 recentlyAddedTab,artistsTab,albumsTab,visualizationTab,settingsTab);
-        getChildren().addAll(toolBarView,tabPane,playerControllerView);
+        // add all to the root
+        rootVBox.getChildren().addAll(toolBarView,tabPane,playerControllerView);
+        //add root to the view
+        getChildren().addAll(rootVBox);
         //
     }
 
@@ -106,14 +117,17 @@ public class PlayerView extends View {
     @Override
     public void bind() {
         //
-        toolBarView.prefWidthProperty().bind(widthProperty().multiply(.155));
-        toolBarView.prefHeightProperty().bind(heightProperty().multiply(.1125));
+        toolBarView.prefWidthProperty().bind(rootVBox.widthProperty());
+        toolBarView.prefHeightProperty().bind(rootVBox.heightProperty().multiply(.051));
         //
-        tabPane.prefWidthProperty().bind(widthProperty());
-        tabPane.prefHeightProperty().bind(heightProperty().multiply(.85));
+        tabPane.prefWidthProperty().bind(rootVBox.widthProperty());
+        tabPane.prefHeightProperty().bind(rootVBox.heightProperty().multiply(.85));
         //
-        playerControllerView.prefWidthProperty().bind(widthProperty());
-        playerControllerView.prefHeightProperty().bind(heightProperty().multiply(.075));
+        playerControllerView.prefWidthProperty().bind(rootVBox.widthProperty());
+        playerControllerView.prefHeightProperty().bind(rootVBox.heightProperty().multiply(.05));
+        // root
+        rootVBox.prefWidthProperty().bind(widthProperty());
+        rootVBox.prefHeightProperty().bind(heightProperty());
         //
     }
     @Override

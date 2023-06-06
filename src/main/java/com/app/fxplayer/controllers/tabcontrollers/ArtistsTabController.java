@@ -14,7 +14,7 @@ public class ArtistsTabController extends Controller {
 
     @Override
     public void register() {
-//        artistsView.getArtistListView().itemsProperty().bind(Collector.getFileListview().itemsProperty());
+        artistsView.getArtistListView().itemsProperty().bind(Collector.getFileListview().itemsProperty());
     }
 
     @Override

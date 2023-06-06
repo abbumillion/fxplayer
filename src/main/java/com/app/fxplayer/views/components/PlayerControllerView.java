@@ -42,9 +42,9 @@ public class PlayerControllerView extends View {
 //        fullScreenButton = new Button("*");
         //sliders
         durationSlider = new JFXSlider();
-        volumeSlider = new JFXSlider();
-        balanceSlider = new JFXSlider();
-        rateSlider = new JFXSlider();
+        volumeSlider = new JFXSlider(0,100,10);
+        balanceSlider = new JFXSlider(-1,1,.1);
+        rateSlider = new JFXSlider(0,8,.25);
         //imageview
         nextImage = new Image(new File("src/main/resources/images/next.png").toURI().toASCIIString());
         prevImage = new Image(new File("src/main/resources/images/previous.png").toURI().toASCIIString());
@@ -77,30 +77,30 @@ public class PlayerControllerView extends View {
         hBox1.setAlignment(Pos.CENTER);
         hBox2.setAlignment(Pos.CENTER);
         hBox1.setSpacing(2.0);
-        hBox2.setSpacing(2.75);
+        hBox2.setSpacing(2.275);
     }
 
     @Override
     public void bind() {
         //hbox1
-        startDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.025));
-        endDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.025));
-        durationSlider.prefWidthProperty().bind(hBox1.widthProperty().multiply(.95));
+        startDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.02));
+        endDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.02));
+        durationSlider.prefWidthProperty().bind(hBox1.widthProperty().multiply(.96));
         //buttons in hbox2
-        shuffleButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
-        repeatButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
-        prevButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
-        pauseButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
-        nextButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.15));
+        shuffleButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1135));
+        repeatButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1135));
+        prevButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1135));
+        pauseButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1135));
+        nextButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1135));
         // sliders in hbox2
-        volumeLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.115));
-        volumeSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.25));
+        volumeLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
+        volumeSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.2125));
 
-        balanceLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.115));
-        balanceSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.25));
+        balanceLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
+        balanceSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.2125));
 
-        rateLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.115));
-        rateSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.25));
+        rateLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
+        rateSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.2125));
 
         //
         hBox1.prefWidthProperty().bind(widthProperty());

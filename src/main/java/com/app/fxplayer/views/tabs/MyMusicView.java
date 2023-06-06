@@ -47,13 +47,14 @@ public class MyMusicView extends View {
     @Override
     public void align() {
         setAlignment(Pos.CENTER);
+        imageView.setPreserveRatio(true);
     }
 
     @Override
     public void bind() {
         //imageview
         imageView.fitWidthProperty().bind(hBox.widthProperty().multiply(.4));
-        imageView.fitHeightProperty().bind(hBox.heightProperty());
+        imageView.fitHeightProperty().bind(hBox.heightProperty().multiply(.999999));
         //tableview
         tableView.prefWidthProperty().bind(hBox.widthProperty().multiply(.6));
         tableView.prefHeightProperty().bind(hBox.heightProperty());

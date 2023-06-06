@@ -26,9 +26,6 @@ public class application extends Application {
     public void init() throws Exception {
         super.init();
         playerController = new PlayerController(new PlayerView());
-       // playerController.setApplicationData( new ApplicationData());
-       // playerController.setSettings(new Settings());
-       // playerController.setApplicationStates(ApplicationStates.READY);
         new Thread(new Collector()).start();
     }
 

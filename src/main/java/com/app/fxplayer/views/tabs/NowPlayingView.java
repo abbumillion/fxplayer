@@ -26,15 +26,19 @@ public class NowPlayingView extends View {
     @Override
     public void align() {
         setAlignment(Pos.CENTER);
+        imageView.setPreserveRatio(true);
     }
 
     @Override
     public void bind() {
-        imageView.fitWidthProperty().bind(widthProperty().multiply(.88));
-        imageView.fitHeightProperty().bind(heightProperty().multiply(.84));
+        //
+        imageView.fitWidthProperty().bind(widthProperty().multiply(.8));
+        imageView.fitHeightProperty().bind(heightProperty().multiply(.75));
+        //
     }
     @Override
     public void styling() {
 
     }
+
 }

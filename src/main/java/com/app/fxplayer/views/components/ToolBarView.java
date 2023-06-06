@@ -1,18 +1,37 @@
 package com.app.fxplayer.views.components;
 
+import com.app.fxplayer.helpers.StringConstants;
 import com.app.fxplayer.views.View;
 import com.jfoenix.controls.JFXButton;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
 import org.controlsfx.control.ToggleSwitch;
 
+import java.io.File;
 import java.util.Date;
 
+/**
+ * application toolbar view class
+ * this view class is used on upper
+ * top of the main view
+ * will contain
+ * application logo
+ * search text field
+ * sign in button
+ * sign up button
+ * night mode switch
+ * optionals
+ * date label
+ * some kind of equalizer
+ */
 public class ToolBarView extends View {
+    // icon for the software
+    private ImageView softwareIconImage;
     // theme toggle button for night/light mode
     private ToggleSwitch nightModeToggleSwitchButton;
     //sign in button
@@ -22,52 +41,70 @@ public class ToolBarView extends View {
     /**
      * date label
      */
-    private Label dateLabel;
+    private Label logoLabel,dateLabel;
     /**
      * hbox search text field container
      */
-    private HBox hBox;
+    private HBox rootHbox;
     @Override
     public void init() {
+        softwareIconImage = new ImageView(new File(StringConstants.getSystemIcon()).toURI().toASCIIString());
         searchTextField = new TextField("search something here");
-        dateLabel = new Label(new Date().toGMTString());
+        // labels
+        logoLabel = new Label(StringConstants.getSystemTitle(),softwareIconImage);
+        dateLabel = new Label(new Date().toLocaleString());
+        // buttons
         signInButton = new JFXButton("Sign In");
         signUpButton = new JFXButton("Sign Up");
+        // toggle switch
         nightModeToggleSwitchButton = new ToggleSwitch("Night Mode");
         fullScreenButton = new JFXButton("Full Screen");
-        hBox = new HBox(20);
+        // root
+        rootHbox = new HBox(20);
     }
 
     @Override
     public void build() {
         // create a layout for this toolbar
-        hBox.getChildren().addAll(dateLabel,searchTextField,fullScreenButton,signInButton,signUpButton,nightModeToggleSwitchButton);
-        getChildren().addAll(hBox);
+        rootHbox.getChildren().addAll(logoLabel,dateLabel,searchTextField,fullScreenButton,signInButton,signUpButton,nightModeToggleSwitchButton);
+        getChildren().addAll(rootHbox);
     }
 
     @Override
     public void align() {
-        setAlignment(Pos.CENTER);
-        hBox.setAlignment(Pos.CENTER);
+        setAlignment(Pos.CENTER_LEFT);
+        dateLabel.setAlignment(Pos.CENTER);
+        rootHbox.setAlignment(Pos.CENTER);
+        softwareIconImage.setPreserveRatio(true);
+        logoLabel.setGraphicTextGap(7.5);
     }
 
     @Override
     public void bind() {
         //
-        dateLabel.prefWidthProperty().bind(hBox.widthProperty().multiply(.114));
-        dateLabel.prefHeightProperty().bind(hBox.heightProperty().multiply(.75));
+        softwareIconImage.fitWidthProperty().bind(logoLabel.widthProperty().multiply(.4680));
+        softwareIconImage.fitHeightProperty().bind(logoLabel.heightProperty().multiply(.860));
         //
-        searchTextField.prefWidthProperty().bind(hBox.widthProperty().multiply(.3444));
-        searchTextField.prefHeightProperty().bind(hBox.heightProperty());
+        logoLabel.prefWidthProperty().bind(rootHbox.widthProperty().multiply(.0714));
+        logoLabel.prefHeightProperty().bind(rootHbox.heightProperty().multiply(.15));
         //
-        signInButton.prefWidthProperty().bind(hBox.widthProperty().multiply(.0844));
-        signInButton.prefHeightProperty().bind(hBox.heightProperty().multiply(.75));
+        dateLabel.prefWidthProperty().bind(rootHbox.widthProperty().multiply(.1214));
+        dateLabel.prefHeightProperty().bind(rootHbox.heightProperty().multiply(.1));
         //
-        signUpButton.prefWidthProperty().bind(hBox.widthProperty().multiply(.0844));
-        signUpButton.prefHeightProperty().bind(hBox.heightProperty().multiply(.75));
+        searchTextField.prefWidthProperty().bind(rootHbox.widthProperty().multiply(.3344));
+        searchTextField.prefHeightProperty().bind(rootHbox.heightProperty());
         //
-        hBox.prefWidthProperty().bind(widthProperty().multiply(.65));
-        hBox.prefHeightProperty().bind(heightProperty().multiply(.3656));
+        signInButton.prefWidthProperty().bind(rootHbox.widthProperty().multiply(.0844));
+        signInButton.prefHeightProperty().bind(rootHbox.heightProperty().multiply(.5));
+        //
+        signUpButton.prefWidthProperty().bind(rootHbox.widthProperty().multiply(.0844));
+        signUpButton.prefHeightProperty().bind(rootHbox.heightProperty().multiply(.5));
+        // toggle switch
+        nightModeToggleSwitchButton.prefWidthProperty().bind(rootHbox.widthProperty().multiply(.0544));
+        nightModeToggleSwitchButton.prefHeightProperty().bind(rootHbox.heightProperty().multiply(.5));
+        //
+        rootHbox.prefWidthProperty().bind(widthProperty());
+        rootHbox.prefHeightProperty().bind(heightProperty().multiply(.075));
         //
 
     }
@@ -105,10 +142,10 @@ public class ToolBarView extends View {
 
     /**
      *
-     * @return date label
+     * @return logo label
      */
-    public Label getDateLabel() {
-        return dateLabel;
+    public Label getLogoLabel() {
+        return logoLabel;
     }
 
     /**

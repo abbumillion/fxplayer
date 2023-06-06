@@ -6,9 +6,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
-import javafx.stage.StageStyle;
-
 import java.io.File;
+import javafx.stage.StageStyle;
 
 /**
  * base abstract class for all
@@ -19,15 +18,20 @@ public abstract class View extends VBox implements Viewable {
     public View(){
         getReady();
         setAlignment(Pos.CENTER);
-        setSpacing(7.25);
-        setPadding(new Insets(7.25));
+        setSpacing(0.25);
+        setPadding(new Insets(5.25));
     }
     public void getReady()
     {
+        //
         init();
+        //
         build();
+        //
         bind();
+        //
         align();
+        //
         styling();
     }
 
@@ -45,10 +49,11 @@ public abstract class View extends VBox implements Viewable {
     public void showView()
     {
         Scene scene = new Scene(this,WIDTH,HEIGHT);
-      //  scene.getStylesheets().add(new File(StringConstants.getSystemTheme()).toURI().toASCIIString());
+        scene.getStylesheets().add(new File(StringConstants.getSystemTheme()).toURI().toASCIIString());
         STAGE.setScene(scene);
         STAGE.initModality(Modality.APPLICATION_MODAL);
-        STAGE.initStyle(StageStyle.UNDECORATED);
+        STAGE.setTitle(StringConstants.getSystemTitle());
+     //   STAGE.initStyle(StageStyle.UNDECORATED);
         STAGE.show();
     }
 }

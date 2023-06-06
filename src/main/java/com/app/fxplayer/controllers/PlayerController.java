@@ -64,7 +64,7 @@ public class PlayerController extends Controller{
         playerControllerComponentController = new PlayerControllerComponentController(playerView.getPlayerControllerView());
         playerControllerComponentController.register();
         playerControllerComponentController.start();
-        // tool-bar controller
+        // toolbar controller
         toolbarController = new ToolbarController(playerView.getToolBarView());
         toolbarController.register();
         toolbarController.start();
@@ -74,10 +74,92 @@ public class PlayerController extends Controller{
         recentPlaysTabController.start();
     }
 
+    /**
+     * controller starter
+     */
     @Override
     public void start() {
         playerView.showView();
+    }
 
+    /**
+     *
+     * @return visualization tab controller
+     */
+    public VisualizationTabController getVisualizationTabController() {
+        return visualizationTabController;
+    }
+
+    /**
+     *
+     * @return now playing tab controller
+     */
+    public NowPlayingTabController getNowPlayingTabController() {
+        return nowPlayingTabController;
+    }
+
+    /**
+     *
+     * @return my music tab controller
+     */
+    public MyMusicTabController getMyMusicTabController() {
+        return myMusicTabController;
+    }
+
+    /**
+     *
+     * @return albums tab controller
+     */
+    public AlbumsTabController getAlbumsTabController() {
+        return albumsTabController;
+    }
+
+    /**
+     *
+     * @return artists tab controller
+     */
+    public ArtistsTabController getArtistsTabController() {
+        return artistsTabController;
+    }
+
+    /**
+     *
+     * @return settings tab controller
+     */
+    public SettingsTabController getSettingsTabController() {
+        return settingsTabController;
+    }
+
+    /**
+     *
+     * @return player view instance
+     */
+    public PlayerView getPlayerView() {
+        return playerView;
+    }
+
+    /**
+     *
+     * @return toolbar controller
+     */
+    public ToolbarController getToolbarController() {
+        return toolbarController;
+    }
+
+    /**
+     *
+     * @return player controller component controller
+     */
+    public PlayerControllerComponentController getPlayerControllerComponentController() {
+        return playerControllerComponentController;
+    }
+
+    /**
+     *
+     * @return recent plays tab controller
+     */
+    public RecentPlaysTabController getRecentPlaysTabController() {
+        return recentPlaysTabController;
     }
 
 }

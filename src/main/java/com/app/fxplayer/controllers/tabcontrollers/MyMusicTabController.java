@@ -16,9 +16,9 @@ public class MyMusicTabController extends Controller {
 
     @Override
     public void register() {
-        myMusicView.getTitleColumn().setCellValueFactory(new PropertyValueFactory<Song,String>("title"));
-        myMusicView.getArtistColumn().setCellValueFactory(new PropertyValueFactory<Song,String>("artist"));
-        myMusicView.getAlbumColumn().setCellValueFactory(new PropertyValueFactory<Song,String>("album"));
+      //  myMusicView.getTitleColumn().setCellValueFactory(new PropertyValueFactory<>("title"));
+      //  myMusicView.getArtistColumn().setCellValueFactory(new PropertyValueFactory<>("artist"));
+      //  myMusicView.getAlbumColumn().setCellValueFactory(new PropertyValueFactory<>("album"));
 //        myMusicView.getIndexColumn().setCellValueFactory(new PropertyValueFactory<>("title"));
     }
 
