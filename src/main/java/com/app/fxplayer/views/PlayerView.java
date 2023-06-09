@@ -5,11 +5,11 @@ import com.app.fxplayer.views.components.ToolBarView;
 import com.app.fxplayer.views.tabs.*;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 /**
- *
+ * PLAYER VIEW CLASS
+ * CONTAINS ALL UI'S
  */
 public class PlayerView extends View {
     //

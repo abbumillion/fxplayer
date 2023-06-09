@@ -3,6 +3,7 @@ package com.app.fxplayer.views.tabs;
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.views.View;
 import javafx.geometry.Pos;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
@@ -15,21 +16,19 @@ public class MyMusicView extends View {
     //
     private ImageView imageView;
     //
-    private TableView<Song> tableView;
-    //
-    private TableColumn<Song,String> indexColumn,titleColumn,sizeColumn,artistColumn,albumColumn;
+    private ListView<Song> songListView;
     //
     private HBox hBox;
     @Override
     public void init() {
         //
-        tableView = new TableView<>();
+        songListView = new ListView<>();
         //
-        indexColumn = new TableColumn<>("index");
-        titleColumn = new TableColumn<>("title");
-        sizeColumn = new TableColumn<>("Size");
-        artistColumn = new TableColumn<>("artist");
-        albumColumn = new TableColumn<>("album");
+//        indexColumn = new TableColumn<>("index");
+//        titleColumn = new TableColumn<>("title");
+//        sizeColumn = new TableColumn<>("Size");
+//        artistColumn = new TableColumn<>("artist");
+//        albumColumn = new TableColumn<>("album");
         //
         imageView = new ImageView(new Image(new File("src/main/resources/images/sample.jpg").toURI().toASCIIString()));
         //
@@ -39,8 +38,8 @@ public class MyMusicView extends View {
 
     @Override
     public void build() {
-        tableView.getColumns().addAll(indexColumn,titleColumn,sizeColumn,artistColumn,albumColumn);
-        hBox.getChildren().addAll(imageView,tableView);
+//        tableView.getColumns().addAll(indexColumn,titleColumn,sizeColumn,artistColumn,albumColumn);
+        hBox.getChildren().addAll(imageView,songListView);
         getChildren().addAll(hBox);
     }
 
@@ -56,14 +55,14 @@ public class MyMusicView extends View {
         imageView.fitWidthProperty().bind(hBox.widthProperty().multiply(.4));
         imageView.fitHeightProperty().bind(hBox.heightProperty().multiply(.999999));
         //tableview
-        tableView.prefWidthProperty().bind(hBox.widthProperty().multiply(.6));
-        tableView.prefHeightProperty().bind(hBox.heightProperty());
+        songListView.prefWidthProperty().bind(hBox.widthProperty().multiply(.6));
+        songListView.prefHeightProperty().bind(hBox.heightProperty());
         //
-        indexColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
-        albumColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
-        artistColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
-        sizeColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
-        titleColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
+//        indexColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
+//        albumColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
+//        artistColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
+//        sizeColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
+//        titleColumn.prefWidthProperty().bind(tableView.prefWidthProperty().multiply(.2));
         //
         hBox.prefWidthProperty().bind(widthProperty());
         hBox.prefHeightProperty().bind(heightProperty());
@@ -74,29 +73,34 @@ public class MyMusicView extends View {
 
     }
 
+//
+//    public TableColumn<Song, String> getIndexColumn() {
+//        return indexColumn;
+//    }
+//
+//    public TableView<Song> getTableView() {
+//        return tableView;
+//    }
+//
+//    public TableColumn<Song, String> getAlbumColumn() {
+//        return albumColumn;
+//    }
+//
+//    public TableColumn<Song, String> getTitleColumn() {
+//        return titleColumn;
+//    }
+//
+//    public TableColumn<Song, String> getArtistColumn() {
+//        return artistColumn;
+//    }
+//
+//    public TableColumn<Song, String> getSizeColumn() {
+//        return sizeColumn;
+//    }
 
-    public TableColumn<Song, String> getIndexColumn() {
-        return indexColumn;
-    }
 
-    public TableView<Song> getTableView() {
-        return tableView;
-    }
-
-    public TableColumn<Song, String> getAlbumColumn() {
-        return albumColumn;
-    }
-
-    public TableColumn<Song, String> getTitleColumn() {
-        return titleColumn;
-    }
-
-    public TableColumn<Song, String> getArtistColumn() {
-        return artistColumn;
-    }
-
-    public TableColumn<Song, String> getSizeColumn() {
-        return sizeColumn;
+    public ListView<Song> getSongListView() {
+        return songListView;
     }
 
     public ImageView getImageView() {

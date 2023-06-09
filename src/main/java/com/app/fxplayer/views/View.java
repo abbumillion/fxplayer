@@ -6,8 +6,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
+
 import java.io.File;
-import javafx.stage.StageStyle;
 
 /**
  * base abstract class for all

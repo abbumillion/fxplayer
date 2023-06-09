@@ -1,9 +1,7 @@
 package com.app.fxplayer.models;
 
 import javafx.beans.InvalidationListener;
-import javafx.concurrent.Task;
 import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 
 import java.io.File;
@@ -56,7 +54,7 @@ public class Collector  implements Runnable{
                         try {
                             //
                             fileListview.getItems().add(new Song(path));
-                           // songMaker(path);
+                            songMaker(path);
                             //
                         }catch (Exception exception)
                         {
@@ -74,10 +72,11 @@ public class Collector  implements Runnable{
             Media media = new Media(new File(path).toURI().toASCIIString());
             media.getMetadata().addListener((InvalidationListener) observable -> {
                 if (observable != null) {
-                    Map<String, String> map = checkMetadata((Map) observable);
-                    System.out.println(" 1.title  : -->" + map.get("title"));
-                    System.out.println(" 2.artist : -->" + map.get("artist"));
-                    System.out.println(" 3.album  : -->" + map.get("album"));
+                   // Map<String, String> map = checkMetadata((Map) observable);
+                    System.out.println(observable);
+                  //  System.out.println(" 1.title  : -->" + map.get("title"));
+                 //   System.out.println(" 2.artist : -->" + map.get("artist"));
+                //    System.out.println(" 3.album  : -->" + map.get("album"));
 //                System.out.println(" 4.image  : -->"+ (Image)map.get("image").toString());
                 }
             });

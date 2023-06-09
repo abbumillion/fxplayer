@@ -1,6 +1,5 @@
 package com.app.fxplayer.views.tabs;
 
-import com.app.fxplayer.models.Album;
 import com.app.fxplayer.views.View;
 import javafx.geometry.Pos;
 import javafx.scene.control.ListView;

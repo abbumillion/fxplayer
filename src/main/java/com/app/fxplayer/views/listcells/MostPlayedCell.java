@@ -1,7 +1,6 @@
 package com.app.fxplayer.views.listcells;
 
 import com.app.fxplayer.models.Song;
-import javafx.scene.control.ListCell;
 
 /**
  * MOST PLAYED SONGS FOR

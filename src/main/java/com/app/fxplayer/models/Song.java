@@ -1,13 +1,12 @@
 package com.app.fxplayer.models;
 
-import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.util.Duration;
+
 import java.io.File;
-import java.util.Map;
 
 /**
  * SONG DATA CLASS
