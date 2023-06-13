@@ -2,6 +2,7 @@ package com.app.fxplayer.application;
 
 import com.app.fxplayer.controllers.maincontrollers.PlayerController;
 import com.app.fxplayer.models.collectors.Collector;
+import com.app.fxplayer.models.collectors.FileExtractionManager;
 import com.app.fxplayer.views.PlayerView;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -25,8 +26,32 @@ public class application extends Application {
     @Override
     public void init() throws Exception {
         super.init();
-        playerController = new PlayerController(new PlayerView());
-        new Thread(new Collector()).start();
+        startBackgroundTask(System.getenv("os"));
+      //  playerController = new PlayerController(new PlayerView());
+      //  new Thread(new Collector()).start();
+    }
+
+    private void startBackgroundTask(String os) {
+
+
+        String systemOsName = os;
+        // check the os before
+        // executing the background task
+
+
+        if (systemOsName == "Windows_NT")
+        {
+           // NowStartTheBackgroundTask();
+            // we need a manager and a crew
+            //
+            FileExtractionManager fileExtractionManager = FileExtractionManager.getFileExtractionManager();
+            fileExtractionManager.initExtraction();
+        }
+        else if (systemOsName == "linux"){
+            System.out.println("Windows Only App bro");
+        }
+
+
     }
 
     /**
@@ -36,8 +61,8 @@ public class application extends Application {
      */
     @Override
     public void start(Stage stage) throws IOException {
-        playerController.register();
-        playerController.start();
+       // playerController.register();
+      //  playerController.start();
 
       //  playerController.setApplicationStates(ApplicationStates.RUNNING);
     }
