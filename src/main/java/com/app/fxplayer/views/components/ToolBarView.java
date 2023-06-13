@@ -48,6 +48,7 @@ public class ToolBarView extends View {
     private HBox rootHbox;
     @Override
     public void init() {
+        //
         softwareIconImage = new ImageView(new File(StringConstants.getSystemIcon()).toURI().toASCIIString());
         searchTextField = new TextField("search something here");
         // labels
@@ -57,10 +58,11 @@ public class ToolBarView extends View {
         signInButton = new JFXButton("Sign In");
         signUpButton = new JFXButton("Sign Up");
         // toggle switch
-        nightModeToggleSwitchButton = new ToggleSwitch("Night Mode");
+        nightModeToggleSwitchButton = new ToggleSwitch();
         fullScreenButton = new JFXButton("Full Screen");
         // root
         rootHbox = new HBox(20);
+        //
     }
 
     @Override
@@ -101,7 +103,7 @@ public class ToolBarView extends View {
         signUpButton.prefHeightProperty().bind(rootHbox.heightProperty().multiply(.5));
         // toggle switch
         nightModeToggleSwitchButton.prefWidthProperty().bind(rootHbox.widthProperty().multiply(.0544));
-        nightModeToggleSwitchButton.prefHeightProperty().bind(rootHbox.heightProperty().multiply(.5));
+        nightModeToggleSwitchButton.prefHeightProperty().bind(rootHbox.heightProperty().multiply(.65));
         //
         rootHbox.prefWidthProperty().bind(widthProperty());
         rootHbox.prefHeightProperty().bind(heightProperty().multiply(.075));

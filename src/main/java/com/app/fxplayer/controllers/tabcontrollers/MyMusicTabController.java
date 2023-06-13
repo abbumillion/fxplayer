@@ -1,11 +1,10 @@
 package com.app.fxplayer.controllers.tabcontrollers;
 
-import com.app.fxplayer.controllers.Controller;
-import com.app.fxplayer.models.Collector;
+import com.app.fxplayer.controllers.maincontrollers.Controller;
+import com.app.fxplayer.models.collectors.Collector;
 import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.listcells.SongCell;
 import com.app.fxplayer.views.tabs.MyMusicView;
-import javafx.scene.control.cell.PropertyValueFactory;
 
 public class MyMusicTabController extends Controller {
     private final MyMusicView myMusicView;

@@ -1,5 +1,6 @@
-package com.app.fxplayer.models;
+package com.app.fxplayer.models.collectors;
 
+import com.app.fxplayer.models.models.Song;
 import javafx.beans.InvalidationListener;
 import javafx.scene.control.ListView;
 import javafx.scene.media.Media;

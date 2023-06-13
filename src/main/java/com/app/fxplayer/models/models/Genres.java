@@ -1,4 +1,4 @@
-package com.app.fxplayer.helpers;
+package com.app.fxplayer.models.models;
 
 public enum Genres {
     RAP,

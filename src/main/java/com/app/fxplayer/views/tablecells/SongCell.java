@@ -1,6 +1,6 @@
 package com.app.fxplayer.views.tablecells;
 
-import com.app.fxplayer.models.Song;
+import com.app.fxplayer.models.models.Song;
 import javafx.scene.control.TableCell;
 
 /**

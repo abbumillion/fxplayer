@@ -1,7 +1,7 @@
 package com.app.fxplayer.application;
 
-import com.app.fxplayer.controllers.PlayerController;
-import com.app.fxplayer.models.Collector;
+import com.app.fxplayer.controllers.maincontrollers.PlayerController;
+import com.app.fxplayer.models.collectors.Collector;
 import com.app.fxplayer.views.PlayerView;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -52,7 +52,7 @@ public class application extends Application {
      * @param args
      */
     public static void main(String[] args) {
-        System.out.println(15-4/.25+2);
+//        System.out.println(15-4/.25+2);
         launch();
     }
 }

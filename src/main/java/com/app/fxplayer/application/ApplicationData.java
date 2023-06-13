@@ -1,9 +1,9 @@
 package com.app.fxplayer.application;
 
-import com.app.fxplayer.models.Album;
-import com.app.fxplayer.models.Artist;
-import com.app.fxplayer.models.Playlist;
-import com.app.fxplayer.models.Song;
+import com.app.fxplayer.models.models.Album;
+import com.app.fxplayer.models.models.Artist;
+import com.app.fxplayer.models.models.Playlist;
+import com.app.fxplayer.models.models.Song;
 import javafx.collections.ObservableList;
 
 /**
