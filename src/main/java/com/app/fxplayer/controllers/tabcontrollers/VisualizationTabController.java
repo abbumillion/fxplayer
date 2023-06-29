@@ -9,12 +9,7 @@ public class VisualizationTabController extends Controller {
     }
 
     @Override
-    public void register() {
-
-    }
-
-    @Override
-    public void start() {
+    public void init() {
 
     }
 }

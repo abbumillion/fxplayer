@@ -1,4 +1,4 @@
-package com.app.fxplayer.application;
+package com.app.fxplayer.application.config;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;

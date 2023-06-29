@@ -16,7 +16,7 @@ public class ToolbarController extends Controller {
     }
 
     @Override
-    public void register() {
+    public void init() {
         toolBarView.getFullScreenButton().setOnAction(actionEvent -> toolBarView.setFullScreen());
         toolBarView.getSearchTextField().textProperty().addListener((observableValue, s, t1) -> {
             if (!t1.isEmpty())
@@ -26,11 +26,5 @@ public class ToolbarController extends Controller {
                 System.out.println(t1);
             }
         });
-
-    }
-
-    @Override
-    public void start() {
-
     }
 }

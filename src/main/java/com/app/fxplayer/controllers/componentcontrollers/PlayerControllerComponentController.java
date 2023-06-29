@@ -12,7 +12,7 @@ public class PlayerControllerComponentController extends Controller {
     }
 
     @Override
-    public void register() {
+    public void init() {
 //        playerControllerView.getFullScreenButton().setOnAction(actionEvent -> {
 //            playerControllerView.setFullScreen();
 //        });
@@ -25,8 +25,5 @@ public class PlayerControllerComponentController extends Controller {
 //        playerControllerView.getForwardButton().setOnAction(actionEvent -> {System.out.println("forward");});
     }
 
-    @Override
-    public void start() {
 
-    }
 }

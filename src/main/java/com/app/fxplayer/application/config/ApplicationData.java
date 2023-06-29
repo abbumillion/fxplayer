@@ -1,4 +1,4 @@
-package com.app.fxplayer.application;
+package com.app.fxplayer.application.config;
 
 import com.app.fxplayer.models.models.Album;
 import com.app.fxplayer.models.models.Artist;

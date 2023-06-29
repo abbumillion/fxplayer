@@ -16,12 +16,7 @@ public class RecentPlaysTabController extends Controller {
     }
 
     @Override
-    public void register() {
-        recentPlaysView.getRecentPlaysJFXListView().itemsProperty().bind(Collector.getFileListview().itemsProperty());
-    }
-
-    @Override
-    public void start() {
+    public void init() {
 
     }
 }

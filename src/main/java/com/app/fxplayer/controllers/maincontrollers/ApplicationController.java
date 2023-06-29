@@ -10,15 +10,10 @@ public class ApplicationController extends Controller{
         super(view);
     }
 
-
-
     @Override
-    public void register() {
+    public void init() {
 
     }
 
-    @Override
-    public void start() {
 
-    }
 }

@@ -5,4 +5,5 @@ module com.app.fxplayer {
     requires com.jfoenix;
     requires org.controlsfx.controls;
     exports com.app.fxplayer.application;
+    exports com.app.fxplayer.application.config;
 }

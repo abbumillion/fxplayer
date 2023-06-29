@@ -12,12 +12,9 @@ public class NowPlayingTabController extends Controller {
     }
 
     @Override
-    public void register() {
+    public void init() {
 
     }
 
-    @Override
-    public void start() {
 
-    }
 }
