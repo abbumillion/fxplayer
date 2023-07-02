@@ -1,6 +1,7 @@
 package com.app.fxplayer.application;
 
 import com.app.fxplayer.controllers.viewcontroller.PlayerController;
+import com.app.fxplayer.models.collectors.Collector;
 import com.app.fxplayer.views.PlayerView;
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -13,12 +14,14 @@ public class FXPlayerApplication extends Application {
 
     @Override
     public void init() throws Exception {
+
         playerController = new PlayerController(new PlayerView());
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         playerController.init();
+
     }
 
     @Override

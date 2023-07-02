@@ -9,7 +9,7 @@ public final class StringConstants {
     //
     private static final String systemDescription = "Javafx Audio Player Project";
     //
-    private static final String systemTheme = "src/main/resources/stylesheets/dark.css";
+    private static final String systemTheme = "src/main/resources/stylesheets/darkc.css";
     // app icon
     private static final String systemIcon = "src/main/resources/icons/fx-player.png";
 

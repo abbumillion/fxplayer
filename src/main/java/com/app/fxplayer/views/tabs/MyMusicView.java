@@ -2,11 +2,16 @@ package com.app.fxplayer.views.tabs;
 
 import com.app.fxplayer.models.models.Song;
 import com.app.fxplayer.views.View;
+import com.app.fxplayer.views.listcells.SongCell;
 import javafx.geometry.Pos;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.util.Callback;
 
 import java.io.File;
 
@@ -15,6 +20,10 @@ public class MyMusicView extends View {
     private ImageView imageView;
     //
     private ListView<Song> songListView;
+    //
+//    private TableColumn<Song, String> indexColumn,titleColumn,sizeColumn,artistColumn,albumColumn;
+//    //
+//    private TableView<Song> tableView;
     //
     private HBox hBox;
     @Override
@@ -27,6 +36,7 @@ public class MyMusicView extends View {
 //        sizeColumn = new TableColumn<>("Size");
 //        artistColumn = new TableColumn<>("artist");
 //        albumColumn = new TableColumn<>("album");
+//        tableView = new TableView<>();
         //
         imageView = new ImageView(new Image(new File("src/main/resources/images/sample.jpg").toURI().toASCIIString()));
         //
@@ -51,7 +61,7 @@ public class MyMusicView extends View {
     public void bind() {
         //imageview
         imageView.fitWidthProperty().bind(hBox.widthProperty().multiply(.4));
-        imageView.fitHeightProperty().bind(hBox.heightProperty().multiply(.999999));
+        imageView.fitHeightProperty().bind(hBox.heightProperty());
         //tableview
         songListView.prefWidthProperty().bind(hBox.widthProperty().multiply(.6));
         songListView.prefHeightProperty().bind(hBox.heightProperty());
@@ -68,10 +78,9 @@ public class MyMusicView extends View {
     }
     @Override
     public void styling() {
-
+        songListView.setCellFactory(songListView -> new SongCell());
     }
 
-//
 //    public TableColumn<Song, String> getIndexColumn() {
 //        return indexColumn;
 //    }

@@ -1,33 +1,40 @@
 package com.app.fxplayer.models.models;
 
+import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.collections.MapChangeListener;
+import javafx.collections.ObservableMap;
 import javafx.scene.image.Image;
+import javafx.scene.image.WritableImage;
 import javafx.scene.media.Media;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.util.Map;
 
 /**
  * SONG DATA CLASS
  */
 public class Song {
     // song file source
-    private final StringProperty source = new SimpleStringProperty("");
+    private  StringProperty source = new SimpleStringProperty("source");
     // song title
-    private final StringProperty title = new SimpleStringProperty("");
+    private  StringProperty title = new SimpleStringProperty("title");
     // song artist
-    private final StringProperty artist = new SimpleStringProperty("");
+    private  StringProperty artist = new SimpleStringProperty("artist");
     // song album
-    private final StringProperty album = new SimpleStringProperty("");
+    private  StringProperty album = new SimpleStringProperty("album");
     // year
-    private final StringProperty year = new SimpleStringProperty("");
+    private  StringProperty year = new SimpleStringProperty("year");
+    // song genre
+    private Genre genre;
     // song duration
-    private Duration duration;
+    private Duration duration = new Duration(0.0);
     //  song image
-    private Image image;
+    private Image image = new Image(new File("src/main/resources/images/song.png").toURI().toASCIIString());
     // track number
-    private int trackNumber;
+    private int trackNumber = 0;
 
     /**
      *
@@ -47,6 +54,21 @@ public class Song {
     {
         File file = new File(source);
         Media media = new Media(file.toURI().toASCIIString());
+
+        media.getMetadata().addListener((InvalidationListener) observable ->
+        {
+            //
+            Map map = (Map) observable;
+            if (!map.isEmpty()) {
+                //
+                title.setValue((String) map.get("title"));
+                album.setValue((String) map.get("album"));
+                artist.setValue((String) map.get("artist"));
+                year.setValue((Integer) map.get("year") + "");
+                image = (Image) map.get("image");
+                //
+            }
+        });
     }
 
     /**

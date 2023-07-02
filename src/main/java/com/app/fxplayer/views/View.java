@@ -6,6 +6,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
+import javafx.stage.StageStyle;
 
 import java.io.File;
 
@@ -53,7 +54,7 @@ public abstract class View extends VBox implements Viewable {
         STAGE.setScene(scene);
         STAGE.initModality(Modality.APPLICATION_MODAL);
         STAGE.setTitle(StringConstants.getSystemTitle());
-     //   STAGE.initStyle(StageStyle.UNDECORATED);
+//        STAGE.initStyle(StageStyle.UNDECORATED);
         STAGE.show();
     }
 }

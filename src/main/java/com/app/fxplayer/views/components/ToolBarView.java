@@ -53,7 +53,7 @@ public class ToolBarView extends View {
         searchTextField = new TextField("search something here");
         // labels
         logoLabel = new Label(StringConstants.getSystemTitle(),softwareIconImage);
-        dateLabel = new Label(new Date().toLocaleString());
+        dateLabel = new Label(new Date().toString());
         // buttons
         signInButton = new JFXButton("Sign In");
         signUpButton = new JFXButton("Sign Up");
@@ -61,7 +61,7 @@ public class ToolBarView extends View {
         nightModeToggleSwitchButton = new ToggleSwitch();
         fullScreenButton = new JFXButton("Full Screen");
         // root
-        rootHbox = new HBox(20);
+        rootHbox = new HBox(0);
         //
     }
 

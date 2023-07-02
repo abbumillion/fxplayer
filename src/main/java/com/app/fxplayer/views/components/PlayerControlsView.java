@@ -8,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
 import java.io.File;
@@ -16,7 +15,7 @@ import java.io.File;
 /**
  * PLAYER CONTROLLER VIEW
  */
-public class PlayerControllerView extends View {
+public class PlayerControlsView extends View {
     private Label startDurationLabel,endDurationLabel,volumeLevelLabel,balanceLevelLabel,rateLevelLabel;
     private JFXButton pauseButton,prevButton,nextButton,shuffleButton,repeatButton;
     private JFXSlider durationSlider,volumeSlider,balanceSlider,rateSlider;

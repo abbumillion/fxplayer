@@ -1,15 +1,16 @@
 package com.app.fxplayer.controllers.viewcontroller;
 
 
-import com.app.fxplayer.controllers.componentcontrollers.PlayerControllerComponentController;
-import com.app.fxplayer.controllers.componentcontrollers.ToolbarController;
+import com.app.fxplayer.controllers.componentcontrollers.PlayerControlsController;
 import com.app.fxplayer.controllers.maincontrollers.Controller;
 import com.app.fxplayer.controllers.tabcontrollers.*;
+import com.app.fxplayer.models.collectors.Collector;
 import com.app.fxplayer.views.PlayerView;
 import com.app.fxplayer.views.View;
 
 /**
- * APP
+ * APP top class controller
+ * contains sub controllers
  */
 public class PlayerController extends Controller {
     // player view instance
@@ -45,17 +46,14 @@ public class PlayerController extends Controller {
         VisualizationTabController visualizationTabController = new VisualizationTabController(playerView.getVisualizationView());
         settingsTabController.init();
         // player view controller
-        // player controller component controller
-        PlayerControllerComponentController playerControllerComponentController = new PlayerControllerComponentController(playerView.getPlayerControllerView());
-        settingsTabController.init();
-        // toolbar controller
-        // tool bar sub view controller
-        ToolbarController toolbarController = new ToolbarController(playerView.getToolBarView());
-        settingsTabController.init();
-        //
+        // player controls view component controller
+        PlayerControlsController playerControlsController = new PlayerControlsController(playerView.getPlayerControllerView());
+        playerControlsController.init();
         //
         RecentPlaysTabController recentPlaysTabController = new RecentPlaysTabController(playerView.getRecentPlaysView());
         settingsTabController.init();
+        //
+        new Thread(new Collector(playerView.getMyMusicView().getSongListView())).start();
         playerView.showView();
     }
 
