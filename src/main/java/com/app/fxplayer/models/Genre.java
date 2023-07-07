@@ -1,4 +1,4 @@
-package com.app.fxplayer.models.models;
+package com.app.fxplayer.models;
 // song genres i recognize
 //
 public enum Genre {

@@ -1,12 +1,9 @@
-package com.app.fxplayer.models.models;
+package com.app.fxplayer.models;
 
 import javafx.beans.InvalidationListener;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.collections.MapChangeListener;
-import javafx.collections.ObservableMap;
 import javafx.scene.image.Image;
-import javafx.scene.image.WritableImage;
 import javafx.scene.media.Media;
 import javafx.util.Duration;
 
@@ -66,6 +63,11 @@ public class Song {
                 artist.setValue((String) map.get("artist"));
                 year.setValue((Integer) map.get("year") + "");
                 image = (Image) map.get("image");
+                //
+                System.out.println(title);
+                System.out.println(album);
+                System.out.println(artist);
+                System.out.println(year);
                 //
             }
         });

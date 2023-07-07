@@ -1,19 +1,9 @@
-package com.app.fxplayer.models.collectors;
+package com.app.fxplayer.models;
 
-import com.app.fxplayer.models.models.Album;
-import com.app.fxplayer.models.models.Artist;
-import com.app.fxplayer.models.models.Playlist;
-import com.app.fxplayer.models.models.Song;
-import javafx.beans.InvalidationListener;
 import javafx.concurrent.Task;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableView;
-import javafx.scene.image.Image;
-import javafx.scene.media.Media;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,10 +11,10 @@ import java.util.Map;
  */
 public class Collector  extends Task<Song> {
     private static final File[] drives = {new File("C://"),new File("D://")};
-    private   ListView<Song> songListView ;
-    private   ListView<Playlist> playlistListView;
-    private   ListView<Artist> artistListView;
-    private   ListView<Album> albumListView;
+    private static    ListView<Song> songListView = new ListView<>() ;
+    private static  ListView<Playlist> playlistListView = new ListView<>();
+    private static  ListView<Artist> artistListView = new ListView<>();
+    private static  ListView<Album> albumListView = new ListView<>();
 
     public  void init() {
         System.out.println("collector initialized");
@@ -53,7 +43,8 @@ public class Collector  extends Task<Song> {
                     if (path.endsWith(".mp3") || path.endsWith(".mp4"))
                     {
                         try {
-                            songMaker(path);
+//                            songMaker(path);
+                            System.out.println(path);
                         }catch (Exception exception)
                         {
                             exception.printStackTrace();
@@ -68,22 +59,13 @@ public class Collector  extends Task<Song> {
         if (!path.isEmpty())
         {
             Song song = new Song(checkPath(path));
+            if (songListView.getItems().add(song))
+                System.err.println(song.getSource());
 
-
-//            Media media = new Media(new File(path).toURI().toASCIIString());
-//            media.getMetadata().addListener((InvalidationListener) observable -> {
-//                if (observable != null) {
-//                    Map<String, String> map = checkMetadata((Map) observable);
-//                    System.out.println(" 1.title  : -->" + map.get("title"));
-//                    System.out.println(" 2.artist : -->" + map.get("artist"));
-//                    System.out.println(" 3.album  : -->" + map.get("album"));
-//                }
-//            });
         }
     }
 
     private String checkPath(String path) {
-        // check the correctness of the path here
         return path;
     }
 
@@ -95,5 +77,21 @@ public class Collector  extends Task<Song> {
     protected Song call() {
         init();
         return null;
+    }
+
+    public static ListView<Song> getSongListView() {
+        return songListView;
+    }
+
+    public static ListView<Artist> getArtistListView() {
+        return artistListView;
+    }
+
+    public static ListView<Album> getAlbumListView() {
+        return albumListView;
+    }
+
+    public static ListView<Playlist> getPlaylistListView() {
+        return playlistListView;
     }
 }

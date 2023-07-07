@@ -1,17 +1,13 @@
 package com.app.fxplayer.views.tabs;
 
-import com.app.fxplayer.models.models.Song;
+import com.app.fxplayer.models.Song;
 import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.listcells.SongCell;
 import javafx.geometry.Pos;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
-import javafx.util.Callback;
 
 import java.io.File;
 
@@ -53,6 +49,7 @@ public class MyMusicView extends View {
 
     @Override
     public void align() {
+        hBox.setAlignment(Pos.CENTER);
         setAlignment(Pos.CENTER);
         imageView.setPreserveRatio(true);
     }

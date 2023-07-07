@@ -1,6 +1,6 @@
 package com.app.fxplayer.views.listcells;
 
-import com.app.fxplayer.models.models.Song;
+import com.app.fxplayer.models.Song;
 
 /**
  * MOST PLAYED SONGS FOR
