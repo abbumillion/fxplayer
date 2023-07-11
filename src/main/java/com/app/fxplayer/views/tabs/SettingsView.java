@@ -5,9 +5,7 @@ import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 
 public class SettingsView extends View {
-    //  labels
     private Label titleLabel , themeLabel , fullScreenLabel , windowStyleLabel;
-    // radio button
 
     @Override
     public void init() {

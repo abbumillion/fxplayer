@@ -75,7 +75,7 @@ public class PlayerView extends View {
     @Override
     public void align() {
         tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
-        tabPane.setSide(Side.LEFT);
+//        tabPane.setSide(Side.LEFT);
         rootVBox.setAlignment(Pos.CENTER);
     }
 
@@ -92,39 +92,39 @@ public class PlayerView extends View {
     @Override
     public void styling() {
       //  double imageWidth = 140.0;
-        ImageView myMusicTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
-      //  myMusicTabIcon.setFitHeight(imageWidth);
-      //  myMusicTabIcon.setFitWidth(imageWidth);
-        Label myMusicLabel = new Label("My Music");
-        double tabWidth = 10.0;
-        myMusicLabel.setMaxWidth(tabWidth - 20);
-        myMusicLabel.setPadding(new Insets(5, 0, 0, 0));
-        myMusicLabel.setStyle("-fx-text-fill: black; -fx-font-size: 8pt; -fx-font-weight: normal;");
-        myMusicLabel.setTextAlignment(TextAlignment.CENTER);
-        BorderPane myMusicTabPane = new BorderPane();
-        myMusicTabPane.setRotate(90.0);
-        myMusicTabPane.setMaxWidth(tabWidth);
-        myMusicTabPane.setCenter(myMusicTabIcon);
-        myMusicTabPane.setBottom(myMusicLabel);
-        myMusicTab.setText("");
-        myMusicTab.setGraphic(myMusicTabPane);
+//        ImageView myMusicTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
+//      //  myMusicTabIcon.setFitHeight(imageWidth);
+//      //  myMusicTabIcon.setFitWidth(imageWidth);
+//        Label myMusicLabel = new Label("My Music");
+//        double tabWidth = 100.0;
+//        myMusicLabel.setMaxWidth(tabWidth - 20);
+//        myMusicLabel.setPadding(new Insets(5, 0, 0, 0));
+//        myMusicLabel.setStyle("-fx-text-fill: black; -fx-font-size: 8pt; -fx-font-weight: normal;");
+//        myMusicLabel.setTextAlignment(TextAlignment.CENTER);
+//        BorderPane myMusicTabPane = new BorderPane();
+//        myMusicTabPane.setRotate(90.0);
+//        myMusicTabPane.setMaxWidth(tabWidth);
+//        myMusicTabPane.setCenter(myMusicTabIcon);
+//        myMusicTabPane.setBottom(myMusicLabel);
+//        myMusicTab.setText("");
+//        myMusicTab.setGraphic(myMusicTabPane);
         //
         ImageView artistTabIcon = new ImageView(new File("src/main/resources/images/artist.png").toURI().toASCIIString());
         //------------------------------------------------------------------------------------------------------//
       //  artistTabIcon.setFitHeight(imageWidth);
       //  artistTabIcon.setFitWidth(imageWidth);
-        Label artistsLabel = new Label("Artists");
-        artistsLabel.setMaxWidth(tabWidth - 20);
-        artistsLabel.setPadding(new Insets(5, 0, 0, 0));
-        artistsLabel.setStyle("-fx-text-fill: black; -fx-font-size: 8pt; -fx-font-weight: normal;");
-        artistsLabel.setTextAlignment(TextAlignment.CENTER);
-        BorderPane artistsTabPane = new BorderPane();
-        artistsTabPane.setRotate(90.0);
-        artistsTabPane.setMaxWidth(tabWidth);
-        artistsTabPane.setCenter(myMusicTabIcon);
-        artistsTabPane.setBottom(artistsLabel);
-        artistsTab.setText("");
-        artistsTab.setGraphic(artistsTabPane);
+//        Label artistsLabel = new Label("Artists");
+//        artistsLabel.setMaxWidth(tabWidth - 20);
+//        artistsLabel.setPadding(new Insets(5, 0, 0, 0));
+//        artistsLabel.setStyle("-fx-text-fill: black; -fx-font-size: 8pt; -fx-font-weight: normal;");
+//        artistsLabel.setTextAlignment(TextAlignment.CENTER);
+//        BorderPane artistsTabPane = new BorderPane();
+//        artistsTabPane.setRotate(90.0);
+//        artistsTabPane.setMaxWidth(tabWidth);
+//        artistsTabPane.setCenter(myMusicTabIcon);
+//        artistsTabPane.setBottom(artistsLabel);
+//        artistsTab.setText("");
+//        artistsTab.setGraphic(artistsTabPane);
         //---------------------------------------------------------------------------------------------------------//
         ImageView albumsTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
         ImageView nowplayingTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
@@ -133,15 +133,15 @@ public class PlayerView extends View {
         ImageView mostPlayedTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
         ImageView recentPlaysTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
         ImageView recentlyAddedTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
-        myMusicTab.setGraphic(myMusicTabIcon);
-        artistsTab.setGraphic(artistTabIcon);
-        albumsTab.setGraphic(albumsTabIcon);
-        nowPlayingTab.setGraphic(nowplayingTabIcon);
-        recentlyAddedTab.setGraphic(recentlyAddedTabIcon);
-        recentPlaysTab.setGraphic(recentPlaysTabIcon);
-        settingsTab.setGraphic(settingsTabIcon);
-        visualizationTab.setGraphic(visualizationTabIcon);
-        mostPlayedTab.setGraphic(mostPlayedTabIcon);
+//        myMusicTab.setGraphic(myMusicTabIcon);
+//        artistsTab.setGraphic(artistTabIcon);
+//        albumsTab.setGraphic(albumsTabIcon);
+//        nowPlayingTab.setGraphic(nowplayingTabIcon);
+//        recentlyAddedTab.setGraphic(recentlyAddedTabIcon);
+//        recentPlaysTab.setGraphic(recentPlaysTabIcon);
+//        settingsTab.setGraphic(settingsTabIcon);
+//        visualizationTab.setGraphic(visualizationTabIcon);
+//        mostPlayedTab.setGraphic(mostPlayedTabIcon);
     }
 
     public MyMusicView getMyMusicView() {

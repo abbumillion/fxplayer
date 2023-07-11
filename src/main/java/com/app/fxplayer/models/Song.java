@@ -1,6 +1,7 @@
 package com.app.fxplayer.models;
 
 import javafx.beans.InvalidationListener;
+import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
@@ -24,6 +25,8 @@ public class Song {
     private  StringProperty album = new SimpleStringProperty("album");
     // year
     private  StringProperty year = new SimpleStringProperty("year");
+    //
+    private StringProperty size = new SimpleStringProperty("size");
     // song genre
     private Genre genre;
     // song duration
@@ -63,11 +66,12 @@ public class Song {
                 artist.setValue((String) map.get("artist"));
                 year.setValue((Integer) map.get("year") + "");
                 image = (Image) map.get("image");
-                //
-                System.out.println(title);
-                System.out.println(album);
-                System.out.println(artist);
-                System.out.println(year);
+                size.setValue(file.getFreeSpace() + "MB");
+//                //
+//                System.out.println(title);
+//                System.out.println(album);
+//                System.out.println(artist);
+//                System.out.println(year);
                 //
             }
         });
@@ -123,5 +127,13 @@ public class Song {
 
     public String getTitle() {
         return title.get();
+    }
+
+    public String getSize() {
+        return size.get();
+    }
+
+    public String getYear() {
+        return year.get();
     }
 }

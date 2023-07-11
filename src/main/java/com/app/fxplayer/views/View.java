@@ -4,10 +4,12 @@ import com.app.fxplayer.helpers.StringConstants;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 
 import java.io.File;
+import java.io.FileInputStream;
 
 /**
  * base abstract class for all
@@ -50,10 +52,12 @@ public abstract class View extends VBox implements Viewable {
     {
         Scene scene = new Scene(this,WIDTH,HEIGHT);
         scene.getStylesheets().add(new File(StringConstants.getSystemTheme()).toURI().toASCIIString());
+        scene.getStylesheets().add("http://fonts.googleapis.com/css?family=Gafata");
         STAGE.setScene(scene);
-        STAGE.initModality(Modality.APPLICATION_MODAL);
+//        STAGE.initModality(Modality.APPLICATION_MODAL);
         STAGE.setTitle(StringConstants.getSystemTitle());
-        STAGE.setFullScreen(true);
+        STAGE.getIcons().add(new Image(new File(StringConstants.getSystemIcon()).toURI().toASCIIString()));
+//        STAGE.setFullScreen(true);
 //        STAGE.initStyle(StageStyle.UNDECORATED);
         STAGE.show();
     }

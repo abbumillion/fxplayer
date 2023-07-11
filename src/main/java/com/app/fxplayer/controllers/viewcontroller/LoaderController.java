@@ -1,6 +1,6 @@
 package com.app.fxplayer.controllers.viewcontroller;
 
-import com.app.fxplayer.controllers.maincontrollers.Controller;
+import com.app.fxplayer.controllers.Controller;
 import com.app.fxplayer.views.LoaderView;
 import com.app.fxplayer.views.View;
 

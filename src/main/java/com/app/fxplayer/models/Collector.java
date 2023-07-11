@@ -1,5 +1,6 @@
 package com.app.fxplayer.models;
 
+import com.app.fxplayer.repository.SongRepository;
 import javafx.concurrent.Task;
 import javafx.scene.control.ListView;
 
@@ -43,8 +44,7 @@ public class Collector  extends Task<Song> {
                     if (path.endsWith(".mp3") || path.endsWith(".mp4"))
                     {
                         try {
-//                            songMaker(path);
-                            System.out.println(path);
+                            SongRepository.getSongList().getItems().add(new Song(path));
                         }catch (Exception exception)
                         {
                             exception.printStackTrace();
@@ -59,9 +59,7 @@ public class Collector  extends Task<Song> {
         if (!path.isEmpty())
         {
             Song song = new Song(checkPath(path));
-            if (songListView.getItems().add(song))
-                System.err.println(song.getSource());
-
+            songListView.getItems().add(song);
         }
     }
 

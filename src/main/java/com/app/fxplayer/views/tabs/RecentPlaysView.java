@@ -1,6 +1,7 @@
 package com.app.fxplayer.views.tabs;
 
 import com.app.fxplayer.views.View;
+import com.app.fxplayer.views.listcells.SongCell;
 import com.jfoenix.controls.JFXListView;
 import javafx.geometry.Pos;
 
@@ -28,7 +29,7 @@ public class RecentPlaysView extends View {
     }
     @Override
     public void styling() {
-
+        recentPlaysJFXListView.setCellFactory(songListView -> new SongCell());
     }
 
     public JFXListView getRecentPlaysJFXListView() {

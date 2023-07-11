@@ -1,8 +1,8 @@
-package com.app.fxplayer.controllers.maincontrollers;
+package com.app.fxplayer.controllers;
 
 import com.app.fxplayer.views.View;
 
-public class ApplicationController extends Controller{
+public class ApplicationController extends Controller {
     /**
      * @param view
      */

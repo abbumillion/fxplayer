@@ -19,13 +19,14 @@ public class FXPlayerApplication extends Application {
         settings = new Settings();
         applicationData = new ApplicationData();
         playerController = new PlayerController(new PlayerView());
+
     }
 
     @Override
     public void start(Stage stage) {
-
-        playerController.init();
         new Thread(new Collector()).start();
+        playerController.init();
+
 
     }
 
