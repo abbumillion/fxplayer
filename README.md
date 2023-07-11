@@ -13,7 +13,6 @@
 #### Showing artists / albums / playlists
 #### Showing some cool audio visualization
 #### Built in audio equalizer
-#### Should work for both Windows and Linux OSs
 #### And more
 #### That is what I have for now will be more as I go ahead
 
