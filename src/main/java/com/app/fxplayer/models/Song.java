@@ -1,7 +1,6 @@
 package com.app.fxplayer.models;
 
 import javafx.beans.InvalidationListener;
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;

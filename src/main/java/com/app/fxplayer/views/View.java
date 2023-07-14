@@ -6,10 +6,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
-import javafx.stage.Modality;
 
 import java.io.File;
-import java.io.FileInputStream;
 
 /**
  * base abstract class for all

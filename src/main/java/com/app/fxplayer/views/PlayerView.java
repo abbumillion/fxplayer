@@ -2,16 +2,12 @@ package com.app.fxplayer.views;
 
 import com.app.fxplayer.views.components.PlayerControlsView;
 import com.app.fxplayer.views.tabs.*;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.geometry.Side;
-import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.text.TextAlignment;
+
 import java.io.File;
 
 

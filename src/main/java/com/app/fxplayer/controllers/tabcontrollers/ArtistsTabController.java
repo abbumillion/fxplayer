@@ -1,7 +1,6 @@
 package com.app.fxplayer.controllers.tabcontrollers;
 
 import com.app.fxplayer.controllers.Controller;
-import com.app.fxplayer.repository.SongRepository;
 import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.tabs.ArtistsView;
 
@@ -14,6 +13,6 @@ public class ArtistsTabController extends Controller {
 
     @Override
     public void init() {
-        artistsView.getArtistListView().itemsProperty().bind(SongRepository.getSongList().itemsProperty());
+//        artistsView.getArtistListView().itemsProperty().bind(SongRepository.getSongList().itemsProperty());
     }
 }

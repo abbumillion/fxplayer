@@ -6,7 +6,6 @@ import com.app.fxplayer.controllers.viewcontroller.PlayerController;
 import com.app.fxplayer.models.Collector;
 import com.app.fxplayer.views.PlayerView;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.stage.Stage;
 
 public class FXPlayerApplication extends Application {
@@ -24,10 +23,8 @@ public class FXPlayerApplication extends Application {
 
     @Override
     public void start(Stage stage) {
-        new Thread(new Collector()).start();
         playerController.init();
-
-
+        new Thread(new Collector()).start();
     }
 
     @Override

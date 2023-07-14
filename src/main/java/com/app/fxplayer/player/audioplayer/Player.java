@@ -1,30 +1,31 @@
 package com.app.fxplayer.player.audioplayer;
 
-import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-import javafx.util.Duration;
 
 public class Player implements AudioPlayer{
+
+    private MediaQueue mediaQueue = new MediaQueue();
     private  MediaPlayer mediaPlayer;
 
     @Override
-    public void play(Media media) {
+    public void play() {
         checkMediaPlayer();
-        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer = new MediaPlayer(mediaQueue.getCurrent());
+        mediaPlayer.play();
+    }
+
+
+    @Override
+    public void next() {
+        checkMediaPlayer();
+        mediaPlayer = new MediaPlayer(mediaQueue.getNext());
         mediaPlayer.play();
     }
 
     @Override
-    public void pause() {
-        if (mediaPlayer != null)
-            mediaPlayer.pause();
-    }
-
-
-    @Override
-    public void next(Media media) {
+    public void prev() {
         checkMediaPlayer();
-        mediaPlayer = new MediaPlayer(media);
+        mediaPlayer = new MediaPlayer(mediaQueue.getPrev());
         mediaPlayer.play();
     }
 
@@ -32,15 +33,6 @@ public class Player implements AudioPlayer{
         if (mediaPlayer != null)
             dispose();
     }
-
-
-    @Override
-    public void prev(Media media) {
-        checkMediaPlayer();
-        mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
-    }
-
 
     @Override
     public void stop() {
@@ -52,18 +44,11 @@ public class Player implements AudioPlayer{
         mediaPlayer.dispose();
     }
 
-    @Override
-    public void forward(Duration duration) {
-
-    }
-
-
-    @Override
-    public void backward(Duration duration) {
-
-    }
-
     public  MediaPlayer getMediaPlayer() {
         return mediaPlayer;
+    }
+
+    public MediaQueue getMediaQueue() {
+        return mediaQueue;
     }
 }

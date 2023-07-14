@@ -1,18 +1,13 @@
 package com.app.fxplayer.models;
 
-import com.app.fxplayer.repository.SongRepository;
 import javafx.concurrent.Task;
 import javafx.scene.control.ListView;
 
 import java.io.File;
-import java.util.Map;
 
-/**
- * SONG COLLECTOR
- */
 public class Collector  extends Task<Song> {
     private static final File[] drives = {new File("C://"),new File("D://")};
-    private static    ListView<Song> songListView = new ListView<>() ;
+    private static  ListView<Song> songListView = new ListView<>() ;
     private static  ListView<Playlist> playlistListView = new ListView<>();
     private static  ListView<Artist> artistListView = new ListView<>();
     private static  ListView<Album> albumListView = new ListView<>();
@@ -23,11 +18,9 @@ public class Collector  extends Task<Song> {
         artistListView = new ListView<>();
         albumListView = new ListView<>();
         playlistListView = new ListView<>();
-        // collecting files start here
         for (File drive: drives) {
             extract(drive);
         }
-        //
     }
 
     private  void extract(File file)
@@ -44,7 +37,7 @@ public class Collector  extends Task<Song> {
                     if (path.endsWith(".mp3") || path.endsWith(".mp4"))
                     {
                         try {
-                            SongRepository.getSongList().getItems().add(new Song(path));
+                            songListView.getItems().add(new Song(path));
                         }catch (Exception exception)
                         {
                             exception.printStackTrace();
@@ -53,22 +46,6 @@ public class Collector  extends Task<Song> {
                 }
             }
         }
-    }
-
-    private  void songMaker(String path) {
-        if (!path.isEmpty())
-        {
-            Song song = new Song(checkPath(path));
-            songListView.getItems().add(song);
-        }
-    }
-
-    private String checkPath(String path) {
-        return path;
-    }
-
-    private  Map<String,String> checkMetadata(Map<String, String> map) {
-        return map;
     }
 
     @Override

@@ -11,6 +11,7 @@ public abstract class Controller {
     {
         this.view = view;
         player = new Player();
+
     }
     public abstract void init();
 }

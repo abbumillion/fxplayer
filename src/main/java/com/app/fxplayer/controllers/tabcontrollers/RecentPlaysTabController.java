@@ -1,7 +1,6 @@
 package com.app.fxplayer.controllers.tabcontrollers;
 
 import com.app.fxplayer.controllers.Controller;
-import com.app.fxplayer.repository.SongRepository;
 import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.tabs.RecentPlaysView;
 
@@ -17,6 +16,6 @@ public class RecentPlaysTabController extends Controller {
 
     @Override
     public void init() {
-        recentPlaysView.getRecentPlaysJFXListView().itemsProperty().bind(SongRepository.getSongList().itemsProperty());
+//        recentPlaysView.getRecentPlaysJFXListView().itemsProperty().bind(SongRepository.getSongList().itemsProperty());
     }
 }

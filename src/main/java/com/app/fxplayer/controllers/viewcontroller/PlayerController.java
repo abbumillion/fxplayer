@@ -1,12 +1,10 @@
 package com.app.fxplayer.controllers.viewcontroller;
 
 
-import com.app.fxplayer.controllers.componentcontrollers.PlayerControlsController;
 import com.app.fxplayer.controllers.Controller;
 import com.app.fxplayer.controllers.tabcontrollers.*;
 import com.app.fxplayer.views.PlayerView;
 import com.app.fxplayer.views.View;
-
 
 public class PlayerController extends Controller {
     private final PlayerView playerView;
@@ -30,11 +28,11 @@ public class PlayerController extends Controller {
         settingsTabController.init();
         VisualizationTabController visualizationTabController = new VisualizationTabController(playerView.getVisualizationView());
         visualizationTabController.init();
-        PlayerControlsController playerControlsController = new PlayerControlsController(playerView.getPlayerControllerView());
-        playerControlsController.init();
         RecentPlaysTabController recentPlaysTabController = new RecentPlaysTabController(playerView.getRecentPlaysView());
         recentPlaysTabController.init();
-       playerView.showView();
+        PlayerControlsViewController playerControlsViewController = new PlayerControlsViewController(playerView.getPlayerControllerView());
+        playerControlsViewController.init();
+        playerView.showView();
     }
 
 
