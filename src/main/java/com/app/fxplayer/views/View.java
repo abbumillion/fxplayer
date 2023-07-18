@@ -40,6 +40,7 @@ public abstract class View extends VBox implements Viewable {
      */
     public void setFullScreen()
     {
+        System.out.println("full screen");
         STAGE.setFullScreen(!STAGE.isFullScreen());
     }
 

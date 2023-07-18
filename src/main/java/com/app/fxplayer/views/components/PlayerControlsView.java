@@ -12,12 +12,9 @@ import javafx.scene.layout.HBox;
 
 import java.io.File;
 
-/**
- * PLAYER CONTROLLER VIEW
- */
 public class PlayerControlsView extends View {
     private Label startDurationLabel,endDurationLabel,volumeLevelLabel,balanceLevelLabel,rateLevelLabel;
-    private JFXButton pauseButton,prevButton,nextButton,shuffleButton,repeatButton;
+    private JFXButton pauseButton,prevButton,nextButton,shuffleButton,repeatButton,fullScreenJFXButton;
     private JFXSlider durationSlider,volumeSlider,balanceSlider,rateSlider;
     private Image nextImage,prevImage,pauseImage,playlistImage,repeatImage,shuffleImage;
     private HBox hBox1,hBox2;
@@ -54,13 +51,15 @@ public class PlayerControlsView extends View {
         hBox1 = new HBox();
         hBox2 =new HBox();
         //
+        fullScreenJFXButton = new JFXButton("*");
+        //
     }
 
     @Override
     public void build() {
         hBox1.getChildren().addAll(startDurationLabel,durationSlider,endDurationLabel);
         hBox2.getChildren().addAll(shuffleButton,repeatButton,prevButton,pauseButton,
-                nextButton,
+                nextButton,fullScreenJFXButton,
                 volumeSlider,volumeLevelLabel,
                 balanceSlider,balanceLevelLabel,
                 rateSlider,rateLevelLabel);
@@ -88,6 +87,7 @@ public class PlayerControlsView extends View {
         prevButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
         pauseButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
         nextButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
+        fullScreenJFXButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
         // sliders in hbox2
         volumeLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
         volumeSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.2125));
@@ -163,6 +163,11 @@ public class PlayerControlsView extends View {
 //    public Button getForwardButton() {
 //        return forwardButton;
 //    }
+
+
+    public JFXButton getFullScreenJFXButton() {
+        return fullScreenJFXButton;
+    }
 
     public Slider getDurationSlider() {
         return durationSlider;

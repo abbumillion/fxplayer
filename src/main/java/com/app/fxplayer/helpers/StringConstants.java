@@ -3,7 +3,7 @@ package com.app.fxplayer.helpers;
 public final class StringConstants {
     private static final String systemTitle = "Fx-Player";
     private static final String systemDescription = "Javafx Audio Player Project";
-    private static final String systemTheme = "src/main/resources/stylesheets/darnk.css";
+    private static final String systemTheme = "src/main/resources/stylesheets/style.css";
     private static final String systemIcon = "src/main/resources/icons/fx-player.png";
 
 

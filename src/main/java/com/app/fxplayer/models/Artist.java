@@ -1,14 +1,25 @@
 package com.app.fxplayer.models;
 
-import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-/**
- * ARTISTS DATA CLASS
- */
 public class Artist {
-    // artist name
-    private StringProperty artistName;
-    // albums list
-    private ObservableList<Album> albums;
+    private String artistName = "Artist Name";
+    private ObservableList<Album> albums = FXCollections.observableArrayList();
+
+    public String getArtistName() {
+        return artistName;
+    }
+
+    public void setArtistName(String artistName) {
+        this.artistName = artistName;
+    }
+
+    public ObservableList<Album> getAlbums() {
+        return albums;
+    }
+
+    public void setAlbums(ObservableList<Album> albums) {
+        this.albums = albums;
+    }
 }

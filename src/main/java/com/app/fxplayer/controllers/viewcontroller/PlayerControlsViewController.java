@@ -19,6 +19,7 @@ public class PlayerControlsViewController extends Controller {
             playerControlsView.getNextButton().setOnAction(actionEvent -> next());
             playerControlsView.getShuffleButton().setOnAction(actionEvent -> shuffle());
             playerControlsView.getRepeatButton().setOnAction(actionEvent -> repeat());
+            playerControlsView.getFullScreenJFXButton().setOnAction(actionEvent -> view.setFullScreen());
 //        playerControlsView.getPauseButton().setOnAction(actionEvent -> (pause()));
         }
     }

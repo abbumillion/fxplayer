@@ -1,138 +1,64 @@
 package com.app.fxplayer.models;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.scene.image.Image;
-import javafx.scene.media.Media;
 import javafx.util.Duration;
-
 import java.io.File;
-import java.util.Map;
 
-/**
- * SONG DATA CLASS
- */
 public class Song {
-    // song file source
-    private  StringProperty source = new SimpleStringProperty("source");
-    // song title
-    private  StringProperty title = new SimpleStringProperty("title");
-    // song artist
-    private  StringProperty artist = new SimpleStringProperty("artist");
-    // song album
-    private  StringProperty album = new SimpleStringProperty("album");
-    // year
-    private  StringProperty year = new SimpleStringProperty("year");
-    //
-    private StringProperty size = new SimpleStringProperty("size");
-    // song genre
-    private Genre genre;
-    // song duration
-    private Duration duration = new Duration(0.0);
-    //  song image
-    private Image image = new Image(new File("src/main/resources/images/song.png").toURI().toASCIIString());
-    // track number
-    private int trackNumber = 0;
+    private  String source = "source";
+    private  String title = "title";
+    private  String artist = "artist";
+    private  String album = "album";
+    private  String year = "year";
+    private String size = "size";
+    private  Genre genre;
+    private  Duration duration;
+    private final Image image ;
 
-    /**
-     *
-     * @param source
-     */
-    public Song(String source)
+    public Song(String title,String album,String artist,String year,Image image,String path)
     {
-        this.source.setValue(source);
-        process(source);
+        this.title = title;
+        this.artist = artist;
+        this.album = album;
+        this.year = year;
+        this.source = path;
+        this.image = image;
+        size = new File(path).length() + "MB";
     }
-
-    /**
-     *
-     * @param source
-     */
-    private void process(String source)
-    {
-        File file = new File(source);
-        Media media = new Media(file.toURI().toASCIIString());
-
-        media.getMetadata().addListener((InvalidationListener) observable ->
-        {
-            //
-            Map map = (Map) observable;
-            if (!map.isEmpty()) {
-                //
-                title.setValue((String) map.get("title"));
-                album.setValue((String) map.get("album"));
-                artist.setValue((String) map.get("artist"));
-                year.setValue((Integer) map.get("year") + "");
-                image = (Image) map.get("image");
-                size.setValue(file.getFreeSpace() + "MB");
-//                //
-//                System.out.println(title);
-//                System.out.println(album);
-//                System.out.println(artist);
-//                System.out.println(year);
-                //
-            }
-        });
-    }
-
-    /**
-     *
-     * @param map
-     * checking the metadata
-     * before storing
-     */
-
 
     public String getSource() {
-        return source.get();
+        return source;
     }
 
-    /**
-     *
-     * @return duration
-     */
+    public String getTitle() {
+        return title;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public String getYear() {
+        return year;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public Genre getGenre() {
+        return genre;
+    }
+
     public Duration getDuration() {
         return duration;
     }
 
-    /**
-     *
-     * @return image
-     */
     public Image getImage() {
         return image;
-    }
-
-    /**
-     *
-     * @return artist
-     */
-    public String getArtist() {
-        return artist.get();
-    }
-
-    /**
-     *
-     * @return
-     */
-    public int getTrackNumber() {
-        return trackNumber;
-    }
-
-    public String getAlbum() {
-        return album.get();
-    }
-
-    public String getTitle() {
-        return title.get();
-    }
-
-    public String getSize() {
-        return size.get();
-    }
-
-    public String getYear() {
-        return year.get();
     }
 }
