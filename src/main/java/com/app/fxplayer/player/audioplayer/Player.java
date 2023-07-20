@@ -1,31 +1,36 @@
 package com.app.fxplayer.player.audioplayer;
 
+import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
-public class Player implements AudioPlayer{
+import java.io.File;
 
-    private MediaQueue mediaQueue = new MediaQueue();
+public class Player implements AudioPlayer{
     private  MediaPlayer mediaPlayer;
 
     @Override
     public void play() {
+        //
         checkMediaPlayer();
-        mediaPlayer = new MediaPlayer(mediaQueue.getCurrent());
+        File file = new File(MediaQueue.getCurrent().getSource());
+        Media media = new Media(file.toURI().toASCIIString());
+        mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
+        //
     }
 
 
     @Override
     public void next() {
         checkMediaPlayer();
-        mediaPlayer = new MediaPlayer(mediaQueue.getNext());
+        mediaPlayer = new MediaPlayer(new Media(MediaQueue.getCurrent().getSource()));
         mediaPlayer.play();
     }
 
     @Override
     public void prev() {
         checkMediaPlayer();
-        mediaPlayer = new MediaPlayer(mediaQueue.getPrev());
+        mediaPlayer = new MediaPlayer(new Media(MediaQueue.getCurrent().getSource()));
         mediaPlayer.play();
     }
 
@@ -48,7 +53,5 @@ public class Player implements AudioPlayer{
         return mediaPlayer;
     }
 
-    public MediaQueue getMediaQueue() {
-        return mediaQueue;
-    }
+
 }

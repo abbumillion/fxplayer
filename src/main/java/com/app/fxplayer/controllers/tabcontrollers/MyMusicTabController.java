@@ -1,6 +1,7 @@
 package com.app.fxplayer.controllers.tabcontrollers;
 
 import com.app.fxplayer.controllers.Controller;
+import com.app.fxplayer.player.audioplayer.MediaQueue;
 import com.app.fxplayer.repo.ModelRepository;
 import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.tabs.MyMusicView;
@@ -23,7 +24,7 @@ public class MyMusicTabController extends Controller {
         {
             if (song2 != null)
             {
-                player.getMediaQueue().add(new Media(new File(song2.getSource()).toURI().toASCIIString()));
+                MediaQueue.addToCurrent(song2);
                 player.play();
             }
         });

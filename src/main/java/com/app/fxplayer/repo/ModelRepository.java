@@ -9,7 +9,8 @@ public class ModelRepository {
     private static ListView artistList = new ListView<>();
     private static ListView albumList = new ListView<>();
     private static ListView playlistList = new ListView<>();
-
+    private static ListView mostPlayed = new ListView<>();
+    private static ListView recentlyPlayed = new ListView<>();
 
     public static boolean addSong(Song song)
     {
@@ -28,6 +29,7 @@ public class ModelRepository {
                 {
                     // album found
                     // add song to rhe album
+                    System.out.println("album exists add to song to the album");
                     album.getSongs().add(song);
                 }
                 else
@@ -36,12 +38,12 @@ public class ModelRepository {
                     // so create new album
                     // add to the list
                     Album newAlbum = new Album(song);
+                    System.out.println("new album created");
                     albumList.getItems().add(newAlbum);
                     //
                 }
             }
         }
-
         return value;
     }
 

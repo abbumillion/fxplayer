@@ -72,7 +72,7 @@ public class PlayerControlsView extends View {
         hBox1.setAlignment(Pos.CENTER);
         hBox2.setAlignment(Pos.CENTER);
         hBox1.setSpacing(2.0);
-        hBox2.setSpacing(2.275);
+        hBox2.setSpacing(4.275);
     }
 
     @Override
@@ -82,20 +82,20 @@ public class PlayerControlsView extends View {
         endDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.02));
         durationSlider.prefWidthProperty().bind(hBox1.widthProperty().multiply(.96));
         //buttons in hbox2
-        shuffleButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
-        repeatButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
-        prevButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
-        pauseButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
-        nextButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
-        fullScreenJFXButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
+        shuffleButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1025));
+        repeatButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1025));
+        prevButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1025));
+        pauseButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1025));
+        nextButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1025));
+        fullScreenJFXButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1025));
         // sliders in hbox2
         volumeLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
         volumeSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.2125));
-
-        balanceLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
+        //----------------------------------------------------------------------------------//
+        balanceLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.091125));
         balanceSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.2125));
-
-        rateLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
+        // rate level label
+        rateLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.091125));
         rateSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.2125));
 
         //
@@ -151,19 +151,6 @@ public class PlayerControlsView extends View {
     public Button getShuffleButton() {
         return shuffleButton;
     }
-
-//    public Button getFullScreenButton() {
-//        return fullScreenButton;
-//    }
-
-//    public Button getBackwardButton() {
-//        return backwardButton;
-//    }
-//
-//    public Button getForwardButton() {
-//        return forwardButton;
-//    }
-
 
     public JFXButton getFullScreenJFXButton() {
         return fullScreenJFXButton;

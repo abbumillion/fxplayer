@@ -1,39 +1,55 @@
 package com.app.fxplayer.player.audioplayer;
 
+import com.app.fxplayer.models.Song;
 import javafx.collections.FXCollections;
 import javafx.scene.media.Media;
-
 import java.util.List;
 
 public class MediaQueue{
-    private List mediaQueue = FXCollections.emptyObservableList();
-    private int currentIndex = 0;
-    public void add(Media media)
+    private static List mediaQueue = FXCollections.observableArrayList();
+    private static int currentIndex = 0;
+    // to add a song to current
+    public static void addToCurrent(Song song)
     {
-        mediaQueue.add(media);
-        currentIndex = mediaQueue.indexOf(media);
-    }
-    public void remove()
-    {
+        mediaQueue.add(song);
+        currentIndex = mediaQueue.indexOf(song);
     }
 
-    public Media getCurrent()
+    public static void addToNext(Song song)
     {
-
-        return (Media) mediaQueue.get(currentIndex);
+        mediaQueue.add(song);
+        currentIndex = mediaQueue.indexOf(song);
     }
 
-    public Media getPrev()
+    public static void addToPrev(Song song)
     {
-        return (Media) mediaQueue.get(currentIndex - 1);
+        mediaQueue.add(song);
+        currentIndex = mediaQueue.indexOf(song);
     }
 
-    public Media getNext()
+    public static void removeAll()
     {
-        return (Media) mediaQueue.get(currentIndex + 1);
+        mediaQueue.clear();
     }
 
-    public List getMediaQueue() {
+    public static Song getCurrent()
+    {
+
+        return (Song) mediaQueue.get(currentIndex);
+    }
+
+    public static Song getPrev()
+    {
+        return (Song) mediaQueue.get(currentIndex - 1);
+    }
+
+    public static Song getNext()
+    {
+        return (Song) mediaQueue.get(currentIndex + 1);
+    }
+
+    public static List getMediaQueue() {
         return mediaQueue;
     }
+
 }
