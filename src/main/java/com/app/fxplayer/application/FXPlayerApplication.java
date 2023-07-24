@@ -2,14 +2,13 @@ package com.app.fxplayer.application;
 
 import com.app.fxplayer.application.config.ApplicationData;
 import com.app.fxplayer.application.config.Settings;
-import com.app.fxplayer.controllers.viewcontroller.PlayerViewController;
-import com.app.fxplayer.modelgenerator.Collector;
-import com.app.fxplayer.views.PlayerView;
+import com.app.fxplayer.controllers.viewcontroller.LoaderViewController;
+import com.app.fxplayer.views.LoaderView;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 public class FXPlayerApplication extends Application {
-    private PlayerViewController playerViewController;
+    private LoaderViewController loaderViewController;
     private ApplicationData applicationData;
     private Settings settings;
 
@@ -17,19 +16,20 @@ public class FXPlayerApplication extends Application {
     public void init() throws Exception {
         settings = new Settings();
         applicationData = new ApplicationData();
-        playerViewController = new PlayerViewController(new PlayerView());
+        loaderViewController = new LoaderViewController(new LoaderView());
 
     }
 
     @Override
     public void start(Stage stage) {
-        playerViewController.init();
-        new Thread(new Collector()).start();
+        loaderViewController.init();
+//        new Thread(new Collector()).start();
     }
 
     @Override
     public void stop() throws Exception {
         super.stop();
+        System.exit(1);
     }
 
 }

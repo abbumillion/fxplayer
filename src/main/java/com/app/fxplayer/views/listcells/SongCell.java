@@ -17,7 +17,7 @@ public  class SongCell extends ListCell<Song> {
         super.updateItem(song, b);
         if (song != null)
         {
-            imageView.setImage(song.getImage());
+            imageView.imageProperty().bind(song.getImage().imageProperty());
             titleLabel.setText(song.getTitle());
             albumLabel.setText(song.getAlbum());
             artistLabel.setText(song.getArtist());

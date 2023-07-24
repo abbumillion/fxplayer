@@ -5,53 +5,47 @@ import javafx.scene.media.MediaPlayer;
 
 import java.io.File;
 
-public class Player implements AudioPlayer{
-    private  MediaPlayer mediaPlayer;
-
-    @Override
-    public void play() {
-        //
+public final class Player {
+    private static MediaPlayer mediaPlayer = new MediaPlayer(new Media(new File(MediaQueue.getCurrentSong().getSource()).toURI().toASCIIString()));
+    public static void play() {
         checkMediaPlayer();
-        File file = new File(MediaQueue.getCurrent().getSource());
+        File file = new File(MediaQueue.getCurrentSong().getSource());
         Media media = new Media(file.toURI().toASCIIString());
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
-        //
     }
 
-
-    @Override
-    public void next() {
+    public static void next() {
         checkMediaPlayer();
-        mediaPlayer = new MediaPlayer(new Media(MediaQueue.getCurrent().getSource()));
+        File file = new File(MediaQueue.getNextSong().getSource());
+        Media media = new Media(file.toURI().toASCIIString());
+        mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
     }
 
-    @Override
-    public void prev() {
+    public static void prev() {
         checkMediaPlayer();
-        mediaPlayer = new MediaPlayer(new Media(MediaQueue.getCurrent().getSource()));
+        File file = new File(MediaQueue.getPrevSong().getSource());
+        Media media = new Media(file.toURI().toASCIIString());
+        mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
     }
 
-    private void checkMediaPlayer() {
+    private static void checkMediaPlayer() {
         if (mediaPlayer != null)
-            dispose();
+            mediaPlayer.dispose();
     }
 
-    @Override
     public void stop() {
         mediaPlayer.stop();
     }
 
-    @Override
     public void dispose() {
         mediaPlayer.dispose();
     }
 
-    public  MediaPlayer getMediaPlayer() {
+    public static MediaPlayer getMediaPlayer() {
         return mediaPlayer;
     }
-
 
 }

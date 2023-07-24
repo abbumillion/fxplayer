@@ -1,65 +1,90 @@
 package com.app.fxplayer.repo;
 
 import com.app.fxplayer.models.Album;
+import com.app.fxplayer.models.Artist;
+import com.app.fxplayer.models.Playlist;
 import com.app.fxplayer.models.Song;
 import javafx.scene.control.ListView;
 
-public class ModelRepository {
-    private static ListView songList = new ListView<>();
-    private static ListView artistList = new ListView<>();
-    private static ListView albumList = new ListView<>();
-    private static ListView playlistList = new ListView<>();
-    private static ListView mostPlayed = new ListView<>();
-    private static ListView recentlyPlayed = new ListView<>();
+import java.util.Objects;
 
+/**
+ * THIS IS OUR APPS DATA MODEL
+ * HOLDER AND DIRECT RELATION WITH
+ * THE PLAYER
+ */
+public final class ModelRepository {
+    private static final ListView<Song> songList = new ListView<>();
+    // artist collections
+    private static final ListView<Artist> artistList = new ListView<>();
+    // album collections
+    private static final ListView<Album> albumList = new ListView<>();
+    // playlist collections
+    private static final ListView<Playlist> playlistList = new ListView<>();
+    // most played songs collection
+    private static final ListView<Song> mostPlayed = new ListView<>();
+    // recently played songs collections
+    private static final ListView<Song> recentlyPlayed = new ListView<>();
+    // for initializing the
+    // repository events
+//    public void init()
+//    {
+//        songList.getSelectionModel().selectedItemProperty().addListener((observableValue, song, t1) ->
+//        {
+//            //
+//            if ()
+//            //
+//        });
+//    }
     public static boolean addSong(Song song)
     {
         boolean value = false;
-        // check if the song exists
         if (!songList.getItems().contains(song))
         {
-            // add to the song list
+            // adding song to song list
             songList.getItems().add(song);
-            // add to the albums
-
-            for (Object alb : albumList.getItems())
-            {
-                Album album = (Album) alb;
-                if (album.getName() == song.getAlbum())
-                {
-                    // album found
-                    // add song to rhe album
-                    System.out.println("album exists add to song to the album");
-                    album.getSongs().add(song);
-                }
-                else
-                {
-                    // album not exist
-                    // so create new album
-                    // add to the list
-                    Album newAlbum = new Album(song);
-                    System.out.println("new album created");
-                    albumList.getItems().add(newAlbum);
-                    //
+            //adding song to album collections
+            addToAlbum(song);
+            // adding song to artist collections
+            addToArtist(song);
+            if(albumList.getItems().isEmpty()) {
+                for (Album alb : albumList.getItems()) {
+                    Album album = alb;
+                    if (Objects.equals(album.getName(), song.getAlbum())) {
+                        System.out.println("album found here please add the song to the album");
+                        album.getSongs().add(song);
+                    } else {
+                        System.out.println("album does exist so create a new \n and add the song to the album");
+                        Album newAlbum = new Album(song);
+                        albumList.getItems().add(newAlbum);
+                    }
                 }
             }
+            //
         }
         return value;
     }
 
-    public static ListView getAlbumList() {
+    private static void addToArtist(Song song) {
+        //
+    }
+
+    private static void addToAlbum(Song song) {
+    }
+
+    public static ListView<Album> getAlbumList() {
         return albumList;
     }
 
-    public static ListView getArtistList() {
+    public static ListView<Artist> getArtistList() {
         return artistList;
     }
 
-    public static ListView getPlaylistList() {
+    public static ListView<Playlist> getPlaylistList() {
         return playlistList;
     }
 
-    public static ListView getSongList() {
+    public static ListView<Song> getSongList() {
         return songList;
     }
 }

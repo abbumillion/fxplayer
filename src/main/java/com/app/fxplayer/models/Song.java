@@ -1,6 +1,7 @@
 package com.app.fxplayer.models;
 
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.util.Duration;
 import java.io.File;
 
@@ -13,7 +14,7 @@ public class Song {
     private String size = "size";
     private  Genre genre;
     private  Duration duration;
-    private final Image image ;
+    private final ImageView image ;
 
     public Song(String title,String album,String artist,String year,Image image,String path)
     {
@@ -22,8 +23,8 @@ public class Song {
         this.album = album;
         this.year = year;
         this.source = path;
-        this.image = image;
-        size = new File(path).length() + "MB";
+        this.image = new ImageView(image);
+        size = new File(path).length() / (1024 * 1024) + "MB";
     }
 
     public String getSource() {
@@ -58,7 +59,7 @@ public class Song {
         return duration;
     }
 
-    public Image getImage() {
+    public ImageView getImage() {
         return image;
     }
 }

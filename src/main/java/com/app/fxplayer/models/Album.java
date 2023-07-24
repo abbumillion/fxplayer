@@ -22,7 +22,7 @@ public class Album {
         name = song.getAlbum();
         artist = song.getArtist();
         songs.add(song);
-        albumImage = song.getImage();
+        albumImage = song.getImage().getImage();
         //
     }
 

@@ -1,11 +1,12 @@
-package com.app.fxplayer.controllers.viewcontroller;
+package com.app.fxplayer.controllers.componentscontroller;
 
 import com.app.fxplayer.controllers.Controller;
+import com.app.fxplayer.player.audioplayer.Player;
 import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.components.PlayerControlsView;
 
 public class PlayerControlsViewController extends Controller {
-    private PlayerControlsView playerControlsView ;
+    private final PlayerControlsView playerControlsView ;
     public PlayerControlsViewController(View view) {
         super(view);
         playerControlsView = (PlayerControlsView) view;
@@ -13,35 +14,38 @@ public class PlayerControlsViewController extends Controller {
 
     @Override
     public void init() {
-        if ( player.getMediaPlayer() != null) {
+        Player.getMediaPlayer().setOnReady( () -> {
             playerControlsView.getPauseButton().setOnAction(actionEvent -> play());
             playerControlsView.getPrevButton().setOnAction(actionEvent -> prev());
             playerControlsView.getNextButton().setOnAction(actionEvent -> next());
             playerControlsView.getShuffleButton().setOnAction(actionEvent -> shuffle());
             playerControlsView.getRepeatButton().setOnAction(actionEvent -> repeat());
             playerControlsView.getFullScreenJFXButton().setOnAction(actionEvent -> view.setFullScreen());
-//        playerControlsView.getPauseButton().setOnAction(actionEvent -> (pause()));
-        }
+            playerControlsView.getVolumeSlider().valueProperty().bind(Player.getMediaPlayer().volumeProperty());
+            playerControlsView.getBalanceSlider().valueProperty().bind(Player.getMediaPlayer().balanceProperty());
+        });
+
     }
 
     private void play() {
-        player.play();
+        Player.play();
     }
 
     private void prev() {
-        player.prev();
+        Player.prev();
     }
 
     private void next()
     {
-        player.next();
+        Player.next();
     }
 
     private void shuffle()
     {
-
+        System.out.println("shuffle");
     }
 
     private void repeat() {
+        System.out.println("repeat");
     }
 }

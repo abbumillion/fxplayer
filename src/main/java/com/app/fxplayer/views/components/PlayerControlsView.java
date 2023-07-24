@@ -8,6 +8,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
 import java.io.File;
@@ -16,7 +17,8 @@ public class PlayerControlsView extends View {
     private Label startDurationLabel,endDurationLabel,volumeLevelLabel,balanceLevelLabel,rateLevelLabel;
     private JFXButton pauseButton,prevButton,nextButton,shuffleButton,repeatButton,fullScreenJFXButton;
     private JFXSlider durationSlider,volumeSlider,balanceSlider,rateSlider;
-    private Image nextImage,prevImage,pauseImage,playlistImage,repeatImage,shuffleImage;
+    private Image nextImage,prevImage,pauseImage,repeatImage,shuffleImage;
+    private ImageView songImageView;
     private HBox hBox1,hBox2;
     @Override
     public void init() {
@@ -30,8 +32,6 @@ public class PlayerControlsView extends View {
         pauseButton = new JFXButton("pause");
         prevButton = new JFXButton("prev");
         nextButton = new JFXButton("next");
-//        forwardButton = new Button();
-//        backwardButton = new Button();
         shuffleButton = new JFXButton("shuffle");
         repeatButton = new JFXButton("repeat");
 //        fullScreenButton = new Button("*");
@@ -46,23 +46,23 @@ public class PlayerControlsView extends View {
         pauseImage = new Image(new File("src/main/resources/images/play.png").toURI().toASCIIString());
         repeatImage = new Image(new File("src/main/resources/images/replay.png").toURI().toASCIIString());
         shuffleImage = new Image(new File("src/main/resources/images/next.png").toURI().toASCIIString());
-        playlistImage = new Image(new File("src/main/resources/images/playlist.png").toURI().toASCIIString());
         //hboxs
         hBox1 = new HBox();
         hBox2 =new HBox();
         //
         fullScreenJFXButton = new JFXButton("*");
         //
+        songImageView = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
     }
 
     @Override
     public void build() {
-        hBox1.getChildren().addAll(startDurationLabel,durationSlider,endDurationLabel);
-        hBox2.getChildren().addAll(shuffleButton,repeatButton,prevButton,pauseButton,
-                nextButton,fullScreenJFXButton,
-                volumeSlider,volumeLevelLabel,
-                balanceSlider,balanceLevelLabel,
-                rateSlider,rateLevelLabel);
+        hBox1.getChildren().addAll( songImageView , startDurationLabel , durationSlider , endDurationLabel );
+        hBox2.getChildren().addAll( shuffleButton , repeatButton , prevButton , pauseButton ,
+                nextButton , fullScreenJFXButton ,
+                volumeSlider , volumeLevelLabel ,
+                balanceSlider , balanceLevelLabel ,
+                rateSlider , rateLevelLabel );
         getChildren().addAll(hBox1,hBox2);
     }
 
@@ -82,12 +82,12 @@ public class PlayerControlsView extends View {
         endDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.02));
         durationSlider.prefWidthProperty().bind(hBox1.widthProperty().multiply(.96));
         //buttons in hbox2
-        shuffleButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1025));
-        repeatButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1025));
-        prevButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1025));
-        pauseButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1025));
-        nextButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1025));
-        fullScreenJFXButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1025));
+        shuffleButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.111025));
+        repeatButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.11025));
+        prevButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.11025));
+        pauseButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.11025));
+        nextButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.111025));
+        fullScreenJFXButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.111025));
         // sliders in hbox2
         volumeLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.1125));
         volumeSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.2125));
@@ -97,7 +97,6 @@ public class PlayerControlsView extends View {
         // rate level label
         rateLevelLabel.prefWidthProperty().bind(hBox2.widthProperty().multiply(.091125));
         rateSlider.prefWidthProperty().bind(hBox2.widthProperty().multiply(.2125));
-
         //
         hBox1.prefWidthProperty().bind(widthProperty());
         hBox2.prefWidthProperty().bind(widthProperty());
@@ -107,15 +106,11 @@ public class PlayerControlsView extends View {
     @Override
     public void styling() {
         //
-//        nextButton.setGraphic(new ImageView(nextImage));
-//        prevButton.setGraphic(new ImageView(prevImage));
-//        pauseButton.setGraphic(new ImageView(pauseImage));
-//        repeatButton.setGraphic(new ImageView(repeatImage));
-////        forwardButton.setGraphic(new ImageView(forwardImage));
-////        backwardButton.setGraphic(new ImageView(backwardImage));
-//        playlistButton.setGraphic(new ImageView(playlistImage));
-//        shuffleButton.setGraphic(new ImageView(shuffleImage));
-
+        nextButton.setGraphic(new ImageView(nextImage));
+        prevButton.setGraphic(new ImageView(prevImage));
+        pauseButton.setGraphic(new ImageView(pauseImage));
+        repeatButton.setGraphic(new ImageView(repeatImage));
+        shuffleButton.setGraphic(new ImageView(shuffleImage));
         //
     }
 

@@ -41,13 +41,27 @@
 	-fx-border-radius: 0;
 }
 .button{
-           -fx-background-color: #cc5454;
+           -fx-background-color: #bb5454;
            -fx-background-radius: 5,4,3,5;
            -fx-background-insets: 0,1,2,0;
            -fx-text-fill: white;
            -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
            -fx-font-family: "Arial";
-           -fx-text-fill: linear-gradient(white, #d0d0d0);
+           -fx-text-fill: linear-gradient(white, #bb5454);
            -fx-font-size: 12px;
            -fx-padding: 10 20 10 20;
+       }
+       .list-cell:filled:selected:focused, .list-cell:filled:selected {
+           -fx-background-color: linear-gradient(#bb5454 0%, #bb5454 25%, #bb5454 75%, #bb5454 100%);
+           -fx-text-fill: white;
+       }
+
+       .list-cell:odd {
+           -fx-cell-hover-color: #ff5454;
+           -fx-background-color: white;
+       }
+
+       .list-cell:filled:hover {
+           -fx-cell-hover-color: #ff5454;
+           -fx-text-fill: white;
        }

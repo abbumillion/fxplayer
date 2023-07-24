@@ -8,10 +8,10 @@ import javafx.scene.text.Font;
 import javafx.stage.StageStyle;
 
 public final class Settings {
-    private  StringProperty theme = new SimpleStringProperty("src/main/resources/stylesheets/dark.css");
-    private  BooleanProperty fullScreenProperty = new SimpleBooleanProperty(false);
+    private final StringProperty theme = new SimpleStringProperty("src/main/resources/stylesheets/dark.css");
+    private final BooleanProperty fullScreenProperty = new SimpleBooleanProperty(false);
     private  StageStyle stageStyle = StageStyle.UNDECORATED;
-    private  Font font = Font.font(12.0);
+    private  Font font = Font.font(11.11);
     public Settings() {}
 
     public void setStageStyle(StageStyle stageStyle) {

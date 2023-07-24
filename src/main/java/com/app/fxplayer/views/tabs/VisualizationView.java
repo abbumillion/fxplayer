@@ -10,9 +10,9 @@ public class VisualizationView extends View {
     private HBox hBox;
     @Override
     public void init() {
-        circle1 = new Circle();
-        circle2 = new Circle();
-        hBox = new HBox();
+        circle1 = new Circle(100);
+        circle2 = new Circle(100);
+        hBox = new HBox(20);
     }
 
     @Override
@@ -28,11 +28,21 @@ public class VisualizationView extends View {
 
     @Override
     public void bind() {
+        //
+
         hBox.prefWidthProperty().bind(widthProperty());
         hBox.prefHeightProperty().bind(heightProperty());
     }
     @Override
     public void styling() {
 
+    }
+
+    public Circle getCircle1() {
+        return circle1;
+    }
+
+    public Circle getCircle2() {
+        return circle2;
     }
 }

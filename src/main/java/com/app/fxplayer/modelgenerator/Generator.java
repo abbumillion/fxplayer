@@ -24,8 +24,17 @@ public final class Generator {
             year = map.get("year") + "";
             image = (Image) map.get("image");
             source = path;
-            ModelRepository.addSong(new Song(title,album,artist,year,image,source));
+            addToRepository(title,album,artist,year,image,source);
         });
         return null;
+    }
+
+    private static void addToRepository(String title, String album, String artist, String year, Image image, String source) {
+        //
+        //
+//        System.out.println("adding ->" + title);
+        ModelRepository.addSong(new Song(title,album,artist,year,image,source));
+        //
+        //
     }
 }
