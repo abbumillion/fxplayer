@@ -49,7 +49,7 @@ public class LoaderViewController extends Controller {
             }
             //
         });
-        PlayerControlsViewController playerControlsViewController = new PlayerControlsViewController(loaderView.getPlayerControlsView());
-        playerControlsViewController.init();
+//        PlayerControlsViewController playerControlsViewController = new PlayerControlsViewController(loaderView.getPlayerControlsView());
+//        playerControlsViewController.init();
     }
 }

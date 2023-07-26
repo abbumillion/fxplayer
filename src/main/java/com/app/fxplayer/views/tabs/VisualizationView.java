@@ -12,7 +12,7 @@ public class VisualizationView extends View {
     public void init() {
         circle1 = new Circle(100);
         circle2 = new Circle(100);
-        hBox = new HBox(20);
+        hBox = new HBox(30);
     }
 
     @Override

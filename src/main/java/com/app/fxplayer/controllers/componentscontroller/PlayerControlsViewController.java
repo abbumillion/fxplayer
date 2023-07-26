@@ -14,7 +14,7 @@ public class PlayerControlsViewController extends Controller {
 
     @Override
     public void init() {
-        Player.getMediaPlayer().setOnReady( () -> {
+        Player.getMediaPlayer().onPlayingProperty().addListener(observable -> {
             playerControlsView.getPauseButton().setOnAction(actionEvent -> play());
             playerControlsView.getPrevButton().setOnAction(actionEvent -> prev());
             playerControlsView.getNextButton().setOnAction(actionEvent -> next());
@@ -24,20 +24,24 @@ public class PlayerControlsViewController extends Controller {
             playerControlsView.getVolumeSlider().valueProperty().bind(Player.getMediaPlayer().volumeProperty());
             playerControlsView.getBalanceSlider().valueProperty().bind(Player.getMediaPlayer().balanceProperty());
         });
-
     }
 
     private void play() {
         Player.play();
+//        player.play();
     }
 
     private void prev() {
+//        System.out.println("prev");
         Player.prev();
+//        player.prev();
     }
 
     private void next()
     {
+//        System.out.println("next");
         Player.next();
+//        player.next();
     }
 
     private void shuffle()

@@ -45,7 +45,7 @@ public abstract class View extends VBox implements Viewable {
         STAGE.setTitle(StringConstants.getSystemTitle());
         STAGE.getIcons().add(new Image(new File(StringConstants.getSystemIcon()).toURI().toASCIIString()));
         STAGE.setFullScreen(true);
-        STAGE.initStyle(StageStyle.UNDECORATED);
+//        STAGE.initStyle(StageStyle.UNDECORATED);
         STAGE.show();
     }
 
