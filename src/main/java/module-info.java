@@ -4,6 +4,9 @@ module com.app.fxplayer {
     requires javafx.media;
     requires com.jfoenix;
     requires org.controlsfx.controls;
+    requires java.desktop;
+    requires jave.core;
+    requires org.apache.commons.io;
     exports com.app.fxplayer.application;
     exports com.app.fxplayer.application.config;
 }

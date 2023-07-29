@@ -16,7 +16,6 @@ import java.io.File;
  * view classes
  */
 public abstract class View extends VBox implements Viewable {
-    private PlayerControlsView playerControlsView;
     public View(){
         getReady();
         setAlignment(Pos.CENTER);
@@ -41,6 +40,7 @@ public abstract class View extends VBox implements Viewable {
     public void showView()
     {
         Scene scene = new Scene(this,WIDTH,HEIGHT);
+        scene.getStylesheets().add(new File(StringConstants.getSystemTheme()).toURI().toASCIIString());
         STAGE.setScene(scene);
         STAGE.setTitle(StringConstants.getSystemTitle());
         STAGE.getIcons().add(new Image(new File(StringConstants.getSystemIcon()).toURI().toASCIIString()));

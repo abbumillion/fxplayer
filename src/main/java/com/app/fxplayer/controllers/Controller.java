@@ -10,5 +10,5 @@ public abstract class Controller {
     {
         this.view = view;
     }
-    public abstract void init();
+    public abstract void init() throws InterruptedException;
 }

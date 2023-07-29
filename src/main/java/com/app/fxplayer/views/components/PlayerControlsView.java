@@ -1,6 +1,7 @@
 package com.app.fxplayer.views.components;
 
 import com.app.fxplayer.views.View;
+import com.app.fxplayer.views.components.audiovirtualizationview.WaveVisualization;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSlider;
 import javafx.geometry.Pos;
@@ -14,6 +15,7 @@ import javafx.scene.layout.HBox;
 import java.io.File;
 
 public class PlayerControlsView extends View {
+    private WaveVisualization waveVisualization;
     private Label startDurationLabel,endDurationLabel,volumeLevelLabel,balanceLevelLabel,rateLevelLabel;
     private JFXButton pauseButton,prevButton,nextButton,shuffleButton,repeatButton,fullScreenJFXButton;
     private JFXSlider durationSlider,volumeSlider,balanceSlider,rateSlider;
@@ -22,6 +24,8 @@ public class PlayerControlsView extends View {
     private HBox hBox1,hBox2;
     @Override
     public void init() {
+        // wave visualization
+        waveVisualization = new WaveVisualization(520,32);
         // labels
         startDurationLabel = new Label("strt");
         endDurationLabel = new Label("end");
@@ -37,7 +41,7 @@ public class PlayerControlsView extends View {
 //        fullScreenButton = new Button("*");
         //sliders
         durationSlider = new JFXSlider();
-        volumeSlider = new JFXSlider(0,100,10);
+        volumeSlider = new JFXSlider(0,1,.10);
         balanceSlider = new JFXSlider(-1,1,.1);
         rateSlider = new JFXSlider(0,8,.25);
         //imageview
@@ -57,7 +61,7 @@ public class PlayerControlsView extends View {
 
     @Override
     public void build() {
-        hBox1.getChildren().addAll( songImageView , startDurationLabel , durationSlider , endDurationLabel );
+        hBox1.getChildren().addAll( songImageView , startDurationLabel , waveVisualization , endDurationLabel );
         hBox2.getChildren().addAll( shuffleButton , repeatButton , prevButton , pauseButton ,
                 nextButton , fullScreenJFXButton ,
                 volumeSlider , volumeLevelLabel ,
@@ -73,14 +77,19 @@ public class PlayerControlsView extends View {
         hBox2.setAlignment(Pos.CENTER);
         hBox1.setSpacing(2.0);
         hBox2.setSpacing(4.275);
+        //
+        songImageView.setFitHeight(44);
+        songImageView.setFitWidth(50);
+        //
     }
 
     @Override
     public void bind() {
         //hbox1
-        startDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.02));
-        endDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.02));
-        durationSlider.prefWidthProperty().bind(hBox1.widthProperty().multiply(.96));
+        startDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.04));
+        endDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.04));
+        waveVisualization.widthProperty().bind(hBox1.widthProperty().multiply(.9));
+        waveVisualization.heightProperty().bind(hBox1.heightProperty());
         //buttons in hbox2
         shuffleButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.111025));
         repeatButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.11025));
@@ -173,5 +182,13 @@ public class PlayerControlsView extends View {
 
     public Slider getRateSlider() {
         return rateSlider;
+    }
+
+    public ImageView getSongImageView() {
+        return songImageView;
+    }
+
+    public WaveVisualization getWaveVisualization() {
+        return waveVisualization;
     }
 }

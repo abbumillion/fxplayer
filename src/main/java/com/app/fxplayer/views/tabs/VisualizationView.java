@@ -6,19 +6,15 @@ import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
 
 public class VisualizationView extends View {
-    private Circle circle1,circle2;
-    private HBox hBox;
+    private Circle circle;
     @Override
     public void init() {
-        circle1 = new Circle(100);
-        circle2 = new Circle(100);
-        hBox = new HBox(30);
+        circle = new Circle(100);
     }
 
     @Override
     public void build() {
-        hBox.getChildren().addAll(circle1,circle2);
-        getChildren().add(hBox);
+        getChildren().add(circle);
     }
 
     @Override
@@ -30,19 +26,15 @@ public class VisualizationView extends View {
     public void bind() {
         //
 
-        hBox.prefWidthProperty().bind(widthProperty());
-        hBox.prefHeightProperty().bind(heightProperty());
+//        hBox.prefWidthProperty().bind(widthProperty());
+//        hBox.prefHeightProperty().bind(heightProperty());
     }
     @Override
     public void styling() {
 
     }
 
-    public Circle getCircle1() {
-        return circle1;
-    }
-
-    public Circle getCircle2() {
-        return circle2;
+    public Circle getCircle() {
+        return circle;
     }
 }

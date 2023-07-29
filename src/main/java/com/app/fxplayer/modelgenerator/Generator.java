@@ -10,7 +10,7 @@ import java.io.File;
 import java.util.Map;
 
 public final class Generator {
-    public static Song generateSong(String path)
+    public synchronized static Song generateSong(String path)
     {
         Media media = new Media(new File(path).toURI().toASCIIString());
         media.getMetadata().addListener((InvalidationListener) observable ->
@@ -30,11 +30,6 @@ public final class Generator {
     }
 
     private static void addToRepository(String title, String album, String artist, String year, Image image, String source) {
-        //
-        //
-//        System.out.println("adding ->" + title);
         ModelRepository.addSong(new Song(title,album,artist,year,image,source));
-        //
-        //
     }
 }

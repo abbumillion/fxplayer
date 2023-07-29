@@ -1,14 +1,9 @@
 package com.app.fxplayer.views;
 
-import com.app.fxplayer.helpers.StringConstants;
+import com.app.fxplayer.views.components.PlayerControlsView;
 import com.app.fxplayer.views.listcells.SongCell;
 import javafx.geometry.Pos;
-import javafx.scene.Scene;
 import javafx.scene.control.ListView;
-import javafx.scene.image.Image;
-import javafx.stage.StageStyle;
-
-import java.io.File;
 
 public class LoaderView extends View{
     private ListView loaderListView;
@@ -29,28 +24,26 @@ public class LoaderView extends View{
 
     @Override
     public void bind() {
+        //
+//        playerControlsView.prefWidthProperty().bind(widthProperty());
+//        playerControlsView.prefHeightProperty().bind(heightProperty().multiply(.15));
+        //
         loaderListView.prefWidthProperty().bind(widthProperty());
-        loaderListView.prefHeightProperty().bind(heightProperty());
+        loaderListView.prefHeightProperty().bind(heightProperty().multiply(.85));
+        //
     }
 
     @Override
     public void styling() {
         loaderListView.setCellFactory(songListView -> new SongCell());
     }
-@Override
-    public void showView()
-{
-        Scene scene = new Scene(this,WIDTH,HEIGHT);
-        STAGE.setScene(scene);
-        STAGE.setTitle(StringConstants.getSystemTitle());
-        STAGE.getIcons().add(new Image(new File(StringConstants.getSystemIcon()).toURI().toASCIIString()));
-        STAGE.setFullScreen(true);
-        STAGE.initStyle(StageStyle.UNDECORATED);
-        STAGE.show();
-    }
+
 
     public ListView getLoaderListView() {
         return loaderListView;
     }
 
+//    public PlayerControlsView getPlayerControlsView() {
+//        return playerControlsView;
+//    }
 }

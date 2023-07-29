@@ -14,16 +14,6 @@ public class PlayerControlsViewController extends Controller {
 
     @Override
     public void init() {
-        Player.getMediaPlayer().onPlayingProperty().addListener(observable -> {
-            playerControlsView.getPauseButton().setOnAction(actionEvent -> play());
-            playerControlsView.getPrevButton().setOnAction(actionEvent -> prev());
-            playerControlsView.getNextButton().setOnAction(actionEvent -> next());
-            playerControlsView.getShuffleButton().setOnAction(actionEvent -> shuffle());
-            playerControlsView.getRepeatButton().setOnAction(actionEvent -> repeat());
-            playerControlsView.getFullScreenJFXButton().setOnAction(actionEvent -> view.setFullScreen());
-            playerControlsView.getVolumeSlider().valueProperty().bind(Player.getMediaPlayer().volumeProperty());
-            playerControlsView.getBalanceSlider().valueProperty().bind(Player.getMediaPlayer().balanceProperty());
-        });
     }
 
     private void play() {

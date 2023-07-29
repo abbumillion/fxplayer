@@ -22,10 +22,8 @@ public class AudioPlayerSpectrumListener implements AudioSpectrumListener {
     public void spectrumDataUpdate(double timestamp, double duration, float[] phases, float[] magnitudes) {
         for (int i = 0 ; i < magnitudes.length ; i++)
         {
-            System.out.println(magnitudes);
-            float correctedMagnitude = (float) (magnitudes[i] * 3.14);
-            visualizationView.getCircle1().radiusProperty().set(correctedMagnitude);
-            visualizationView.getCircle2().radiusProperty().set(correctedMagnitude);
+            float correctedMagnitude = magnitudes[i] * 64 * phases[i];
+            visualizationView.getCircle().radiusProperty().set(correctedMagnitude);
         }
     }
 }

@@ -11,9 +11,18 @@ import javafx.scene.layout.VBox;
 
 import java.io.File;
 
+/**
+ * this class is  for
+ * displaying all the views
+ * found on the application
+ * so it will contain the main
+ * view componenets
+ */
 
 public class PlayerView extends View {
+    // application tabpane
     private TabPane tabPane;
+    // appliction tabs
     private Tab myMusicTab,nowPlayingTab,mostPlayedTab,recentPlaysTab,recentlyAddedTab,albumsTab,artistsTab,playlistTab,visualizationTab,settingsTab;
     private MyMusicView myMusicView;
     private NowPlayingView nowPlayingView;
