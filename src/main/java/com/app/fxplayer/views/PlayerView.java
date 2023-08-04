@@ -11,13 +11,7 @@ import javafx.scene.layout.VBox;
 
 import java.io.File;
 
-/**
- * this class is  for
- * displaying all the views
- * found on the application
- * so it will contain the main
- * view componenets
- */
+
 
 public class PlayerView extends View {
     // application tabpane
@@ -84,7 +78,7 @@ public class PlayerView extends View {
     @Override
     public void align() {
         tabPane.setTabClosingPolicy(TabPane.TabClosingPolicy.UNAVAILABLE);
-        tabPane.setSide(Side.LEFT);
+        tabPane.setSide(Side.TOP);
         rootVBox.setAlignment(Pos.CENTER);
     }
 
@@ -117,23 +111,53 @@ public class PlayerView extends View {
 //        artistsTab.setText("");
 //        artistsTab.setGraphic(artistsTabPane);
         //---------------------------------------------------------------------------------------------------------//
-//        ImageView myMusicTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
-//        ImageView albumsTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
-//        ImageView nowplayingTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
-//        ImageView settingsTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
-//        ImageView visualizationTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
-//        ImageView mostPlayedTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
-//        ImageView recentPlaysTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
-//        ImageView recentlyAddedTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
-//        myMusicTab.setGraphic(myMusicTabIcon);
-//        artistsTab.setGraphic(artistTabIcon);
-//        albumsTab.setGraphic(albumsTabIcon);
-//        nowPlayingTab.setGraphic(nowplayingTabIcon);
-//        recentlyAddedTab.setGraphic(recentlyAddedTabIcon);
-//        recentPlaysTab.setGraphic(recentPlaysTabIcon);
-//        settingsTab.setGraphic(settingsTabIcon);
-//        visualizationTab.setGraphic(visualizationTabIcon);
-//        mostPlayedTab.setGraphic(mostPlayedTabIcon);
+        ImageView myMusicTabIcon = new ImageView(new File("src/main/resources/icons/tabicons/download (3).png").toURI().toASCIIString());
+        ImageView albumsTabIcon = new ImageView(new File("src/main/resources/icons/tabicons/album-icon-6.jpg").toURI().toASCIIString());
+        ImageView artistsTabIcon = new ImageView(new File("src/main/resources/icons/tabicons/artist.png").toURI().toASCIIString());
+        ImageView nowplayingTabIcon = new ImageView(new File("src/main/resources/icons/tabicons/1200x630wa.png").toURI().toASCIIString());
+        ImageView settingsTabIcon = new ImageView(new File("src/main/resources/icons/tabicons/download (4).png").toURI().toASCIIString());
+        ImageView visualizationTabIcon = new ImageView(new File("src/main/resources/icons/tabicons/istockphoto-1367611853-640x640.jpg").toURI().toASCIIString());
+        ImageView mostPlayedTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
+        ImageView recentPlaysTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
+        ImageView recentlyAddedTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
+        myMusicTab.setGraphic(myMusicTabIcon);
+        artistsTab.setGraphic(artistTabIcon);
+        albumsTab.setGraphic(albumsTabIcon);
+        nowPlayingTab.setGraphic(nowplayingTabIcon);
+        recentlyAddedTab.setGraphic(recentlyAddedTabIcon);
+        recentPlaysTab.setGraphic(recentPlaysTabIcon);
+        settingsTab.setGraphic(settingsTabIcon);
+        visualizationTab.setGraphic(visualizationTabIcon);
+        mostPlayedTab.setGraphic(mostPlayedTabIcon);
+        //
+        myMusicTabIcon.setFitWidth(38);
+        myMusicTabIcon.setFitHeight(32);
+        myMusicTabIcon.setPreserveRatio(true);
+        //
+        nowplayingTabIcon.setFitWidth(38);
+        nowplayingTabIcon.setFitHeight(32);
+        nowplayingTabIcon.setPreserveRatio(true);
+        //
+        albumsTabIcon.setFitWidth(38);
+        albumsTabIcon.setFitHeight(32);
+        artistsTabIcon.setPreserveRatio(true);
+        //
+        artistsTabIcon.setFitWidth(38);
+        artistsTabIcon.setFitHeight(32);
+        artistsTabIcon.setPreserveRatio(true);
+        //
+        albumsTabIcon.setFitWidth(38);
+        albumsTabIcon.setFitHeight(32);
+        albumsTabIcon.setPreserveRatio(true);
+        //
+        visualizationTabIcon.setFitWidth(38);
+        visualizationTabIcon.setFitHeight(32);
+        visualizationTabIcon.setPreserveRatio(true);
+        //
+        settingsTabIcon.setFitWidth(38);
+        settingsTabIcon.setFitHeight(32);
+        settingsTabIcon.setPreserveRatio(true);
+        //
     }
 
     public MyMusicView getMyMusicView() {

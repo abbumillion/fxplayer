@@ -167,14 +167,14 @@ public class WaveFormService extends Service<Boolean> {
                 temporalCopiedFile.deleteOnExit();
 
                 //Create a temporary path
-                Files.copy(file.toPath(), temporalCopiedFile.toPath(), options);
+//                Files.copy(file.toPath(), temporalCopiedFile.toPath(), options);
 
                 //Transcode to .wav
-                transcodeToWav(temporalCopiedFile, temporalDecodedFile);
+//                transcodeToWav(temporalCopiedFile, temporalDecodedFile);
 
                 //Avoid creating amplitudes again for the same file
                 if (wavAmplitudes == null)
-                    wavAmplitudes = getWavAmplitudes(temporalDecodedFile);
+                    wavAmplitudes = getWavAmplitudes(file);
 
                 //Delete temporary files
                 temporalDecodedFile.delete();

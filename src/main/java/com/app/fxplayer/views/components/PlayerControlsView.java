@@ -15,17 +15,15 @@ import javafx.scene.layout.HBox;
 import java.io.File;
 
 public class PlayerControlsView extends View {
-    private WaveVisualization waveVisualization;
     private Label startDurationLabel,endDurationLabel,volumeLevelLabel,balanceLevelLabel,rateLevelLabel;
     private JFXButton pauseButton,prevButton,nextButton,shuffleButton,repeatButton,fullScreenJFXButton;
     private JFXSlider durationSlider,volumeSlider,balanceSlider,rateSlider;
-    private Image nextImage,prevImage,pauseImage,repeatImage,shuffleImage;
+    private ImageView nextImage,prevImage,pauseImage,repeatImage,shuffleImage,fullscreenImage;
     private ImageView songImageView;
     private HBox hBox1,hBox2;
     @Override
     public void init() {
         // wave visualization
-        waveVisualization = new WaveVisualization(520,32);
         // labels
         startDurationLabel = new Label("strt");
         endDurationLabel = new Label("end");
@@ -45,11 +43,12 @@ public class PlayerControlsView extends View {
         balanceSlider = new JFXSlider(-1,1,.1);
         rateSlider = new JFXSlider(0,8,.25);
         //imageview
-        nextImage = new Image(new File("src/main/resources/images/next.png").toURI().toASCIIString());
-        prevImage = new Image(new File("src/main/resources/images/previous.png").toURI().toASCIIString());
-        pauseImage = new Image(new File("src/main/resources/images/play.png").toURI().toASCIIString());
-        repeatImage = new Image(new File("src/main/resources/images/replay.png").toURI().toASCIIString());
-        shuffleImage = new Image(new File("src/main/resources/images/next.png").toURI().toASCIIString());
+        nextImage = new ImageView( new Image(new File("src/main/resources/icons/next-arrow-button-icon-vector-14566227.jpg").toURI().toASCIIString()));
+        prevImage = new ImageView( new Image(new File("src/main/resources/icons/37111642-previous-red-flat-icon.webp").toURI().toASCIIString()));
+        pauseImage = new ImageView( new Image(new File("src/main/resources/icons/download (8).png").toURI().toASCIIString()));
+        repeatImage = new ImageView( new Image(new File("src/main/resources/icons/playercontrolsicons/repeat-button-red-icon.webp").toURI().toASCIIString()));
+        shuffleImage = new ImageView( new Image(new File("src/main/resources/icons/playercontrolsicons/shuffle.png").toURI().toASCIIString()));
+        fullscreenImage = new ImageView( new Image(new File("src/main/resources/icons/playercontrolsicons/fullscreen.png").toURI().toASCIIString()));
         //hboxs
         hBox1 = new HBox();
         hBox2 =new HBox();
@@ -61,7 +60,7 @@ public class PlayerControlsView extends View {
 
     @Override
     public void build() {
-        hBox1.getChildren().addAll( songImageView , startDurationLabel , waveVisualization , endDurationLabel );
+        hBox1.getChildren().addAll( songImageView , startDurationLabel , durationSlider , endDurationLabel );
         hBox2.getChildren().addAll( shuffleButton , repeatButton , prevButton , pauseButton ,
                 nextButton , fullScreenJFXButton ,
                 volumeSlider , volumeLevelLabel ,
@@ -88,8 +87,8 @@ public class PlayerControlsView extends View {
         //hbox1
         startDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.04));
         endDurationLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.04));
-        waveVisualization.widthProperty().bind(hBox1.widthProperty().multiply(.9));
-        waveVisualization.heightProperty().bind(hBox1.heightProperty());
+        durationSlider.prefWidthProperty().bind(hBox1.widthProperty().multiply(.9));
+        durationSlider.prefHeightProperty().bind(hBox1.heightProperty());
         //buttons in hbox2
         shuffleButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.111025));
         repeatButton.prefWidthProperty().bind(hBox2.widthProperty().multiply(.11025));
@@ -109,17 +108,36 @@ public class PlayerControlsView extends View {
         //
         hBox1.prefWidthProperty().bind(widthProperty());
         hBox2.prefWidthProperty().bind(widthProperty());
+        //
+        prevImage.setFitWidth(32);
+        prevImage.setFitHeight(26);
+
+        pauseImage.setFitWidth(32);
+        pauseImage.setFitHeight(26);
+
+        nextImage.setFitWidth(32);
+        nextImage.setFitHeight(26);
+
+        shuffleImage.setFitWidth(32);
+        shuffleImage.setFitHeight(26);
+
+        repeatImage.setFitWidth(32);
+        repeatImage.setFitHeight(26);
+
+        fullscreenImage.setFitWidth(32);
+        fullscreenImage.setFitHeight(26);
 
     }
 
     @Override
     public void styling() {
         //
-        nextButton.setGraphic(new ImageView(nextImage));
-        prevButton.setGraphic(new ImageView(prevImage));
-        pauseButton.setGraphic(new ImageView(pauseImage));
-        repeatButton.setGraphic(new ImageView(repeatImage));
-        shuffleButton.setGraphic(new ImageView(shuffleImage));
+        nextButton.setGraphic(nextImage);
+        prevButton.setGraphic(prevImage);
+        pauseButton.setGraphic(pauseImage);
+        repeatButton.setGraphic(repeatImage);
+        shuffleButton.setGraphic(shuffleImage);
+        fullScreenJFXButton.setGraphic(fullscreenImage);
         //
     }
 
@@ -188,7 +206,4 @@ public class PlayerControlsView extends View {
         return songImageView;
     }
 
-    public WaveVisualization getWaveVisualization() {
-        return waveVisualization;
-    }
 }

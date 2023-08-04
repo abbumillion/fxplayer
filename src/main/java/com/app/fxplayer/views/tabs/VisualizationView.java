@@ -2,14 +2,24 @@ package com.app.fxplayer.views.tabs;
 
 import com.app.fxplayer.views.View;
 import javafx.geometry.Pos;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
 import javafx.scene.layout.HBox;
 import javafx.scene.shape.Circle;
 
 public class VisualizationView extends View {
-    private Circle circle;
+    private BarChart barChart;
+    private CategoryAxis xAxis;
+    private NumberAxis yAxis;
+    Circle circle;
     @Override
     public void init() {
-        circle = new Circle(100);
+        xAxis = new CategoryAxis();
+        yAxis = new NumberAxis();
+        barChart = new BarChart(xAxis,yAxis);
+        circle = new Circle();
     }
 
     @Override
@@ -20,18 +30,32 @@ public class VisualizationView extends View {
     @Override
     public void align() {
         setAlignment(Pos.CENTER);
+        barChart.setLegendVisible(false);
+        barChart.setAnimated(false);
     }
 
     @Override
     public void bind() {
         //
 
-//        hBox.prefWidthProperty().bind(widthProperty());
-//        hBox.prefHeightProperty().bind(heightProperty());
+        barChart.prefWidthProperty().bind(widthProperty());
+        barChart.prefHeightProperty().bind(heightProperty());
     }
     @Override
     public void styling() {
 
+    }
+
+    public CategoryAxis getxAxis() {
+        return xAxis;
+    }
+
+    public BarChart getBarChart() {
+        return barChart;
+    }
+
+    public NumberAxis getyAxis() {
+        return yAxis;
     }
 
     public Circle getCircle() {

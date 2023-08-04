@@ -1,5 +1,6 @@
 package com.app.fxplayer.modelgenerator;
 
+import com.app.fxplayer.models.Album;
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.repo.ModelRepository;
 import javafx.beans.InvalidationListener;
@@ -30,6 +31,9 @@ public final class Generator {
     }
 
     private static void addToRepository(String title, String album, String artist, String year, Image image, String source) {
-        ModelRepository.addSong(new Song(title,album,artist,year,image,source));
+        // check if the song is
+        // found in the repo
+        Song sng = new Song(title, album, artist, year, image, source);
+        ModelRepository.addSong(sng);
     }
 }

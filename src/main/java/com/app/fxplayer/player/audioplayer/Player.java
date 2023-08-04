@@ -1,10 +1,11 @@
 package com.app.fxplayer.player.audioplayer;
 
 import com.app.fxplayer.player.visualization.AudioPlayerSpectrumListener;
-import com.app.fxplayer.player.visualization.soundcloud.WaveFormService;
 import com.app.fxplayer.views.PlayerView;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
+import javafx.util.Duration;
 
 import java.io.File;
 
@@ -62,21 +63,26 @@ public final class Player {
     {
         if ( mediaPlayer != null )
         {
+            mediaPlayer.setAudioSpectrumNumBands(32);
             //wave visualization
-            playerView.getPlayerControllerView().getWaveVisualization().getWaveService().startService(new File(MediaQueue.getCurrentSong().getSource()), WaveFormService.WaveFormJob.AMPLITUDES_AND_WAVEFORM);
+//            playerView.getPlayerControllerView().getWaveVisualization().getWaveService().reset();
+//            playerView.getPlayerControllerView().getWaveVisualization().getWaveService().startService(new File(MediaQueue.getCurrentSong().getSource()), WaveFormService.WaveFormJob.AMPLITUDES_AND_WAVEFORM);
             //
             playerView.getPlayerControllerView().getPauseButton().setOnAction(actionEvent -> play());
             playerView.getPlayerControllerView().getPrevButton().setOnAction(actionEvent -> prev());
             playerView.getPlayerControllerView().getNextButton().setOnAction(actionEvent -> next());
             playerView.getPlayerControllerView().getFullScreenJFXButton().setOnAction(actionEvent -> playerView.setFullScreen());
             mediaPlayer.volumeProperty().bind(playerView.getPlayerControllerView().getVolumeSlider().valueProperty());
-            mediaPlayer.rateProperty().bind(playerView.getPlayerControllerView().getRateSlider().valueProperty());
+//            mediaPlayer.rateProperty().bind(playerView.getPlayerControllerView().getRateSlider().valueProperty());
             mediaPlayer.balanceProperty().bind(playerView.getPlayerControllerView().getBalanceSlider().valueProperty());
             playerView.getPlayerControllerView().getSongImageView().imageProperty().bind(MediaQueue.getCurrentSong().getImage().imageProperty());
+            //
             playerView.getMyMusicView().getImageView().imageProperty().bind(MediaQueue.getCurrentSong().getImage().imageProperty());
             playerView.getNowPlayingView().getImageView().imageProperty().bind(MediaQueue.getCurrentSong().getImage().imageProperty());
+            //
             AudioPlayerSpectrumListener audioPlayerSpectrumListener = new AudioPlayerSpectrumListener(playerView.getVisualizationView());
             mediaPlayer.setAudioSpectrumListener(audioPlayerSpectrumListener);
+            //
             mediaPlayer.totalDurationProperty().addListener((observableValue, duration, t1) -> {});
             mediaPlayer.startTimeProperty().addListener((observableValue, duration, t1) -> {});
             mediaPlayer.bufferProgressTimeProperty().addListener((observableValue, duration, t1) -> {});
@@ -84,7 +90,7 @@ public final class Player {
             mediaPlayer.audioSpectrumIntervalProperty().addListener((observableValue, duration, t1) -> {});
             mediaPlayer.setOnEndOfMedia(() -> next());
             playerView.getPlayerControllerView().getVolumeLevelLabel().textProperty().bind(mediaPlayer.volumeProperty().asString());
-         //   playerView.getPlayerControllerView().getRateLevelLabel().textProperty().bind(mediaPlayer.rateProperty().asString());
+            playerView.getPlayerControllerView().getRateLevelLabel().textProperty().bind(mediaPlayer.rateProperty().asString());
             playerView.getPlayerControllerView().getBalanceLevelLabel().textProperty().bind(mediaPlayer.balanceProperty().asString());
         }
     }
@@ -115,9 +121,9 @@ public final class Player {
 ////                    () -> mediaPlayer.getTotalDuration().toSeconds(),
 ////                    mediaPlayer.totalDurationProperty()));
 //
-//            mediaPlayer.currentTimeProperty().addListener((ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) -> {
-//                playerView.getPlayerControllerView().getDurationSlider().setValue(newValue.toSeconds());
-//            });
+            mediaPlayer.currentTimeProperty().addListener((ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) -> {
+                playerView.getPlayerControllerView().getDurationSlider().setValue(newValue.toSeconds());
+            });
 //
 //            playerView.getPlayerControllerView().getDurationSlider().valueProperty().addListener((observableValue, number, t1) -> {
 //                if ( t1 != null )
@@ -132,6 +138,9 @@ public final class Player {
         }
     }
 
+    public static MediaPlayer getMediaPlayer() {
+        return mediaPlayer;
+    }
 }
 
 
