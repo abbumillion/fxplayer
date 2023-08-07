@@ -31,17 +31,71 @@ public class PlayerControlsView extends View {
         balanceLevelLabel = new Label("balnc:");
         rateLevelLabel = new Label("rate:");
         // buttons
-        pauseButton = new JFXButton("pause");
-        prevButton = new JFXButton("prev");
-        nextButton = new JFXButton("next");
-        shuffleButton = new JFXButton("shuffle");
-        repeatButton = new JFXButton("repeat");
+        pauseButton = new JFXButton();
+        prevButton = new JFXButton();
+        nextButton = new JFXButton();
+        shuffleButton = new JFXButton();
+        repeatButton = new JFXButton();
+        fullScreenJFXButton = new JFXButton();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //        fullScreenButton = new Button("*");
         //sliders
         durationSlider = new JFXSlider();
         volumeSlider = new JFXSlider(0,1,.10);
-        balanceSlider = new JFXSlider(-1,1,.1);
-        rateSlider = new JFXSlider(0,8,.25);
+        balanceSlider = new JFXSlider(-1,1,1);
+        rateSlider = new JFXSlider(0,8,1);
         //imageview
         nextImage = new ImageView( new Image(new File("src/main/resources/icons/next-arrow-button-icon-vector-14566227.jpg").toURI().toASCIIString()));
         prevImage = new ImageView( new Image(new File("src/main/resources/icons/37111642-previous-red-flat-icon.webp").toURI().toASCIIString()));
@@ -53,7 +107,7 @@ public class PlayerControlsView extends View {
         hBox1 = new HBox();
         hBox2 =new HBox();
         //
-        fullScreenJFXButton = new JFXButton("*");
+
         //
         songImageView = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
     }

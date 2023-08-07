@@ -13,18 +13,16 @@ public class VisualizationView extends View {
     private BarChart barChart;
     private CategoryAxis xAxis;
     private NumberAxis yAxis;
-    Circle circle;
     @Override
     public void init() {
         xAxis = new CategoryAxis();
         yAxis = new NumberAxis();
         barChart = new BarChart(xAxis,yAxis);
-        circle = new Circle();
     }
 
     @Override
     public void build() {
-        getChildren().add(circle);
+        getChildren().add(barChart);
     }
 
     @Override
@@ -32,6 +30,7 @@ public class VisualizationView extends View {
         setAlignment(Pos.CENTER);
         barChart.setLegendVisible(false);
         barChart.setAnimated(false);
+
     }
 
     @Override
@@ -56,9 +55,5 @@ public class VisualizationView extends View {
 
     public NumberAxis getyAxis() {
         return yAxis;
-    }
-
-    public Circle getCircle() {
-        return circle;
     }
 }

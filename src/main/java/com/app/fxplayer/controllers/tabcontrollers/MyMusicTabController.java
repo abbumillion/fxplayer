@@ -1,7 +1,6 @@
 package com.app.fxplayer.controllers.tabcontrollers;
 
 import com.app.fxplayer.controllers.Controller;
-import com.app.fxplayer.player.audioplayer.MediaQueue;
 import com.app.fxplayer.player.audioplayer.Player;
 import com.app.fxplayer.repo.ModelRepository;
 import com.app.fxplayer.views.View;
@@ -21,8 +20,9 @@ public class MyMusicTabController extends Controller {
         {
             if (song2 != null)
             {
-                // current song
-                MediaQueue.setCurrentSong(song2);
+                // set current song for
+                // the player to play
+                Player.setCurrentSong(song2);
                 Player.play();
                 //
             }

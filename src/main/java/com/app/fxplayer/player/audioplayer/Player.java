@@ -1,8 +1,9 @@
 package com.app.fxplayer.player.audioplayer;
 
+import com.app.fxplayer.models.Song;
 import com.app.fxplayer.player.visualization.AudioPlayerSpectrumListener;
+import com.app.fxplayer.repo.ModelRepository;
 import com.app.fxplayer.views.PlayerView;
-import javafx.beans.value.ObservableValue;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
@@ -11,40 +12,29 @@ import java.io.File;
 
 public final class Player {
     private static PlayerView playerView;
+    private static Song currentSong;
     private static MediaPlayer mediaPlayer;
+    public static void prev(){
+        int currentSongIndex = ModelRepository.getSongList().getItems().indexOf(currentSong);
+        ModelRepository.getSongList().getSelectionModel().select(currentSongIndex - 1);
+    }
     public static void play() {
         checkMediaPlayer();
-        File file = new File(MediaQueue.getCurrentSong().getSource());
+        File file = new File(getCurrentSong().getSource());
         Media media = new Media(file.toURI().toASCIIString());
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
-        if ( playerView != null) {
-            updatePlayerView();
-        }
+        updatePlayerView();
+    }
+    public static void next(){
+        int currentSongIndex = ModelRepository.getSongList().getItems().indexOf(currentSong);
+        ModelRepository.getSongList().getSelectionModel().select(currentSongIndex + 1);
+    }
+    public static Song getCurrentSong() {
+        return currentSong;
     }
 
-    public static void next() {
-        checkMediaPlayer();
-        File file = new File(MediaQueue.getCurrentSong().getSource());
-        Media media = new Media(file.toURI().toASCIIString());
-        mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
-        if ( playerView != null) {
-            updatePlayerView();
-        }
-    }
 
-    public static void prev() {
-        checkMediaPlayer();
-        File file = new File(MediaQueue.getCurrentSong().getSource());
-        Media media = new Media(file.toURI().toASCIIString());
-        mediaPlayer = new MediaPlayer(media);
-        mediaPlayer.play();
-        if ( playerView != null) {
-            updatePlayerView();
-        }
-
-    }
 
     private static void checkMediaPlayer() {
         if (mediaPlayer != null)
@@ -55,91 +45,92 @@ public final class Player {
         mediaPlayer.stop();
     }
 
-    public void dispose() {
-        mediaPlayer.dispose();
-    }
-
     private static void updatePlayerView()
     {
         if ( mediaPlayer != null )
         {
-            mediaPlayer.setAudioSpectrumNumBands(32);
-            //wave visualization
-//            playerView.getPlayerControllerView().getWaveVisualization().getWaveService().reset();
-//            playerView.getPlayerControllerView().getWaveVisualization().getWaveService().startService(new File(MediaQueue.getCurrentSong().getSource()), WaveFormService.WaveFormJob.AMPLITUDES_AND_WAVEFORM);
-            //
+            mediaPlayer.setAudioSpectrumNumBands(48);
             playerView.getPlayerControllerView().getPauseButton().setOnAction(actionEvent -> play());
             playerView.getPlayerControllerView().getPrevButton().setOnAction(actionEvent -> prev());
             playerView.getPlayerControllerView().getNextButton().setOnAction(actionEvent -> next());
             playerView.getPlayerControllerView().getFullScreenJFXButton().setOnAction(actionEvent -> playerView.setFullScreen());
             mediaPlayer.volumeProperty().bind(playerView.getPlayerControllerView().getVolumeSlider().valueProperty());
-//            mediaPlayer.rateProperty().bind(playerView.getPlayerControllerView().getRateSlider().valueProperty());
+            mediaPlayer.rateProperty().bind(playerView.getPlayerControllerView().getRateSlider().valueProperty());
             mediaPlayer.balanceProperty().bind(playerView.getPlayerControllerView().getBalanceSlider().valueProperty());
-            playerView.getPlayerControllerView().getSongImageView().imageProperty().bind(MediaQueue.getCurrentSong().getImage().imageProperty());
-            //
-            playerView.getMyMusicView().getImageView().imageProperty().bind(MediaQueue.getCurrentSong().getImage().imageProperty());
-            playerView.getNowPlayingView().getImageView().imageProperty().bind(MediaQueue.getCurrentSong().getImage().imageProperty());
-            //
-            AudioPlayerSpectrumListener audioPlayerSpectrumListener = new AudioPlayerSpectrumListener(playerView.getVisualizationView());
-            mediaPlayer.setAudioSpectrumListener(audioPlayerSpectrumListener);
-            //
-            mediaPlayer.totalDurationProperty().addListener((observableValue, duration, t1) -> {});
-            mediaPlayer.startTimeProperty().addListener((observableValue, duration, t1) -> {});
-            mediaPlayer.bufferProgressTimeProperty().addListener((observableValue, duration, t1) -> {});
-            mediaPlayer.currentTimeProperty().addListener((observableValue, duration, t1) -> {});
-            mediaPlayer.audioSpectrumIntervalProperty().addListener((observableValue, duration, t1) -> {});
-            mediaPlayer.setOnEndOfMedia(() -> next());
+            playerView.getPlayerControllerView().getSongImageView().imageProperty().bind(getCurrentSong().getImage().imageProperty());
+            playerView.getMyMusicView().getImageView().imageProperty().bind(getCurrentSong().getImage().imageProperty());
+            playerView.getNowPlayingView().getImageView().imageProperty().bind(getCurrentSong().getImage().imageProperty());
             playerView.getPlayerControllerView().getVolumeLevelLabel().textProperty().bind(mediaPlayer.volumeProperty().asString());
             playerView.getPlayerControllerView().getRateLevelLabel().textProperty().bind(mediaPlayer.rateProperty().asString());
             playerView.getPlayerControllerView().getBalanceLevelLabel().textProperty().bind(mediaPlayer.balanceProperty().asString());
+            mediaPlayer.setOnEndOfMedia(() -> next());
+            mediaPlayer.setOnPlaying(() -> {});
+            mediaPlayer.setAutoPlay(true);
+            AudioPlayerSpectrumListener audioPlayerSpectrumListener = new AudioPlayerSpectrumListener(playerView.getVisualizationView());
+            mediaPlayer.setAudioSpectrumListener(audioPlayerSpectrumListener);
+            ModelRepository.getSongList().getSelectionModel().selectedItemProperty().addListener((observableValue, song, t1) -> {
+                if (t1 != null)
+                {
+                    playerView.getMyMusicView().getSongListView().getSelectionModel().select(t1);
+                }
+            });
+            mediaPlayer.setOnReady(()->{
+                mediaPlayer.currentTimeProperty().addListener((observableValue, duration, t1) -> {
+                    if ( t1 != null )
+                    {
+                        double seconds = t1.toSeconds();
+                        String formattedTime = formatTime(seconds);
+                        playerView.getPlayerControllerView().getDurationSlider().valueProperty().set(seconds);
+                        playerView.getPlayerControllerView().getStartDurationLabel().setText(formattedTime);
+                    }
+                });
+                // start time
+                mediaPlayer.startTimeProperty().addListener((observableValue, duration, t1) ->
+                {
+                    if (t1 != null)
+                    {
+                        double seconds = t1.toSeconds();
+                        String formattedTime = formatTime(seconds);
+                        playerView.getPlayerControllerView().getStartDurationLabel().setText(formattedTime);
+                    }
+                });
+                // stop time
+                mediaPlayer.totalDurationProperty().addListener((observableValue, duration, t1) -> {
+                    if (t1 != null)
+                    {
+                        System.out.println(t1);
+                        double seconds = t1.toSeconds();
+                        String formattedTime = formatTime(seconds);
+                        playerView.getPlayerControllerView().getEndDurationLabel().setText(formattedTime);
+                        playerView.getPlayerControllerView().getDurationSlider().setMax(seconds);
+                    }
+                });
+                playerView.getPlayerControllerView().getDurationSlider().setOnMousePressed(event->{
+                    mediaPlayer.seek(Duration.seconds(playerView.getPlayerControllerView().getDurationSlider().getValue()));
+                });
+            });
         }
+    }
+
+    private static String formatTime(double seconds) {
+        String s = String.valueOf(seconds);
+        seconds /= 60;
+        String m = String.valueOf(seconds % 60);
+        seconds /= 60;
+        String h = String.valueOf(seconds % 24);
+        return h + ":" + m + ":" + s;
     }
 
     public static void setPlayerView(PlayerView playerView1) {
         Player.playerView = playerView1;
     }
 
-
-    static class PlayerDurationHandler{
-        public void handleDuration()
-        {
-            mediaPlayer.currentTimeProperty().addListener((observableValue, duration, t1) -> {
-                if (t1 != null)
-                {
-                    System.out.println(t1);
-                }
-            });
-            //
-//            //Code for Volume Slider
-////            playerView.getPlayerControllerView().getVolumeSlider().setValue(0.7 * 100);
-////            playerView.valueProperty().addListener((Observable observable) -> {
-////                mp.setVolume(volumeSlider.getValue()/100);
-////            });
-//            //Code for seeking bar
-//
-////            playerView.getPlayerControllerView().getDurationSlider().maxProperty().bind(Bindings.createDoubleBinding(
-////                    () -> mediaPlayer.getTotalDuration().toSeconds(),
-////                    mediaPlayer.totalDurationProperty()));
-//
-            mediaPlayer.currentTimeProperty().addListener((ObservableValue<? extends Duration> observable, Duration oldValue, Duration newValue) -> {
-                playerView.getPlayerControllerView().getDurationSlider().setValue(newValue.toSeconds());
-            });
-//
-//            playerView.getPlayerControllerView().getDurationSlider().valueProperty().addListener((observableValue, number, t1) -> {
-//                if ( t1 != null )
-//                {
-//                    mediaPlayer.seek(Duration.seconds(t1.doubleValue()));
-//                }
-//            });
-////            playerView.getPlayerControllerView().setOnMouseClicked((MouseEvent event) -> {
-////                mp.seek(Duration.seconds(seekSlider.getValue()));
-////            });
-//            //
-        }
-    }
-
     public static MediaPlayer getMediaPlayer() {
         return mediaPlayer;
+    }
+
+    public static void setCurrentSong(Song currentSong) {
+        Player.currentSong = currentSong;
     }
 }
 

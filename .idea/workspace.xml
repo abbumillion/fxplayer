@@ -4,78 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d75da6c2-53ad-46d2-8b34-7412ff37e36d" name="Changes" comment="sound cloud visualization">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/soundrecorder/SoundRecorderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/soundrecorder/SoundRecorderView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/soundrecorder/SoundRecordingUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/download (9).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/fill+pause+icon-1320184953022604687.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/ico-triangle-black-area-icon-design.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/images.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/imoji-icon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/menu-icon-24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/mic-icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/next-arrow-button-icon-vector-14566227.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/pause-circle-icon-256x256-ukx0fh91.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/pause-icon-yellow-white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/pause_icon-white-black.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/person-icon-red-14.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/play-icon-black-white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/play-icon-red-white.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/37111642-previous-red-flat-icon.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/847792_music_512x512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/controler+media+pause+pause+button+puse+music+icon-1320085967668018275.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/download (1).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/download (2).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/download (5).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/download (6).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/download (7).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/download (8).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/download.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/fullscreen.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/repeat-button-red-icon.webp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/shuffle.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/tabicons/1200x630wa.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/tabicons/album-icon-6.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/tabicons/download (3).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/tabicons/download (4).png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/tabicons/istockphoto-1367611853-640x640.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/user-icon.png" afterDir="false" />
+    <list default="true" id="d75da6c2-53ad-46d2-8b34-7412ff37e36d" name="Changes" comment="adding some icons and images">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/config/ApplicationDB.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/config/StartUpData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/FXPlayerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/FXPlayerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/AlbumsTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/AlbumsTabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/StringConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/StringConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/CollectorManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/Generator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/audioplayer/MediaQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/audioplayer/MediaQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/app.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/MyMusicTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/MyMusicTabController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/VisualizationTabController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/viewcontroller/LoaderViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/viewcontroller/LoaderViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/viewcontroller/PlayerViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/viewcontroller/PlayerViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/audioplayer/MediaQueue.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/audioplayer/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/audioplayer/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/AudioPlayerSpectrumListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/AudioPlayerSpectrumListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/soundcloud/WaveFormService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/soundcloud/WaveFormService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/soundrecorder/SoundRecorderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/soundrecorder/SoundRecorderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/LoaderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/LoaderView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/PlayerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/PlayerView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/View.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/PlayerControlsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/PlayerControlsView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/VisualizationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/VisualizationView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Audio Wave-20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Playlist-32.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/Playlist-32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Settings-32.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/Settings-32.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/Stop-24.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/Stop-24.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/VisualizerBackground.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/VisualizerBackground.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/VisualizerForeground.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/VisualizerForeground.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/artist.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/tabicons/artist.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/artwork.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/tabicons/artwork.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/backward.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/playercontrolsicons/backward.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/forward.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/forward.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/next.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/next.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/play.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/play.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/playlist.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/playlist.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/playlistImage.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/playlistImage.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/previous.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/previous.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/replay.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/replay.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/sample.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/sample.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/searchIcon.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/searchIcon.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/song.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/song.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/speaker.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/speaker.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/images/stop.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/icons/stop.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +61,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -145,7 +93,7 @@
       <recent name="com.app.fxplayer.player.audioplayer" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.FXPlayerApplication">
+  <component name="RunManager" selected="Application.app">
     <configuration name="FXPlayerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.app.fxplayer.application.FXPlayerApplication" />
       <module name="fxplayer" />
@@ -174,8 +122,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.FXPlayerApplication" />
         <item itemvalue="Application.app" />
+        <item itemvalue="Application.FXPlayerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -259,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1690644195708</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="adding some icons and images">
+      <option name="closed" value="true" />
+      <created>1691143105678</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1691143105678</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -271,6 +227,7 @@
     <MESSAGE value="loader" />
     <MESSAGE value="loader added" />
     <MESSAGE value="sound cloud visualization" />
-    <option name="LAST_COMMIT_MESSAGE" value="sound cloud visualization" />
+    <MESSAGE value="adding some icons and images" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding some icons and images" />
   </component>
 </project>

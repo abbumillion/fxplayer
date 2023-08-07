@@ -29,19 +29,10 @@ public class PlayerViewController extends Controller {
         SettingsTabController settingsTabController = new SettingsTabController(playerView.getSettingsView());
         settingsTabController.setPlayerView(playerView);
         settingsTabController.init();
-        VisualizationTabController visualizationTabController = new VisualizationTabController(playerView.getVisualizationView());
-        visualizationTabController.init();
-        //
         RecentPlaysTabController recentPlaysTabController = new RecentPlaysTabController(playerView.getRecentPlaysView());
         recentPlaysTabController.init();
-        System.out.println(playerView);
-        if (playerView != null)
-        {
-            Player.setPlayerView(playerView);
-        }
-//        Player.setPlayerView(playerView);
+        Player.setPlayerView(playerView);
         playerView.showView();
-
     }
 
 

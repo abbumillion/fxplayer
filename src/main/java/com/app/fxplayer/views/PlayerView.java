@@ -32,16 +32,16 @@ public class PlayerView extends View {
     private VBox rootVBox;
     @Override
     public void init() {
-        myMusicTab = new Tab("My Music");
-        nowPlayingTab = new Tab("Now Playing");
-        albumsTab = new Tab("Albums");
-        artistsTab = new Tab("Artists");
-        visualizationTab = new Tab("Visualization");
-        settingsTab = new Tab("Settings");
-        mostPlayedTab = new Tab("Most Played");
-        recentPlaysTab = new Tab("Recent Plays");
-        recentlyAddedTab = new Tab("Recent Added");
-        playlistTab = new Tab("Playlist");
+        myMusicTab = new Tab();
+        nowPlayingTab = new Tab();
+        albumsTab = new Tab();
+        artistsTab = new Tab();
+        visualizationTab = new Tab();
+        settingsTab = new Tab();
+        mostPlayedTab = new Tab();
+        recentPlaysTab = new Tab();
+        recentlyAddedTab = new Tab();
+        playlistTab = new Tab();
         tabPane = new TabPane();
         myMusicView = new MyMusicView();
         nowPlayingView = new NowPlayingView();
@@ -72,7 +72,6 @@ public class PlayerView extends View {
                 recentlyAddedTab,artistsTab,albumsTab,visualizationTab,settingsTab);
         rootVBox.getChildren().addAll(tabPane,playerControllerView);
         getChildren().addAll(rootVBox);
-
     }
 
     @Override
@@ -94,7 +93,6 @@ public class PlayerView extends View {
     }
     @Override
     public void styling() {
-        ImageView artistTabIcon = new ImageView(new File("src/main/resources/images/artist.png").toURI().toASCIIString());
         //------------------------------------------------------------------------------------------------------//
       //  artistTabIcon.setFitHeight(imageWidth);
       //  artistTabIcon.setFitWidth(imageWidth);
@@ -121,7 +119,7 @@ public class PlayerView extends View {
         ImageView recentPlaysTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
         ImageView recentlyAddedTabIcon = new ImageView(new File("src/main/resources/images/song.png").toURI().toASCIIString());
         myMusicTab.setGraphic(myMusicTabIcon);
-        artistsTab.setGraphic(artistTabIcon);
+        artistsTab.setGraphic(artistsTabIcon);
         albumsTab.setGraphic(albumsTabIcon);
         nowPlayingTab.setGraphic(nowplayingTabIcon);
         recentlyAddedTab.setGraphic(recentlyAddedTabIcon);

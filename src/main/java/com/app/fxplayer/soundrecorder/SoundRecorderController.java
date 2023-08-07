@@ -1,14 +1,10 @@
 package com.app.fxplayer.soundrecorder;
 
 import com.app.fxplayer.controllers.Controller;
-import com.app.fxplayer.models.Song;
-import com.app.fxplayer.player.audioplayer.MediaQueue;
 import com.app.fxplayer.player.audioplayer.Player;
 import com.app.fxplayer.player.visualization.soundcloud.WaveFormService;
 import com.app.fxplayer.views.View;
-import com.app.fxplayer.views.components.audiovirtualizationview.WaveVisualization;
 import javafx.concurrent.Task;
-import javafx.scene.media.Media;
 
 import javax.sound.sampled.LineUnavailableException;
 import java.io.File;
@@ -36,7 +32,7 @@ public class SoundRecorderController extends Controller {
             if ( t1 != null)
             {
                 File file = (File) t1;
-                MediaQueue.setMedia(new Media(file.toURI().toASCIIString()));
+//                MediaQueue.setMedia(new Media(file.toURI().toASCIIString()));
                 Player.play();
                 soundRecorderView.getWaveVisualization().getWaveService().startService(file, WaveFormService.WaveFormJob.AMPLITUDES_AND_WAVEFORM);
             }

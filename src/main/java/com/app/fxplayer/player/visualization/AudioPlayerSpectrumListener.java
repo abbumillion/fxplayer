@@ -6,7 +6,6 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.chart.XYChart;
 import javafx.scene.media.AudioSpectrumListener;
-import javafx.scene.paint.Color;
 
 public class AudioPlayerSpectrumListener implements AudioSpectrumListener {
     private VisualizationView visualizationView;
@@ -31,17 +30,12 @@ public class AudioPlayerSpectrumListener implements AudioSpectrumListener {
         for (int i = 0 ; i < magnitudes.length ; i++)
         {
             if (phases[i] < 0)
-                phases[i] = phases[i] * -1;
-//            if (magnitudes[i] < 0 )
-//                magnitudes[i] = magnitudes[i] * -1 *  14f;
-//            float correctedMagnitude = magnitudes[i] * 3.14f;
-//            float correctPhase = phases[i] * 256 * 3.14f;
-//            seriesData.add(new XYChart.Data<>(i + "",64 * magnitudes[i] - Player.getMediaPlayer().getAudioSpectrumThreshold()));
-            float v = 127 * magnitudes[i] - Player.getMediaPlayer().getAudioSpectrumThreshold();
-            visualizationView.getCircle().setRadius(v);
-            visualizationView.getCircle().setFill(Color.rgb((int) (phases[i] * 1000 % 255), (int) (phases[i] * 1000 % 255), (int) (phases[i] * 1000 % 255)));
+                phases[i] = phases[i] * -1 ;
+            if (magnitudes[i] < 0 )
+                magnitudes[i] = magnitudes[i] * -1 ;
+            seriesData.add(new XYChart.Data<>(i + "",36 * magnitudes[i] - Player.getMediaPlayer().getAudioSpectrumThreshold()));
         }
-//        data.add(new XYChart.Series<>(seriesData));
-//        visualizationView.getBarChart().setData(data);
+        data.add(new XYChart.Series<>(seriesData));
+        visualizationView.getBarChart().setData(data);
     }
 }
