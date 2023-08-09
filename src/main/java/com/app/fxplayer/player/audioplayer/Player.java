@@ -49,7 +49,7 @@ public final class Player {
     {
         if ( mediaPlayer != null )
         {
-            mediaPlayer.setAudioSpectrumNumBands(48);
+            mediaPlayer.setAudioSpectrumNumBands(127);
             playerView.getPlayerControllerView().getPauseButton().setOnAction(actionEvent -> play());
             playerView.getPlayerControllerView().getPrevButton().setOnAction(actionEvent -> prev());
             playerView.getPlayerControllerView().getNextButton().setOnAction(actionEvent -> next());

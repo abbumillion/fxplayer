@@ -25,36 +25,37 @@ public class LoaderViewController extends Controller {
 
     @Override
     public void init() throws InterruptedException, IOException {
-        if (ApplicationDB.isFirstTime())
-        {
-            System.out.println("first time");
-            firstTimeOperation();
-        }
-        else {
-            System.out.println("not first time");
-            // if the song file exists
-            // then load files from
-            // the song file and add
-            // it to the application
-            // song repository
-            if (ApplicationDB.getSongFile().exists()) {
-                System.out.println("song file exists");
-                PlayerViewController playerViewController = new PlayerViewController(new PlayerView());
-                playerViewController.init();
-                List<Song> songList = ApplicationDB.getSongListFromDatabase();
-                Iterator iterator = songList.listIterator();
-                while (iterator.hasNext()) {
-                    ModelRepository.getSongList().getItems().add((Song) iterator.next());
-                }
-            }
-            // if the song file
-            // doesn't exist
-            // start first time operation
-            else {
-                System.out.println("song file doesn't exists");
-                firstTimeOperation();
-            }
-        }
+//        if (ApplicationDB.isFirstTime())
+//        {
+//            System.out.println("first time");
+//            firstTimeOperation();
+//        }
+//        else {
+//            System.out.println("not first time");
+//            // if the song file exists
+//            // then load files from
+//            // the song file and add
+//            // it to the application
+//            // song repository
+//            if (ApplicationDB.getSongFile().exists()) {
+//                System.out.println("song file exists");
+//                PlayerViewController playerViewController = new PlayerViewController(new PlayerView());
+//                playerViewController.init();
+//                List<Song> songList = ApplicationDB.getSongListFromDatabase();
+//                Iterator iterator = songList.listIterator();
+//                while (iterator.hasNext()) {
+//                    ModelRepository.getSongList().getItems().add((Song) iterator.next());
+//                }
+//            }
+//            // if the song file
+//            // doesn't exist
+//            // start first time operation
+//            else {
+//                System.out.println("song file doesn't exists");
+//                firstTimeOperation();
+//            }
+//        }
+        firstTimeOperation();
         loaderView.getLoaderListView().itemsProperty().bind(ModelRepository.getSongList().itemsProperty());
         loaderView.showView();
         loaderView.getLoaderListView().getSelectionModel().selectedItemProperty().addListener((observableValue, o, t1) ->
@@ -83,6 +84,6 @@ public class LoaderViewController extends Controller {
                 throw new RuntimeException(ex);
             }
         });
-        ApplicationDB.saveStartUpFileToDataBase();
+//        ApplicationDB.saveStartUpFileToDataBase();
     }
 }
