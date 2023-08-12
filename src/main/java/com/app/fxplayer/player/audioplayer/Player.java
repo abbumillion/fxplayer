@@ -4,6 +4,9 @@ import com.app.fxplayer.models.Song;
 import com.app.fxplayer.player.visualization.AudioPlayerSpectrumListener;
 import com.app.fxplayer.repo.ModelRepository;
 import com.app.fxplayer.views.PlayerView;
+import javafx.scene.effect.GaussianBlur;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
@@ -49,7 +52,7 @@ public final class Player {
     {
         if ( mediaPlayer != null )
         {
-            mediaPlayer.setAudioSpectrumNumBands(127);
+            mediaPlayer.setAudioSpectrumNumBands(128);
             playerView.getPlayerControllerView().getPauseButton().setOnAction(actionEvent -> play());
             playerView.getPlayerControllerView().getPrevButton().setOnAction(actionEvent -> prev());
             playerView.getPlayerControllerView().getNextButton().setOnAction(actionEvent -> next());
@@ -59,7 +62,29 @@ public final class Player {
             mediaPlayer.balanceProperty().bind(playerView.getPlayerControllerView().getBalanceSlider().valueProperty());
             playerView.getPlayerControllerView().getSongImageView().imageProperty().bind(getCurrentSong().getImage().imageProperty());
             playerView.getMyMusicView().getImageView().imageProperty().bind(getCurrentSong().getImage().imageProperty());
+            //
             playerView.getNowPlayingView().getImageView().imageProperty().bind(getCurrentSong().getImage().imageProperty());
+            // create a background with current playing song image
+            Image image = getCurrentSong().getImage().getImage();
+//            image.splayerView.getNowPlayingView().widthProperty().get(),playerView.getNowPlayingView().heightProperty().get(),true,true);
+            if (image != null) {
+
+                BackgroundImage backgroundImage = new BackgroundImage(image
+                        ,
+                        BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                        new BackgroundSize(
+                                playerView.getNowPlayingView().widthProperty().get(),
+                                playerView.getNowPlayingView().heightProperty().get(),
+                                false,
+                                false,
+                                true,
+                                true
+                        ));
+                GaussianBlur blur = new GaussianBlur(20);
+                playerView.getNowPlayingView().getImageView().setEffect(blur);
+                playerView.getNowPlayingView().setBackground(new Background(backgroundImage));
+            }
+            //
             playerView.getPlayerControllerView().getVolumeLevelLabel().textProperty().bind(mediaPlayer.volumeProperty().asString());
             playerView.getPlayerControllerView().getRateLevelLabel().textProperty().bind(mediaPlayer.rateProperty().asString());
             playerView.getPlayerControllerView().getBalanceLevelLabel().textProperty().bind(mediaPlayer.balanceProperty().asString());

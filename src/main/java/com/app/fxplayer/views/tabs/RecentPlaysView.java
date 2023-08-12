@@ -4,7 +4,9 @@ import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.listcells.SongCell;
 import com.jfoenix.controls.JFXListView;
 import javafx.geometry.Pos;
+import lombok.Data;
 
+@Data
 public class RecentPlaysView extends View {
     private JFXListView recentPlaysJFXListView;
     @Override
@@ -32,7 +34,4 @@ public class RecentPlaysView extends View {
         recentPlaysJFXListView.setCellFactory(songListView -> new SongCell());
     }
 
-    public JFXListView getRecentPlaysJFXListView() {
-        return recentPlaysJFXListView;
-    }
 }

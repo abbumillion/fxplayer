@@ -1,13 +1,7 @@
 package com.app.fxplayer.models;
 
-import javafx.beans.InvalidationListener;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
-import javafx.scene.media.Media;
-
-import java.io.File;
 
 public class Album {
     private String name ;

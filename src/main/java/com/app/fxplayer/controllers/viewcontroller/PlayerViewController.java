@@ -3,7 +3,6 @@ package com.app.fxplayer.controllers.viewcontroller;
 
 import com.app.fxplayer.controllers.Controller;
 import com.app.fxplayer.controllers.tabcontrollers.*;
-import com.app.fxplayer.modelgenerator.Collector;
 import com.app.fxplayer.player.audioplayer.Player;
 import com.app.fxplayer.views.PlayerView;
 import com.app.fxplayer.views.View;

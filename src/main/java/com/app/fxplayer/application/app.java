@@ -1,6 +1,5 @@
 package com.app.fxplayer.application;
 
-import com.app.fxplayer.application.config.ApplicationDB;
 import javafx.application.Application;
 
 import java.io.IOException;

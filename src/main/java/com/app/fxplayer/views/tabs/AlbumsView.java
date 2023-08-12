@@ -4,7 +4,9 @@ import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.listcells.SongCell;
 import javafx.geometry.Pos;
 import javafx.scene.control.ListView;
+import lombok.Data;
 
+@Data
 public class AlbumsView extends View {
     private ListView albumListView;
     @Override

@@ -1,21 +1,20 @@
 package com.app.fxplayer.application.config;
 
-import com.app.fxplayer.modelgenerator.Generator;
 import com.app.fxplayer.models.Song;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.concurrent.Task;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Scanner;
 
 public final class ApplicationDB {
     static File songFile = new File("songs.txt");
     static File startUpFile = new File("startup.txt");
-
-
-
     public static void saveStartUpFileToDataBase() throws IOException {
         PrintWriter printWriter = new PrintWriter(startUpFile);
         if (StartUpData.firstTime) {
@@ -66,11 +65,11 @@ public final class ApplicationDB {
             protected Object call() throws Exception {
 
                 Scanner scanner = new Scanner(songFile);
-                while (scanner.hasNextLine())
-                {
-                    Song song = Generator.generateSong(scanner.nextLine());
-                    songList.add(song);
-                }
+//                while (scanner.hasNextLine())
+//                {
+//                    Song song = Generator.generateSong(scanner.nextLine());
+//                    songList.add(song);
+//                }
                 scanner.close();
                 return null;
             }

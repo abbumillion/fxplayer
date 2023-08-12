@@ -3,7 +3,6 @@ package com.app.fxplayer.controllers.viewcontroller;
 import com.app.fxplayer.application.config.ApplicationDB;
 import com.app.fxplayer.controllers.Controller;
 import com.app.fxplayer.modelgenerator.Collector;
-import com.app.fxplayer.modelgenerator.Generator;
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.player.audioplayer.Player;
 import com.app.fxplayer.repo.ModelRepository;
@@ -11,10 +10,7 @@ import com.app.fxplayer.views.LoaderView;
 import com.app.fxplayer.views.PlayerView;
 import com.app.fxplayer.views.View;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
 
 public class LoaderViewController extends Controller {
     private final LoaderView loaderView;

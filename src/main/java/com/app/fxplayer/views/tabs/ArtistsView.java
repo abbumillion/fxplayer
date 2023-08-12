@@ -4,37 +4,22 @@ import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.listcells.SongCell;
 import javafx.geometry.Pos;
 import javafx.scene.control.ListView;
+import lombok.Data;
 
-/**
- * ARTISTS TAB SUB VIEW CLASS
- */
-
+@Data
 public class ArtistsView extends View {
-    /**
-     * ARTISTS COLLECTIONS HOLDER LIST VIEW
-     */
     private ListView artistListView;
-
-    /**
-     *
-     */
     @Override
     public void init() {
         artistListView = new ListView<>();
     }
-
-    /**
-     *
-     */
 
     @Override
     public void build() {
         getChildren().addAll(artistListView);
     }
 
-    /**
-     *
-     */
+
 
     @Override
     public void align() {
@@ -43,9 +28,7 @@ public class ArtistsView extends View {
 
     }
 
-    /**
-     *
-     */
+
 
     @Override
     public void bind() {
@@ -53,19 +36,9 @@ public class ArtistsView extends View {
         artistListView.prefHeightProperty().bind(heightProperty());
     }
 
-    /**
-     *
-     */
     @Override
     public void styling() {
 
     }
 
-    /**
-     *
-     * @return artists list view
-     */
-    public ListView getArtistListView() {
-        return artistListView;
-    }
 }

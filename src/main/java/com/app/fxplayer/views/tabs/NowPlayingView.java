@@ -1,23 +1,25 @@
 package com.app.fxplayer.views.tabs;
 
 import com.app.fxplayer.views.View;
-import com.app.fxplayer.views.components.PlayerControlsView;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
+import lombok.Data;
 
 import java.io.File;
-
+@Data
 public class NowPlayingView extends View {
-    // image view
     private ImageView imageView;
-    private PlayerControlsView playerControlsView;
-    //
-
+    private BackgroundImage backgroundImage;
     @Override
     public void init() {
-        playerControlsView = new PlayerControlsView();
         imageView = new ImageView(new Image(new File("src/main/resources/images/sample.jpg").toURI().toASCIIString()));
+        backgroundImage= new BackgroundImage(
+                new Image(new File("src/main/resources/images/sample.jpg").toURI().toASCIIString(),widthProperty().get(),heightProperty().get(),true,true),
+                BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+        //
     }
 
     @Override
@@ -33,21 +35,18 @@ public class NowPlayingView extends View {
 
     @Override
     public void bind() {
-        //
-        imageView.fitWidthProperty().bind(widthProperty().multiply(.8));
-        imageView.fitHeightProperty().bind(heightProperty().multiply(.75));
-        //
+        imageView.fitWidthProperty().bind(widthProperty().multiply(.48));
+        imageView.fitHeightProperty().bind(heightProperty().multiply(.42));
     }
     @Override
     public void styling() {
-
+        setBackground(new Background(backgroundImage));
     }
 
     public ImageView getImageView() {
         return imageView;
     }
 
-    public PlayerControlsView getPlayerControlsView() {
-        return playerControlsView;
-    }
+
+
 }

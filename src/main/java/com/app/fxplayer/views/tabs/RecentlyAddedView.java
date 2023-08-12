@@ -5,7 +5,9 @@ import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.listcells.SongCell;
 import com.jfoenix.controls.JFXListView;
 import javafx.geometry.Pos;
+import lombok.Data;
 
+@Data
 public class RecentlyAddedView extends View {
     private JFXListView<Song> recentlyAddedJFXListView;
     @Override
@@ -33,7 +35,4 @@ public class RecentlyAddedView extends View {
         recentlyAddedJFXListView.setCellFactory(songListView -> new SongCell());
     }
 
-    public JFXListView<Song> getRecentlyAddedJFXListView() {
-        return recentlyAddedJFXListView;
-    }
 }

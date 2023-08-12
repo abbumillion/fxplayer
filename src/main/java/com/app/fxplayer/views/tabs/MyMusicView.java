@@ -9,9 +9,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import lombok.Data;
 
 import java.io.File;
-
+@Data
 public class MyMusicView extends View {
     //
     private ImageView imageView;
@@ -69,11 +70,4 @@ public class MyMusicView extends View {
     }
 
 
-    public ListView<Song> getSongListView() {
-        return songListView;
-    }
-
-    public ImageView getImageView() {
-        return imageView;
-    }
 }

@@ -1,6 +1,5 @@
 package com.app.fxplayer.modelgenerator;
 
-import com.app.fxplayer.models.Album;
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.repo.ModelRepository;
 import javafx.beans.InvalidationListener;
@@ -11,29 +10,21 @@ import java.io.File;
 import java.util.Map;
 
 public final class Generator {
-    public synchronized static Song generateSong(String path)
+    public  static void   generateSong(String path)
     {
         Media media = new Media(new File(path).toURI().toASCIIString());
         media.getMetadata().addListener((InvalidationListener) observable ->
         {
-            String title,album,artist,year,source;
-            Image image;
-            Map map = (Map) observable;
-            title = (String) map.get("title");
-            album = (String) map.get("artist");
-            artist = (String) map.get("album");
-            year = map.get("year") + "";
-            image = (Image) map.get("image");
-            source = path;
-            addToRepository(title,album,artist,year,image,source);
+//            System.out.println("Adding : "+observable);
+            ModelRepository.addSong(new Song((String) ((Map<?, ?>) observable).get("title"), (String) ((Map<?, ?>) observable).get("album"),
+                    (String) ((Map<?, ?>) observable).get("artist"),
+                    String.valueOf(((Map<?, ?>) observable).get("year")),
+                    (Image) ((Map<?, ?>) observable).get("image"), path));
         });
-        return null;
     }
-
-    private static void addToRepository(String title, String album, String artist, String year, Image image, String source) {
-        // check if the song is
-        // found in the repo
-        Song sng = new Song(title, album, artist, year, image, source);
-        ModelRepository.addSong(sng);
-    }
+}
+enum FileType{
+    MP3,
+    M4A,
+    MKV,
 }

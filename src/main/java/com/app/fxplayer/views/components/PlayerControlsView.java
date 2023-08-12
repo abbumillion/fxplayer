@@ -1,19 +1,17 @@
 package com.app.fxplayer.views.components;
 
 import com.app.fxplayer.views.View;
-import com.app.fxplayer.views.components.audiovirtualizationview.WaveVisualization;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXSlider;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import lombok.Data;
 
 import java.io.File;
-
+@Data
 public class PlayerControlsView extends View {
     private Label startDurationLabel,endDurationLabel,volumeLevelLabel,balanceLevelLabel,rateLevelLabel;
     private JFXButton pauseButton,prevButton,nextButton,shuffleButton,repeatButton,fullScreenJFXButton;
@@ -31,65 +29,12 @@ public class PlayerControlsView extends View {
         balanceLevelLabel = new Label("balnc:");
         rateLevelLabel = new Label("rate:");
         // buttons
-        pauseButton = new JFXButton();
-        prevButton = new JFXButton();
-        nextButton = new JFXButton();
-        shuffleButton = new JFXButton();
-        repeatButton = new JFXButton();
-        fullScreenJFXButton = new JFXButton();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        pauseButton = new JFXButton("pause");
+        prevButton = new JFXButton("prev");
+        nextButton = new JFXButton("next");
+        shuffleButton = new JFXButton("shuffle");
+        repeatButton = new JFXButton("repeat");
+        fullScreenJFXButton = new JFXButton("[]");
 //        fullScreenButton = new Button("*");
         //sliders
         durationSlider = new JFXSlider();
@@ -186,78 +131,13 @@ public class PlayerControlsView extends View {
     @Override
     public void styling() {
         //
-        nextButton.setGraphic(nextImage);
-        prevButton.setGraphic(prevImage);
-        pauseButton.setGraphic(pauseImage);
-        repeatButton.setGraphic(repeatImage);
-        shuffleButton.setGraphic(shuffleImage);
-        fullScreenJFXButton.setGraphic(fullscreenImage);
+//        nextButton.setGraphic(nextImage);
+//        prevButton.setGraphic(prevImage);
+//        pauseButton.setGraphic(pauseImage);
+//        repeatButton.setGraphic(repeatImage);
+//        shuffleButton.setGraphic(shuffleImage);
+//        fullScreenJFXButton.setGraphic(fullscreenImage);
         //
-    }
-
-    public Button getNextButton() {
-        return nextButton;
-    }
-
-    public Label getEndDurationLabel() {
-        return endDurationLabel;
-    }
-
-    public Button getPauseButton() {
-        return pauseButton;
-    }
-
-    public Label getStartDurationLabel() {
-        return startDurationLabel;
-    }
-
-    public Label getVolumeLevelLabel() {
-        return volumeLevelLabel;
-    }
-
-    public Button getPrevButton() {
-        return prevButton;
-    }
-
-
-    public Button getRepeatButton() {
-        return repeatButton;
-    }
-
-    public Button getShuffleButton() {
-        return shuffleButton;
-    }
-
-    public JFXButton getFullScreenJFXButton() {
-        return fullScreenJFXButton;
-    }
-
-    public Slider getDurationSlider() {
-        return durationSlider;
-    }
-
-    public Slider getVolumeSlider() {
-        return volumeSlider;
-    }
-
-    public Label getBalanceLevelLabel() {
-        return balanceLevelLabel;
-    }
-
-    public Label getRateLevelLabel() {
-        return rateLevelLabel;
-    }
-
-    public Slider getBalanceSlider() {
-        return balanceSlider;
-    }
-
-    public Slider getRateSlider() {
-        return rateSlider;
-    }
-
-    public ImageView getSongImageView() {
-        return songImageView;
     }
 
 }

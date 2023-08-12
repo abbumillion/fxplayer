@@ -1,7 +1,5 @@
 package com.app.fxplayer.modelgenerator;
 
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.SimpleIntegerProperty;
 import javafx.concurrent.Task;
 
 import java.io.File;

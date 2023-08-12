@@ -7,6 +7,7 @@ module com.app.fxplayer {
     requires java.desktop;
     requires jave.core;
     requires org.apache.commons.io;
+    requires lombok;
     exports com.app.fxplayer.application;
     exports com.app.fxplayer.application.config;
 }

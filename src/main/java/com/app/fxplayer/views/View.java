@@ -1,13 +1,11 @@
 package com.app.fxplayer.views;
 
 import com.app.fxplayer.helpers.StringConstants;
-import com.app.fxplayer.views.components.PlayerControlsView;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
-import javafx.stage.StageStyle;
 
 import java.io.File;
 

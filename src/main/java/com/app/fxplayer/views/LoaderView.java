@@ -1,11 +1,12 @@
 package com.app.fxplayer.views;
 
 import com.app.fxplayer.models.Song;
-import com.app.fxplayer.views.components.PlayerControlsView;
 import com.app.fxplayer.views.listcells.SongCell;
 import javafx.geometry.Pos;
 import javafx.scene.control.ListView;
+import lombok.Data;
 
+@Data
 public class LoaderView extends View{
     private ListView<Song> loaderListView;
     @Override
@@ -34,8 +35,5 @@ public class LoaderView extends View{
         loaderListView.setCellFactory(songListView -> new SongCell());
     }
 
-    public ListView getLoaderListView() {
-        return loaderListView;
-    }
 
 }

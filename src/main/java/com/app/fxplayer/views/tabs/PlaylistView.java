@@ -2,7 +2,9 @@ package com.app.fxplayer.views.tabs;
 
 import com.app.fxplayer.views.View;
 import javafx.scene.control.Label;
+import lombok.Data;
 
+@Data
 public class PlaylistView extends View {
     private Label label;
     @Override
