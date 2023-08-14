@@ -1,31 +1,23 @@
 package com.app.fxplayer.db;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import java.io.File;
-
-public class LocalStorage implements Storage{
-    private File storageFile = new File("storage.txt");
-    @Override
-    public void init() {
-
-    }
-
-    @Override
-    public void store() {
-
-    }
-
-    @Override
-    public void retrieve() {
-
-    }
-
-    @Override
-    public void clear() {
-
-    }
-
-    @Override
-    public void check() {
-
-    }
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class LocalStorage  {
+    private File settingsFile = new File("settings.txt");
+    private File songsFile = new File("songs.txt");
+    private File albumsFile = new File("albums.txt");
+    private File artistsFile = new File("artists.txt");
+    private File playlistsFile = new File("playlists.txt");
+    private File favoritesFile = new File("favorites.txt");
+    public void saveAppSettings(){}
+    public void getAppState(){}
+    public void saveAppState(){}
 }

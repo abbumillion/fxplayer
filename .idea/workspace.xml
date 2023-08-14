@@ -5,42 +5,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d75da6c2-53ad-46d2-8b34-7412ff37e36d" name="Changes" comment="adding more views to visualization tab">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/AudioEqualizerView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/fullscreenbuttonicon1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/fullscreenbuttonicon2.avif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/menublackcircularbutton_104737.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/red-audio-equlizer-icon.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/red-close-button.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/icons/redpowerbutton.webp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/componentscontroller/ToolbarViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/MostPlayedTabController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/PlaylistTabController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/RecentlyAddedTabController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/Particle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/CanvasVisualizationView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/FavoriteSongsView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/LineChartVisualizationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/maven-publish.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/maven-publish.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/app.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/config/ApplicationDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/config/ApplicationDB.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/FXPlayerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/FXPlayerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/config/ApplicationDB.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/config/ApplicationData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/config/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/config/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/config/StartUpData.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/ApplicationController.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/componentscontroller/PlayerControlsViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/componentscontroller/PlayerControlsViewController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/AlbumsTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/AlbumsTabController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/ArtistsTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/ArtistsTabController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/MyMusicTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/MyMusicTabController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/NowPlayingTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/NowPlayingTabController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/RecentPlaysTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/RecentPlaysTabController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/SettingsTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/SettingsTabController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/viewcontroller/LoaderViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/viewcontroller/LoaderViewController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/viewcontroller/PlayerViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/viewcontroller/PlayerViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/StringConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/StringConstants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/db/LocalStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/db/LocalStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/db/Storage.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/StringConstants.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/Tabs.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/Collector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/Collector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/Generator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/Generator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Album.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Genre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Genre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Song.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/audioplayer/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/audioplayer/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/AudioPlayerSpectrumListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/AudioPlayerSpectrumListener.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/soundcloud/BoxWaveform.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/soundcloud/WaveFormService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/soundrecorder/SoundRecorderController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/soundrecorder/SoundRecorderView.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/soundrecorder/SoundRecordingUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/repo/ModelRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/repo/SongRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/viewModel/AlbumViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/viewModel/ArtistViewModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/viewModel/PlaylistViewModel.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/LoaderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/LoaderView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/PlayerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/PlayerView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/Viewable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/Viewable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/PlayerControlsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/PlayerControlsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/audiovirtualizationview/ResizableCanvas.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/audiovirtualizationview/WaveFormPane.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/audiovirtualizationview/WaveVisualization.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/ToolBarView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/components/ToolBarView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/AlbumCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/AlbumCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/ArtistCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/ArtistCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/MostPlayedCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/MostPlayedCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/PlaylistCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/PlaylistCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/RecentlyAddedCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/RecentlyAddedCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/SongCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/SongCell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tablecells/SongCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tablecells/SongCell.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/AlbumsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/AlbumsView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/ArtistsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/ArtistsView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/AudioEqualizerView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/AudioEqualizerView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/MostPlayedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/MostPlayedView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/MyMusicView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/MyMusicView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/NowPlayingView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/NowPlayingView.java" afterDir="false" />
@@ -48,8 +72,18 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/RecentPlaysView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/RecentPlaysView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/RecentlyAddedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/RecentlyAddedView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/SettingsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/SettingsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/VisualizationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/VisualizationView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/VisualizationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/BarChartVisualizationView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/audio/Jimmy Cooks - Drake  21 Savage (320) (7).mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/audio/audio.mp3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/audio/powers1e6.MP3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/Settings-32.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/VisualizerBackground.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/VisualizerForeground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/fullscreenbuttonicon2.avif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/sample.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/icons/tabicons/artwork.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/stylesheets/dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/stylesheets/dark.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,6 +168,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TilePaneExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.app.fxplayer.application.TilePaneExample" />
+      <module name="fxplayer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.app.fxplayer.application.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="app" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.app.fxplayer.application.app" />
       <module name="fxplayer" />
@@ -150,6 +197,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.app" />
+        <item itemvalue="Application.TilePaneExample" />
         <item itemvalue="Application.FXPlayerApplication" />
       </list>
     </recent_temporary>
@@ -258,7 +306,15 @@
       <option name="project" value="LOCAL" />
       <updated>1691569841550</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="adding more views to visualization tab">
+      <option name="closed" value="true" />
+      <created>1691848212593</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1691848212593</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -7,8 +7,7 @@ public class AlbumCell extends ListCell<Album> {
     @Override
     protected void updateItem(Album album, boolean b) {
         super.updateItem(album, b);
-        if (album != null)
-        {
+        if (album != null) {
             System.out.println(album);
         }
     }

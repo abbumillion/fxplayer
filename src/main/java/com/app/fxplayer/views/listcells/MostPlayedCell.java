@@ -11,8 +11,7 @@ public class MostPlayedCell extends SongCell {
     @Override
     protected void updateItem(Song song, boolean b) {
         super.updateItem(song, b);
-        if (song != null)
-        {
+        if (song != null) {
             // let's work here
             //
         }

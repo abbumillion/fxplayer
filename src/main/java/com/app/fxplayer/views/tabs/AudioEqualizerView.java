@@ -6,10 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.Slider;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -17,16 +14,21 @@ import lombok.Data;
 
 @Data
 public class AudioEqualizerView extends View {
-    private HBox hBox1,hBox3,slidersHBox , slidersLabelsHBox;
-    private Label  slider1Label , slider2Label ,slider3Label,slider4Label,slider5Label ,slider6Label , slider7Label ,
-            slider8Label,slider9Label,slider10Label , slider11Label , slider12Label , slider13Label , slider14Label  ;
-    private VBox slidersVBox , centerVBox;
-    private Slider slider1,slider2,slider3,slider4,slider5,slider6,slider7,slider8,slider9,slider10,slider11,slider12,slider13,slider14;
-    private ComboBox<String> audioEqualizerComboBox , audioDeviceComboBox;
-    private Button powerButton ;
+    private HBox hBox1, hBox3, slidersHBox, slidersLabelsHBox;
+    private Label slider1Label, slider2Label, slider3Label, slider4Label, slider5Label, slider6Label, slider7Label,
+            slider8Label, slider9Label, slider10Label, slider11Label, slider12Label, slider13Label, slider14Label;
+    private VBox slidersVBox, centerVBox;
+    private Slider slider1, slider2, slider3, slider4, slider5, slider6, slider7, slider8, slider9, slider10, slider11, slider12, slider13, slider14;
+    private ComboBox<String> audioEqualizerComboBox, audioDeviceComboBox;
+    private Button powerButton;
+    private Separator separator1, separator2, separator3;
 
     @Override
     public void init() {
+        //
+        separator1 = new Separator();
+        separator2 = new Separator();
+        separator3 = new Separator();
         //
         slider1Label = new Label("Clarity");
         slider2Label = new Label("Ambience");
@@ -58,8 +60,8 @@ public class AudioEqualizerView extends View {
         slider13 = new Slider();
         slider14 = new Slider();
         //
-        String[] audioDevices = {"LENOVO_SPEAKER","EXTERNAL_SPEAKER"};
-        String[] audioEqualizers = {"MUSIC","TECHNO","TREBLE_BOOST","BASS_BOOST","LATIN","CLUB","CAR","TV"};
+        String[] audioDevices = {"LENOVO_SPEAKER", "EXTERNAL_SPEAKER"};
+        String[] audioEqualizers = {"MUSIC", "TECHNO", "TREBLE_BOOST", "BASS_BOOST", "LATIN", "CLUB", "CAR", "TV"};
         //
         ObservableList<String> audioDevicesList = FXCollections.observableArrayList();
         audioDevicesList.addAll(audioDevices);
@@ -83,13 +85,13 @@ public class AudioEqualizerView extends View {
 
     @Override
     public void build() {
-        hBox1.getChildren().addAll(audioEqualizerComboBox,audioDeviceComboBox);
-        slidersVBox.getChildren().addAll(slider1Label,slider1,slider2Label,slider2,slider3Label,slider3,slider4Label,slider4,slider5Label,slider5);
-        slidersLabelsHBox.getChildren().addAll(slider6Label , slider7Label , slider8Label , slider9Label , slider10Label , slider11Label  , slider12Label , slider13Label , slider14Label);
-        slidersHBox.getChildren().addAll(slider6,slider7,slider8,slider9,slider10,slider11,slider12,slider13,slider14);
-        centerVBox.getChildren().addAll(slidersHBox , slidersLabelsHBox);
-        hBox3.getChildren().addAll(slidersVBox , centerVBox);
-        getChildren().addAll(hBox1,hBox3 , powerButton);
+        hBox1.getChildren().addAll(audioEqualizerComboBox, audioDeviceComboBox);
+        slidersVBox.getChildren().addAll(slider1Label, slider1, slider2Label, slider2, slider3Label, slider3, slider4Label, slider4, slider5Label, slider5);
+        slidersLabelsHBox.getChildren().addAll(slider6Label, slider7Label, slider8Label, slider9Label, slider10Label, slider11Label, slider12Label, slider13Label, slider14Label);
+        slidersHBox.getChildren().addAll(slider6, slider7, slider8, slider9, slider10, slider11, slider12, slider13, slider14);
+        centerVBox.getChildren().addAll(slidersHBox, slidersLabelsHBox);
+        hBox3.getChildren().addAll(slidersVBox, centerVBox);
+        getChildren().addAll(hBox1, separator1, hBox3, separator2, powerButton, separator3);
     }
 
     @Override
@@ -184,25 +186,29 @@ public class AudioEqualizerView extends View {
         hBox1.prefHeightProperty().bind(heightProperty().multiply(.095));
         hBox3.prefHeightProperty().bind(heightProperty().multiply(.66));
         //
+        separator1.prefWidthProperty().bind(widthProperty());
+        separator2.prefWidthProperty().bind(widthProperty());
+        separator3.prefWidthProperty().bind(widthProperty());
+        //
     }
 
     @Override
     public void styling() {
         setAlignment(Pos.CENTER);
-        setPadding(new Insets(10.55,10.55,10.55,10.55));
+        setPadding(new Insets(10.55, 10.55, 10.55, 10.55));
         //
         hBox1.setAlignment(Pos.CENTER);
-        hBox1.setPadding(new Insets(10.55,10.55,10.55,10.55));
+        hBox1.setPadding(new Insets(10.55, 10.55, 10.55, 10.55));
         hBox3.setAlignment(Pos.CENTER);
-        hBox3.setPadding(new Insets(10.55,10.55,10.55,10.55));
+        hBox3.setPadding(new Insets(10.55, 10.55, 10.55, 10.55));
         //
-        slidersVBox.setPadding(new Insets(2.5,5,10,5));
+        slidersVBox.setPadding(new Insets(2.5, 5, 10, 5));
         slidersVBox.setAlignment(Pos.CENTER);
         //
-        slidersHBox.setPadding(new Insets(2.5,5,10,5));
+        slidersHBox.setPadding(new Insets(2.5, 5, 10, 5));
         slidersHBox.setAlignment(Pos.CENTER);
         //
-        centerVBox.setPadding(new Insets(2.5,5,10,5));
+        centerVBox.setPadding(new Insets(2.5, 5, 10, 5));
         centerVBox.setAlignment(Pos.CENTER);
         //
         slider1Label.setAlignment(Pos.CENTER);

@@ -2,7 +2,7 @@ package com.app.fxplayer.player.audioplayer;
 
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.player.visualization.AudioPlayerSpectrumListener;
-import com.app.fxplayer.repo.ModelRepository;
+import com.app.fxplayer.repo.SongRepository;
 import com.app.fxplayer.views.PlayerView;
 import javafx.scene.effect.GaussianBlur;
 import javafx.scene.image.Image;
@@ -17,10 +17,12 @@ public final class Player {
     private static PlayerView playerView;
     private static Song currentSong;
     private static MediaPlayer mediaPlayer;
-    public static void prev(){
-        int currentSongIndex = ModelRepository.getSongList().getItems().indexOf(currentSong);
-        ModelRepository.getSongList().getSelectionModel().select(currentSongIndex - 1);
+
+    public static void prev() {
+        int currentSongIndex = SongRepository.getSongList().indexOf(currentSong);
+        playerView.getMyMusicView().getSongListView().getSelectionModel().select(currentSongIndex - 1);
     }
+
     public static void play() {
         checkMediaPlayer();
         File file = new File(getCurrentSong().getSource());
@@ -28,47 +30,50 @@ public final class Player {
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
         updatePlayerView();
+        refreshView();
     }
-    public static void next(){
-        int currentSongIndex = ModelRepository.getSongList().getItems().indexOf(currentSong);
-        ModelRepository.getSongList().getSelectionModel().select(currentSongIndex + 1);
+
+    private static void refreshView() {
+        playerView.getMyMusicView().getSongListView().refresh();
+        playerView.getAlbumsView().getAlbumListView().refresh();
+        playerView.getArtistsView().getArtistListView().refresh();
+        playerView.getMostPlayedView().getMostPlayedListView().refresh();
+        playerView.getRecentlyAddedView().getRecentlyAddedListView().refresh();
+        playerView.getRecentPlaysView().getRecentPlaysListView().refresh();
+        playerView.getPlaylistView().getPlaylistListView().refresh();
     }
+
+    public static void next() {
+        int currentSongIndex = SongRepository.getSongList().indexOf(currentSong);
+        playerView.getMyMusicView().getSongListView().getSelectionModel().select(currentSongIndex + 1);
+    }
+
     public static Song getCurrentSong() {
         return currentSong;
     }
 
-
+    public static void setCurrentSong(Song currentSong) {
+        Player.currentSong = currentSong;
+    }
 
     private static void checkMediaPlayer() {
         if (mediaPlayer != null)
             mediaPlayer.dispose();
     }
 
-    public void stop() {
-        mediaPlayer.stop();
-    }
-
-    private static void updatePlayerView()
-    {
-        if ( mediaPlayer != null )
-        {
-            mediaPlayer.setAudioSpectrumNumBands(128);
+    private static void updatePlayerView() {
+        playerView.getPlayerControllerView().getFullScreenJFXButton().setOnAction(actionEvent -> playerView.setFullScreen());
+        if (mediaPlayer != null) {
+            mediaPlayer.setAudioSpectrumNumBands(127);
             playerView.getPlayerControllerView().getPauseButton().setOnAction(actionEvent -> play());
             playerView.getPlayerControllerView().getPrevButton().setOnAction(actionEvent -> prev());
             playerView.getPlayerControllerView().getNextButton().setOnAction(actionEvent -> next());
-            playerView.getPlayerControllerView().getFullScreenJFXButton().setOnAction(actionEvent -> playerView.setFullScreen());
-            mediaPlayer.volumeProperty().bind(playerView.getPlayerControllerView().getVolumeSlider().valueProperty());
-            mediaPlayer.rateProperty().bind(playerView.getPlayerControllerView().getRateSlider().valueProperty());
-            mediaPlayer.balanceProperty().bind(playerView.getPlayerControllerView().getBalanceSlider().valueProperty());
-            playerView.getPlayerControllerView().getSongImageView().imageProperty().bind(getCurrentSong().getImage().imageProperty());
-            playerView.getMyMusicView().getImageView().imageProperty().bind(getCurrentSong().getImage().imageProperty());
-            //
-            playerView.getNowPlayingView().getImageView().imageProperty().bind(getCurrentSong().getImage().imageProperty());
-            // create a background with current playing song image
-            Image image = getCurrentSong().getImage().getImage();
-//            image.splayerView.getNowPlayingView().widthProperty().get(),playerView.getNowPlayingView().heightProperty().get(),true,true);
+            playerView.getPlayerControllerView().getSongTitleLabel().setText(getCurrentSong().getTitle());
+            playerView.getMyMusicView().getImageView().setImage(getCurrentSong().getImage());
+            playerView.getMyMusicView().getSongTitleLabel().setText(getCurrentSong().getTitle());
+            playerView.getNowPlayingView().getImageView().setImage(getCurrentSong().getImage());
+            Image image = getCurrentSong().getImage();
             if (image != null) {
-
                 BackgroundImage backgroundImage = new BackgroundImage(image
                         ,
                         BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
@@ -84,45 +89,31 @@ public final class Player {
                 playerView.getNowPlayingView().getImageView().setEffect(blur);
                 playerView.getNowPlayingView().setBackground(new Background(backgroundImage));
             }
-            //
-            playerView.getPlayerControllerView().getVolumeLevelLabel().textProperty().bind(mediaPlayer.volumeProperty().asString());
-            playerView.getPlayerControllerView().getRateLevelLabel().textProperty().bind(mediaPlayer.rateProperty().asString());
-            playerView.getPlayerControllerView().getBalanceLevelLabel().textProperty().bind(mediaPlayer.balanceProperty().asString());
             mediaPlayer.setOnEndOfMedia(() -> next());
-            mediaPlayer.setOnPlaying(() -> {});
-            mediaPlayer.setAutoPlay(true);
-            AudioPlayerSpectrumListener audioPlayerSpectrumListener = new AudioPlayerSpectrumListener(playerView.getVisualizationView());
-            mediaPlayer.setAudioSpectrumListener(audioPlayerSpectrumListener);
-            ModelRepository.getSongList().getSelectionModel().selectedItemProperty().addListener((observableValue, song, t1) -> {
-                if (t1 != null)
-                {
-                    playerView.getMyMusicView().getSongListView().getSelectionModel().select(t1);
-                }
+            mediaPlayer.setOnPlaying(() -> {
             });
-            mediaPlayer.setOnReady(()->{
+            mediaPlayer.setAutoPlay(true);
+            AudioPlayerSpectrumListener audioPlayerSpectrumListener = new AudioPlayerSpectrumListener(playerView);
+            mediaPlayer.setAudioSpectrumListener(audioPlayerSpectrumListener);
+            mediaPlayer.setOnReady(() -> {
                 mediaPlayer.currentTimeProperty().addListener((observableValue, duration, t1) -> {
-                    if ( t1 != null )
-                    {
+                    if (t1 != null) {
                         double seconds = t1.toSeconds();
                         String formattedTime = formatTime(seconds);
                         playerView.getPlayerControllerView().getDurationSlider().valueProperty().set(seconds);
                         playerView.getPlayerControllerView().getStartDurationLabel().setText(formattedTime);
                     }
                 });
-                // start time
                 mediaPlayer.startTimeProperty().addListener((observableValue, duration, t1) ->
                 {
-                    if (t1 != null)
-                    {
+                    if (t1 != null) {
                         double seconds = t1.toSeconds();
                         String formattedTime = formatTime(seconds);
                         playerView.getPlayerControllerView().getStartDurationLabel().setText(formattedTime);
                     }
                 });
-                // stop time
                 mediaPlayer.totalDurationProperty().addListener((observableValue, duration, t1) -> {
-                    if (t1 != null)
-                    {
+                    if (t1 != null) {
                         System.out.println(t1);
                         double seconds = t1.toSeconds();
                         String formattedTime = formatTime(seconds);
@@ -130,7 +121,7 @@ public final class Player {
                         playerView.getPlayerControllerView().getDurationSlider().setMax(seconds);
                     }
                 });
-                playerView.getPlayerControllerView().getDurationSlider().setOnMousePressed(event->{
+                playerView.getPlayerControllerView().getDurationSlider().setOnMousePressed(event -> {
                     mediaPlayer.seek(Duration.seconds(playerView.getPlayerControllerView().getDurationSlider().getValue()));
                 });
             });
@@ -154,9 +145,6 @@ public final class Player {
         return mediaPlayer;
     }
 
-    public static void setCurrentSong(Song currentSong) {
-        Player.currentSong = currentSong;
-    }
 }
 
 

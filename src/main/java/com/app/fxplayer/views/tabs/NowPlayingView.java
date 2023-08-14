@@ -8,15 +8,17 @@ import javafx.scene.layout.*;
 import lombok.Data;
 
 import java.io.File;
+
 @Data
 public class NowPlayingView extends View {
     private ImageView imageView;
     private BackgroundImage backgroundImage;
+
     @Override
     public void init() {
         imageView = new ImageView(new Image(new File("src/main/resources/images/sample.jpg").toURI().toASCIIString()));
-        backgroundImage= new BackgroundImage(
-                new Image(new File("src/main/resources/images/sample.jpg").toURI().toASCIIString(),widthProperty().get(),heightProperty().get(),true,true),
+        backgroundImage = new BackgroundImage(
+                new Image(new File("src/main/resources/images/sample.jpg").toURI().toASCIIString(), widthProperty().get(), heightProperty().get(), true, true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         //
@@ -38,6 +40,7 @@ public class NowPlayingView extends View {
         imageView.fitWidthProperty().bind(widthProperty().multiply(.48));
         imageView.fitHeightProperty().bind(heightProperty().multiply(.42));
     }
+
     @Override
     public void styling() {
         setBackground(new Background(backgroundImage));
@@ -46,7 +49,6 @@ public class NowPlayingView extends View {
     public ImageView getImageView() {
         return imageView;
     }
-
 
 
 }

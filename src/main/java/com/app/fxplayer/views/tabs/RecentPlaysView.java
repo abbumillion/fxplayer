@@ -1,22 +1,24 @@
 package com.app.fxplayer.views.tabs;
 
+import com.app.fxplayer.models.Song;
 import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.listcells.SongCell;
-import com.jfoenix.controls.JFXListView;
 import javafx.geometry.Pos;
+import javafx.scene.control.ListView;
 import lombok.Data;
 
 @Data
 public class RecentPlaysView extends View {
-    private JFXListView recentPlaysJFXListView;
+    private ListView<Song> recentPlaysListView;
+
     @Override
     public void init() {
-        recentPlaysJFXListView = new JFXListView<>();
+        recentPlaysListView = new ListView<>();
     }
 
     @Override
     public void build() {
-        getChildren().add(recentPlaysJFXListView);
+        getChildren().add(recentPlaysListView);
     }
 
     @Override
@@ -26,12 +28,13 @@ public class RecentPlaysView extends View {
 
     @Override
     public void bind() {
-        recentPlaysJFXListView.prefWidthProperty().bind(widthProperty());
-        recentPlaysJFXListView.prefHeightProperty().bind(heightProperty());
+        recentPlaysListView.prefWidthProperty().bind(widthProperty());
+        recentPlaysListView.prefHeightProperty().bind(heightProperty());
     }
+
     @Override
     public void styling() {
-        recentPlaysJFXListView.setCellFactory(songListView -> new SongCell());
+        recentPlaysListView.setCellFactory(songListView -> new SongCell());
     }
 
 }

@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 public class AlbumsView extends View {
     private ListView albumListView;
+
     @Override
     public void init() {
         albumListView = new ListView<>();
@@ -29,6 +30,7 @@ public class AlbumsView extends View {
         albumListView.prefWidthProperty().bind(widthProperty());
         albumListView.prefHeightProperty().bind(heightProperty());
     }
+
     @Override
     public void styling() {
         albumListView.setCellFactory(songListView -> new SongCell());

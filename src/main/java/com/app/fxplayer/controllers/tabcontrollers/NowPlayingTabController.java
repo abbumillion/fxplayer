@@ -6,6 +6,7 @@ import com.app.fxplayer.views.tabs.NowPlayingView;
 
 public class NowPlayingTabController extends Controller {
     private final NowPlayingView nowPlayingView;
+
     public NowPlayingTabController(View view) {
         super(view);
         nowPlayingView = (NowPlayingView) view;
@@ -13,6 +14,7 @@ public class NowPlayingTabController extends Controller {
 
     @Override
     public void init() {
+
     }
 
 }

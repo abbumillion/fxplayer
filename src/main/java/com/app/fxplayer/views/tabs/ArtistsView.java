@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 public class ArtistsView extends View {
     private ListView artistListView;
+
     @Override
     public void init() {
         artistListView = new ListView<>();
@@ -20,14 +21,12 @@ public class ArtistsView extends View {
     }
 
 
-
     @Override
     public void align() {
         setAlignment(Pos.CENTER);
         artistListView.setCellFactory(songListView -> new SongCell());
 
     }
-
 
 
     @Override

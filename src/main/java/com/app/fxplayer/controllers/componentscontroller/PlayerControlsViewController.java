@@ -6,7 +6,8 @@ import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.components.PlayerControlsView;
 
 public class PlayerControlsViewController extends Controller {
-    private final PlayerControlsView playerControlsView ;
+    private PlayerControlsView playerControlsView;
+
     public PlayerControlsViewController(View view) {
         super(view);
         playerControlsView = (PlayerControlsView) view;
@@ -14,6 +15,9 @@ public class PlayerControlsViewController extends Controller {
 
     @Override
     public void init() {
+        playerControlsView.getFullScreenJFXButton().setOnAction(event -> {
+            view.setFullScreen();
+        });
     }
 
     private void play() {
@@ -27,15 +31,13 @@ public class PlayerControlsViewController extends Controller {
 //        player.prev();
     }
 
-    private void next()
-    {
+    private void next() {
 //        System.out.println("next");
         Player.next();
 //        player.next();
     }
 
-    private void shuffle()
-    {
+    private void shuffle() {
         System.out.println("shuffle");
     }
 

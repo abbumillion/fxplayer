@@ -1,40 +1,30 @@
 package com.app.fxplayer.application.config;
 
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-import javafx.scene.text.Font;
-import javafx.stage.StageStyle;
+import com.app.fxplayer.models.Album;
+import com.app.fxplayer.models.Artist;
+import com.app.fxplayer.models.Playlist;
+import com.app.fxplayer.models.Song;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-public final class Settings {
-    private final StringProperty theme = new SimpleStringProperty("src/main/resources/stylesheets/dark.css");
-    private final BooleanProperty fullScreenProperty = new SimpleBooleanProperty(false);
-    private  StageStyle stageStyle = StageStyle.UNDECORATED;
-    private  Font font = Font.font(11.11);
-    public Settings() {}
+import java.util.List;
 
-    public void setStageStyle(StageStyle stageStyle) {
-        this.stageStyle = stageStyle;
-    }
-
-    public  StageStyle getStageStyle() {
-        return stageStyle;
-    }
-
-    public void setFont(Font font) {
-        this.font = font;
-    }
-
-    public  Font getFont() {
-        return font;
-    }
-
-    public  String getTheme() {
-        return theme.get();
-    }
-
-    public void setTheme(String theme) {
-        this.theme.set(theme);
-    }
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class Settings {
+    private String theme = "src/main/resources/stylesheets/dark.css";;
+    private String font;
+    private String tabSide;
+    private String stageStyle;
+    private boolean isFirstTime;
+    private boolean isFullScreen;
+    private List<Song> songList;
+    private List<Playlist> playlists;
+    private List<Song> favoriteSongs;
+    private List<Album> albumList;
+    private List<Artist> artistList;
 }

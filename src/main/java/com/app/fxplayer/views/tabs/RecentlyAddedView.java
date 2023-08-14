@@ -3,36 +3,40 @@ package com.app.fxplayer.views.tabs;
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.listcells.SongCell;
-import com.jfoenix.controls.JFXListView;
+import javafx.geometry.Orientation;
 import javafx.geometry.Pos;
+import javafx.scene.control.ListView;
 import lombok.Data;
 
 @Data
 public class RecentlyAddedView extends View {
-    private JFXListView<Song> recentlyAddedJFXListView;
+    private ListView<Song> recentlyAddedListView;
+
     @Override
     public void init() {
-        recentlyAddedJFXListView = new JFXListView<>();
+        recentlyAddedListView = new ListView<>();
     }
 
     @Override
     public void build() {
-        getChildren().add(recentlyAddedJFXListView);
+        getChildren().add(recentlyAddedListView);
     }
 
     @Override
     public void align() {
         setAlignment(Pos.CENTER);
+        recentlyAddedListView.setOrientation(Orientation.HORIZONTAL);
     }
 
     @Override
     public void bind() {
-        recentlyAddedJFXListView.prefWidthProperty().bind(widthProperty());
-        recentlyAddedJFXListView.prefHeightProperty().bind(heightProperty());
+        recentlyAddedListView.prefWidthProperty().bind(widthProperty());
+        recentlyAddedListView.prefHeightProperty().bind(heightProperty());
     }
+
     @Override
     public void styling() {
-        recentlyAddedJFXListView.setCellFactory(songListView -> new SongCell());
+        recentlyAddedListView.setCellFactory(songListView -> new SongCell());
     }
 
 }

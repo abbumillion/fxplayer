@@ -1,22 +1,21 @@
 package com.app.fxplayer.views;
 
-import com.app.fxplayer.models.Song;
-import com.app.fxplayer.views.listcells.SongCell;
 import javafx.geometry.Pos;
-import javafx.scene.control.ListView;
+import javafx.scene.control.ProgressIndicator;
 import lombok.Data;
 
 @Data
-public class LoaderView extends View{
-    private ListView<Song> loaderListView;
+public class LoaderView extends View {
+    private ProgressIndicator progressIndicator;
+
     @Override
     public void init() {
-        loaderListView = new ListView<>();
+        progressIndicator = new ProgressIndicator();
     }
 
     @Override
     public void build() {
-        getChildren().addAll(loaderListView);
+        getChildren().addAll(progressIndicator);
     }
 
     @Override
@@ -26,13 +25,12 @@ public class LoaderView extends View{
 
     @Override
     public void bind() {
-        loaderListView.prefWidthProperty().bind(widthProperty());
-        loaderListView.prefHeightProperty().bind(heightProperty().multiply(.85));
+        progressIndicator.prefWidthProperty().bind(widthProperty());
+        progressIndicator.prefHeightProperty().bind(heightProperty().multiply(.85));
     }
 
     @Override
     public void styling() {
-        loaderListView.setCellFactory(songListView -> new SongCell());
     }
 
 
