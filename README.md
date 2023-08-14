@@ -2,19 +2,9 @@
 
 #### I'm trying to build a simple Audio Player Desktop Application
 
-#### for my Windows and Linux computer
+#### for my Windows computer
 
 #### This will include some Java core JavaFx and CSS
-
-#### Anybody interested feel free to contribute
-
-#### This is not my first audio player project
-
-#### I'm looking for some reusable ui components which are free of course
-
-#### like Control-Fx,Material-Fx,Skins,CSS styles
-
-#   * Functionalities
 
 #### Collect all audio files from the Computer
 
