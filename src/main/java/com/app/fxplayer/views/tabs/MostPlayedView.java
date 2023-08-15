@@ -34,6 +34,5 @@ public class MostPlayedView extends View {
 
     @Override
     public void styling() {
-        mostPlayedListView.setCellFactory(songListView -> new SongCell());
     }
 }

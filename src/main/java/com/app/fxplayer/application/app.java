@@ -1,8 +1,7 @@
 package com.app.fxplayer.application;
 
+import com.app.fxplayer.modelgenerator.FileCollector;
 import javafx.application.Application;
-
-import java.io.IOException;
 
 public class app {
     public static void main(String[] args) throws Exception {
@@ -10,7 +9,7 @@ public class app {
         Application.launch(FXPlayerApplication.class);
     }
 
-    private static void configurations() throws IOException {
-
+    private static void configurations() {
+        new Thread(new FileCollector()).start();
     }
 }

@@ -5,7 +5,6 @@ import com.app.fxplayer.player.visualization.AudioPlayerSpectrumListener;
 import com.app.fxplayer.repo.SongRepository;
 import com.app.fxplayer.views.PlayerView;
 import javafx.scene.effect.GaussianBlur;
-import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -20,7 +19,7 @@ public final class Player {
 
     public static void prev() {
         int currentSongIndex = SongRepository.getSongList().indexOf(currentSong);
-        playerView.getMyMusicView().getSongListView().getSelectionModel().select(currentSongIndex - 1);
+        playerView.getMyMusicView().getSongTableView().getSelectionModel().select(currentSongIndex - 1);
     }
 
     public static void play() {
@@ -34,7 +33,7 @@ public final class Player {
     }
 
     private static void refreshView() {
-        playerView.getMyMusicView().getSongListView().refresh();
+        playerView.getMyMusicView().getSongTableView().refresh();
         playerView.getAlbumsView().getAlbumListView().refresh();
         playerView.getArtistsView().getArtistListView().refresh();
         playerView.getMostPlayedView().getMostPlayedListView().refresh();
@@ -45,7 +44,7 @@ public final class Player {
 
     public static void next() {
         int currentSongIndex = SongRepository.getSongList().indexOf(currentSong);
-        playerView.getMyMusicView().getSongListView().getSelectionModel().select(currentSongIndex + 1);
+        playerView.getMyMusicView().getSongTableView().getSelectionModel().select(currentSongIndex + 1);
     }
 
     public static Song getCurrentSong() {
@@ -69,26 +68,24 @@ public final class Player {
             playerView.getPlayerControllerView().getPrevButton().setOnAction(actionEvent -> prev());
             playerView.getPlayerControllerView().getNextButton().setOnAction(actionEvent -> next());
             playerView.getPlayerControllerView().getSongTitleLabel().setText(getCurrentSong().getTitle());
-            playerView.getMyMusicView().getImageView().setImage(getCurrentSong().getImage());
+            playerView.getMyMusicView().getImageView().setImage(getCurrentSong().getSongImage());
             playerView.getMyMusicView().getSongTitleLabel().setText(getCurrentSong().getTitle());
-            playerView.getNowPlayingView().getImageView().setImage(getCurrentSong().getImage());
-            Image image = getCurrentSong().getImage();
-            if (image != null) {
-                BackgroundImage backgroundImage = new BackgroundImage(image
-                        ,
-                        BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
-                        new BackgroundSize(
-                                playerView.getNowPlayingView().widthProperty().get(),
-                                playerView.getNowPlayingView().heightProperty().get(),
-                                false,
-                                false,
-                                true,
-                                true
-                        ));
-                GaussianBlur blur = new GaussianBlur(20);
-                playerView.getNowPlayingView().getImageView().setEffect(blur);
-                playerView.getNowPlayingView().setBackground(new Background(backgroundImage));
-            }
+            playerView.getNowPlayingView().getImageView().setImage(getCurrentSong().getSongImage());
+            // cheeck the image if it exists
+            BackgroundImage backgroundImage = new BackgroundImage(getCurrentSong().getSongImage()
+                    ,
+                    BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
+                    new BackgroundSize(
+                            playerView.getNowPlayingView().widthProperty().get(),
+                            playerView.getNowPlayingView().heightProperty().get(),
+                            false,
+                            false,
+                            true,
+                            true
+                    ));
+            GaussianBlur blur = new GaussianBlur(20);
+            playerView.getNowPlayingView().getImageView().setEffect(blur);
+            playerView.getNowPlayingView().setBackground(new Background(backgroundImage));
             mediaPlayer.setOnEndOfMedia(() -> next());
             mediaPlayer.setOnPlaying(() -> {
             });

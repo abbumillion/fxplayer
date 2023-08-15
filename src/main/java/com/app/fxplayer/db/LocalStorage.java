@@ -17,7 +17,23 @@ public class LocalStorage  {
     private File artistsFile = new File("artists.txt");
     private File playlistsFile = new File("playlists.txt");
     private File favoritesFile = new File("favorites.txt");
-    public void saveAppSettings(){}
-    public void getAppState(){}
+    public void saveAppSettings(){
+        if (settingsFile.exists())
+        {
+            // save to local storage
+        }
+        else
+        {
+            // create file first
+
+            // then add
+        }
+    }
+    public void getAppState(){
+        if (settingsFile.exists())
+        {}
+        else
+        {}
+    }
     public void saveAppState(){}
 }

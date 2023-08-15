@@ -3,22 +3,22 @@ package com.app.fxplayer.views.listcells;
 import com.app.fxplayer.models.Song;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListCell;
+import javafx.scene.control.TableRow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
-public class SongCell extends ListCell<Song> {
+public class SongCell extends TableRow<Song> {
     @Override
     protected void updateItem(Song song, boolean b) {
-        HBox hBox = new HBox(10);
+        super.updateItem(song, b);
+        HBox hBox = new HBox(2.2345);
         Label titleLabel = new Label("title label");
         Label albumLabel = new Label("album label");
         Label artistLabel = new Label("artist label");
         Label sizeLabel = new Label("size label");
         ImageView imageView = new ImageView();
-        super.updateItem(song, b);
         if (song != null) {
-            imageView.imageProperty().set(song.getImage());
+            imageView.setImage(song.getSongImage());
             titleLabel.setText(song.getTitle());
             albumLabel.setText(song.getAlbum());
             artistLabel.setText(song.getArtist());

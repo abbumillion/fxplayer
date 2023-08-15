@@ -4,10 +4,10 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
-
 import java.io.File;
 
 public abstract class View extends VBox implements Viewable {
+
     public View() {
         getReady();
         setAlignment(Pos.CENTER);
@@ -30,7 +30,8 @@ public abstract class View extends VBox implements Viewable {
 
     public void showView() {
         Scene scene = new Scene(this, WIDTH, HEIGHT);
-//        scene.getStylesheets().add(new File(StringConstants.getSystemTheme()).toURI().toASCIIString());
+        String StringConstants = "src/main/resources/stylesheets/dark.css";
+        scene.getStylesheets().add(new File(StringConstants).toURI().toASCIIString());
         STAGE.setScene(scene);
 //        STAGE.setTitle(StringConstants.getSystemTitle());
 //        STAGE.getIcons().add(new Image(new File(StringConstants.getSystemIcon()).toURI().toASCIIString()));

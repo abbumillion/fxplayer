@@ -34,7 +34,7 @@ public class RecentPlaysView extends View {
 
     @Override
     public void styling() {
-        recentPlaysListView.setCellFactory(songListView -> new SongCell());
+//        recentPlaysListView.setCellFactory(songListView -> new SongCell());
     }
 
 }

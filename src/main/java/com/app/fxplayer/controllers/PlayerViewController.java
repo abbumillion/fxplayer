@@ -1,4 +1,4 @@
-package com.app.fxplayer.controllers.viewcontroller;
+package com.app.fxplayer.controllers;
 
 
 import com.app.fxplayer.controllers.Controller;
