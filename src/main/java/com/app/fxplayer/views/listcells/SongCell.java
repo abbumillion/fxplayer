@@ -3,11 +3,12 @@ package com.app.fxplayer.views.listcells;
 import com.app.fxplayer.models.Song;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListCell;
 import javafx.scene.control.TableRow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 
-public class SongCell extends TableRow<Song> {
+public class SongCell extends ListCell<Song> {
     @Override
     protected void updateItem(Song song, boolean b) {
         super.updateItem(song, b);

@@ -19,7 +19,7 @@ public final class Player {
 
     public static void prev() {
         int currentSongIndex = SongRepository.getSongList().indexOf(currentSong);
-        playerView.getMyMusicView().getSongTableView().getSelectionModel().select(currentSongIndex - 1);
+        playerView.getMyMusicView().getSongListView().getSelectionModel().select(currentSongIndex - 1);
     }
 
     public static void play() {
@@ -33,7 +33,7 @@ public final class Player {
     }
 
     private static void refreshView() {
-        playerView.getMyMusicView().getSongTableView().refresh();
+        playerView.getMyMusicView().getSongListView().refresh();
         playerView.getAlbumsView().getAlbumListView().refresh();
         playerView.getArtistsView().getArtistListView().refresh();
         playerView.getMostPlayedView().getMostPlayedListView().refresh();
@@ -44,7 +44,7 @@ public final class Player {
 
     public static void next() {
         int currentSongIndex = SongRepository.getSongList().indexOf(currentSong);
-        playerView.getMyMusicView().getSongTableView().getSelectionModel().select(currentSongIndex + 1);
+        playerView.getMyMusicView().getSongListView().getSelectionModel().select(currentSongIndex + 1);
     }
 
     public static Song getCurrentSong() {
@@ -72,6 +72,57 @@ public final class Player {
             playerView.getMyMusicView().getSongTitleLabel().setText(getCurrentSong().getTitle());
             playerView.getNowPlayingView().getImageView().setImage(getCurrentSong().getSongImage());
             // cheeck the image if it exists
+
+            // apply image to now playing background
+            applyCurrentSongImageToNowPlayingBackground();
+            registerPlayerEvents();
+
+            AudioPlayerSpectrumListener audioPlayerSpectrumListener = new AudioPlayerSpectrumListener(playerView);
+            mediaPlayer.setAudioSpectrumListener(audioPlayerSpectrumListener);
+
+        }
+    }
+
+    private static void registerPlayerEvents() {
+        mediaPlayer.setOnEndOfMedia(() -> next());
+        mediaPlayer.setOnPlaying(() -> {
+        });
+        mediaPlayer.setAutoPlay(true);
+        mediaPlayer.setOnReady(() -> {
+            mediaPlayer.currentTimeProperty().addListener((observableValue, duration, t1) -> {
+                if (t1 != null) {
+                    double seconds = t1.toSeconds();
+                    String formattedTime = formatTime(seconds);
+                    playerView.getPlayerControllerView().getDurationSlider().valueProperty().set(seconds);
+                    playerView.getPlayerControllerView().getStartDurationLabel().setText(formattedTime);
+                }
+            });
+            mediaPlayer.startTimeProperty().addListener((observableValue, duration, t1) ->
+            {
+                if (t1 != null) {
+                    double seconds = t1.toSeconds();
+                    String formattedTime = formatTime(seconds);
+                    playerView.getPlayerControllerView().getStartDurationLabel().setText(formattedTime);
+                }
+            });
+            mediaPlayer.totalDurationProperty().addListener((observableValue, duration, t1) -> {
+                if (t1 != null) {
+                    System.out.println(t1);
+                    double seconds = t1.toSeconds();
+                    String formattedTime = formatTime(seconds);
+                    playerView.getPlayerControllerView().getEndDurationLabel().setText(formattedTime);
+                    playerView.getPlayerControllerView().getDurationSlider().setMax(seconds);
+                }
+            });
+            playerView.getPlayerControllerView().getDurationSlider().setOnMousePressed(event -> {
+                mediaPlayer.seek(Duration.seconds(playerView.getPlayerControllerView().getDurationSlider().getValue()));
+            });
+        });
+    }
+
+    private static void applyCurrentSongImageToNowPlayingBackground() {
+        if (currentSong.getSongImage() != null)
+        {
             BackgroundImage backgroundImage = new BackgroundImage(getCurrentSong().getSongImage()
                     ,
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
@@ -86,42 +137,6 @@ public final class Player {
             GaussianBlur blur = new GaussianBlur(20);
             playerView.getNowPlayingView().getImageView().setEffect(blur);
             playerView.getNowPlayingView().setBackground(new Background(backgroundImage));
-            mediaPlayer.setOnEndOfMedia(() -> next());
-            mediaPlayer.setOnPlaying(() -> {
-            });
-            mediaPlayer.setAutoPlay(true);
-            AudioPlayerSpectrumListener audioPlayerSpectrumListener = new AudioPlayerSpectrumListener(playerView);
-            mediaPlayer.setAudioSpectrumListener(audioPlayerSpectrumListener);
-            mediaPlayer.setOnReady(() -> {
-                mediaPlayer.currentTimeProperty().addListener((observableValue, duration, t1) -> {
-                    if (t1 != null) {
-                        double seconds = t1.toSeconds();
-                        String formattedTime = formatTime(seconds);
-                        playerView.getPlayerControllerView().getDurationSlider().valueProperty().set(seconds);
-                        playerView.getPlayerControllerView().getStartDurationLabel().setText(formattedTime);
-                    }
-                });
-                mediaPlayer.startTimeProperty().addListener((observableValue, duration, t1) ->
-                {
-                    if (t1 != null) {
-                        double seconds = t1.toSeconds();
-                        String formattedTime = formatTime(seconds);
-                        playerView.getPlayerControllerView().getStartDurationLabel().setText(formattedTime);
-                    }
-                });
-                mediaPlayer.totalDurationProperty().addListener((observableValue, duration, t1) -> {
-                    if (t1 != null) {
-                        System.out.println(t1);
-                        double seconds = t1.toSeconds();
-                        String formattedTime = formatTime(seconds);
-                        playerView.getPlayerControllerView().getEndDurationLabel().setText(formattedTime);
-                        playerView.getPlayerControllerView().getDurationSlider().setMax(seconds);
-                    }
-                });
-                playerView.getPlayerControllerView().getDurationSlider().setOnMousePressed(event -> {
-                    mediaPlayer.seek(Duration.seconds(playerView.getPlayerControllerView().getDurationSlider().getValue()));
-                });
-            });
         }
     }
 

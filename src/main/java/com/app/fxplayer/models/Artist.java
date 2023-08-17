@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Artist {
     private String artistName = "Artist Name";
-    private Image albumImage;
+    private Image artistImage;
     private ObservableList<Album> albums = FXCollections.observableArrayList();
-
 }

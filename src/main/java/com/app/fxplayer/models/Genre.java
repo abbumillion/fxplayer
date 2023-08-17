@@ -1,13 +1,18 @@
 package com.app.fxplayer.models;
 
-// song genres i recognize
-//
 public enum Genre {
     RAP,
     POP,
     JAZZ,
     ROCK,
-    DANCEHALL,
+    DANCE_HALL,
     REGGEA,
     TRAP,
+    EDM,
+    DRILL,
+    COUNTRY,
+    SLOW,
+    AMHARIC,
+    OROMIC,
+
 }

@@ -6,8 +6,6 @@ import com.app.fxplayer.views.listcells.SongCell;
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -18,9 +16,7 @@ import java.io.File;
 @Data
 public class MyMusicView extends View {
     private ImageView imageView;
-    private TableColumn<Song, String> songTitleTableColumn, songFileSizeTableColumn, songArtistTableColumn, songAlbumTableColumn;
-    private TableColumn<Song , Image> songImageTableColumn;
-    private TableView<Song> songTableView;
+    private ListView<Song> songListView;
     private HBox hBox;
     private VBox vBox;
     private Label songTitleLabel;
@@ -30,21 +26,14 @@ public class MyMusicView extends View {
         hBox = new HBox();
         vBox = new VBox();
         imageView = new ImageView(new Image(new File("src/main/resources/images/sample.jpg").toURI().toASCIIString()));
-        songTitleTableColumn = new TableColumn<>("Album");
-        songFileSizeTableColumn = new TableColumn<>("Album");
-        songArtistTableColumn = new TableColumn<>("Album");
-        songAlbumTableColumn = new TableColumn<>("Album");
-        songImageTableColumn = new TableColumn<>();
-        songTableView = new TableView<>();
         songTitleLabel = new Label("Song Title Label");
+        songListView = new ListView<>();
     }
 
     @Override
     public void build() {
-        songTableView.getColumns().addAll(songImageTableColumn,songTitleTableColumn,songAlbumTableColumn,
-                songArtistTableColumn,songFileSizeTableColumn);
         vBox.getChildren().addAll(imageView, songTitleLabel);
-        hBox.getChildren().addAll(vBox, songTableView);
+        hBox.getChildren().addAll(vBox, songListView);
         getChildren().addAll(hBox);
     }
 
@@ -63,8 +52,8 @@ public class MyMusicView extends View {
         songTitleLabel.prefHeightProperty().bind(vBox.heightProperty().multiply(.1));
         imageView.fitWidthProperty().bind(vBox.widthProperty());
         imageView.fitHeightProperty().bind(vBox.heightProperty().multiply(.9));
-        songTableView.prefWidthProperty().bind(hBox.widthProperty().multiply(.63));
-        songTableView.prefHeightProperty().bind(hBox.heightProperty());
+        songListView.prefWidthProperty().bind(hBox.widthProperty().multiply(.63));
+        songListView.prefHeightProperty().bind(hBox.heightProperty());
         vBox.prefWidthProperty().bind(hBox.widthProperty().multiply(.47));
         vBox.prefHeightProperty().bind(hBox.heightProperty());
         hBox.prefWidthProperty().bind(widthProperty());
@@ -73,7 +62,7 @@ public class MyMusicView extends View {
 
     @Override
     public void styling() {
-        songTableView.setRowFactory(songListView -> new SongCell());
+        songListView.setCellFactory(songListView -> new SongCell());
     }
 
 }

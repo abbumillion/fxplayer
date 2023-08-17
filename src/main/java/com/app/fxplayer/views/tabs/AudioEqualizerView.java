@@ -21,14 +21,9 @@ public class AudioEqualizerView extends View {
     private Slider slider1, slider2, slider3, slider4, slider5, slider6, slider7, slider8, slider9, slider10, slider11, slider12, slider13, slider14;
     private ComboBox<String> audioEqualizerComboBox, audioDeviceComboBox;
     private Button powerButton;
-    private Separator separator1, separator2, separator3;
 
     @Override
     public void init() {
-        //
-        separator1 = new Separator();
-        separator2 = new Separator();
-        separator3 = new Separator();
         //
         slider1Label = new Label("Clarity");
         slider2Label = new Label("Ambience");
@@ -91,7 +86,7 @@ public class AudioEqualizerView extends View {
         slidersHBox.getChildren().addAll(slider6, slider7, slider8, slider9, slider10, slider11, slider12, slider13, slider14);
         centerVBox.getChildren().addAll(slidersHBox, slidersLabelsHBox);
         hBox3.getChildren().addAll(slidersVBox, centerVBox);
-        getChildren().addAll(hBox1, separator1, hBox3, separator2, powerButton, separator3);
+        getChildren().addAll(hBox1, hBox3, powerButton);
     }
 
     @Override
@@ -185,10 +180,6 @@ public class AudioEqualizerView extends View {
         //
         hBox1.prefHeightProperty().bind(heightProperty().multiply(.095));
         hBox3.prefHeightProperty().bind(heightProperty().multiply(.66));
-        //
-        separator1.prefWidthProperty().bind(widthProperty());
-        separator2.prefWidthProperty().bind(widthProperty());
-        separator3.prefWidthProperty().bind(widthProperty());
         //
     }
 

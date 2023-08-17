@@ -18,8 +18,8 @@ public class MyMusicTabController extends Controller {
 
     @Override
     public void init() {
-        myMusicView.getSongTableView().itemsProperty().set(SongRepository.getSongList());
-        myMusicView.getSongTableView().getSelectionModel().selectedItemProperty().addListener((observableValue, song1, song2) ->
+        myMusicView.getSongListView().itemsProperty().set(SongRepository.getSongList());
+        myMusicView.getSongListView().getSelectionModel().selectedItemProperty().addListener((observableValue, song1, song2) ->
         {
             if (song2 != null) {
                 Player.setCurrentSong(song2);

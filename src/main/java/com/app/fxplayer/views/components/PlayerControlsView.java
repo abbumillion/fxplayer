@@ -66,13 +66,14 @@ public class PlayerControlsView extends View {
         hBox1.setAlignment(Pos.CENTER);
         hBox2.setAlignment(Pos.CENTER);
         hBox3.setAlignment(Pos.CENTER);
+        hBox4.setAlignment(Pos.CENTER);
         songTitleLabel.setAlignment(Pos.CENTER);
     }
 
     @Override
     public void bind() {
-        startDurationLabel.prefWidthProperty().bind(hBox4.widthProperty().multiply(.04));
-        endDurationLabel.prefWidthProperty().bind(hBox4.widthProperty().multiply(.04));
+        startDurationLabel.prefWidthProperty().bind(hBox4.widthProperty().multiply(.032));
+        endDurationLabel.prefWidthProperty().bind(hBox4.widthProperty().multiply(.032));
         durationSlider.prefWidthProperty().bind(hBox4.widthProperty().multiply(.9));
         durationSlider.prefHeightProperty().bind(hBox4.heightProperty());
         shuffleButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.111025));
