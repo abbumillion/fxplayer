@@ -4,7 +4,6 @@ import com.app.fxplayer.models.Song;
 import com.app.fxplayer.player.visualization.AudioPlayerSpectrumListener;
 import com.app.fxplayer.repo.SongRepository;
 import com.app.fxplayer.views.PlayerView;
-import javafx.scene.effect.GaussianBlur;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -16,7 +15,7 @@ public final class Player {
     private static PlayerView playerView;
     private static Song currentSong;
     private static MediaPlayer mediaPlayer;
-
+    private PlayingMode playingMode = PlayingMode.NO_REPEAT;
     public static void prev() {
         int currentSongIndex = SongRepository.getSongList().indexOf(currentSong);
         playerView.getMyMusicView().getSongListView().getSelectionModel().select(currentSongIndex - 1);
@@ -106,8 +105,8 @@ public final class Player {
                             true,
                             true
                     ));
-            GaussianBlur blur = new GaussianBlur(20);
-            playerView.getNowPlayingView().getImageView().setEffect(blur);
+//            GaussianBlur blur = new GaussianBlur(20);
+//            playerView.getNowPlayingView().getImageView().setEffect(blur);
             playerView.getNowPlayingView().setBackground(new Background(backgroundImage));
         }
     }

@@ -10,7 +10,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import lombok.Data;
-
 import java.io.File;
 
 @Data
@@ -76,7 +75,7 @@ public class PlayerControlsView extends View {
     @Override
     public void bind() {
         startDurationLabel.prefWidthProperty().bind(hBox4.widthProperty().multiply(.0315));
-        endDurationLabel.prefWidthProperty().bind(hBox4.widthProperty().multiply(.3215));
+        endDurationLabel.prefWidthProperty().bind(hBox4.widthProperty().multiply(.0315));
         durationSlider.prefWidthProperty().bind(hBox4.widthProperty().multiply(.94));
         durationSlider.prefHeightProperty().bind(hBox4.heightProperty());
         shuffleButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.111025));
