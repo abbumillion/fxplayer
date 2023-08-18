@@ -7,17 +7,15 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
 public class Album {
-    private String name;
-    private String artist;
+    private String albumName;
+    private String artistName;
     private String copyrightYear;
     private String copyrightOwner;
     private Image albumImage;
-    private ObservableList<Song> songs;
+    private ObservableList<Song> albumSongs;
 }

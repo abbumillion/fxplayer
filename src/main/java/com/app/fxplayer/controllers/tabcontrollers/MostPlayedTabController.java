@@ -17,6 +17,6 @@ public class MostPlayedTabController extends Controller {
 
     @Override
     public void init() throws InterruptedException, IOException {
-        mostPlayedView.getMostPlayedListView().itemsProperty().set(SongRepository.getMostPlayedSongList());
+//        mostPlayedView.getMostPlayedListView().itemsProperty().set(SongRepository.getMostPlayedSongList());
     }
 }

@@ -28,6 +28,7 @@ public class Song {
     private Date addedDate;
     private Date lastPlayedDate;
     private Image songImage;
+    private double duration;
     public Song(String path) {
         this.source = path;
         size = new File(path).length() / (1024 * 1024) + "MB";

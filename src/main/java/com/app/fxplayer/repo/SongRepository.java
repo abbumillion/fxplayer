@@ -17,7 +17,7 @@ public final class SongRepository {
     private static ObservableList<Album> albumList = FXCollections.observableArrayList();
     private static ObservableList<Playlist> playlistList = FXCollections.observableArrayList();
 
-    public static ObservableList<Song> getSongList() {
+    public static synchronized ObservableList<Song> getSongList() {
         return songList;
     }
 
@@ -28,6 +28,54 @@ public final class SongRepository {
         ObservableList<Song> songObservableList = FXCollections.observableArrayList(songs);
         return songObservableList;
     }
+    public static void addSongToAlbums(Song song)
+    {
+        if (albumList.isEmpty())
+        {}
+        else {
+            for (int i = 0 ; i < albumList.size() ; i++)
+            {
+                Album album = albumList.get(i);
+                // check if the song album already exists
+                if (album.getAlbumName() == song.getAlbum())
+                {
+                    // album found just add the song to this album
+                    System.out.println("Album Found");
+                }else {
+                    // we have no album for this song
+                    // create new album object and add the song to it
+                    // finally add the new album to albums list
+                    System.out.println("Album not found");
+                    Album newAlbum = new Album();
+                }
+            }
+        }
+    }
+
+
+//    public static void addSongToAlbums(Song song)
+//    {
+//        if (albumList.isEmpty())
+//        {}
+//        else {
+//            for (int i = 0 ; i < albumList.size() ; i++)
+//            {
+//                Album album = albumList.get(i);
+//                // check if the song album already exists
+//                if (album.getAlbumName() == song.getAlbum())
+//                {
+//                    // album found just add the song to this album
+//                    System.out.println("Album Found");
+//                }else {
+//                    // we have no album for this song
+//                    // create new album object and add the song to it
+//                    // finally add the new album to albums list
+//
+//                }
+//            }
+//        }
+//    }
+
 
 
     public static ObservableList<Song> getRecentAddedSongList() {

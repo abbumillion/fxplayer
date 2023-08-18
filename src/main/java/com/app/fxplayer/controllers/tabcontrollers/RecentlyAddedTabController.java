@@ -17,6 +17,6 @@ public class RecentlyAddedTabController extends Controller {
 
     @Override
     public void init() throws InterruptedException, IOException {
-        recentlyAddedView.getRecentlyAddedListView().itemsProperty().set(SongRepository.getRecentAddedSongList());
+//        recentlyAddedView.getRecentlyAddedListView().itemsProperty().set(SongRepository.getRecentAddedSongList());
     }
 }

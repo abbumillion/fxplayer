@@ -15,6 +15,6 @@ public class RecentPlaysTabController extends Controller {
 
     @Override
     public void init() {
-        recentPlaysView.getRecentPlaysListView().itemsProperty().set(SongRepository.getRecentPlaysSongList());
+//        recentPlaysView.getRecentPlaysListView().itemsProperty().set(SongRepository.getRecentPlaysSongList());
     }
 }

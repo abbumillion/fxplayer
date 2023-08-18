@@ -8,13 +8,19 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.controlsfx.control.ToggleSwitch;
 
 import java.io.File;
 import java.util.Date;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class ToolBarView extends View {
     private ImageView softwareIconImage;
     private ToggleSwitch nightModeToggleSwitchButton;
@@ -76,7 +82,8 @@ public class ToolBarView extends View {
     public void styling() {
         nightModeToggleSwitchButton.setAlignment(Pos.CENTER_RIGHT);
         searchTextField.setAlignment(Pos.CENTER);
-        searchTextField.setFont(Font.font(14));
+        searchTextField.setFont(Font.font(16));
+        dateLabel.setFont(Font.font(26));
     }
 
 }

@@ -18,7 +18,7 @@ public class PlayerControlsView extends View {
     private Label startDurationLabel, endDurationLabel, songTitleLabel;
     private Button pauseButton, prevButton, nextButton, shuffleButton, repeatButton, fullScreenJFXButton, volumeButton, rateButton, balanceButton;
     private Slider durationSlider;
-    private ImageView nextImage, prevImage, pauseImage, repeatImage, shuffleImage, fullscreenImage;
+    private ImageView nextImage, prevImage, pauseImage, repeatImage, shuffleImage, fullscreenImage,rateImage,balanceImage,volumeImage;
     private HBox hBox1, hBox2, hBox3, hBox4;
     private VBox vBox;
 
@@ -27,15 +27,15 @@ public class PlayerControlsView extends View {
         startDurationLabel = new Label("strt");
         endDurationLabel = new Label("end");
         songTitleLabel = new Label("song title label");
-        pauseButton = new Button("pause");
+        pauseButton = new Button("play");
         prevButton = new Button("prev");
         nextButton = new Button("next");
         shuffleButton = new Button("shuffle");
         repeatButton = new Button("repeat");
         fullScreenJFXButton = new Button("[]");
-        volumeButton = new Button("volume");
+        volumeButton = new Button("vol");
         rateButton = new Button("rate");
-        balanceButton = new Button("balance");
+        balanceButton = new Button("bal");
         durationSlider = new Slider();
         nextImage = new ImageView(new Image(new File("src/main/resources/icons/next-arrow-button-icon-vector-14566227.jpg").toURI().toASCIIString()));
         prevImage = new ImageView(new Image(new File("src/main/resources/icons/37111642-previous-red-flat-icon.webp").toURI().toASCIIString()));
@@ -43,6 +43,9 @@ public class PlayerControlsView extends View {
         repeatImage = new ImageView(new Image(new File("src/main/resources/icons/playercontrolsicons/repeat-button-red-icon.webp").toURI().toASCIIString()));
         shuffleImage = new ImageView(new Image(new File("src/main/resources/icons/playercontrolsicons/shuffle.png").toURI().toASCIIString()));
         fullscreenImage = new ImageView(new Image(new File("src/main/resources/icons/playercontrolsicons/fullscreen.png").toURI().toASCIIString()));
+        balanceImage = new ImageView(new Image(new File("src/main/resources/icons/playercontrolsicons/balanceicon.webp").toURI().toASCIIString()));
+        rateImage = new ImageView(new Image(new File("src/main/resources/icons/playercontrolsicons/volumeredicon.png").toURI().toASCIIString()));
+        rateImage = new ImageView(new Image(new File("src/main/resources/icons/playercontrolsicons/volumeredicon.jpg").toURI().toASCIIString()));
         hBox1 = new HBox();
         hBox2 = new HBox();
         hBox3 = new HBox();
@@ -72,9 +75,9 @@ public class PlayerControlsView extends View {
 
     @Override
     public void bind() {
-        startDurationLabel.prefWidthProperty().bind(hBox4.widthProperty().multiply(.032));
-        endDurationLabel.prefWidthProperty().bind(hBox4.widthProperty().multiply(.032));
-        durationSlider.prefWidthProperty().bind(hBox4.widthProperty().multiply(.9));
+        startDurationLabel.prefWidthProperty().bind(hBox4.widthProperty().multiply(.0315));
+        endDurationLabel.prefWidthProperty().bind(hBox4.widthProperty().multiply(.3215));
+        durationSlider.prefWidthProperty().bind(hBox4.widthProperty().multiply(.94));
         durationSlider.prefHeightProperty().bind(hBox4.heightProperty());
         shuffleButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.111025));
         repeatButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.11025));
@@ -92,10 +95,31 @@ public class PlayerControlsView extends View {
         hBox4.prefHeightProperty().bind(heightProperty().multiply(.05));
         hBox3.prefWidthProperty().bind(widthProperty());
         hBox3.prefHeightProperty().bind(heightProperty().multiply(.995));
+        nextImage.setFitHeight(28);
+        nextImage.setFitWidth(32);
+        pauseImage.setFitHeight(28);
+        pauseImage.setFitWidth(32);
+        prevImage.setFitHeight(28);
+        prevImage.setFitWidth(32);
+        shuffleImage.setFitHeight(28);
+        shuffleImage.setFitWidth(32);
+        repeatImage.setFitHeight(28);
+        repeatImage.setFitWidth(32);
+        nextImage.setFitHeight(28);
+        nextImage.setFitWidth(32);
+        nextImage.setFitHeight(28);
+        nextImage.setFitWidth(32);
+        nextImage.setFitHeight(28);
+        nextImage.setFitWidth(32);
     }
 
     @Override
     public void styling() {
+//        nextButton.setGraphic(nextImage);
+//        prevButton.setGraphic(prevImage);
+//        pauseButton.setGraphic(pauseImage);
+//        shuffleButton.setGraphic(shuffleImage);
+//        repeatButton.setGraphic(repeatImage);
     }
 
 }

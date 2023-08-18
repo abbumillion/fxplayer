@@ -20,10 +20,18 @@ public final class Player {
     public static void prev() {
         int currentSongIndex = SongRepository.getSongList().indexOf(currentSong);
         playerView.getMyMusicView().getSongListView().getSelectionModel().select(currentSongIndex - 1);
+        playerView.getMyMusicView().getSongListView().scrollTo(currentSongIndex - 1);
+    }
+    public static void next() {
+        int currentSongIndex = SongRepository.getSongList().indexOf(currentSong);
+        playerView.getMyMusicView().getSongListView().getSelectionModel().select(currentSongIndex + 1);
+        playerView.getMyMusicView().getSongListView().scrollTo(currentSongIndex + 1);
     }
 
     public static void play() {
-        checkMediaPlayer();
+        if (mediaPlayer != null) {
+            mediaPlayer.dispose();
+        }
         File file = new File(getCurrentSong().getSource());
         Media media = new Media(file.toURI().toASCIIString());
         mediaPlayer = new MediaPlayer(media);
@@ -42,22 +50,12 @@ public final class Player {
         playerView.getPlaylistView().getPlaylistListView().refresh();
     }
 
-    public static void next() {
-        int currentSongIndex = SongRepository.getSongList().indexOf(currentSong);
-        playerView.getMyMusicView().getSongListView().getSelectionModel().select(currentSongIndex + 1);
-    }
-
     public static Song getCurrentSong() {
         return currentSong;
     }
 
     public static void setCurrentSong(Song currentSong) {
         Player.currentSong = currentSong;
-    }
-
-    private static void checkMediaPlayer() {
-        if (mediaPlayer != null)
-            mediaPlayer.dispose();
     }
 
     private static void updatePlayerView() {
@@ -67,64 +65,38 @@ public final class Player {
             playerView.getPlayerControllerView().getPauseButton().setOnAction(actionEvent -> play());
             playerView.getPlayerControllerView().getPrevButton().setOnAction(actionEvent -> prev());
             playerView.getPlayerControllerView().getNextButton().setOnAction(actionEvent -> next());
-            playerView.getPlayerControllerView().getSongTitleLabel().setText(getCurrentSong().getTitle());
             playerView.getMyMusicView().getImageView().setImage(getCurrentSong().getSongImage());
             playerView.getMyMusicView().getSongTitleLabel().setText(getCurrentSong().getTitle());
             playerView.getNowPlayingView().getImageView().setImage(getCurrentSong().getSongImage());
-            // cheeck the image if it exists
-
-            // apply image to now playing background
             applyCurrentSongImageToNowPlayingBackground();
             registerPlayerEvents();
-
             AudioPlayerSpectrumListener audioPlayerSpectrumListener = new AudioPlayerSpectrumListener(playerView);
             mediaPlayer.setAudioSpectrumListener(audioPlayerSpectrumListener);
-
         }
     }
-
     private static void registerPlayerEvents() {
         mediaPlayer.setOnEndOfMedia(() -> next());
         mediaPlayer.setOnPlaying(() -> {
-        });
-        mediaPlayer.setAutoPlay(true);
-        mediaPlayer.setOnReady(() -> {
             mediaPlayer.currentTimeProperty().addListener((observableValue, duration, t1) -> {
                 if (t1 != null) {
-                    double seconds = t1.toSeconds();
-                    String formattedTime = formatTime(seconds);
-                    playerView.getPlayerControllerView().getDurationSlider().valueProperty().set(seconds);
+                    double milliSeconds = t1.toMillis();
+                    String formattedTime = formatTime(milliSeconds);
+                    playerView.getPlayerControllerView().getDurationSlider().valueProperty().set(milliSeconds);
                     playerView.getPlayerControllerView().getStartDurationLabel().setText(formattedTime);
                 }
             });
-            mediaPlayer.startTimeProperty().addListener((observableValue, duration, t1) ->
-            {
-                if (t1 != null) {
-                    double seconds = t1.toSeconds();
-                    String formattedTime = formatTime(seconds);
-                    playerView.getPlayerControllerView().getStartDurationLabel().setText(formattedTime);
-                }
-            });
-            mediaPlayer.totalDurationProperty().addListener((observableValue, duration, t1) -> {
-                if (t1 != null) {
-                    System.out.println(t1);
-                    double seconds = t1.toSeconds();
-                    String formattedTime = formatTime(seconds);
-                    playerView.getPlayerControllerView().getEndDurationLabel().setText(formattedTime);
-                    playerView.getPlayerControllerView().getDurationSlider().setMax(seconds);
-                }
-            });
+            double songDuration = mediaPlayer.getTotalDuration().toSeconds() * 1000;
+            playerView.getPlayerControllerView().getEndDurationLabel().setText(formatTime(songDuration));
+            playerView.getPlayerControllerView().getDurationSlider().setMax(songDuration);
             playerView.getPlayerControllerView().getDurationSlider().setOnMousePressed(event -> {
-                mediaPlayer.seek(Duration.seconds(playerView.getPlayerControllerView().getDurationSlider().getValue()));
+                mediaPlayer.seek(Duration.millis(playerView.getPlayerControllerView().getDurationSlider().getValue()));
             });
         });
     }
-
     private static void applyCurrentSongImageToNowPlayingBackground() {
         if (currentSong.getSongImage() != null)
         {
-            BackgroundImage backgroundImage = new BackgroundImage(getCurrentSong().getSongImage()
-                    ,
+            BackgroundImage backgroundImage = new BackgroundImage(getCurrentSong().getSongImage(),
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
                     new BackgroundSize(
                             playerView.getNowPlayingView().widthProperty().get(),
@@ -139,24 +111,18 @@ public final class Player {
             playerView.getNowPlayingView().setBackground(new Background(backgroundImage));
         }
     }
-
-    private static String formatTime(double seconds) {
-        String s = String.valueOf(seconds);
-        seconds /= 60;
-        String m = String.valueOf(seconds % 60);
-        seconds /= 60;
-        String h = String.valueOf(seconds % 24);
-        return h + ":" + m + ":" + s;
+    private static String formatTime(double millis) {
+        double milliseconds = millis;
+        int minutes = (int) ((milliseconds / 1000) / 60);
+        int seconds = (int) ((milliseconds / 1000) % 60);
+        return minutes + ":" + seconds;
     }
-
-    public static void setPlayerView(PlayerView playerView1) {
-        Player.playerView = playerView1;
+    public static void setPlayerView(PlayerView playerView) {
+        Player.playerView = playerView;
     }
-
     public static MediaPlayer getMediaPlayer() {
         return mediaPlayer;
     }
-
 }
 
 

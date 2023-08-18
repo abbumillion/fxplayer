@@ -9,7 +9,6 @@ import java.io.IOException;
 public class FXPlayerApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws InterruptedException, IOException {
-//        new LoaderViewController(new LoaderView()).init();
         new PlayerViewController(new PlayerView()).init();
     }
 

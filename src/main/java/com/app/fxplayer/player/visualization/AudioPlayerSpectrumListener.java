@@ -49,7 +49,7 @@ public class AudioPlayerSpectrumListener implements AudioSpectrumListener {
         ObservableList<XYChart.Data<String, Number>> seriesData = FXCollections.observableArrayList();
         ObservableList<XYChart.Series<String, Number>> data = FXCollections.observableArrayList();
         for (int i = 0; i < magnitudes.length; i++) {
-            seriesData.add(new XYChart.Data<>(i + "", phases[i] + magnitudes[i] - Player.getMediaPlayer().getAudioSpectrumThreshold()));
+            seriesData.add(new XYChart.Data<>(i + "", Math.PI * magnitudes[i] - Player.getMediaPlayer().getAudioSpectrumThreshold()));
         }
         data.add(new XYChart.Series<>(seriesData));
         playerView.getBarChartVisualizationView().getBarChart().setData(data);
