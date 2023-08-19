@@ -1,5 +1,6 @@
 package com.app.fxplayer.player.audioplayer;
 
+import com.app.fxplayer.helpers.SongSorter;
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.player.visualization.AudioPlayerSpectrumListener;
 import com.app.fxplayer.repo.SongRepository;
@@ -47,6 +48,7 @@ public final class Player {
         playerView.getRecentlyAddedView().getRecentlyAddedListView().refresh();
         playerView.getRecentPlaysView().getRecentPlaysListView().refresh();
         playerView.getPlaylistView().getPlaylistListView().refresh();
+        new SongSorter(playerView).sortSongs();
     }
 
     public static Song getCurrentSong() {

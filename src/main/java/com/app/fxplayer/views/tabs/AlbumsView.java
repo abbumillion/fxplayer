@@ -1,6 +1,7 @@
 package com.app.fxplayer.views.tabs;
 
 import com.app.fxplayer.views.View;
+import com.app.fxplayer.views.listcells.AlbumCell;
 import com.app.fxplayer.views.listcells.SongCell;
 import javafx.geometry.Pos;
 import javafx.scene.control.ListView;
@@ -33,7 +34,7 @@ public class AlbumsView extends View {
 
     @Override
     public void styling() {
-        albumListView.setCellFactory(songListView -> new SongCell());
+        albumListView.setCellFactory(songListView -> new AlbumCell());
 
     }
 

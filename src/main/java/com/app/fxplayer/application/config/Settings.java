@@ -16,7 +16,7 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 public class Settings {
-    private String theme = "src/main/resources/stylesheets/dark.css";;
+    private String theme = "src/main/resources/stylesheets/dark.css";
     private String font;
     private String tabSide;
     private String stageStyle;
@@ -27,4 +27,6 @@ public class Settings {
     private List<Song> favoriteSongs;
     private List<Album> albumList;
     private List<Artist> artistList;
+    private Song lastSong;
+    private double lastStoppedDuration;
 }

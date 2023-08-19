@@ -25,7 +25,6 @@ public class RecentlyAddedView extends View {
     @Override
     public void align() {
         setAlignment(Pos.CENTER);
-        recentlyAddedListView.setOrientation(Orientation.HORIZONTAL);
     }
 
     @Override
@@ -36,7 +35,7 @@ public class RecentlyAddedView extends View {
 
     @Override
     public void styling() {
-//        recentlyAddedListView.setCellFactory(songListView -> new SongCell());
+        recentlyAddedListView.setCellFactory(songListView -> new SongCell());
     }
 
 }

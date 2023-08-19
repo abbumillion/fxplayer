@@ -14,7 +14,6 @@ import java.io.File;
 @NoArgsConstructor
 public  class FileCollector implements Runnable{
     private File dir;
-
     @Override
     public void run() {
             extract(dir);

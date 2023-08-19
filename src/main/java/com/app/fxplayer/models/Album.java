@@ -1,5 +1,6 @@
 package com.app.fxplayer.models;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.image.Image;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,6 @@ public class Album {
     private String albumName;
     private String artistName;
     private String copyrightYear;
-    private String copyrightOwner;
     private Image albumImage;
-    private ObservableList<Song> albumSongs;
+    private ObservableList<Song> albumSongs = FXCollections.observableArrayList();
 }

@@ -1,7 +1,6 @@
 package com.app.fxplayer.controllers;
 
 
-import com.app.fxplayer.controllers.Controller;
 import com.app.fxplayer.controllers.componentscontroller.PlayerControlsViewController;
 import com.app.fxplayer.controllers.componentscontroller.ToolbarViewController;
 import com.app.fxplayer.controllers.tabcontrollers.*;
