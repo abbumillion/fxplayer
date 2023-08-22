@@ -42,6 +42,7 @@ public class Song {
             this.songImage = (Image) ((Map<?, ?>) observable).get("image");
             this.year = String.valueOf(((Map<?, ?>) observable).get("year"));
             addedDate = new Date();
+            lastPlayedDate = new Date();
         });
     }
 }

@@ -4,27 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d75da6c2-53ad-46d2-8b34-7412ff37e36d" name="Changes" comment="adding date functionality and duration labels">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/SongSorter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/repo/AlbumGenerator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/repo/ArtistGenerator.java" afterDir="false" />
+    <list default="true" id="d75da6c2-53ad-46d2-8b34-7412ff37e36d" name="Changes" comment="sorting song lists">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/FXPlayerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/FXPlayerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/config/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/config/Settings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/PlayerViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/PlayerViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/MostPlayedTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/MostPlayedTabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/RecentPlaysTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/RecentPlaysTabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/RecentlyAddedTabController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/tabcontrollers/RecentlyAddedTabController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/FileCollector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/FileCollector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/Generator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Album.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/SongSorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/helpers/SongSorter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Song.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/Song.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/audioplayer/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/audioplayer/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/repo/SongRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/repo/SongRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/AlbumCell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/listcells/AlbumCell.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/AlbumsView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/AlbumsView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/MostPlayedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/MostPlayedView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/RecentPlaysView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/RecentPlaysView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/RecentlyAddedView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/RecentlyAddedView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/AudioPlayerSpectrumListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/AudioPlayerSpectrumListener.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,19 +50,19 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "b1",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_directory_selection": "C:/Users/sharb/IdeaProjects/fxplayer/src/main/resources/com/example/fxplayer",
-    "last_opened_file_path": "C:/Users/sharb/IdeaProjects/fxplayer/src/main/resources/icons/playercontrolsicons",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;b1&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/sharb/IdeaProjects/fxplayer/src/main/resources/com/example/fxplayer&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/sharb/IdeaProjects/fxplayer/src/main/resources/icons/playercontrolsicons&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\sharb\IdeaProjects\fxplayer\src\main\resources\icons\playercontrolsicons" />
@@ -292,7 +277,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692351710952</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="sorting song lists">
+      <option name="closed" value="true" />
+      <created>1692473813129</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1692473813129</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -311,6 +304,7 @@
     <MESSAGE value="song collection using runnable interface" />
     <MESSAGE value="song changing song collection holders to listview" />
     <MESSAGE value="adding date functionality and duration labels" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding date functionality and duration labels" />
+    <MESSAGE value="sorting song lists" />
+    <option name="LAST_COMMIT_MESSAGE" value="sorting song lists" />
   </component>
 </project>

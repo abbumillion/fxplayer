@@ -16,21 +16,21 @@ public class SongSorter {
     {
         // most played
         playerView.getMostPlayedView().getMostPlayedListView().getItems().sort((o1,o2)->{
-                    if(o1.getNumberOfPlays() > o2.getNumberOfPlays())
+                    if(o1.getNumberOfPlays() < o2.getNumberOfPlays())
                         return 1;
                     else
                         return -1;
                 });
         // recent plays
         playerView.getRecentPlaysView().getRecentPlaysListView().getItems().sort((o1,o2)->{
-                    if(o1.getLastPlayedDate().before(o2.getLastPlayedDate()))
+                    if(o1.getLastPlayedDate().after(o2.getLastPlayedDate()))
                         return 1;
                     else
                         return -1;
                 });
         // recent added
         playerView.getRecentlyAddedView().getRecentlyAddedListView().getItems().sort((o1,o2)->{
-                    if(o1.getAddedDate().before(o2.getAddedDate()))
+                    if(o1.getAddedDate().after(o2.getAddedDate()))
                         return 1;
                     else
                         return -1;
