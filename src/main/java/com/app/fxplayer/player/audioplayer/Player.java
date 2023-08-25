@@ -15,12 +15,14 @@ public final class Player {
     private static PlayerView playerView;
     private static Song currentSong;
     private static MediaPlayer mediaPlayer;
-    private PlayingMode playingMode = PlayingMode.NO_REPEAT;
+    private final PlayingMode playingMode = PlayingMode.NO_REPEAT;
+
     public static void prev() {
         int currentSongIndex = SongRepository.getSongList().indexOf(currentSong);
         playerView.getMyMusicView().getSongListView().getSelectionModel().select(currentSongIndex - 1);
         playerView.getMyMusicView().getSongListView().scrollTo(currentSongIndex - 1);
     }
+
     public static void next() {
         int currentSongIndex = SongRepository.getSongList().indexOf(currentSong);
         playerView.getMyMusicView().getSongListView().getSelectionModel().select(currentSongIndex + 1);
@@ -36,7 +38,7 @@ public final class Player {
         mediaPlayer = new MediaPlayer(media);
         mediaPlayer.play();
         updatePlayerView();
-        refreshView();
+//        refreshView();
     }
 
     private static void refreshView() {
@@ -74,8 +76,10 @@ public final class Player {
             mediaPlayer.setAudioSpectrumListener(audioPlayerSpectrumListener);
         }
     }
+
     private static void registerPlayerEvents() {
-        mediaPlayer.setOnEndOfMedia(() -> next());
+        mediaPlayer.setOnEndOfMedia(Player::next);
+
         mediaPlayer.setOnPlaying(() -> {
             mediaPlayer.currentTimeProperty().addListener((observableValue, duration, t1) -> {
                 if (t1 != null) {
@@ -93,9 +97,9 @@ public final class Player {
             });
         });
     }
+
     private static void applyCurrentSongImageToNowPlayingBackground() {
-        if (currentSong.getSongImage() != null)
-        {
+        if (currentSong.getSongImage() != null) {
             BackgroundImage backgroundImage = new BackgroundImage(getCurrentSong().getSongImage(),
                     BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER,
                     new BackgroundSize(
@@ -111,15 +115,17 @@ public final class Player {
             playerView.getNowPlayingView().setBackground(new Background(backgroundImage));
         }
     }
+
     private static String formatTime(double millis) {
-        double milliseconds = millis;
-        int minutes = (int) ((milliseconds / 1000) / 60);
-        int seconds = (int) ((milliseconds / 1000) % 60);
+        int minutes = (int) ((millis / 1000) / 60);
+        int seconds = (int) ((millis / 1000) % 60);
         return minutes + ":" + seconds;
     }
+
     public static void setPlayerView(PlayerView playerView) {
         Player.playerView = playerView;
     }
+
     public static MediaPlayer getMediaPlayer() {
         return mediaPlayer;
     }

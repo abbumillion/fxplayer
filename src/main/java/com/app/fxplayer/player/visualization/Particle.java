@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Particle {
-    private float x, y;
+    private double x, y;
     private Color color;
 }

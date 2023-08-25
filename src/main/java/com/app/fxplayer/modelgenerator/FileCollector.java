@@ -2,21 +2,24 @@ package com.app.fxplayer.modelgenerator;
 
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.repo.SongRepository;
+import javafx.concurrent.Task;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.File;
+
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public  class FileCollector implements Runnable{
+public class FileCollector extends Task<Song> {
     private File dir;
     @Override
-    public void run() {
-            extract(dir);
+    public Song call() {
+        extract(dir);
+        return null;
     }
     private void extract(File file) {
         File[] files = file.listFiles();

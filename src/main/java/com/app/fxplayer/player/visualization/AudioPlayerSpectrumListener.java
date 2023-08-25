@@ -21,7 +21,7 @@ public class AudioPlayerSpectrumListener implements AudioSpectrumListener {
     public void spectrumDataUpdate(double timestamp, double duration, float[] phases, float[] magnitudes) {
 //        barChartVisualization(phases,magnitudes);
 //        lineChartVisualization();
-        canvasVisualization(phases,magnitudes);
+        canvasVisualization(phases, magnitudes);
 
 
     }
@@ -30,21 +30,20 @@ public class AudioPlayerSpectrumListener implements AudioSpectrumListener {
         GraphicsContext graphicsContext = playerView.getCanvasVisualizationView().getCanvas().getGraphicsContext2D();
         double width = playerView.getCanvasVisualizationView().getWidth();
         double height = playerView.getCanvasVisualizationView().getHeight();
-        for (int i = 0; i < magnitudes.length ; i++) {
+        for (int i = 0; i < magnitudes.length; i++) {
             magnitudes[i] = magnitudes[i] - Player.getMediaPlayer().getAudioSpectrumThreshold();
-            graphicsContext.clearRect(0,0,playerView.getCanvasVisualizationView().widthProperty().get(),
+            graphicsContext.clearRect(0, 0, playerView.getCanvasVisualizationView().widthProperty().get(),
                     playerView.getCanvasVisualizationView().heightProperty().get());
-            Particle particle = new Particle(magnitudes[i] * 10, magnitudes[i] * 10, Color.BLACK);
+            Particle particle = new Particle(magnitudes[i] * 6.28, magnitudes[i] * 6.28, Color.BLACK);
             graphicsContext.setFill(particle.getColor());
-            graphicsContext.fillOval( width / 3 ,height / 3 ,particle.getX() ,particle.getY());
+            graphicsContext.fillOval(width / 3, height / 3, particle.getX(), particle.getY());
         }
-
 
     }
 
 
     private void lineChartVisualization(float[] phases, float[] magnitudes) {
-        for (int i = 0; i < magnitudes.length ; i++) {
+        for (int i = 0; i < magnitudes.length; i++) {
         }
     }
 

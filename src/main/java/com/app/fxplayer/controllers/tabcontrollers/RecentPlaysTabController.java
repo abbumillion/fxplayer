@@ -5,6 +5,7 @@ import com.app.fxplayer.player.audioplayer.Player;
 import com.app.fxplayer.repo.SongRepository;
 import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.tabs.RecentPlaysView;
+
 import java.util.Date;
 
 public class RecentPlaysTabController extends Controller {

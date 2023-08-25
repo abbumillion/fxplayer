@@ -6,23 +6,23 @@ import com.app.fxplayer.models.Playlist;
 import com.app.fxplayer.models.Song;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
 import java.util.Objects;
+
 public final class SongRepository {
     private static ObservableList<Song> songList = FXCollections.observableArrayList();
     private static ObservableList<Artist> artistList = FXCollections.observableArrayList();
     private static ObservableList<Album> albumList = FXCollections.observableArrayList();
     private static ObservableList<Playlist> playlistList = FXCollections.observableArrayList();
+
     public static synchronized ObservableList<Song> getSongList() {
         return songList;
     }
 
-    public static void addSongToAlbums(Song song)
-    {
-        if (getAlbumList().isEmpty())
-        {
+    public static void addSongToAlbums(Song song) {
+        if (getAlbumList().isEmpty()) {
             createAlbum(song);
-        }
-        else {
+        } else {
             for (Album album : getAlbumList()) {
                 if (Objects.equals(album.getAlbumName(), song.getAlbum())) {
                     album.getAlbumSongs().add(song);
@@ -72,7 +72,6 @@ public final class SongRepository {
 //                    // we have no album for this song
 //                    // create new album object and add the song to it
 //                    // finally add the new album to albums list
-//
 //                }
 //            }
 //        }

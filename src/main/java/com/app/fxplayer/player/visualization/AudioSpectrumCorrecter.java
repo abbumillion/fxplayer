@@ -6,13 +6,12 @@ package com.app.fxplayer.player.visualization;
  * FOR CORRECTING PHASES AND MAGNITUDES
  */
 public class AudioSpectrumCorrecter {
-    public static float[] correctPhase(float[] phases)
-    {
+    public static float[] correctPhase(float[] phases) {
         float[] correctedPhases = new float[0];
         return correctedPhases;
     }
-    public static float[] correctMagnitude(float[] magnitudes)
-    {
+
+    public static float[] correctMagnitude(float[] magnitudes) {
         float[] correctedMagnitudes = new float[0];
         return correctedMagnitudes;
     }

@@ -10,6 +10,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import lombok.Data;
+
 import java.io.File;
 
 @Data
@@ -17,7 +18,7 @@ public class PlayerControlsView extends View {
     private Label startDurationLabel, endDurationLabel, songTitleLabel;
     private Button pauseButton, prevButton, nextButton, shuffleButton, repeatButton, fullScreenJFXButton, volumeButton, rateButton, balanceButton;
     private Slider durationSlider;
-    private ImageView nextImage, prevImage, pauseImage, repeatImage, shuffleImage, fullscreenImage,rateImage,balanceImage,volumeImage;
+    private ImageView nextImage, prevImage, pauseImage, repeatImage, shuffleImage, fullscreenImage, rateImage, balanceImage, volumeImage;
     private HBox hBox1, hBox2, hBox3, hBox4;
     private VBox vBox;
 

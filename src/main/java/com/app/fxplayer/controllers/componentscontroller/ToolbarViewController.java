@@ -19,6 +19,7 @@ public class ToolbarViewController extends Controller {
         super(view);
         toolBarView = (ToolBarView) view;
     }
+
     @Override
     public void init() {
         timer();
@@ -45,15 +46,14 @@ public class ToolbarViewController extends Controller {
     private void timer() {
         Thread thread = new Thread(() -> {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss");
-            while (true)
-            {
+            while (true) {
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
                 final String format = simpleDateFormat.format(new Date());
-                Platform.runLater(() ->{
+                Platform.runLater(() -> {
                     toolBarView.getDateLabel().setText(format);
                 });
             }

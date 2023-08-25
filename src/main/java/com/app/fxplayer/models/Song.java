@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.File;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.Map;
 
@@ -16,7 +17,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Song {
+public class Song implements Serializable {
     private String source = "source";
     private String title = "title";
     private String artist = "artist";
@@ -29,6 +30,7 @@ public class Song {
     private Date lastPlayedDate;
     private Image songImage;
     private double duration;
+
     public Song(String path) {
         this.source = path;
         size = new File(path).length() / (1024 * 1024) + "MB";

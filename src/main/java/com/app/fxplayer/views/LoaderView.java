@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class LoaderView extends View {
     private ProgressIndicator progressIndicator;
-//    private Button getStartedButton;
+    //    private Button getStartedButton;
     private ListView<Song> songListView;
 
     @Override

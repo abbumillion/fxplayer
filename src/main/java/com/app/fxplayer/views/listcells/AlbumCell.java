@@ -30,8 +30,8 @@ public class AlbumCell extends ListCell<Album> {
         hBox.setAlignment(Pos.CENTER);
         imageView.setFitWidth(120);
         imageView.setFitHeight(100);
-        vBox.getChildren().addAll(albumNameLabel,artistNameLabel,albumYearLabel);
-        hBox.getChildren().addAll(imageView,vBox);
+        vBox.getChildren().addAll(albumNameLabel, artistNameLabel, albumYearLabel);
+        hBox.getChildren().addAll(imageView, vBox);
         setGraphic(hBox);
     }
 }

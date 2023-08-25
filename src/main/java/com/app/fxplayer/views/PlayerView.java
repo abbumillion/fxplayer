@@ -20,7 +20,7 @@ public class PlayerView extends View {
     private TabPane tabPane;
     private Tab myMusicTab, nowPlayingTab, mostPlayedTab, recentPlaysTab,
             recentlyAddedTab, albumsTab, artistsTab, playlistTab, favoriteSongsTab,
-            barChartVisualizationTab , canvasVirtualizationTab , lineChartVisualizationTab , audioEqualizerTab, settingsTab;
+            barChartVisualizationTab, canvasVirtualizationTab, lineChartVisualizationTab, audioEqualizerTab, settingsTab;
     private MyMusicView myMusicView;
     private NowPlayingView nowPlayingView;
     private MostPlayedView mostPlayedView;
@@ -93,7 +93,7 @@ public class PlayerView extends View {
         settingsTab.setContent(settingsView);
         tabPane.getTabs().addAll(myMusicTab, nowPlayingTab, mostPlayedTab, recentPlaysTab,
                 recentlyAddedTab, artistsTab, albumsTab, playlistTab, favoriteSongsTab, barChartVisualizationTab,
-                canvasVirtualizationTab , lineChartVisualizationTab
+                canvasVirtualizationTab, lineChartVisualizationTab
                 , audioEqualizerTab, settingsTab);
         rootVBox.getChildren().addAll(toolBarView, tabPane, playerControllerView);
         getChildren().addAll(rootVBox);

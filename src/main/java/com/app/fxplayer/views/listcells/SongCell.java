@@ -2,21 +2,27 @@ package com.app.fxplayer.views.listcells;
 
 import com.app.fxplayer.models.Song;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
-import javafx.scene.control.TableRow;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 public class SongCell extends ListCell<Song> {
     @Override
     protected void updateItem(Song song, boolean b) {
         super.updateItem(song, b);
-        HBox hBox = new HBox(2.2345);
+        HBox hBox1 = new HBox(2.2345);
+        HBox hBox2 = new HBox(2.2345);
+        VBox vBox = new VBox();
         Label titleLabel = new Label("title label");
         Label albumLabel = new Label("album label");
         Label artistLabel = new Label("artist label");
         Label sizeLabel = new Label("size label");
+        Button addToPlaylistButton = new Button("+");
+        Button addToFavoritesButton = new Button("+");
+        Button deleteSongButton = new Button("+");
         ImageView imageView = new ImageView();
         if (song != null) {
             imageView.setImage(song.getSongImage());
@@ -25,17 +31,56 @@ public class SongCell extends ListCell<Song> {
             artistLabel.setText(song.getArtist());
             sizeLabel.setText(song.getSize());
         }
-        imageView.setFitWidth(36);
-        imageView.setFitHeight(24);
+        imageView.setFitWidth(38);
+        imageView.setFitHeight(26);
+
         titleLabel.setAlignment(Pos.CENTER_LEFT);
         albumLabel.setAlignment(Pos.CENTER_LEFT);
         artistLabel.setAlignment(Pos.CENTER_LEFT);
         sizeLabel.setAlignment(Pos.CENTER_LEFT);
-        titleLabel.prefWidthProperty().bind(hBox.widthProperty().multiply(.2));
-        artistLabel.prefWidthProperty().bind(hBox.widthProperty().multiply(.2));
-        albumLabel.prefWidthProperty().bind(hBox.widthProperty().multiply(.2));
-        sizeLabel.prefWidthProperty().bind(hBox.widthProperty().multiply(.2));
-        hBox.getChildren().addAll(imageView, titleLabel, albumLabel, artistLabel, sizeLabel);
-        setGraphic(hBox);
+
+        hBox2.setAlignment(Pos.CENTER);
+
+        addToPlaylistButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.018));
+        hBox1.getChildren().addAll(imageView, titleLabel, albumLabel, artistLabel, sizeLabel);
+        hBox2.getChildren().addAll(addToFavoritesButton,addToPlaylistButton,deleteSongButton);
+        vBox.getChildren().addAll(hBox1,hBox2);
+
+
+
+        titleLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.2));
+        artistLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.2));
+        albumLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.2));
+        sizeLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.2));
+
+        hBox1.prefWidthProperty().bind(vBox.widthProperty());
+
+        hBox2.setVisible(false);
+
+
+
+        setGraphic(vBox);
+        addToPlaylistButton.setOnAction(event -> {
+            System.out.println("adding to playlist");
+        });
+
+
+        addToFavoritesButton.setOnAction(event -> {
+            System.out.println("adding to playlist");
+        });
+
+        deleteSongButton.setOnAction(event -> {
+            System.out.println("adding to playlist");
+        });
+
+        setOnMouseClicked(event ->
+        {
+            hBox2.setVisible(true);
+            hBox1.prefWidthProperty().bind(vBox.widthProperty());
+            hBox1.prefHeightProperty().bind(vBox.heightProperty().multiply(.5));
+            hBox2.prefWidthProperty().bind(vBox.widthProperty());
+            hBox2.prefHeightProperty().bind(vBox.heightProperty().multiply(.5));
+        });
+
     }
 }
