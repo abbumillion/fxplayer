@@ -9,13 +9,15 @@ import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.File;
 
-@Data
+@EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Data
 public class PlayerView extends View {
     private TabPane tabPane;
     private Tab myMusicTab, nowPlayingTab, mostPlayedTab, recentPlaysTab,
@@ -38,7 +40,6 @@ public class PlayerView extends View {
     private PlayerControlsView playerControllerView;
     private ToolBarView toolBarView;
     private VBox rootVBox;
-
     @Override
     public void init() {
         myMusicTab = new Tab("My Music");

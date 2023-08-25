@@ -10,11 +10,10 @@ import javafx.collections.ObservableList;
 import java.util.Objects;
 
 public final class SongRepository {
-    private static ObservableList<Song> songList = FXCollections.observableArrayList();
-    private static ObservableList<Artist> artistList = FXCollections.observableArrayList();
-    private static ObservableList<Album> albumList = FXCollections.observableArrayList();
-    private static ObservableList<Playlist> playlistList = FXCollections.observableArrayList();
-
+    private static final ObservableList<Song> songList = FXCollections.observableArrayList();
+    private static final ObservableList<Artist> artistList = FXCollections.observableArrayList();
+    private static final ObservableList<Album> albumList = FXCollections.observableArrayList();
+    private static final ObservableList<Playlist> playlistList = FXCollections.observableArrayList();
     public static synchronized ObservableList<Song> getSongList() {
         return songList;
     }

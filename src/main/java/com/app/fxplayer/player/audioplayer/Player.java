@@ -1,15 +1,18 @@
 package com.app.fxplayer.player.audioplayer;
 
+import com.app.fxplayer.controllers.ArtistDetailViewController;
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.player.visualization.AudioPlayerSpectrumListener;
 import com.app.fxplayer.repo.SongRepository;
 import com.app.fxplayer.views.PlayerView;
+import com.app.fxplayer.views.ArtistDetailView;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.io.IOException;
 
 public final class Player {
     private static PlayerView playerView;
@@ -62,13 +65,29 @@ public final class Player {
 
     private static void updatePlayerView() {
         playerView.getPlayerControllerView().getFullScreenJFXButton().setOnAction(actionEvent -> playerView.setFullScreen());
+
+        playerView.getMyMusicView().getSongArtistHyperLink().setOnAction(event -> {
+            ArtistDetailViewController artistDetailViewController = new ArtistDetailViewController(new ArtistDetailView());
+            try {
+                artistDetailViewController.init();
+            } catch (InterruptedException | IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+
+        playerView.getPlayerControllerView().getLyricsButton().setOnAction(event -> {
+            System.out.println("we need spotify api for this. ");
+            System.out.println("show song lyrics");
+        });
+
         if (mediaPlayer != null) {
-            mediaPlayer.setAudioSpectrumNumBands(127);
+            mediaPlayer.setAudioSpectrumNumBands(64);
             playerView.getPlayerControllerView().getPauseButton().setOnAction(actionEvent -> play());
             playerView.getPlayerControllerView().getPrevButton().setOnAction(actionEvent -> prev());
             playerView.getPlayerControllerView().getNextButton().setOnAction(actionEvent -> next());
             playerView.getMyMusicView().getImageView().setImage(getCurrentSong().getSongImage());
-            playerView.getMyMusicView().getSongTitleLabel().setText(getCurrentSong().getTitle());
+            playerView.getMyMusicView().getSongTitleHyperLink().setText(getCurrentSong().getTitle());
+            playerView.getMyMusicView().getSongArtistHyperLink().setText(getCurrentSong().getArtist());
             playerView.getNowPlayingView().getImageView().setImage(getCurrentSong().getSongImage());
             applyCurrentSongImageToNowPlayingBackground();
             registerPlayerEvents();

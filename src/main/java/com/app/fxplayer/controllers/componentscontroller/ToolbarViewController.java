@@ -28,9 +28,9 @@ public class ToolbarViewController extends Controller {
                 String keyword = newValue;
                 for (int i = 0; i < SongRepository.getSongList().size(); i++) {
                     Song currentSong = SongRepository.getSongList().get(i);
-                    if (currentSong.getArtist().contains(keyword) ||
-                            currentSong.getAlbum().contains(newValue) ||
-                            currentSong.getTitle().contains(newValue)) {
+                    if (currentSong.getArtist().equalsIgnoreCase(keyword) ||
+                            currentSong.getAlbum().equalsIgnoreCase(newValue) ||
+                            currentSong.getTitle().equalsIgnoreCase(newValue)) {
                         Player.setCurrentSong(currentSong);
                         Player.play();
                         break;

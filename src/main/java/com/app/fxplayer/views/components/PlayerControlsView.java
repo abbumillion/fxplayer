@@ -9,14 +9,20 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import lombok.Data;
+import lombok.*;
 
 import java.io.File;
 
+
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Data
+
 public class PlayerControlsView extends View {
     private Label startDurationLabel, endDurationLabel, songTitleLabel;
-    private Button pauseButton, prevButton, nextButton, shuffleButton, repeatButton, fullScreenJFXButton, volumeButton, rateButton, balanceButton;
+    private Button pauseButton, prevButton, nextButton, shuffleButton, repeatButton, fullScreenJFXButton, volumeButton, rateButton, balanceButton , lyricsButton;
     private Slider durationSlider;
     private ImageView nextImage, prevImage, pauseImage, repeatImage, shuffleImage, fullscreenImage, rateImage, balanceImage, volumeImage;
     private HBox hBox1, hBox2, hBox3, hBox4;
@@ -36,6 +42,7 @@ public class PlayerControlsView extends View {
         volumeButton = new Button("vol");
         rateButton = new Button("rate");
         balanceButton = new Button("bal");
+        lyricsButton = new Button("Lyrics");
         durationSlider = new Slider();
         nextImage = new ImageView(new Image(new File("src/main/resources/icons/next-arrow-button-icon-vector-14566227.jpg").toURI().toASCIIString()));
         prevImage = new ImageView(new Image(new File("src/main/resources/icons/37111642-previous-red-flat-icon.webp").toURI().toASCIIString()));
@@ -56,7 +63,7 @@ public class PlayerControlsView extends View {
     @Override
     public void build() {
         hBox1.getChildren().addAll(shuffleButton, repeatButton, prevButton, pauseButton, nextButton);
-        hBox2.getChildren().addAll(volumeButton, rateButton, balanceButton, fullScreenJFXButton);
+        hBox2.getChildren().addAll(lyricsButton , volumeButton, rateButton, balanceButton, fullScreenJFXButton);
         hBox3.getChildren().addAll(hBox1, hBox2);
         hBox4.getChildren().addAll(startDurationLabel, durationSlider, endDurationLabel);
         getChildren().addAll(hBox4, hBox3);
@@ -75,18 +82,32 @@ public class PlayerControlsView extends View {
 
     @Override
     public void bind() {
+        // labels
         startDurationLabel.prefWidthProperty().bind(hBox4.widthProperty().multiply(.0315));
         endDurationLabel.prefWidthProperty().bind(hBox4.widthProperty().multiply(.0315));
+        songTitleLabel.prefWidthProperty().bind(vBox.widthProperty());
+        songTitleLabel.prefHeightProperty().bind(vBox.heightProperty().multiply(.1));
+
+
+        // sliders
         durationSlider.prefWidthProperty().bind(hBox4.widthProperty().multiply(.94));
         durationSlider.prefHeightProperty().bind(hBox4.heightProperty());
+
+
+
+
+        // buttons
         shuffleButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.111025));
+        lyricsButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.11025));
+        volumeButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.11025));
         repeatButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.11025));
         prevButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.11025));
         pauseButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.11025));
         nextButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.111025));
         fullScreenJFXButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.111025));
-        songTitleLabel.prefWidthProperty().bind(vBox.widthProperty());
-        songTitleLabel.prefHeightProperty().bind(vBox.heightProperty().multiply(.1));
+
+
+
         vBox.prefWidthProperty().bind(hBox3.widthProperty().multiply(.2));
         vBox.prefHeightProperty().bind(hBox3.heightProperty());
         hBox1.prefWidthProperty().bind(hBox3.widthProperty().multiply(.4));
@@ -95,6 +116,7 @@ public class PlayerControlsView extends View {
         hBox4.prefHeightProperty().bind(heightProperty().multiply(.05));
         hBox3.prefWidthProperty().bind(widthProperty());
         hBox3.prefHeightProperty().bind(heightProperty().multiply(.995));
+        // icon image size
         nextImage.setFitHeight(28);
         nextImage.setFitWidth(32);
         pauseImage.setFitHeight(28);

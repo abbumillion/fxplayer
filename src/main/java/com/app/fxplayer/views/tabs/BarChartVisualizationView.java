@@ -7,8 +7,12 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.layout.HBox;
-import lombok.Data;
+import lombok.*;
 
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Data
 public class BarChartVisualizationView extends View {
     private NumberAxis barChartYAxis;

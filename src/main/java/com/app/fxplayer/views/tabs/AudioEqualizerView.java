@@ -13,8 +13,12 @@ import javafx.scene.control.Slider;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
-import lombok.Data;
+import lombok.*;
 
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Data
 public class AudioEqualizerView extends View {
     private HBox hBox1, hBox3, slidersHBox, slidersLabelsHBox;

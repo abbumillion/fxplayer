@@ -3,12 +3,15 @@ package com.app.fxplayer.views.tabs;
 import com.app.fxplayer.views.View;
 import javafx.geometry.Pos;
 import javafx.scene.canvas.Canvas;
-import lombok.Data;
+import lombok.*;
 
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Data
 public class CanvasVisualizationView extends View {
     private Canvas canvas;
-
     @Override
     public void init() {
         canvas = new Canvas();
@@ -29,7 +32,6 @@ public class CanvasVisualizationView extends View {
         canvas.widthProperty().bind(widthProperty());
         canvas.heightProperty().bind(heightProperty());
     }
-
     @Override
     public void styling() {
 

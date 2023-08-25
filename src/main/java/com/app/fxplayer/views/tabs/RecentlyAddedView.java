@@ -5,36 +5,34 @@ import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.listcells.SongCell;
 import javafx.geometry.Pos;
 import javafx.scene.control.ListView;
-import lombok.Data;
+import lombok.*;
 
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Data
 public class RecentlyAddedView extends View {
     private ListView<Song> recentlyAddedListView;
-
     @Override
     public void init() {
         recentlyAddedListView = new ListView<>();
     }
-
     @Override
     public void build() {
         getChildren().add(recentlyAddedListView);
     }
-
     @Override
     public void align() {
         setAlignment(Pos.CENTER);
     }
-
     @Override
     public void bind() {
         recentlyAddedListView.prefWidthProperty().bind(widthProperty());
         recentlyAddedListView.prefHeightProperty().bind(heightProperty());
     }
-
     @Override
     public void styling() {
         recentlyAddedListView.setCellFactory(songListView -> new SongCell());
     }
-
 }
