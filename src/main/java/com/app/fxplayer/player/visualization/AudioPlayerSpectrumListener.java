@@ -18,9 +18,9 @@ public class AudioPlayerSpectrumListener implements AudioSpectrumListener {
 
     @Override
     public void spectrumDataUpdate(double timestamp, double duration, float[] phases, float[] magnitudes) {
-        barChartVisualization(phases,magnitudes);
-        lineChartVisualization(phases,magnitudes);
-//        canvasVisualization(phases, magnitudes);
+        barChartVisualization(AudioSpectrumCorrecter.correctPhase(phases),AudioSpectrumCorrecter.correctMagnitude(magnitudes));
+        lineChartVisualization(AudioSpectrumCorrecter.correctPhase(phases),AudioSpectrumCorrecter.correctMagnitude(magnitudes));
+//        canvasVisualization(AudioSpectrumCorrecter.correctPhase(phases), AudioSpectrumCorrecter.correctMagnitude(magnitudes));
     }
 
     private void canvasVisualization(float[] phases, float[] magnitudes) {
@@ -42,7 +42,7 @@ public class AudioPlayerSpectrumListener implements AudioSpectrumListener {
         ObservableList<XYChart.Data<Number, Number>> seriesData = FXCollections.observableArrayList();
         ObservableList<XYChart.Series<Number, Number>> data = FXCollections.observableArrayList();
         for (int i = 0; i < magnitudes.length; i++) {
-            seriesData.add(new XYChart.Data<>(i , Math.sqrt(196) * Math.PI * magnitudes[i] - Player.getMediaPlayer().getAudioSpectrumThreshold()));
+            seriesData.add(new XYChart.Data<>( i ,  magnitudes[i]));
         }
         data.add(new XYChart.Series<>(seriesData));
         playerView.getLineChartVisualizationView().getLineChart().setData(data);
@@ -52,7 +52,7 @@ public class AudioPlayerSpectrumListener implements AudioSpectrumListener {
         ObservableList<XYChart.Data<String, Number>> seriesData = FXCollections.observableArrayList();
         ObservableList<XYChart.Series<String, Number>> data = FXCollections.observableArrayList();
         for (int i = 0; i < magnitudes.length; i++) {
-            seriesData.add(new XYChart.Data<>(String.valueOf(i), Math.PI * magnitudes[i] - Player.getMediaPlayer().getAudioSpectrumThreshold()));
+            seriesData.add(new XYChart.Data<>(String.valueOf(i),  magnitudes[i]));
         }
         data.add(new XYChart.Series<>(seriesData));
         playerView.getBarChartVisualizationView().getBarChart().setData(data);
