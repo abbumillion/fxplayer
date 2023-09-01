@@ -13,6 +13,7 @@ import lombok.*;
 @Data
 public class PlaylistView extends View {
     private ListView<Playlist> playlistListView;
+
     @Override
     public void init() {
         playlistListView = new ListView<>();

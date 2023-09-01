@@ -12,17 +12,17 @@ public class AudioSpectrumCorrecter {
     public static float[] correctPhase(float[] phases) {
         for (int i = 0; i < phases.length; i++) {
             if (phases[i] < 0)
-                phases[i] =phases[i]* -1;
-            phases[i] = (float) (phases[i] * Math.sqrt(Math.PI));
+                phases[i] = phases[i] * -1;
+            phases[i] = (float) (phases[i] * Math.sqrt(22222));
         }
         return phases;
     }
 
     public static float[] correctMagnitude(float[] magnitudes) {
         for (int i = 0; i < magnitudes.length; i++) {
-            if (magnitudes[i] < 0)
-                magnitudes[i] = magnitudes[i] - Player.getMediaPlayer().getAudioSpectrumThreshold();
-            magnitudes[i] = (float) (magnitudes[i]);
+//            System.out.println(magnitudes[i]);
+            magnitudes[i] = (magnitudes[i] - Player.getMediaPlayer().getAudioSpectrumThreshold());
+            magnitudes[i] = (float) Math.incrementExact((int) (magnitudes[i] + Math.sqrt(22222)));
         }
         return magnitudes;
     }

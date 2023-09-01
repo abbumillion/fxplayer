@@ -4,8 +4,8 @@ import com.app.fxplayer.controllers.ArtistDetailViewController;
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.player.visualization.AudioPlayerSpectrumListener;
 import com.app.fxplayer.repo.SongRepository;
-import com.app.fxplayer.views.PlayerView;
 import com.app.fxplayer.views.ArtistDetailView;
+import com.app.fxplayer.views.PlayerView;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -65,21 +65,30 @@ public final class Player {
 
     private static void updatePlayerView() {
         playerView.getPlayerControllerView().getFullScreenJFXButton().setOnAction(actionEvent -> playerView.setFullScreen());
-
         playerView.getMyMusicView().getSongArtistHyperLink().setOnAction(event -> {
             ArtistDetailViewController artistDetailViewController = new ArtistDetailViewController(new ArtistDetailView());
+            try {
+                System.out.println("show some artist information to the user on the screen please...");
+                artistDetailViewController.init();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             try {
                 artistDetailViewController.init();
             } catch (InterruptedException | IOException e) {
                 throw new RuntimeException(e);
             }
         });
-
         playerView.getPlayerControllerView().getLyricsButton().setOnAction(event -> {
             System.out.println("we need spotify api for this. ");
             System.out.println("show song lyrics");
+            System.out.println("show song lyrics");
+            System.out.println("show song lyrics");
+            System.out.println("show song lyrics");
+            System.out.println("show song lyrics");
         });
-
         if (mediaPlayer != null) {
             mediaPlayer.setAudioSpectrumNumBands(64);
             playerView.getPlayerControllerView().getPauseButton().setOnAction(actionEvent -> play());

@@ -22,7 +22,7 @@ import java.io.File;
 
 public class PlayerControlsView extends View {
     private Label startDurationLabel, endDurationLabel, songTitleLabel;
-    private Button pauseButton, prevButton, nextButton, shuffleButton, repeatButton, fullScreenJFXButton, volumeButton, rateButton, balanceButton , lyricsButton;
+    private Button pauseButton, prevButton, nextButton, shuffleButton, repeatButton, fullScreenJFXButton, volumeButton, rateButton, balanceButton, lyricsButton;
     private Slider durationSlider;
     private ImageView nextImage, prevImage, pauseImage, repeatImage, shuffleImage, fullscreenImage, rateImage, balanceImage, volumeImage;
     private HBox hBox1, hBox2, hBox3, hBox4;
@@ -63,7 +63,7 @@ public class PlayerControlsView extends View {
     @Override
     public void build() {
         hBox1.getChildren().addAll(shuffleButton, repeatButton, prevButton, pauseButton, nextButton);
-        hBox2.getChildren().addAll(lyricsButton , volumeButton, rateButton, balanceButton, fullScreenJFXButton);
+        hBox2.getChildren().addAll(lyricsButton, volumeButton, rateButton, balanceButton, fullScreenJFXButton);
         hBox3.getChildren().addAll(hBox1, hBox2);
         hBox4.getChildren().addAll(startDurationLabel, durationSlider, endDurationLabel);
         getChildren().addAll(hBox4, hBox3);
@@ -94,8 +94,6 @@ public class PlayerControlsView extends View {
         durationSlider.prefHeightProperty().bind(hBox4.heightProperty());
 
 
-
-
         // buttons
         shuffleButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.111025));
         lyricsButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.11025));
@@ -105,7 +103,6 @@ public class PlayerControlsView extends View {
         pauseButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.11025));
         nextButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.111025));
         fullScreenJFXButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.111025));
-
 
 
         vBox.prefWidthProperty().bind(hBox3.widthProperty().multiply(.2));

@@ -29,10 +29,20 @@ public abstract class View extends VBox implements Viewable {
         STAGE.setFullScreen(!STAGE.isFullScreen());
     }
 
+
+    // change the scene of the applications viewa
+    public void changeScene(View root) {
+        Scene scene = new Scene(root, WIDTH, HEIGHT);
+        String StringConstants = "src/main/resources/stylesheets/style.css";
+        scene.getStylesheets().add(new File(StringConstants).toURI().toASCIIString());
+        STAGE.setScene(scene);
+    }
+
+
     public void showView() {
         Scene scene = new Scene(this, WIDTH, HEIGHT);
-//        String StringConstants = "src/main/resources/stylesheets/dark.css";
-//        scene.getStylesheets().add(new File(StringConstants).toURI().toASCIIString());
+        String StringConstants = "src/main/resources/stylesheets/style.css";
+        scene.getStylesheets().add(new File(StringConstants).toURI().toASCIIString());
         STAGE.setScene(scene);
 //        STAGE.setTitle(StringConstants.getSystemTitle());
 //        STAGE.getIcons().add(new Image(new File(StringConstants.getSystemIcon()).toURI().toASCIIString()));

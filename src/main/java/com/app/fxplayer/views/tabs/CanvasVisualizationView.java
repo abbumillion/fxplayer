@@ -12,6 +12,7 @@ import lombok.*;
 @Data
 public class CanvasVisualizationView extends View {
     private Canvas canvas;
+
     @Override
     public void init() {
         canvas = new Canvas();
@@ -32,6 +33,7 @@ public class CanvasVisualizationView extends View {
         canvas.widthProperty().bind(widthProperty());
         canvas.heightProperty().bind(heightProperty());
     }
+
     @Override
     public void styling() {
 

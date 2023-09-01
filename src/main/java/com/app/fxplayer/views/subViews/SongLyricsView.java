@@ -15,6 +15,7 @@ import lombok.*;
 public class SongLyricsView extends View {
     private ScrollPane scrollPane;
     private Label songLyricsLabel;
+
     @Override
     public void init() {
         scrollPane = new ScrollPane();

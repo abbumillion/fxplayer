@@ -26,7 +26,7 @@ public class CreateNewPlaylistView extends View {
 
     @Override
     public void build() {
-        getChildren().addAll(playListNameLabel,playlistNameTextField,savePlaylistButton);
+        getChildren().addAll(playListNameLabel, playlistNameTextField, savePlaylistButton);
     }
 
     @Override

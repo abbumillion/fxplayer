@@ -1,7 +1,7 @@
 package com.app.fxplayer.modelgenerator;
 
+import com.app.fxplayer.models.Artist;
 import com.app.fxplayer.models.Song;
-import com.app.fxplayer.repo.SongRepository;
 import javafx.concurrent.Task;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,11 +14,11 @@ import java.io.File;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class FileCollector extends Task<Song> {
+public class ArtistCollector extends Task<Artist> {
     private File dir;
 
     @Override
-    public Song call() {
+    public Artist call() {
         extract(dir);
         return null;
     }
@@ -33,11 +33,10 @@ public class FileCollector extends Task<Song> {
                     String path = f.getPath();
                     if (path.endsWith(".mp3") || path.endsWith(".MP3")) {
                         Song song = new Song(path);
-                        SongRepository.getSongList().add(song);
+//                        SongRepository.getArtistList().
                     }
                 }
             }
         }
     }
-
 }

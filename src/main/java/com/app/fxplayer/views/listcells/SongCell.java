@@ -43,9 +43,8 @@ public class SongCell extends ListCell<Song> {
 
         addToPlaylistButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.018));
         hBox1.getChildren().addAll(imageView, titleLabel, albumLabel, artistLabel, sizeLabel);
-        hBox2.getChildren().addAll(addToFavoritesButton,addToPlaylistButton,deleteSongButton);
-        vBox.getChildren().addAll(hBox1,hBox2);
-
+        hBox2.getChildren().addAll(addToFavoritesButton, addToPlaylistButton, deleteSongButton);
+        vBox.getChildren().addAll(hBox1, hBox2);
 
 
         titleLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.2));
@@ -54,7 +53,6 @@ public class SongCell extends ListCell<Song> {
         sizeLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.2));
 
         hBox1.prefWidthProperty().bind(vBox.widthProperty());
-
 
 
         hBox2.setVisible(false);

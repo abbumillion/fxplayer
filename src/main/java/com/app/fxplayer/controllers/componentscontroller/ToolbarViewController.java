@@ -29,7 +29,7 @@ public class ToolbarViewController extends Controller {
                 for (int i = 0; i < SongRepository.getSongList().size(); i++) {
                     Song currentSong = SongRepository.getSongList().get(i);
                     if (!currentSong.getArtist().isEmpty() && !currentSong.getAlbum().isEmpty() && !currentSong.getTitle().isEmpty()) {
-                        
+
                         if (currentSong.getArtist().equalsIgnoreCase(keyword) ||
                                 currentSong.getAlbum().equalsIgnoreCase(newValue) ||
                                 currentSong.getTitle().equalsIgnoreCase(newValue)) {
@@ -40,13 +40,9 @@ public class ToolbarViewController extends Controller {
                         } else {
                             System.out.println("Nothing Found...");
                         }
-                    }
-
-
-                    else {
+                    } else {
                         System.out.println("Un");
                     }
-
 
 
                 }

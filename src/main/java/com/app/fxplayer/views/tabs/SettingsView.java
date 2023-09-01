@@ -12,6 +12,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.StageStyle;
 import lombok.*;
+
 @EqualsAndHashCode(callSuper = true)
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,6 +25,7 @@ public class SettingsView extends View {
     private VBox rootVBox;
     private ScrollPane scrollPane;
     private ComboBox<String> tabSideSyleComboBox, stageStyleComboBox, languageLabelComboBox;
+
     @Override
     public void init() {
         titleLabel = new Label("System Settings");
@@ -53,6 +55,7 @@ public class SettingsView extends View {
         hbox6 = new HBox();
         rootVBox = new VBox();
     }
+
     @Override
     public void build() {
         hbox1.getChildren().addAll(titleLabel);
@@ -65,6 +68,7 @@ public class SettingsView extends View {
         scrollPane.setContent(rootVBox);
         getChildren().addAll(scrollPane);
     }
+
     @Override
     public void align() {
         hbox1.setAlignment(Pos.CENTER);
@@ -76,6 +80,7 @@ public class SettingsView extends View {
         rootVBox.setAlignment(Pos.CENTER);
         setAlignment(Pos.CENTER);
     }
+
     @Override
     public void bind() {
         titleLabel.prefWidthProperty().bind(hbox1.widthProperty());
@@ -107,6 +112,7 @@ public class SettingsView extends View {
         rootVBox.prefWidthProperty().bind(widthProperty());
         rootVBox.prefHeightProperty().bind(heightProperty());
     }
+
     @Override
     public void styling() {
         setSpacing(15.5);

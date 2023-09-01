@@ -3,8 +3,6 @@ package com.app.fxplayer.views.tabs;
 import com.app.fxplayer.views.View;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.layout.HBox;
@@ -16,7 +14,7 @@ import lombok.*;
 @Builder
 @Data
 public class LineChartVisualizationView extends View {
-    private NumberAxis lineChartXAxis , lineChartYAxis;
+    private NumberAxis lineChartXAxis, lineChartYAxis;
     private LineChart<Number, Number> lineChart;
     private HBox hBox2;
 

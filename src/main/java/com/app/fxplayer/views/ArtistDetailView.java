@@ -1,7 +1,6 @@
 package com.app.fxplayer.views;
 
 import com.app.fxplayer.models.Album;
-import com.app.fxplayer.views.View;
 import com.app.fxplayer.views.listcells.AlbumCell;
 import javafx.geometry.Pos;
 import javafx.scene.control.ListView;
@@ -21,6 +20,7 @@ public class ArtistDetailView extends View {
     private ImageView artistImageImageView;
     private ListView<Album> albumListView;
     private VBox vBox;
+
     @Override
     public void init() {
         albumListView = new ListView<>();
@@ -31,7 +31,7 @@ public class ArtistDetailView extends View {
 
     @Override
     public void build() {
-        vBox.getChildren().addAll(artistImageImageView,albumListView);
+        vBox.getChildren().addAll(artistImageImageView, albumListView);
         scrollPane.setContent(vBox);
         getChildren().addAll(scrollPane);
     }

@@ -24,7 +24,7 @@ public class MyMusicView extends View {
     private ListView<Song> songListView;
     private HBox hBox;
     private VBox vBox;
-    private Hyperlink songTitleHyperLink , songArtistHyperLink;
+    private Hyperlink songTitleHyperLink, songArtistHyperLink;
 
     @Override
     public void init() {
@@ -38,7 +38,7 @@ public class MyMusicView extends View {
 
     @Override
     public void build() {
-        vBox.getChildren().addAll(imageView, songTitleHyperLink , songArtistHyperLink);
+        vBox.getChildren().addAll(imageView, songTitleHyperLink, songArtistHyperLink);
         hBox.getChildren().addAll(vBox, songListView);
         getChildren().addAll(hBox);
     }

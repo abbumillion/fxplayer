@@ -40,6 +40,7 @@ public class PlayerView extends View {
     private PlayerControlsView playerControllerView;
     private ToolBarView toolBarView;
     private VBox rootVBox;
+
     @Override
     public void init() {
         myMusicTab = new Tab("My Music");

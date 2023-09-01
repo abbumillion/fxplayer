@@ -11,9 +11,10 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @Data
-public class AlbumDetailView extends View{
+public class AlbumDetailView extends View {
     private ImageView albumImageImageView;
     private ListView<Song> albumsSongListView;
+
     @Override
     public void init() {
         albumImageImageView = new ImageView();
@@ -22,7 +23,7 @@ public class AlbumDetailView extends View{
 
     @Override
     public void build() {
-        getChildren().addAll(albumImageImageView,albumsSongListView);
+        getChildren().addAll(albumImageImageView, albumsSongListView);
     }
 
     @Override

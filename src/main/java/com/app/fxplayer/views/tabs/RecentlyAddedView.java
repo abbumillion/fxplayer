@@ -14,23 +14,28 @@ import lombok.*;
 @Data
 public class RecentlyAddedView extends View {
     private ListView<Song> recentlyAddedListView;
+
     @Override
     public void init() {
         recentlyAddedListView = new ListView<>();
     }
+
     @Override
     public void build() {
         getChildren().add(recentlyAddedListView);
     }
+
     @Override
     public void align() {
         setAlignment(Pos.CENTER);
     }
+
     @Override
     public void bind() {
         recentlyAddedListView.prefWidthProperty().bind(widthProperty());
         recentlyAddedListView.prefHeightProperty().bind(heightProperty());
     }
+
     @Override
     public void styling() {
         recentlyAddedListView.setCellFactory(songListView -> new SongCell());

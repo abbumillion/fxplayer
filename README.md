@@ -16,7 +16,7 @@
 
 #### Showing some cool audio visualization
 
-####  audio equalizer
+#### audio equalizer
 
 
 

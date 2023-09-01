@@ -28,6 +28,7 @@ public class ToolBarView extends View {
     private TextField searchTextField;
     private Label logoLabel, dateLabel;
     private HBox rootHbox;
+
     @Override
     public void init() {
         softwareIconImage = new ImageView(new File("src/main/resources/icons/tabicons/istockphoto-1367611853-640x640.jpg").toURI().toASCIIString());
@@ -39,11 +40,13 @@ public class ToolBarView extends View {
         nightModeToggleSwitchButton = new ToggleSwitch();
         rootHbox = new HBox(0);
     }
+
     @Override
     public void build() {
         rootHbox.getChildren().addAll(logoLabel, dateLabel, searchTextField, signInButton, signUpButton, nightModeToggleSwitchButton);
         getChildren().addAll(rootHbox);
     }
+
     @Override
     public void align() {
         setAlignment(Pos.CENTER_LEFT);
@@ -53,6 +56,7 @@ public class ToolBarView extends View {
         logoLabel.setGraphicTextGap(7.5);
         logoLabel.setAlignment(Pos.CENTER_LEFT);
     }
+
     @Override
     public void bind() {
         softwareIconImage.fitWidthProperty().bind(logoLabel.widthProperty().multiply(.4680));
@@ -73,6 +77,7 @@ public class ToolBarView extends View {
         rootHbox.prefHeightProperty().bind(heightProperty().multiply(.075));
 
     }
+
     @Override
     public void styling() {
         nightModeToggleSwitchButton.setAlignment(Pos.CENTER_RIGHT);

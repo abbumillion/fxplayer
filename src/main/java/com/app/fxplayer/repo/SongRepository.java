@@ -14,6 +14,7 @@ public final class SongRepository {
     private static final ObservableList<Artist> artistList = FXCollections.observableArrayList();
     private static final ObservableList<Album> albumList = FXCollections.observableArrayList();
     private static final ObservableList<Playlist> playlistList = FXCollections.observableArrayList();
+
     public static synchronized ObservableList<Song> getSongList() {
         return songList;
     }
