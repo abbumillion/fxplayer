@@ -54,7 +54,9 @@ public class LineChartVisualizationView extends View {
         lineChart.setLegendVisible(false);
         lineChart.getXAxis().setTickLabelsVisible(false);
         lineChart.getXAxis().setTickMarkVisible(false);
-
+        lineChart.setCreateSymbols(false);
+        lineChart.setVerticalGridLinesVisible(false);
+        lineChart.setHorizontalGridLinesVisible(false);
         lineChart.getYAxis().setTickLabelsVisible(false);
         lineChart.getYAxis().setTickMarkVisible(false);
     }

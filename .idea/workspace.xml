@@ -4,17 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d75da6c2-53ad-46d2-8b34-7412ff37e36d" name="Changes" comment="line chart corrections">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/AlbumCollector.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/ArtistCollector.java" afterDir="false" />
+    <list default="true" id="d75da6c2-53ad-46d2-8b34-7412ff37e36d" name="Changes" comment="albums collector">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/LoaderController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/FFT.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/FXPlayerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/FXPlayerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/app.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/application/app.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/ArtistDetailViewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/controllers/ArtistDetailViewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/FileCollector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/FileCollector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/AlbumCollector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/modelgenerator/AlbumCollector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/audioplayer/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/audioplayer/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/AudioPlayerSpectrumListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/AudioPlayerSpectrumListener.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/AudioSpectrumCorrecter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/player/visualization/AudioSpectrumCorrecter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/repo/SongRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/repo/SongRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/LoaderView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/LoaderView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/View.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/LineChartVisualizationView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/app/fxplayer/views/tabs/LineChartVisualizationView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,7 +42,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/main/java/com/app/fxplayer/models/models/Song.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="jar://$PROJECT_DIR$/../../../../Program Files/Java/jdk-11/lib/src.zip!/java.base/java/lang/Math.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -90,7 +94,20 @@
       <recent name="com.app.fxplayer.player.audioplayer" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.app">
+  <component name="RunManager" selected="Application.FXPlayerApplication">
+    <configuration name="FFT$Complex" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.app.fxplayer.player.visualization.FFT$Complex" />
+      <module name="fxplayer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.app.fxplayer.player.visualization.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FXPlayerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.app.fxplayer.application.FXPlayerApplication" />
       <module name="fxplayer" />
@@ -132,9 +149,10 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.FXPlayerApplication" />
+        <item itemvalue="Application.FFT$Complex" />
         <item itemvalue="Application.app" />
         <item itemvalue="Application.TilePaneExample" />
-        <item itemvalue="Application.FXPlayerApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -322,7 +340,15 @@
       <option name="project" value="LOCAL" />
       <updated>1693141382645</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="albums collector">
+      <option name="closed" value="true" />
+      <created>1693556762212</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1693556762212</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -356,7 +382,8 @@
     <MESSAGE value="canvas with oval" />
     <MESSAGE value="db" />
     <MESSAGE value="line chart corrections" />
-    <option name="LAST_COMMIT_MESSAGE" value="line chart corrections" />
+    <MESSAGE value="albums collector" />
+    <option name="LAST_COMMIT_MESSAGE" value="albums collector" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -1,36 +1,34 @@
 package com.app.fxplayer.application;
 
 import com.app.fxplayer.application.config.Settings;
+import com.app.fxplayer.controllers.LoaderController;
 import com.app.fxplayer.controllers.PlayerViewController;
 import com.app.fxplayer.db.LocalStorage;
 import com.app.fxplayer.modelgenerator.AlbumCollector;
 import com.app.fxplayer.modelgenerator.FileCollector;
 import com.app.fxplayer.repo.SongRepository;
+import com.app.fxplayer.views.LoaderView;
 import com.app.fxplayer.views.PlayerView;
 import javafx.application.Application;
 import javafx.concurrent.Task;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.IOException;
-
-import static javax.swing.JSplitPane.TOP;
-
 public class FXPlayerApplication extends Application {
-    private static final File[] DRIVES = {new File("C://Users"), new File("D://")};
+    /**
+     * APPLICATION MAIN SETTINGS OBJECT
+     */
     private Settings appSettings;
-
+    /**
+     * APPLICATION CONFIGURATIONS
+     */
     private static void configurations() {
-
-
+        File[] DRIVES = {new File("C://Users"), new File("D://")};
         Task[] albumsTasks = new Task[4];
-
         for (int i = 0; i < DRIVES.length; i++) {
             albumsTasks[i] = new AlbumCollector(DRIVES[i]);
-            new Thread(albumsTasks[i]).start();
+//            new Thread(albumsTasks[i]).start();
         }
-
-
         Task[] songTasks = new Task[4];
         // if first time collect songs
         if (!LocalStorage.getSettingsFile().exists() && !LocalStorage.getSettingsFile().exists()) {
@@ -59,7 +57,7 @@ public class FXPlayerApplication extends Application {
                         .isFullScreen(true)
                         .theme("dark")
                         .stageStyle("decorated")
-                        .tabSide(TOP)
+                        .tabSide("TOP")
                         .totalSongs(SongRepository.getSongList().size())
                         .build();
                 LocalStorage.saveAppSettings(settings);
@@ -77,7 +75,7 @@ public class FXPlayerApplication extends Application {
     @Override
     public void start(Stage primaryStage) throws InterruptedException, IOException {
         configurations();
-        new PlayerViewController(new PlayerView()).init();
+       new LoaderController(new LoaderView()).init();
     }
 
     @Override

@@ -20,6 +20,6 @@ public class ArtistDetailViewController extends Controller {
     public void init() throws InterruptedException, IOException {
         artistDetailView.getAlbumListView().itemsProperty().set(SongRepository.getAlbumList());
         artistDetailView.getArtistImageImageView().setImage(Player.getCurrentSong().getSongImage());
-        artistDetailView.showView();
+        artistDetailView.changeScene(artistDetailView);
     }
 }

@@ -8,22 +8,18 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
 import java.io.File;
-
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class AlbumCollector extends Task<Album> {
     private File dir;
-
     @Override
     public Album call() {
         extract(dir);
         return null;
     }
-
     private void extract(File file) {
         File[] files = file.listFiles();
         if (files != null) {
@@ -57,13 +53,14 @@ public class AlbumCollector extends Task<Album> {
                 if (album.getAlbumName().equalsIgnoreCase(song.getAlbum())) {
                     System.out.println("album exists");
                     album.getAlbumSongs().add(song);
+                    System.out.println("Album Added With Name : " + song.getAlbum() + " to Album : " + album.getAlbumName());
                     break;
                 }
                 // if not
                 else {
                     newAlbum = new Album();
                     addAlbum(song, newAlbum);
-                    System.out.println("Add the first Album");
+                    System.out.println("Add New Album");
                 }
             }
         }
@@ -75,7 +72,11 @@ public class AlbumCollector extends Task<Album> {
         album.setCopyrightYear(song.getYear());
         album.setArtistName(song.getArtist());
         SongRepository.getAlbumList().add(album);
-        System.out.println("ALBUM ADDED");
+        System.out.println("ALBUM INFORMATION");
+        System.out.println("ALBUM NAME       : " + album.getAlbumName());
+        System.out.println("ALBUM ARTIST     : " + album.getArtistName());
+        System.out.println("ALBUM YEAR       : " + album.getCopyrightYear());
+        System.out.println("ALBUM SONGS SIZE : " + album.getAlbumSongs().size());
+//        System.out.println("ALBUM INFORMATION");
     }
-
 }

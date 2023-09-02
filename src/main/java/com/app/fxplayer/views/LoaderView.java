@@ -13,30 +13,26 @@ import lombok.*;
 @Data
 public class LoaderView extends View {
     private ProgressIndicator progressIndicator;
-    private ListView<Song> songListView;
-
     @Override
     public void init() {
         progressIndicator = new ProgressIndicator();
-        songListView = new ListView<>();
 //        getStartedButton = new Button("Get Started");
     }
 
     @Override
     public void build() {
-        getChildren().addAll(songListView, progressIndicator);
+        getChildren().addAll(progressIndicator);
     }
 
     @Override
     public void align() {
         setAlignment(Pos.CENTER);
-//        getStartedButton.setAlignment(Pos.CENTER);
     }
 
     @Override
     public void bind() {
-        songListView.prefWidthProperty().bind(widthProperty());
-        songListView.prefHeightProperty().bind(heightProperty().multiply(.85));
+        progressIndicator.prefWidthProperty().bind(widthProperty());
+        progressIndicator.prefHeightProperty().bind(heightProperty());
     }
 
     @Override

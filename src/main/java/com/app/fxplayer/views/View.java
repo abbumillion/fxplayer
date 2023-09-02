@@ -30,7 +30,7 @@ public abstract class View extends VBox implements Viewable {
     }
 
 
-    // change the scene of the applications viewa
+    // change the scene of the applications view
     public void changeScene(View root) {
         Scene scene = new Scene(root, WIDTH, HEIGHT);
         String StringConstants = "src/main/resources/stylesheets/style.css";
@@ -41,7 +41,7 @@ public abstract class View extends VBox implements Viewable {
 
     public void showView() {
         Scene scene = new Scene(this, WIDTH, HEIGHT);
-        String StringConstants = "src/main/resources/stylesheets/style.css";
+        String StringConstants = "src/main/resources/stylesheets/s.css";
         scene.getStylesheets().add(new File(StringConstants).toURI().toASCIIString());
         STAGE.setScene(scene);
 //        STAGE.setTitle(StringConstants.getSystemTitle());

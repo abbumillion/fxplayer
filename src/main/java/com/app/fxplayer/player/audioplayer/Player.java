@@ -70,9 +70,7 @@ public final class Player {
             try {
                 System.out.println("show some artist information to the user on the screen please...");
                 artistDetailViewController.init();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            } catch (IOException e) {
+            } catch (InterruptedException | IOException e) {
                 throw new RuntimeException(e);
             }
             try {
@@ -90,7 +88,8 @@ public final class Player {
             System.out.println("show song lyrics");
         });
         if (mediaPlayer != null) {
-            mediaPlayer.setAudioSpectrumNumBands(64);
+            mediaPlayer.setAudioSpectrumNumBands(128);
+            mediaPlayer.setVolume(10.0);
             playerView.getPlayerControllerView().getPauseButton().setOnAction(actionEvent -> play());
             playerView.getPlayerControllerView().getPrevButton().setOnAction(actionEvent -> prev());
             playerView.getPlayerControllerView().getNextButton().setOnAction(actionEvent -> next());
@@ -107,13 +106,21 @@ public final class Player {
 
     private static void registerPlayerEvents() {
         mediaPlayer.setOnEndOfMedia(Player::next);
-
+        /**
+         * update media player current time to the ui
+         * this event is fired only if the media player
+         * is playing
+         */
         mediaPlayer.setOnPlaying(() -> {
             mediaPlayer.currentTimeProperty().addListener((observableValue, duration, t1) -> {
                 if (t1 != null) {
+                    // get current millis from the player
                     double milliSeconds = t1.toMillis();
+                    // format the time
                     String formattedTime = formatTime(milliSeconds);
+                    // update the duration slider value
                     playerView.getPlayerControllerView().getDurationSlider().valueProperty().set(milliSeconds);
+                    // update the duration label to current media player time
                     playerView.getPlayerControllerView().getStartDurationLabel().setText(formattedTime);
                 }
             });
