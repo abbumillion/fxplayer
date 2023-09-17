@@ -1,7 +1,6 @@
 package com.app.fxplayer.controllers;
 
 
-import com.app.fxplayer.controllers.componentscontroller.PlayerControlsViewController;
 import com.app.fxplayer.controllers.componentscontroller.ToolbarViewController;
 import com.app.fxplayer.controllers.tabcontrollers.*;
 import com.app.fxplayer.player.audioplayer.Player;
@@ -39,11 +38,9 @@ public class PlayerViewController extends Controller {
         playlistTabController.init();
         MostPlayedTabController mostPlayedTabController = new MostPlayedTabController(playerView.getMostPlayedView());
         mostPlayedTabController.init();
-        PlayerControlsViewController playerControlsViewController = new PlayerControlsViewController(playerView.getPlayerControllerView());
-        playerControlsViewController.init();
         ToolbarViewController toolbarViewController = new ToolbarViewController(playerView.getToolBarView());
         toolbarViewController.init();
-        Player.setPlayerView(playerView);
+//        Player.setPlayerView(playerView);
         playerView.showView();
     }
 

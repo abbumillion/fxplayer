@@ -3,13 +3,11 @@ package com.app.fxplayer.modelgenerator;
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.repo.SongRepository;
 import javafx.concurrent.Task;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.io.File;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 @Builder
 @AllArgsConstructor
@@ -34,6 +32,7 @@ public class FileCollector extends Task<Song> {
                         SongRepository.getSongList().add(song);
                         // add the song to album
                         SongRepository.addSongToAlbums(song);
+                        updateMessage(song.getTitle());
                     }
                 }
             }

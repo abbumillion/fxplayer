@@ -12,8 +12,8 @@ public abstract class View extends VBox implements Viewable {
     public View() {
         getReady();
         setAlignment(Pos.CENTER);
-        setSpacing(0.25);
-        setPadding(new Insets(0.25));
+        setSpacing(6.28);
+        setPadding(new Insets(2.25));
     }
 
     public void getReady() {

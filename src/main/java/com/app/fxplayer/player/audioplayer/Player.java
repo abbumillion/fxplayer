@@ -15,7 +15,6 @@ public final class Player {
     private static PlayerView playerView;
     private static Song currentSong;
     private static MediaPlayer mediaPlayer;
-    private final PlayingMode playingMode = PlayingMode.NO_REPEAT;
 
     public static void prev() {
         int currentSongIndex = SongRepository.getSongList().indexOf(currentSong);
