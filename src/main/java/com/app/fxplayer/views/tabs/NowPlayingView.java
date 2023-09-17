@@ -5,10 +5,14 @@ import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import lombok.Data;
+import lombok.*;
 
 import java.io.File;
 
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Data
 public class NowPlayingView extends View {
     private ImageView imageView;
@@ -21,7 +25,6 @@ public class NowPlayingView extends View {
                 new Image(new File("src/main/resources/images/sample.jpg").toURI().toASCIIString(), widthProperty().get(), heightProperty().get(), true, true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
-        //
     }
 
     @Override

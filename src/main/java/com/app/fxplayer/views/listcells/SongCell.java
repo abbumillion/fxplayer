@@ -43,9 +43,8 @@ public class SongCell extends ListCell<Song> {
 
         addToPlaylistButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.018));
         hBox1.getChildren().addAll(imageView, titleLabel, albumLabel, artistLabel, sizeLabel);
-        hBox2.getChildren().addAll(addToFavoritesButton,addToPlaylistButton,deleteSongButton);
-        vBox.getChildren().addAll(hBox1,hBox2);
-
+        hBox2.getChildren().addAll(addToFavoritesButton, addToPlaylistButton, deleteSongButton);
+        vBox.getChildren().addAll(hBox1, hBox2);
 
 
         titleLabel.prefWidthProperty().bind(hBox1.widthProperty().multiply(.2));
@@ -55,22 +54,22 @@ public class SongCell extends ListCell<Song> {
 
         hBox1.prefWidthProperty().bind(vBox.widthProperty());
 
-        hBox2.setVisible(false);
 
+        hBox2.setVisible(false);
 
 
         setGraphic(vBox);
         addToPlaylistButton.setOnAction(event -> {
-            System.out.println("adding to playlist");
+            System.out.println("add current song to selected playlist");
         });
 
 
         addToFavoritesButton.setOnAction(event -> {
-            System.out.println("adding to playlist");
+            System.out.println("add current song to favorites");
         });
 
         deleteSongButton.setOnAction(event -> {
-            System.out.println("adding to playlist");
+            System.out.println("delete current song");
         });
 
         setOnMouseClicked(event ->

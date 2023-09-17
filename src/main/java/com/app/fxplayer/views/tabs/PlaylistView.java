@@ -4,8 +4,12 @@ import com.app.fxplayer.models.Playlist;
 import com.app.fxplayer.views.View;
 import javafx.geometry.Pos;
 import javafx.scene.control.ListView;
-import lombok.Data;
+import lombok.*;
 
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Data
 public class PlaylistView extends View {
     private ListView<Playlist> playlistListView;

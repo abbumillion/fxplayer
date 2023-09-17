@@ -1,8 +1,10 @@
 package com.app.fxplayer.player.audioplayer;
 
+import com.app.fxplayer.controllers.ArtistDetailViewController;
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.player.visualization.AudioPlayerSpectrumListener;
 import com.app.fxplayer.repo.SongRepository;
+import com.app.fxplayer.views.ArtistDetailView;
 import com.app.fxplayer.views.PlayerView;
 import javafx.scene.layout.*;
 import javafx.scene.media.Media;
@@ -10,6 +12,7 @@ import javafx.scene.media.MediaPlayer;
 import javafx.util.Duration;
 
 import java.io.File;
+import java.io.IOException;
 
 public final class Player {
     private static PlayerView playerView;
@@ -61,13 +64,37 @@ public final class Player {
 
     private static void updatePlayerView() {
         playerView.getPlayerControllerView().getFullScreenJFXButton().setOnAction(actionEvent -> playerView.setFullScreen());
+        playerView.getMyMusicView().getSongArtistHyperLink().setOnAction(event -> {
+            ArtistDetailViewController artistDetailViewController = new ArtistDetailViewController(new ArtistDetailView());
+            try {
+                System.out.println("show some artist information to the user on the screen please...");
+                artistDetailViewController.init();
+            } catch (InterruptedException | IOException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                artistDetailViewController.init();
+            } catch (InterruptedException | IOException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        playerView.getPlayerControllerView().getLyricsButton().setOnAction(event -> {
+            System.out.println("we need spotify api for this. ");
+            System.out.println("show song lyrics");
+            System.out.println("show song lyrics");
+            System.out.println("show song lyrics");
+            System.out.println("show song lyrics");
+            System.out.println("show song lyrics");
+        });
         if (mediaPlayer != null) {
-            mediaPlayer.setAudioSpectrumNumBands(127);
+            mediaPlayer.setAudioSpectrumNumBands(128);
+            mediaPlayer.setVolume(10.0);
             playerView.getPlayerControllerView().getPauseButton().setOnAction(actionEvent -> play());
             playerView.getPlayerControllerView().getPrevButton().setOnAction(actionEvent -> prev());
             playerView.getPlayerControllerView().getNextButton().setOnAction(actionEvent -> next());
             playerView.getMyMusicView().getImageView().setImage(getCurrentSong().getSongImage());
-            playerView.getMyMusicView().getSongTitleLabel().setText(getCurrentSong().getTitle());
+            playerView.getMyMusicView().getSongTitleHyperLink().setText(getCurrentSong().getTitle());
+            playerView.getMyMusicView().getSongArtistHyperLink().setText(getCurrentSong().getArtist());
             playerView.getNowPlayingView().getImageView().setImage(getCurrentSong().getSongImage());
             applyCurrentSongImageToNowPlayingBackground();
             registerPlayerEvents();
@@ -78,13 +105,21 @@ public final class Player {
 
     private static void registerPlayerEvents() {
         mediaPlayer.setOnEndOfMedia(Player::next);
-
+        /**
+         * update media player current time to the ui
+         * this event is fired only if the media player
+         * is playing
+         */
         mediaPlayer.setOnPlaying(() -> {
             mediaPlayer.currentTimeProperty().addListener((observableValue, duration, t1) -> {
                 if (t1 != null) {
+                    // get current millis from the player
                     double milliSeconds = t1.toMillis();
+                    // format the time
                     String formattedTime = formatTime(milliSeconds);
+                    // update the duration slider value
                     playerView.getPlayerControllerView().getDurationSlider().valueProperty().set(milliSeconds);
+                    // update the duration label to current media player time
                     playerView.getPlayerControllerView().getStartDurationLabel().setText(formattedTime);
                 }
             });

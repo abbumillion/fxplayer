@@ -5,10 +5,9 @@ import com.app.fxplayer.models.Album;
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.repo.SongRepository;
 import javafx.collections.FXCollections;
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 import java.io.*;
 import java.util.List;
 
@@ -21,20 +20,22 @@ public class LocalStorage {
     private static final File artistsFile = new File("songs.obf");
     private static final File playlistsFile = new File("songs.obf");
     private static final File favoritesFile = new File("songs.obf");
+
     // method for saving app settings
     public static void saveAppSettings(Settings settings) throws IOException {
         try (FileOutputStream fileOutputStream = new FileOutputStream(songsFile)) {
-            try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)){
+            try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
                 objectOutputStream.writeObject(settings);
                 System.out.println("writing app settings");
             }
         }
     }
-// method for  getting app settings
+
+    // method for  getting app settings
     public static Settings getAppSettings() throws FileNotFoundException {
         Settings settings;
-        try(FileInputStream fileInputStream = new FileInputStream(settingsFile)) {
-            try (ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)){
+        try (FileInputStream fileInputStream = new FileInputStream(settingsFile)) {
+            try (ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
                 settings = (Settings) objectInputStream.readObject();
                 System.out.println("reading settings file");
                 System.out.println(settings.getTotalSongs());
@@ -48,9 +49,8 @@ public class LocalStorage {
     // saving songs file
     public static void saveSongList() throws IOException {
         try (FileOutputStream fileOutputStream = new FileOutputStream(songsFile)) {
-            try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)){
-                for(Song song : SongRepository.getSongList())
-                {
+            try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+                for (Song song : SongRepository.getSongList()) {
                     objectOutputStream.writeObject(song.getSource());
                 }
             }
@@ -58,11 +58,11 @@ public class LocalStorage {
     }
 
     // method for reading songs from file
-    public static List<Song> getSongList()  {
+    public static List<Song> getSongList() {
         List<Song> songsList = FXCollections.observableArrayList();
-        try(FileInputStream fileInputStream = new FileInputStream(songsFile)) {
-            try (ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)){
-                int totalSongs  = getAppSettings().getTotalSongs();
+        try (FileInputStream fileInputStream = new FileInputStream(songsFile)) {
+            try (ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
+                int totalSongs = getAppSettings().getTotalSongs();
                 for (int i = 0; i < totalSongs; i++) {
                     String source = (String) objectInputStream.readObject();
                     Song song = new Song(source);
@@ -81,13 +81,10 @@ public class LocalStorage {
 
     // saving albums
 
-    public static void saveAlbums()
-    {
-        try(FileOutputStream fileOutputStream = new FileOutputStream(albumsFile))
-        {
-            try(ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
-                for (Album album : SongRepository.getAlbumList())
-                {
+    public static void saveAlbums() {
+        try (FileOutputStream fileOutputStream = new FileOutputStream(albumsFile)) {
+            try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+                for (Album album : SongRepository.getAlbumList()) {
                     objectOutputStream.writeObject(album);
                 }
             } catch (IOException e) {
@@ -97,14 +94,12 @@ public class LocalStorage {
             throw new RuntimeException(e);
         }
     }
+
     // saving artists
-    public static void saveArtists()
-    {
-        try(FileOutputStream fileOutputStream = new FileOutputStream(albumsFile))
-        {
-            try(ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
-                for (Album album : SongRepository.getAlbumList())
-                {
+    public static void saveArtists() {
+        try (FileOutputStream fileOutputStream = new FileOutputStream(albumsFile)) {
+            try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+                for (Album album : SongRepository.getAlbumList()) {
                     objectOutputStream.writeObject(album);
                 }
             } catch (IOException e) {
@@ -114,14 +109,12 @@ public class LocalStorage {
             throw new RuntimeException(e);
         }
     }
+
     // saving playlists
-    public static void savePlaylists()
-    {
-        try(FileOutputStream fileOutputStream = new FileOutputStream(albumsFile))
-        {
-            try(ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
-                for (Album album : SongRepository.getAlbumList())
-                {
+    public static void savePlaylists() {
+        try (FileOutputStream fileOutputStream = new FileOutputStream(albumsFile)) {
+            try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+                for (Album album : SongRepository.getAlbumList()) {
                     objectOutputStream.writeObject(album);
                 }
             } catch (IOException e) {
@@ -131,14 +124,12 @@ public class LocalStorage {
             throw new RuntimeException(e);
         }
     }
+
     // saving favorites
-    public static void saveFavorites()
-    {
-        try(FileOutputStream fileOutputStream = new FileOutputStream(albumsFile))
-        {
-            try(ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
-                for (Album album : SongRepository.getAlbumList())
-                {
+    public static void saveFavorites() {
+        try (FileOutputStream fileOutputStream = new FileOutputStream(albumsFile)) {
+            try (ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+                for (Album album : SongRepository.getAlbumList()) {
                     objectOutputStream.writeObject(album);
                 }
             } catch (IOException e) {

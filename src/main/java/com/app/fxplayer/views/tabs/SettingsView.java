@@ -11,8 +11,12 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.StageStyle;
-import lombok.Data;
+import lombok.*;
 
+@EqualsAndHashCode(callSuper = true)
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Data
 public class SettingsView extends View {
     private Label titleLabel, themeLabel, fullScreenLabel, stageStyleLabel, tabSideStyleLabel, fontLabel,
@@ -122,5 +126,4 @@ public class SettingsView extends View {
         fontLabel.setAlignment(Pos.CENTER_LEFT);
 
     }
-
 }

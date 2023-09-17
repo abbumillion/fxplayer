@@ -28,16 +28,23 @@ public class ToolbarViewController extends Controller {
                 String keyword = newValue;
                 for (int i = 0; i < SongRepository.getSongList().size(); i++) {
                     Song currentSong = SongRepository.getSongList().get(i);
-                    if (currentSong.getArtist().contains(keyword) ||
-                            currentSong.getAlbum().contains(newValue) ||
-                            currentSong.getTitle().contains(newValue)) {
-                        Player.setCurrentSong(currentSong);
-                        Player.play();
-                        break;
+                    if (!currentSong.getArtist().isEmpty() && !currentSong.getAlbum().isEmpty() && !currentSong.getTitle().isEmpty()) {
 
+                        if (currentSong.getArtist().equalsIgnoreCase(keyword) ||
+                                currentSong.getAlbum().equalsIgnoreCase(newValue) ||
+                                currentSong.getTitle().equalsIgnoreCase(newValue)) {
+                            Player.setCurrentSong(currentSong);
+                            Player.play();
+                            break;
+
+                        } else {
+                            System.out.println("Nothing Found...");
+                        }
                     } else {
-                        System.out.println("Nothing Found...");
+                        System.out.println("Un");
                     }
+
+
                 }
             }
         });
