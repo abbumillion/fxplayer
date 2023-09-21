@@ -31,7 +31,6 @@ public class FileCollector extends Task<Song> {
                         Song song = new Song(path);
                         SongRepository.getSongList().add(song);
                         // add the song to album
-                        SongRepository.addSongToAlbums(song);
                         updateMessage(song.getTitle());
                     }
                 }

@@ -7,8 +7,6 @@ import com.app.fxplayer.models.Song;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.Objects;
-
 public final class SongRepository {
     private static final ObservableList<Song> songList = FXCollections.observableArrayList();
     private static final ObservableList<Artist> artistList = FXCollections.observableArrayList();

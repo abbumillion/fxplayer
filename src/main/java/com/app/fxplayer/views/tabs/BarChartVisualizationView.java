@@ -49,7 +49,7 @@ public class BarChartVisualizationView extends View {
         //
         hBox2.prefWidthProperty().bind(widthProperty());
         //
-        hBox2.prefHeightProperty().bind(heightProperty().multiply(.85));
+        hBox2.prefHeightProperty().bind(heightProperty());
         //
     }
 

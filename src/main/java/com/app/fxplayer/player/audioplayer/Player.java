@@ -63,6 +63,11 @@ public final class Player {
     }
 
     private static void updatePlayerView() {
+        // check for playerview
+        if (playerView == null)
+        {
+            playerView = new PlayerView();
+        }
         playerView.getPlayerControllerView().getFullScreenJFXButton().setOnAction(actionEvent -> playerView.setFullScreen());
         playerView.getMyMusicView().getSongArtistHyperLink().setOnAction(event -> {
             ArtistDetailViewController artistDetailViewController = new ArtistDetailViewController(new ArtistDetailView());
@@ -87,8 +92,8 @@ public final class Player {
             System.out.println("show song lyrics");
         });
         if (mediaPlayer != null) {
-            mediaPlayer.setAudioSpectrumNumBands(128);
-            mediaPlayer.setVolume(10.0);
+            mediaPlayer.setAudioSpectrumNumBands(32);
+            mediaPlayer.setVolume(100.0);
             playerView.getPlayerControllerView().getPauseButton().setOnAction(actionEvent -> play());
             playerView.getPlayerControllerView().getPrevButton().setOnAction(actionEvent -> prev());
             playerView.getPlayerControllerView().getNextButton().setOnAction(actionEvent -> next());
@@ -110,6 +115,10 @@ public final class Player {
          * this event is fired only if the media player
          * is playing
          */
+
+
+
+
         mediaPlayer.setOnPlaying(() -> {
             mediaPlayer.currentTimeProperty().addListener((observableValue, duration, t1) -> {
                 if (t1 != null) {

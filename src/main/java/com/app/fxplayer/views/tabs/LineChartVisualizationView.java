@@ -3,8 +3,8 @@ package com.app.fxplayer.views.tabs;
 import com.app.fxplayer.views.View;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.ScatterChart;
 import javafx.scene.layout.HBox;
 import lombok.*;
 
@@ -15,7 +15,7 @@ import lombok.*;
 @Data
 public class LineChartVisualizationView extends View {
     private NumberAxis lineChartXAxis, lineChartYAxis;
-    private LineChart<Number, Number> lineChart;
+    private ScatterChart<Number, Number> scatterChart;
     private HBox hBox2;
 
     @Override
@@ -23,12 +23,12 @@ public class LineChartVisualizationView extends View {
         hBox2 = new HBox(20);
         lineChartXAxis = new NumberAxis();
         lineChartYAxis = new NumberAxis();
-        lineChart = new LineChart<>(lineChartXAxis, lineChartYAxis);
+        scatterChart = new ScatterChart<>(lineChartXAxis, lineChartYAxis);
     }
 
     @Override
     public void build() {
-        hBox2.getChildren().addAll(lineChart);
+        hBox2.getChildren().addAll(scatterChart);
         getChildren().addAll(hBox2);
     }
 
@@ -39,10 +39,10 @@ public class LineChartVisualizationView extends View {
 
     @Override
     public void bind() {
-        lineChart.prefWidthProperty().bind(hBox2.widthProperty());
-        lineChart.prefHeightProperty().bind(hBox2.heightProperty());
+        scatterChart.prefWidthProperty().bind(hBox2.widthProperty());
+        scatterChart.prefHeightProperty().bind(hBox2.heightProperty());
         hBox2.prefWidthProperty().bind(widthProperty());
-        hBox2.prefHeightProperty().bind(heightProperty().multiply(.85));
+        hBox2.prefHeightProperty().bind(heightProperty());
     }
 
     @Override
@@ -51,13 +51,12 @@ public class LineChartVisualizationView extends View {
         setPadding(new Insets(10.55, 10.55, 10.55, 10.55));
         hBox2.setAlignment(Pos.CENTER);
         hBox2.setPadding(new Insets(10.55, 10.55, 10.55, 10.55));
-        lineChart.setLegendVisible(false);
-        lineChart.getXAxis().setTickLabelsVisible(false);
-        lineChart.getXAxis().setTickMarkVisible(false);
-        lineChart.setCreateSymbols(false);
-        lineChart.setVerticalGridLinesVisible(false);
-        lineChart.setHorizontalGridLinesVisible(false);
-        lineChart.getYAxis().setTickLabelsVisible(false);
-        lineChart.getYAxis().setTickMarkVisible(false);
+        scatterChart.setLegendVisible(false);
+        scatterChart.getXAxis().setTickLabelsVisible(false);
+        scatterChart.getXAxis().setTickMarkVisible(false);
+        scatterChart.setVerticalGridLinesVisible(false);
+        scatterChart.setHorizontalGridLinesVisible(false);
+        scatterChart.getYAxis().setTickLabelsVisible(false);
+        scatterChart.getYAxis().setTickMarkVisible(false);
     }
 }

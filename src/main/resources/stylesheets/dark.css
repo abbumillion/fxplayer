@@ -332,7 +332,7 @@
 
 .list-cell:filled:hover {
     -fx-background-color: #0093ff;
-    -fx-text-fill: white;
+    -fx-text-fill: #ff5656;
 }
 
 
@@ -361,31 +361,13 @@
  /**About Button  ----------------------------------------*/
 
  .button , .menu-button , .segmented-button-bar .toggle-button {
- 	 /*-fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.6) , 5.0, 0.0 , 0.0 , 1.0 );*/
-    /* -fx-background-color:  linear-gradient(#38424b 0.0%, #1f2429 20.0%, #191d22 100.0%);   */
- 	-fx-background-color: -darkest-black, -dark-highlight, linear-gradient(to bottom, -light-black 2.0%, -dark-black 98.0%);
+ 	 -fx-effect: dropshadow( three-pass-box , rgba(0.0,0.0,0.0,0.6) , 5.0, 0.0 , 0.0 , 1.0 );
     -fx-background-insets: 0.0, 1.0 1.0 1.0 0.0, 2.0 1.0 1.0 1.0;
     -fx-text-fill: white;
     -fx-font-size: 13.0px;
     -fx-font-weight:bold;
     -fx-background-radius:45.0;
  }
-
- .button:hover , .menu-button:hover , .segmented-button-bar .button:hover , .segmented-button-bar .toggle-button:hover{
- 	-fx-background-color:rgb(255.0,106.0,0.0);
-    /*-fx-background-color:
-        linear-gradient(from 0.0% 93.0% to 0.0% 100.0%, #a34313 0.0%, #903b12 100.0%),
-        #9d4024,
-        #d86e3a,
-        radial-gradient(center 50.0% 50.0%, radius 100.0%, #ea7f4b, #c54e2c);*/
- }
-
- .button:pressed , .menu-button:pressed , .segmented-button-bar .button:pressed{
-    -fx-background-color:
-        -darkest-black,
-        rgb(55.0, 57.0, 58.0),
-        linear-gradient(to top, -light-black 2.0%, -dark-black 98.0%);
-}
 
 .toggle-button {
 	-fx-cursor:hand;

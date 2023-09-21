@@ -9,6 +9,7 @@ import com.app.fxplayer.views.LoaderView;
 import com.app.fxplayer.views.PlayerView;
 import com.app.fxplayer.views.View;
 import javafx.concurrent.Task;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -87,7 +88,6 @@ public class LoaderViewController extends Controller{
         loaderView.getPlayerControlsView().getNextButton().setOnAction(actionEvent -> {playerView.getPlayerControllerView().getNextButton().fire();});
         loaderView.getPlayerControlsView().getFullScreenJFXButton().setOnAction(actionEvent -> {view.setFullScreen();});
         loaderView.getPlayerControlsView().getPrevButton().setOnAction(actionEvent -> {playerView.getPlayerControllerView().getPrevButton().fire();});
-        loaderView.getPlayerControlsView().getShuffleButton().setOnAction(actionEvent -> {playerView.getPlayerControllerView().getShuffleButton().fire();});
         loaderView.getPlayerControlsView().getPauseButton().setOnAction(actionEvent -> {playerView.getPlayerControllerView().getPauseButton().fire();});
         loaderView.getPlayerControlsView().getDurationSlider().valueProperty().bindBidirectional(playerView.getPlayerControllerView().getDurationSlider().valueProperty());
         loaderView.getPlayerControlsView().getStartDurationLabel().textProperty().bindBidirectional(playerView.getPlayerControllerView().getStartDurationLabel().textProperty());
