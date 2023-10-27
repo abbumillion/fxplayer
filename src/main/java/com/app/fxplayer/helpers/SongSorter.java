@@ -10,9 +10,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SongSorter {
+public class SongSorter implements Runnable {
     private PlayerView playerView;
-
     public void sortSongs() {
         // most played
         playerView.getMostPlayedView().getMostPlayedListView().getItems().sort((o1, o2) -> {
@@ -35,6 +34,9 @@ public class SongSorter {
             else
                 return -1;
         });
-
+    }
+    @Override
+    public void run() {
+        sortSongs();
     }
 }

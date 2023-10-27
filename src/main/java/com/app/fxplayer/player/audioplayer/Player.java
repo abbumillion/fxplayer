@@ -1,6 +1,7 @@
 package com.app.fxplayer.player.audioplayer;
 
 import com.app.fxplayer.controllers.ArtistDetailViewController;
+import com.app.fxplayer.helpers.SongSorter;
 import com.app.fxplayer.models.Song;
 import com.app.fxplayer.player.visualization.AudioPlayerSpectrumListener;
 import com.app.fxplayer.repo.SongRepository;
@@ -51,7 +52,8 @@ public final class Player {
         playerView.getRecentlyAddedView().getRecentlyAddedListView().refresh();
         playerView.getRecentPlaysView().getRecentPlaysListView().refresh();
         playerView.getPlaylistView().getPlaylistListView().refresh();
-//        new SongSorter(playerView).sortSongs();
+        SongSorter songSorter = new SongSorter(playerView);
+        new Thread(songSorter).start();
     }
 
     public static Song getCurrentSong() {
@@ -92,7 +94,7 @@ public final class Player {
             System.out.println("show song lyrics");
         });
         if (mediaPlayer != null) {
-            mediaPlayer.setAudioSpectrumNumBands(32);
+            mediaPlayer.setAudioSpectrumNumBands(64);
             mediaPlayer.setVolume(100.0);
             playerView.getPlayerControllerView().getPauseButton().setOnAction(actionEvent -> play());
             playerView.getPlayerControllerView().getPrevButton().setOnAction(actionEvent -> prev());

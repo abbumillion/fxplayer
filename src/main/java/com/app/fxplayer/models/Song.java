@@ -1,5 +1,4 @@
 package com.app.fxplayer.models;
-
 import javafx.beans.InvalidationListener;
 import javafx.scene.image.Image;
 import javafx.scene.media.Media;
@@ -12,7 +11,6 @@ import java.io.File;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Map;
-
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -30,7 +28,6 @@ public class Song implements Serializable {
     private Date lastPlayedDate;
     private Image songImage;
     private double duration;
-
     public Song(String path) {
         this.source = path;
         size = new File(path).length() / (1024 * 1024) + "MB";

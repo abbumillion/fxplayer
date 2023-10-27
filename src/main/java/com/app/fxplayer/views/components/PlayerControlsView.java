@@ -98,10 +98,10 @@ public class PlayerControlsView extends View {
         durationSlider.prefWidthProperty().bind(hBox4.widthProperty().multiply(.9));
         durationSlider.prefHeightProperty().bind(hBox4.heightProperty());
         // buttons
-        shuffleButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.111025));
+        shuffleButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.1211025));
         lyricsButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.11025));
         volumeButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.11025));
-        repeatButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.11025));
+        repeatButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.121025));
         prevButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.11025));
         pauseButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.11025));
         nextButton.prefWidthProperty().bind(hBox1.widthProperty().multiply(.111025));

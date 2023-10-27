@@ -37,7 +37,7 @@ public abstract class View extends VBox implements Viewable {
     public void showView() {
         Scene scene = new Scene(this, WIDTH, HEIGHT);
         String StringConstants = "src/main/resources/stylesheets/dark.css";
-//        scene.getStylesheets().add(new File(StringConstants).toURI().toASCIIString());
+        scene.getStylesheets().add(new File(StringConstants).toURI().toASCIIString());
         STAGE.setScene(scene);
 //        STAGE.initStyle(StageStyle.UNDECORATED);
 //        STAGE.setTitle(StringConstants.getSystemTitle());

@@ -10,7 +10,7 @@ public class AudioSpectrumCorrecter {
     public static float[] correctMagnitude(float[] magnitudes) {
         for (int i = 0; i < magnitudes.length; i++) {
             magnitudes[i] =(magnitudes[i]-Player.getMediaPlayer().getAudioSpectrumThreshold());
-            magnitudes[i] = (float) Math.exp(Math.pow(magnitudes[i],.65));
+            magnitudes[i] = (float) Math.exp(Math.sqrt(Math.pow(magnitudes[i],1.5)));
         }
         return magnitudes;
     }
