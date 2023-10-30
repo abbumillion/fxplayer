@@ -4,9 +4,7 @@
 
 #### for my Windows computer
 
-#### This will include some Java core JavaFx and CSS
-
-#### Collect all audio files from the Computer
+#### Collect all audio files from the Computer with spotify integration
 
 #### Arrange them in some order or fashion
 
@@ -16,7 +14,7 @@
 
 #### Showing some cool audio visualization
 
-#### audio equalizer
+#### audio equalizer .....................................................
 
 
 
