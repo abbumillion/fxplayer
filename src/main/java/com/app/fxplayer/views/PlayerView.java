@@ -18,7 +18,7 @@ import lombok.*;
 public class PlayerView extends View {
     private TabPane tabPane;
     private Tab myMusicTab, nowPlayingTab, mostPlayedTab, recentPlaysTab,
-            recentlyAddedTab, albumsTab, artistsTab, playlistTab, favoriteSongsTab,
+            recentlyAddedTab, albumsTab, artistsTab, playlistTab, favoriteSongsTab,spotifyTab,
             barChartVisualizationTab, canvasVirtualizationTab, lineChartVisualizationTab, audioEqualizerTab, settingsTab;
     private MyMusicView myMusicView;
     private NowPlayingView nowPlayingView;
@@ -35,6 +35,7 @@ public class PlayerView extends View {
     private AudioEqualizerView audioEqualizerView;
     private SettingsView settingsView;
     private PlayerControlsView playerControllerView;
+    private SpotifyView spotifyView;
     private VBox rootVBox;
     @Override
     public void init() {
@@ -51,6 +52,7 @@ public class PlayerView extends View {
         recentPlaysTab = new Tab("Recent Plays");
         recentlyAddedTab = new Tab("Recently Added");
         playlistTab = new Tab("Playlists");
+        spotifyTab = new Tab("spotify");
         favoriteSongsTab = new Tab("Favorites");
         tabPane = new TabPane();
         myMusicView = new MyMusicView();
@@ -60,6 +62,7 @@ public class PlayerView extends View {
         recentlyAddedView = new RecentlyAddedView();
         albumsView = new AlbumsView();
         artistsView = new ArtistsView();
+        spotifyView = new SpotifyView();
         barChartVisualizationView = new BarChartVisualizationView();
         canvasVisualizationView = new CanvasVisualizationView();
         lineChartVisualizationView = new LineChartVisualizationView();
@@ -80,6 +83,7 @@ public class PlayerView extends View {
         recentlyAddedTab.setContent(recentlyAddedView);
         albumsTab.setContent(albumsView);
         artistsTab.setContent(artistsView);
+        spotifyTab.setContent(spotifyView);
         barChartVisualizationTab.setContent(barChartVisualizationView);
         canvasVirtualizationTab.setContent(canvasVisualizationView);
         lineChartVisualizationTab.setContent(lineChartVisualizationView);
@@ -87,7 +91,7 @@ public class PlayerView extends View {
         playlistTab.setContent(playlistView);
         favoriteSongsTab.setContent(favoriteSongsView);
         settingsTab.setContent(settingsView);
-        tabPane.getTabs().addAll(myMusicTab, nowPlayingTab, mostPlayedTab, recentPlaysTab,
+        tabPane.getTabs().addAll(myMusicTab,spotifyTab, nowPlayingTab, mostPlayedTab, recentPlaysTab,
                 recentlyAddedTab, artistsTab, albumsTab, playlistTab, favoriteSongsTab, barChartVisualizationTab,
                 canvasVirtualizationTab, lineChartVisualizationTab
                 , audioEqualizerTab, settingsTab);

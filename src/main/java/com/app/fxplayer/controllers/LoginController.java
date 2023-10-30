@@ -1,12 +1,8 @@
 package com.app.fxplayer.controllers;
 
-import com.app.fxplayer.auth.SpotifyAuthorizer;
-import com.app.fxplayer.controllers.tabcontrollers.SpotifyLoginViewController;
 import com.app.fxplayer.views.LoginView;
 import com.app.fxplayer.views.PlayerView;
-import com.app.fxplayer.views.SpotifyLoginView;
 import com.app.fxplayer.views.View;
-import se.michaelthelin.spotify.SpotifyApi;
 
 import java.io.IOException;
 public class LoginController extends Controller{
@@ -20,8 +16,7 @@ public class LoginController extends Controller{
         loginView.getLoginButton().setOnAction(actionEvent ->
         {
             System.out.println("Signing in please wait .....");
-            SpotifyAuthorizer.authorizationCode_Async();
-
+          //  SpotifyAuthorizer.authorizationCode_Async();
             try {
                 loginView.hideView();
                 new PlayerViewController(new PlayerView()).init();

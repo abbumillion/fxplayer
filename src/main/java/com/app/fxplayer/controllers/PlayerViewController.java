@@ -1,6 +1,8 @@
 package com.app.fxplayer.controllers;
+import com.app.fxplayer.auth.SpotifyAuthorizer;
 import com.app.fxplayer.controllers.tabcontrollers.*;
 import com.app.fxplayer.player.audioplayer.Player;
+import com.app.fxplayer.spotify.SpotifyRequester;
 import com.app.fxplayer.views.PlayerView;
 import com.app.fxplayer.views.View;
 
@@ -35,6 +37,7 @@ public class PlayerViewController extends Controller {
         mostPlayedTabController.init();
         Player.setPlayerView(playerView);
         playerView.showView();
+        new SpotifyRequester().spotifyApiTest();
     }
 
 
